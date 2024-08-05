@@ -1,14 +1,30 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- Der <head>-Bereich enthält Metadaten und Verweise auf Ressourcen für das Dokument -->
+    
+    <!-- Der Zeichensatz wird auf UTF-8 gesetzt, was die meisten Schriftzeichen der Welt unterstützt -->
     <meta charset="UTF-8" />
+    
+    <!-- Favicon (kleines Symbol) für die Webseite, das in Browser-Tabs angezeigt wird -->
     <link rel="icon" type="image/svg+xml" href="/logo.png" />
+    
+    <!-- Die viewport Meta-Tags steuern das Layout auf mobilen Geräten, um die Seite an die Bildschirmgröße anzupassen -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Der Titel der Webseite, der in der Browser-Registerkarte angezeigt wird -->
     <title>React Project Manager</title>
   </head>
   <body class="bg-stone-50">
+    <!-- Der <body>-Bereich enthält den sichtbaren Inhalt der Webseite -->
+
+    <!-- Ein leerer div mit der ID "modal-root", der für das Rendern von Modalen (Dialogfenster) durch React genutzt werden kann -->
     <div id="modal-root"></div>
+
+    <!-- Ein leerer div mit der ID "root", der als Haupt-Einstiegspunkt für die React-Anwendung dient -->
     <div id="root"></div>
+
+    <!-- Einbindung eines JavaScript-Moduls, das die Hauptlogik der React-Anwendung enthält -->
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
