@@ -92,7 +92,7 @@ const tarotkarten = [
   },
   { 
     name: "Der Tod (Death)", 
-    image: "/images/death.jpg",
+    image: "/images/the_death.jpg",
     meaning: "Der Tod steht für Transformation, Ende und Neuanfang. Er zeigt, dass das Alte gehen muss, um Platz für das Neue zu schaffen.", 
     meditation: "Was muss in meinem Leben enden, um neu beginnen zu können?", 
     tips: "Akzeptieren Sie Abschiede und begrüßen Sie neue Anfänge."
@@ -516,7 +516,7 @@ const tarotkarten = [
   },
   { 
     name: "Zehn der Münzen (Ten of Pentacles)", 
-    image: "/images/ten_of_pentacles.jpg",
+    image: "/images/nine_of_pentacles.jpg",
     meaning: "Die Zehn der Münzen symbolisieren Reichtum, Erbe und Familienglück. Sie zeigen, dass Sie auf eine stabile und wohlhabende Zukunft hinarbeiten.", 
     meditation: "Wie kann ich ein Erbe für zukünftige Generationen hinterlassen?", 
     tips: "Arbeiten Sie an einer stabilen und wohlhabenden Zukunft für sich und Ihre Familie."
