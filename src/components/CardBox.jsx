@@ -3,13 +3,15 @@ import React from 'react';
 // Importiere deine Kartensets
 import tarotkarten from '../data/tarot';
 import lenormandkarten from '../data/lenormand';
+import engelkarten from '../data/engelkarten';
+import krafttierkarten from '../data/krafttier';
 
 // Definiere alle Kartensets mit Namen und Kartenanzahl
 const cardSets = [
   { name: "Tarotkarten", cards: tarotkarten },
   { name: "Lenormandkarten", cards: lenormandkarten },
-  { name: "Engelkarten", cards: new Array(44) },
-  { name: "Krafttierorakel", cards: new Array(44) },
+  { name: "Engelkarten", cards: engelkarten },
+  { name: "Krafttierorakel", cards: krafttierkarten},
   { name: "Göttinnenorakel", cards: new Array(44) },
   { name: "Runenkarten", cards: new Array(24) },
   { name: "Heilsteinorakel", cards: new Array(44) },

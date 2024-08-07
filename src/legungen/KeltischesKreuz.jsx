@@ -1,15 +1,13 @@
 import React, { useState, useCallback } from 'react';
 import CardBox from '../components/CardBox.jsx';
 import CardDisplay from '../components/CardDisplay.jsx';
+import Summary from '../components/Summary.jsx'; // Importiere die Summary-Komponente
 
-// Hauptkomponente für das Keltische Kreuz
-const KeltischesKreuz = ({ onCardSetSelect }) => {
-  // Zustandshaken für die Positionen, das Deck und die ausgewählte Karte
+const KeltischesKreuz = () => {
   const [positions, setPositions] = useState(Array(10).fill({ card: null }));
   const [deck, setDeck] = useState([]);
   const [selectedCard, setSelectedCard] = useState(null);
 
-  // Informationen zu den Positionen im Keltischen Kreuz
   const positionsInfo = [
     "Die gegenwärtige Situation oder das Hauptthema: Diese Karte beschreibt die aktuelle Situation oder das zentrale Thema der Frage. Sie gibt einen Überblick über die momentane Lage.",
     "Das unmittelbare Hindernis oder die Herausforderung: Diese Karte zeigt ein Ereignis, eine Person oder ein Gefühl, das die Ausgangssituation entweder behindert oder fördert. Sie stellt die unmittelbare Herausforderung dar, die gemeistert werden muss.",
@@ -23,31 +21,26 @@ const KeltischesKreuz = ({ onCardSetSelect }) => {
     "Das endgültige Ergebnis oder die wahrscheinliche Zukunft: Diese Position zeigt das langfristige Ergebnis oder den Höhepunkt der Situation, sofern die aktuellen Umstände unverändert bleiben."
   ];
 
-  // Funktion, die aufgerufen wird, wenn auf eine Position geklickt wird
   const onPositionClick = useCallback((index) => {
-    if (deck.length === 0) return; // Wenn das Deck leer ist, nichts tun
-
+    if (deck.length === 0) return;
     const newPositions = [...positions];
-    if (!newPositions[index].card) { // Wenn an der angeklickten Position noch keine Karte liegt
-      newPositions[index] = { card: deck.pop() }; // Ziehe die oberste Karte aus dem Deck und lege sie an die Position
-      setPositions(newPositions); // Aktualisiere die Positionen
-      setDeck([...deck]); // Aktualisiere das Deck
+    if (!newPositions[index].card) {
+      newPositions[index] = { card: deck.pop() };
+      setPositions(newPositions);
+      setDeck([...deck]);
     }
   }, [deck, positions]);
 
-  // Funktion, die aufgerufen wird, wenn auf eine Karte geklickt wird
   const onCardClick = useCallback((card) => {
-    setSelectedCard(card); // Setze die angeklickte Karte als ausgewählte Karte
+    setSelectedCard(card);
   }, []);
 
-  // Funktion, die aufgerufen wird, wenn ein Kartenset ausgewählt wird
   const handleCardSetSelect = useCallback((cards) => {
-    setDeck(shuffleDeck(cards)); // Mische das ausgewählte Kartenset und setze es als aktuelles Deck
+    setDeck(shuffleDeck(cards));
   }, []);
 
   return (
     <div>
-      {/* Komponente zur Auswahl des Kartensets */}
       <CardBox onCardSetSelect={handleCardSetSelect} />
       <h2 className="text-3xl font-bold mb-4">Keltisches Kreuz</h2>
       <p className="mb-4">Eine umfassende Legung für tiefgehende Analysen.</p>
@@ -70,27 +63,26 @@ const KeltischesKreuz = ({ onCardSetSelect }) => {
         ))}
       </div>
 
-      {/* Styles für das Layout des Keltischen Kreuzes */}
+      <Summary positions={positions} positionsInfo={positionsInfo} /> {/* Füge die Summary-Komponente hinzu */}
+
       <style jsx>{`
         .celtic-cross-layout {
           display: grid;
-          grid-template-columns: repeat(7, 1fr); /* Layout mit 7 Spalten */
-          gap: 4px; /* Abstand zwischen den Positionen */
-          justify-content: center; /* Zentrieren der Positionen horizontal */
-          align-items: center; /* Zentrieren der Positionen vertikal */
+          grid-template-columns: repeat(7, 1fr);
+          gap: 4px;
+          justify-content: center;
+          align-items: center;
         }
-
         .position {
-          border: 1px solid black; /* Rahmen um die Position */
-          text-align: center; /* Zentrierter Text */
-          cursor: pointer; /* Zeiger-Icon bei Hover */
-          width: 63mm; /* Breite der Position (entspricht typischer Kartenbreite) */
-          height: 88mm; /* Höhe der Position (entspricht typischer Kartenhöhe) */
-          display: flex; /* Flexbox für zentrierten Inhalt */
-          align-items: center; /* Vertikales Zentrieren */
-          justify-content: center; /* Horizontales Zentrieren */
+          border: 1px solid black;
+          text-align: center;
+          cursor: pointer;
+          width: 63mm;
+          height: 88mm;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
-
         .position-1 { grid-column: 3; grid-row: 3; }
         .position-2 { grid-column: 4; grid-row: 3; }
         .position-3 { grid-column: 3; grid-row: 2; }
@@ -106,14 +98,13 @@ const KeltischesKreuz = ({ onCardSetSelect }) => {
   );
 };
 
-// Funktion zum Mischen des Kartendecks
 const shuffleDeck = (deck) => {
   const shuffled = [...deck];
   for (let i = shuffled.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]; // Tauschen der Karten an den Positionen i und j
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
   }
-  return shuffled; // Rückgabe des gemischten Decks
+  return shuffled;
 };
 
 export default KeltischesKreuz;
