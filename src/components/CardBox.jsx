@@ -6,6 +6,10 @@ import lenormandkarten from '../data/lenormand';
 import engelkarten from '../data/engelkarten';
 import krafttierkarten from '../data/krafttierkarten';
 import selbsterkenntnis from '../data/selbsterkenntnis';
+import runenkarten from '../data/runenkarten';
+import zwillingsflammen from '../data/zwillingsflammen';
+import heilsteine from '../data/heilsteine';
+
 
 // Definiere alle Kartensets mit Namen und Kartenanzahl
 const cardSets = [
@@ -14,15 +18,15 @@ const cardSets = [
   { name: "Engelkarten", cards: engelkarten },
   { name: "Krafttierorakel", cards: krafttierkarten},
   { name: "Göttinnenorakel", cards: new Array(44) },
-  { name: "Runenkarten", cards: new Array(24) },
-  { name: "Heilsteinorakel", cards: new Array(44) },
+  { name: "Runenkarten", cards:runenkarten},
+  { name: "Heilsteinorakel", cards: heilsteine},
   { name: "Numerologiekarten", cards: new Array(44) },
   { name: "Pflanzen- oder Kräuterorakel", cards: new Array(44) },
   { name: "Selbsterkenntniskarten", cards: selbsterkenntnis},
   { name: "Lebensfreudekarten", cards: new Array(40) },
   { name: "Dankbarkeitsorakel", cards: new Array(55) },
   { name: "Prophezeiungskarten", cards: new Array(44) },
-  { name: "Zwillingsflammenkarten", cards: new Array(44) },
+  { name: "Zwillingsflammenkarten", cards: zwillingsflammen },
   { name: "Russisches Zigeuner-Orakel", cards: new Array(25) },
   { name: "Kalat-Karten", cards: new Array(52) },
   { name: "Moonology Oracle Cards", cards: new Array(44) },

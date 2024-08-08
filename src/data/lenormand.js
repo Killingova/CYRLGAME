@@ -252,6 +252,7 @@ const lenormandkarten = [
       meditation: "Welche Herausforderungen oder Prüfungen muss ich bestehen?", 
       tips: "Akzeptieren Sie Ihre Prüfungen und lernen Sie aus ihnen, um spirituell zu wachsen."
     }
+
   ];
   
   export default lenormandkarten;
