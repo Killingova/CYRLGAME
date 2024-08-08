@@ -4,7 +4,8 @@ import React from 'react';
 import tarotkarten from '../data/tarot';
 import lenormandkarten from '../data/lenormand';
 import engelkarten from '../data/engelkarten';
-import krafttierkarten from '../data/krafttier';
+import krafttierkarten from '../data/krafttierkarten';
+import selbsterkenntnis from '../data/selbsterkenntnis';
 
 // Definiere alle Kartensets mit Namen und Kartenanzahl
 const cardSets = [
@@ -17,7 +18,7 @@ const cardSets = [
   { name: "Heilsteinorakel", cards: new Array(44) },
   { name: "Numerologiekarten", cards: new Array(44) },
   { name: "Pflanzen- oder Kräuterorakel", cards: new Array(44) },
-  { name: "Selbsterkenntniskarten", cards: new Array(44) },
+  { name: "Selbsterkenntniskarten", cards: selbsterkenntnis},
   { name: "Lebensfreudekarten", cards: new Array(40) },
   { name: "Dankbarkeitsorakel", cards: new Array(55) },
   { name: "Prophezeiungskarten", cards: new Array(44) },
