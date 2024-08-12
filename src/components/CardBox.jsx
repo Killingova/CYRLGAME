@@ -17,16 +17,23 @@ const cardSets = [
   { name: "Lenormandkarten", cards: lenormandkarten },
   { name: "Engelkarten", cards: engelkarten },
   { name: "Krafttierorakel", cards: krafttierkarten},
+
   { name: "Göttinnenorakel", cards: new Array(44) },
+
   { name: "Runenkarten", cards:runenkarten},
   { name: "Heilsteinorakel", cards: heilsteine},
+
   { name: "Numerologiekarten", cards: new Array(44) },
   { name: "Pflanzen- oder Kräuterorakel", cards: new Array(44) },
+
   { name: "Selbsterkenntniskarten", cards: selbsterkenntnis},
+
   { name: "Lebensfreudekarten", cards: new Array(40) },
   { name: "Dankbarkeitsorakel", cards: new Array(55) },
   { name: "Prophezeiungskarten", cards: new Array(44) },
+
   { name: "Zwillingsflammenkarten", cards: zwillingsflammen },
+  
   { name: "Russisches Zigeuner-Orakel", cards: new Array(25) },
   { name: "Kalat-Karten", cards: new Array(52) },
   { name: "Moonology Oracle Cards", cards: new Array(44) },
