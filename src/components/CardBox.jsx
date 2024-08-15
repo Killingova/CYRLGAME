@@ -9,35 +9,38 @@ import selbsterkenntnis from '../data/selbsterkenntnis';
 import runenkarten from '../data/runenkarten';
 import zwillingsflammen from '../data/zwillingsflammen';
 import heilsteine from '../data/heilsteine';
+import nymphen from '../data/nymphen';
+import griechischeMythologie from '../data/griechischeMythologie';
+import lebensfreudekarten from '../data/lebensfreudekarten';
 
 
 // Definiere alle Kartensets mit Namen und Kartenanzahl
 const cardSets = [
-  { name: "Tarotkarten", cards: tarotkarten },
-  { name: "Lenormandkarten", cards: lenormandkarten },
-  { name: "Engelkarten", cards: engelkarten },
-  { name: "Krafttierorakel", cards: krafttierkarten},
+  { name: "Tarot", cards: tarotkarten },
+  { name: "Lenormand", cards: lenormandkarten },
+  { name: "Engeln", cards: engelkarten },
+  { name: "Tiere", cards: krafttierkarten},
 
-  { name: "Göttinnenorakel", cards: new Array(44) },
+  { name: "Nymphen", cards: nymphen },
 
-  { name: "Runenkarten", cards:runenkarten},
-  { name: "Heilsteinorakel", cards: heilsteine},
+  { name: "Runen", cards:runenkarten},
+  { name: "Steine", cards: heilsteine},
 
-  { name: "Numerologiekarten", cards: new Array(44) },
-  { name: "Pflanzen- oder Kräuterorakel", cards: new Array(44) },
+  { name: "000Numerologiekarten", cards: new Array(44) },
+  { name: "000Pflanzen- oder Kräuterorakel", cards: new Array(44) },
 
-  { name: "Selbsterkenntniskarten", cards: selbsterkenntnis},
+  { name: "Selbsterkenntnis", cards: selbsterkenntnis},
 
-  { name: "Lebensfreudekarten", cards: new Array(40) },
-  { name: "Dankbarkeitsorakel", cards: new Array(55) },
-  { name: "Prophezeiungskarten", cards: new Array(44) },
+  { name: "Lebensfreudekarten", cards: lebensfreudekarten },
+  { name: "000Dankbarkeitsorakel", cards: new Array(55) },
+  { name: "000Prophezeiungskarten", cards: new Array(44) },
 
-  { name: "Zwillingsflammenkarten", cards: zwillingsflammen },
+  { name: "Zwillingsflamme", cards: zwillingsflammen },
   
-  { name: "Russisches Zigeuner-Orakel", cards: new Array(25) },
-  { name: "Kalat-Karten", cards: new Array(52) },
-  { name: "Moonology Oracle Cards", cards: new Array(44) },
-  { name: "Sacred Soulmates Orakeldeck", cards: new Array(53) },
+  { name: "Mythologie", cards:griechischeMythologie },
+  { name: "000Kalat-Karten", cards: new Array(52) },
+  { name: "000Moonology Oracle Cards", cards: new Array(44) },
+  { name: "000Sacred Soulmates Orakeldeck", cards: new Array(53) },
 ];
 
 // Funktionale Komponente CardBox, die ein Callback-Event onCardSetSelect als Prop erhält

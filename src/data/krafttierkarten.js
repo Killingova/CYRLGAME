@@ -523,7 +523,7 @@ const krafttierkarten = [
     },
     {
         name: "Orang-Utan",
-        image: "/images/krafttier_orang-utan.jpg",
+        image: "/images/krafttier_orang-utane.jpg",
         meaning: "Wassermann (Asien) Humanität, Weisheit, Gemeinschaft.",
         meditation: "Wie kann ich meine humanitäre Seite stärken und meiner Gemeinschaft besser dienen?",
         tips: "Seien Sie weise und humanitär in Ihren Handlungen. Nutzen Sie Ihre Weisheit, um Ihrer Gemeinschaft zu dienen."
@@ -551,9 +551,9 @@ const krafttierkarten = [
     },
     // Fische (19. Februar – 20. März)
     {
-        name: "Nilpferd",
-        image: "/images/krafttier_nilpferd.jpg",
-        meaning: "Fische (Afrika) Intuition, Sensibilität, Schutz.",
+        name: "Afrikanischer Lungenfisch",
+        image: "/images/krafttier_lungenfisch.jpg",
+        meaning: "Intuition, Sensibilität, Schutz.",
         meditation: "Wie kann ich meine Intuition und Sensibilität stärken?",
         tips: "Nutzen Sie Ihre Intuition, um kluge Entscheidungen zu treffen. Seien Sie sensibel und schützend gegenüber anderen."
     },

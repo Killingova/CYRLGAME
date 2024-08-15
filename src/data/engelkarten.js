@@ -1,508 +1,517 @@
 const engelkarten = [
-    { 
-      name: "Nemamiah", 
-      image: "/images/engel_nemamiah.jpg", 
-      meaning: "Kann die Ursache Ihrer tiefsten Probleme aufdecken.",
-      meditation: "Welche tiefen Probleme belasten mich?",
-      tips: "Seien Sie bereit, sich Ihren tiefsten Problemen zu stellen und Lösungen zu finden."
-    },
-    { 
-      name: "Yeialel", 
-      image: "/images/engel_yeialel.jpg", 
-      meaning: "Hilft Ihnen, Ihre psychischen Fähigkeiten wie Hellsehen und Klarheit zu entwickeln.",
-      meditation: "Wie kann ich meine psychischen Fähigkeiten verbessern?",
-      tips: "Üben Sie regelmäßig, um Ihre psychischen Fähigkeiten zu stärken."
-    },
-    { 
-      name: "Harahel", 
-      image: "/images/engel_harahel.jpg", 
-      meaning: "Sein Hauptziel ist es, Ihnen zu helfen, Ihre Träume zu verwirklichen.",
-      meditation: "Welche Träume möchte ich verwirklichen?",
-      tips: "Setzen Sie sich klare Ziele und arbeiten Sie kontinuierlich daran."
-    },
-    { 
-      name: "Mitzrael", 
-      image: "/images/engel_mitzrael.jpg", 
-      meaning: "Korrigiert Ihre Fehler und führt Sie dazu, die Bedeutung von Gehorsam und Autorität zu verstehen.",
-      meditation: "Welche Fehler muss ich korrigieren?",
-      tips: "Lernen Sie aus Ihren Fehlern und respektieren Sie Autoritäten."
-    },
-    { 
-      name: "Umabel", 
-      image: "/images/engel_umabel.jpg", 
-      meaning: "Es gibt Ihnen ein tiefes Bewusstsein für das Leben und bietet bei Bedarf Konzentration und Verständnis.",
-      meditation: "Wie kann ich mein Leben besser verstehen?",
-      tips: "Nehmen Sie sich Zeit für Selbstreflexion und suchen Sie nach innerem Verständnis."
-    },
-    { 
-      name: "Iahhel", 
-      image: "/images/engel_iahhel.jpg", 
-      meaning: "Stärken Sie Ihre positiven, konstruktiven Gedanken und lehren Sie, Einsamkeit und Ruhe zu genießen.",
-      meditation: "Wie kann ich positive Gedanken fördern?",
-      tips: "Praktizieren Sie Achtsamkeit und genießen Sie die Stille."
-    },
-    { 
-      name: "Anauel", 
-      image: "/images/engel_anauel.jpg", 
-      meaning: "Ermöglicht den Erfolg der Kommunikation und der Beziehungen zu anderen.",
-      meditation: "Wie kann ich meine Kommunikationsfähigkeiten verbessern?",
-      tips: "Arbeiten Sie daran, klar und effektiv zu kommunizieren."
-    },
-    { 
-      name: "Mehiel", 
-      image: "/images/engel_mehiel.jpg", 
-      meaning: "Fördert Vorstellungskraft, Intelligenz und Verständnis. Ein großartiger Verbündeter gegen dunkle Energien und Kräfte.",
-      meditation: "Wie kann ich meine Vorstellungskraft und Intelligenz nutzen?",
-      tips: "Nutzen Sie Ihre kreativen Fähigkeiten und schützen Sie sich vor negativen Einflüssen."
-    },
-    { 
-      name: "Damabiah", 
-      image: "/images/engel_damabiah.jpg", 
-      meaning: "Er ist derjenige, der jedem, der zu ihm kommt, bedingungslose Liebe schenkt.",
-      meditation: "Wie kann ich bedingungslose Liebe in mein Leben integrieren?",
-      tips: "Öffnen Sie Ihr Herz und zeigen Sie Liebe und Mitgefühl für andere."
-    },
-    { 
-      name: "Manakel", 
-      image: "/images/engel_manakel.jpg", 
-      meaning: "Beseitigt Ängste durch Verständnis und Transformation.",
-      meditation: "Welche Ängste muss ich überwinden?",
-      tips: "Arbeiten Sie daran, Ihre Ängste zu verstehen und sie in Stärke umzuwandeln."
-    },
-    { 
-      name: "Eiael", 
-      image: "/images/engel_eiael.jpg", 
-      meaning: "Führt Sie zu guten Entscheidungen und unterstützt Sie, wenn Sie das Gefühl haben, dass alles verloren ist.",
-      meditation: "Welche Entscheidungen muss ich treffen?",
-      tips: "Vertrauen Sie Ihrem inneren Kompass und suchen Sie nach Weisheit in schwierigen Zeiten."
-    },
-    { 
-      name: "Habuhiah", 
-      image: "/images/engel_habuhiah.jpg", 
-      meaning: "Es ist das Muster von medizinischen Therapien sowie spirituellen oder metaphysischen Behandlungen.",
-      meditation: "Wie kann ich Heilung in mein Leben bringen?",
-      tips: "Suchen Sie nach Wegen zur körperlichen und spirituellen Heilung."
-    },
-    { 
-      name: "Rochel", 
-      image: "/images/engel_rochel.jpg", 
-      meaning: "Er ist dafür verantwortlich, jedem Menschen das zu geben, was er verdient. Symbol für Gerechtigkeit und Gerechtigkeit.",
-      meditation: "Wie kann ich Gerechtigkeit in meinem Leben fördern?",
-      tips: "Setzen Sie sich für Fairness und Gerechtigkeit in all Ihren Handlungen ein."
-    },
-    { 
-      name: "Jabamiah", 
-      image: "/images/engel_jabamiah.jpg", 
-      meaning: "Liefert Heilenergie in dein Leben. Hat die Fähigkeit, sich zu regenerieren, zu heilen, zu revitalisieren und die Harmonie wiederherzustellen.",
-      meditation: "Wie kann ich Heilung und Harmonie in mein Leben bringen?",
-      tips: "Praktizieren Sie Selbstheilung und fördern Sie Harmonie in Ihrem Umfeld."
-    },
-    { 
-      name: "Haiaiel", 
-      image: "/images/engel_haiaiel.jpg", 
-      meaning: "Gibt uns göttlichen Schutz und hilft uns, gerechte und richtige Entscheidungen zu treffen.",
-      meditation: "Wie kann ich göttlichen Schutz in meinem Leben fühlen?",
-      tips: "Vertrauen Sie auf göttlichen Schutz und treffen Sie Entscheidungen, die mit Ihren moralischen Werten übereinstimmen."
-    },
-    { 
-      name: "Mumiah", 
-      image: "/images/engel_mumiah.jpg", 
-      meaning: "Hilft bei schwierigen Aufgaben und gibt uns die nötige Energie, um neue zu beginnen.",
-      meditation: "Welche schwierigen Aufgaben stehen vor mir?",
-      tips: "Seien Sie bereit, neue Herausforderungen anzunehmen und nutzen Sie Ihre innere Stärke."
-    },
-    { 
-      name: "Vehuiah", 
-      image: "/images/engel_vehuiah.jpg", 
-      meaning: "Führt uns zu unserem Schicksal. Verschenkt Energien, wenn wir sie am dringendsten brauchen.",
-      meditation: "Wie kann ich meinem Schicksal näher kommen?",
-      tips: "Seien Sie offen für die Führung Ihres Schicksals und nutzen Sie die Energie, die Ihnen zur Verfügung steht."
-    },
-    { 
-      name: "Jeliel", 
-      image: "/images/engel_jeliel.jpg", 
-      meaning: "Bietet Liebe und Weisheit in unserem Leben. Ihre Mission ist es, Liebe in all ihren Formen zu verbreiten.",
-      meditation: "Wie kann ich mehr Liebe und Weisheit in mein Leben bringen?",
-      tips: "Verbreiten Sie Liebe und suchen Sie nach Weisheit in Ihren täglichen Aktivitäten."
-    },
-    { 
-      name: "Sitael", 
-      image: "/images/engel_sitael.jpg", 
-      meaning: "Seine Mission ist es, uns zu helfen, Erfolg zu haben und unsere Träume zu erfüllen.",
-      meditation: "Welche Träume möchte ich verwirklichen?",
-      tips: "Arbeiten Sie kontinuierlich an Ihren Zielen und suchen Sie nach Wegen, Erfolg zu haben."
-    },
-    { 
-      name: "Elemiah", 
-      image: "/images/engel_elemiah.jpg", 
-      meaning: "Du kannst zu ihm gehen, wann immer du wissen musst, was der richtige Weg in deinem Leben ist.",
-      meditation: "Welchen Weg soll ich in meinem Leben einschlagen?",
-      tips: "Vertrauen Sie Ihrem inneren Kompass und suchen Sie nach dem richtigen Weg für Ihr Leben."
-    },
-    { 
-      name: "Mahasiah", 
-      image: "/images/engel_mahasiah.jpg", 
-      meaning: "Er ist der Führer und Assistent der Schüler.",
-      meditation: "Wie kann ich meine Lernfähigkeiten verbessern?",
-      tips: "Seien Sie offen für neues Wissen und suchen Sie nach Wegen, Ihre Lernfähigkeiten zu verbessern."
-    },
-    { 
-      name: "Lelahel", 
-      image: "/images/engel_lelahel.jpg", 
-      meaning: "Löst alle Ihre Zweifel und lehrt uns, nach innen zu schauen.",
-      meditation: "Welche Zweifel belasten mich?",
-      tips: "Suchen Sie nach innerer Klarheit und lösen Sie Ihre Zweifel auf."
-    },
-    { 
-      name: "Aciaiah", 
-      image: "/images/engel_aciaiah.jpg", 
-      meaning: "Gewährt heilige Geduld, wenn wir schwierige Zeiten in unserem Leben durchmachen.",
-      meditation: "Wie kann ich mehr Geduld in schwierigen Zeiten entwickeln?",
-      tips: "Üben Sie sich in Geduld und Vertrauen, dass schwierige Zeiten vorübergehen."
-    },
-    { 
-      name: "Cahetel", 
-      image: "/images/engel_cahetel.jpg", 
-      meaning: "Ist der Engel der Veränderungen im Leben. Rufen Sie ihn auf, wenn Sie echte Veränderungen benötigen.",
-      meditation: "Welche Veränderungen brauche ich in meinem Leben?",
-      tips: "Seien Sie offen für Veränderungen und begrüßen Sie sie mit einem offenen Herzen."
-    },
-    { 
-      name: "Haziel", 
-      image: "/images/engel_haziel.jpg", 
-      meaning: "Bringt Vergebung und Versöhnung in Ihr Leben.",
-      meditation: "Wie kann ich Vergebung und Versöhnung in mein Leben bringen?",
-      tips: "Arbeiten Sie an Vergebung und suchen Sie nach Wegen, sich mit anderen zu versöhnen."
-    },
-    { 
-      name: "Aladiah", 
-      image: "/images/engel_aladiah.jpg", 
-      meaning: "Er ist Träger zweiter Chancen und hat eine heilende Fähigkeit.",
-      meditation: "Welche zweite Chance brauche ich?",
-      tips: "Nutzen Sie die Gelegenheit für eine zweite Chance und arbeiten Sie daran, vergangene Fehler zu korrigieren."
-    },
-    { 
-      name: "Laoviah", 
-      image: "/images/engel_laoviah.jpg", 
-      meaning: "Hilft dabei, Ihre Intuition in der irdischen und spirituellen Welt zu entwickeln.",
-      meditation: "Wie kann ich meine Intuition besser nutzen?",
-      tips: "Vertrauen Sie Ihrer Intuition und suchen Sie nach Wegen, sie in Ihrem täglichen Leben zu integrieren."
-    },
-    { 
-      name: "Hahaiah", 
-      image: "/images/engel_hahaiah.jpg", 
-      meaning: "Lehrt dich, dich selbst zu lieben und zu meditieren.",
-      meditation: "Wie kann ich Selbstliebe entwickeln?",
-      tips: "Praktizieren Sie Selbstliebe und suchen Sie nach Wegen, sich selbst besser zu verstehen."
-    },
-    { 
-      name: "Lezalel", 
-      image: "/images/engel_lezalel.jpg", 
-      meaning: "Bringt Versöhnung und Affinität, wenn Sie Probleme in einer Beziehung haben.",
-      meditation: "Wie kann ich Versöhnung in meine Beziehungen bringen?",
-      tips: "Arbeiten Sie an Versöhnung und suchen Sie nach Wegen, Ihre Beziehungen zu verbessern."
-    },
-    { 
-      name: "Mebahel", 
-      image: "/images/engel_mebahel.jpg", 
-      meaning: "Er ist der große Beschützer von Wahrheit, Gerechtigkeit, Freiheit und Engagement.",
-      meditation: "Wie kann ich Wahrheit und Gerechtigkeit fördern?",
-      tips: "Setzen Sie sich für Wahrheit und Gerechtigkeit in all Ihren Handlungen ein."
-    },
-    { 
-      name: "Hariel", 
-      image: "/images/engel_hariel.jpg", 
-      meaning: "Hilft Menschen, Abhängigkeiten und Abhängigkeiten loszuwerden.",
-      meditation: "Welche Abhängigkeiten muss ich loswerden?",
-      tips: "Arbeiten Sie daran, Ihre Abhängigkeiten zu überwinden und suchen Sie nach Wegen, sich zu befreien."
-    },
-    { 
-      name: "Hakamiah", 
-      image: "/images/engel_hakamiah.jpg", 
-      meaning: "Lehrt und bietet Loyalität nach göttlichen Prinzipien.",
-      meditation: "Wie kann ich Loyalität in mein Leben integrieren?",
-      tips: "Seien Sie loyal und treu zu Ihren Prinzipien und Werten."
-    },
-    { 
-      name: "Lauviah", 
-      image: "/images/engel_lauviah.jpg", 
-      meaning: "Er ist der Engel des Sieges und erfolgreicher Menschen.",
-      meditation: "Wie kann ich Sieg und Erfolg in mein Leben bringen?",
-      tips: "Setzen Sie sich Ziele und arbeiten Sie kontinuierlich daran, erfolgreich zu sein."
-    },
-    { 
-      name: "Caliel", 
-      image: "/images/engel_caliel.jpg", 
-      meaning: "Hilft uns, die Unterschiede zwischen Gut und Böse zu verstehen.",
-      meditation: "Wie kann ich Gut und Böse besser unterscheiden?",
-      tips: "Reflektieren Sie Ihre Handlungen und suchen Sie nach Wegen, ethisch zu handeln."
-    },
-    { 
-      name: "Leuviah", 
-      image: "/images/engel_leuviah.jpg", 
-      meaning: "Rettet die Erinnerungen an deine vergangenen Leben.",
-      meditation: "Welche Erinnerungen aus meinen vergangenen Leben beeinflussen mich?",
-      tips: "Arbeiten Sie daran, Ihre vergangenen Erinnerungen zu verstehen und nutzen Sie sie, um in Ihrem jetzigen Leben zu wachsen."
-    },
-    { 
-      name: "Pahaliah", 
-      image: "/images/engel_pahaliah.jpg", 
-      meaning: "Er ist der Engel derer, die altes und schlechtes Benehmen loswerden wollen.",
-      meditation: "Welches alte und schlechte Benehmen muss ich loswerden?",
-      tips: "Arbeiten Sie daran, schlechtes Verhalten zu ändern und neue, positive Gewohnheiten zu entwickeln."
-    },
-    { 
-      name: "Nelchael", 
-      image: "/images/engel_nelchael.jpg", 
-      meaning: "Er ist der Engel derer, die den brennenden Wunsch haben zu lernen.",
-      meditation: "Wie kann ich meinen Wissensdurst stillen?",
-      tips: "Suchen Sie nach Wegen, Ihr Wissen zu erweitern und kontinuierlich zu lernen."
-    },
-    { 
-      name: "Leiel", 
-      image: "/images/engel_leiel.jpg", 
-      meaning: "Vermittelt Ordnung und Disziplin für diejenigen, die es am dringendsten brauchen.",
-      meditation: "Wie kann ich mehr Ordnung und Disziplin in mein Leben bringen?",
-      tips: "Arbeiten Sie daran, disziplinierter zu werden und Ordnung in Ihr Leben zu bringen."
-    },
-    { 
-      name: "Melahel", 
-      image: "/images/engel_melahel.jpg", 
-      meaning: "Hat die Fähigkeit zu heilen und schützt daher Ärzte und alle, die sich für die Heilung anderer einsetzen.",
-      meditation: "Wie kann ich Heilung in mein Leben und das Leben anderer bringen?",
-      tips: "Setzen Sie sich für die Heilung ein und suchen Sie nach Wegen, anderen zu helfen."
-    },
-    { 
-      name: "Hahuiah", 
-      image: "/images/engel_hahuiah.jpg", 
-      meaning: "Verleiht den zu dieser Zeit Geborenen die Tugend der Aufrichtigkeit und Wahrheit.",
-      meditation: "Wie kann ich aufrichtiger und wahrhaftiger sein?",
-      tips: "Arbeiten Sie daran, in allen Aspekten Ihres Lebens aufrichtig und ehrlich zu sein."
-    },
-    { 
-      name: "Nith-Haiah", 
-      image: "/images/engel_nith_haiah.jpg", 
-      meaning: "Lehrt, geistige Kräfte richtig zu verstehen und anzuwenden.",
-      meditation: "Wie kann ich meine geistigen Kräfte richtig nutzen?",
-      tips: "Suchen Sie nach Wegen, Ihre geistigen Kräfte zu verstehen und positiv anzuwenden."
-    },
-    { 
-      name: "Haaiah", 
-      image: "/images/engel_haaiah.jpg", 
-      meaning: "Bewahrt die Geheimnisse auf, die nicht enthüllt werden sollten.",
-      meditation: "Welche Geheimnisse muss ich bewahren?",
-      tips: "Seien Sie vertrauenswürdig und bewahren Sie Geheimnisse, die Ihnen anvertraut wurden."
-    },
-    { 
-      name: "Ierathel", 
-      image: "/images/engel_ierathel.jpg", 
-      meaning: "Er ist der Propagator des göttlichen Lichts.",
-      meditation: "Wie kann ich das göttliche Licht in meinem Leben verbreiten?",
-      tips: "Suchen Sie nach Wegen, das göttliche Licht in Ihrem täglichen Leben zu verbreiten und andere zu inspirieren."
-    },
-    { 
-      name: "Séheiah", 
-      image: "/images/engel_seheiah.jpg", 
-      meaning: "Schützt Sie vor Unfällen, Stürzen, Blitzen, Feuer oder Krankheiten.",
-      meditation: "Wie kann ich göttlichen Schutz in meinem Leben erfahren?",
-      tips: "Vertrauen Sie auf göttlichen Schutz und suchen Sie nach Wegen, sich vor Unfällen und Krankheiten zu schützen."
-    },
-    { 
-      name: "Reiiel", 
-      image: "/images/engel_reiiel.jpg", 
-      meaning: "Ist in der Lage, uns von jeder bösen Macht und Zauberei zu befreien.",
-      meditation: "Wie kann ich mich von bösen Mächten und Zauberei schützen?",
-      tips: "Suchen Sie nach Wegen, sich spirituell zu schützen und negative Energien abzuwehren."
-    },
-    { 
-      name: "Omael", 
-      image: "/images/engel_omael.jpg", 
-      meaning: "Hilft Ihnen dabei, Projekte zu erstellen, Ihre Träume zu erweitern und sie zu verwirklichen.",
-      meditation: "Welche Projekte und Träume möchte ich verwirklichen?",
-      tips: "Arbeiten Sie kontinuierlich an Ihren Projekten und suchen Sie nach Wegen, Ihre Träume zu realisieren."
-    },
-    { 
-      name: "Lecabel", 
-      image: "/images/engel_lecabel.jpg", 
-      meaning: "Menschen, die unter seinem Schutz stehen, werden versuchen, in ihrem Leben Vollkommenheit zu erreichen.",
-      meditation: "Wie kann ich Vollkommenheit in meinem Leben erreichen?",
-      tips: "Streben Sie nach Perfektion in Ihren Bemühungen und suchen Sie nach Wegen, sich kontinuierlich zu verbessern."
-    },
-    { 
-      name: "Vasariah", 
-      image: "/images/engel_vasariah.jpg", 
-      meaning: "Bietet Weisheit zum Nachdenken und zur Lösung von Problemen.",
-      meditation: "Wie kann ich Weisheit nutzen, um meine Probleme zu lösen?",
-      tips: "Reflektieren Sie Ihre Herausforderungen und suchen Sie nach weisen Lösungen."
-    },
-    { 
-      name: "Yehuiah", 
-      image: "/images/engel_yehuiah.jpg", 
-      meaning: "Lehrt die Vorteile der Zusammenarbeit im Team und der einfachen Zusammenarbeit mit anderen.",
-      meditation: "Wie kann ich besser im Team zusammenarbeiten?",
-      tips: "Arbeiten Sie an Ihren Teamfähigkeiten und suchen Sie nach Wegen, effektiv mit anderen zusammenzuarbeiten."
-    },
-    { 
-      name: "Lehahiah", 
-      image: "/images/engel_lehahiah.jpg", 
-      meaning: "Diejenigen, die unter seinem Zeichen geboren wurden, werden den Gesetzen Gottes folgen, auch wenn sie sie nicht verstehen.",
-      meditation: "Wie kann ich den Gesetzen Gottes besser folgen?",
-      tips: "Vertrauen Sie auf göttliche Führung und suchen Sie nach Wegen, die göttlichen Gesetze in Ihrem Leben zu integrieren."
-    },
-    { 
-      name: "Chavakiah", 
-      image: "/images/engel_chavakiah.jpg", 
-      meaning: "Ist der Engel der Versöhnung schlechthin.",
-      meditation: "Wie kann ich Versöhnung in mein Leben bringen?",
-      tips: "Arbeiten Sie an Versöhnung und suchen Sie nach Wegen, Frieden in Ihre Beziehungen zu bringen."
-    },
-    { 
-      name: "Menadel", 
-      image: "/images/engel_menadel.jpg", 
-      meaning: "Kann uns helfen, einen besseren Job zu finden, der zu dem passt, wovon wir immer geträumt haben.",
-      meditation: "Wie kann ich meinen Traumjob finden?",
-      tips: "Suchen Sie aktiv nach Karrieremöglichkeiten und arbeiten Sie daran, Ihren Traumjob zu finden."
-    },
-    { 
-      name: "Aniel", 
-      image: "/images/engel_aniel.jpg", 
-      meaning: "Er ist mit Geld und Tausch verwandt.",
-      meditation: "Wie kann ich besser mit Geld umgehen?",
-      tips: "Arbeiten Sie daran, Ihre finanziellen Fähigkeiten zu verbessern und suchen Sie nach Wegen, finanziellen Wohlstand zu erreichen."
-    },
-    { 
-      name: "Haamiah", 
-      image: "/images/engel_haamiah.jpg", 
-      meaning: "Ist der Engel der Rituale, Zeremonien und magischen Tage.",
-      meditation: "Wie kann ich Rituale und Zeremonien in mein Leben integrieren?",
-      tips: "Suchen Sie nach spirituellen Praktiken, die Ihrem Leben Bedeutung verleihen."
-    },
-    { 
-      name: "Rehael", 
-      image: "/images/engel_rehael.jpg", 
-      meaning: "Hilft, die Dinge tiefer zu verstehen.",
-      meditation: "Wie kann ich ein tieferes Verständnis für die Welt um mich herum entwickeln?",
-      tips: "Nehmen Sie sich Zeit für Reflexion und suchen Sie nach tieferem Verständnis in Ihrem Leben."
-    },
-    { 
-      name: "Ieazel", 
-      image: "/images/engel_ieazel.jpg", 
-      meaning: "Tröstet unser Leben und lehrt uns, die Zeiten der Erneuerung zu schätzen.",
-      meditation: "Wie kann ich Trost und Erneuerung in mein Leben bringen?",
-      tips: "Suchen Sie nach Wegen, Trost zu finden und schätzen Sie die Zeiten der Erneuerung."
-    },
-    { 
-      name: "Hahahel", 
-      image: "/images/engel_hahahel.jpg", 
-      meaning: "Hilft uns, unserer Mission auf der Erde treu zu sein und unsere spirituelle Berufung zu wecken.",
-      meditation: "Wie kann ich meiner spirituellen Berufung folgen?",
-      tips: "Arbeiten Sie daran, Ihre spirituelle Berufung zu entdecken und ihr treu zu bleiben."
-    },
-    { 
-      name: "Mikael", 
-      image: "/images/engel_mikael.jpg", 
-      meaning: "Hilft in Organisationen sowie beim Unterrichten von Gut und Böse.",
-      meditation: "Wie kann ich in Organisationen besser arbeiten?",
-      tips: "Arbeiten Sie an Ihren organisatorischen Fähigkeiten und suchen Sie nach Wegen, Gut und Böse zu unterrichten."
-    },
-    { 
-      name: "Veualiah", 
-      image: "/images/engel_veualiah.jpg", 
-      meaning: "Ist der Engel des Wohlstands, des Überflusses und des Reichtums für Ihr Leben.",
-      meditation: "Wie kann ich Wohlstand und Überfluss in mein Leben bringen?",
-      tips: "Arbeiten Sie daran, Wohlstand und Überfluss in Ihr Leben zu integrieren."
-    },
-    { 
-      name: "Yelahiah", 
-      image: "/images/engel_yelahiah.jpg", 
-      meaning: "Er ist ein Krieger des Lichts, also ist er ein himmlischer Beschützer und Führer.",
-      meditation: "Wie kann ich das Licht in meinem Leben verteidigen?",
-      tips: "Suchen Sie nach Wegen, das Licht in Ihrem Leben zu verteidigen und andere zu beschützen."
-    },
-    { 
-      name: "Sealiah", 
-      image: "/images/engel_sealiah.jpg", 
-      meaning: "Verantwortlich für Motivation, Bereitschaft, Reinheit und Absicht.",
-      meditation: "Wie kann ich motivierter und reiner in meinen Absichten sein?",
-      tips: "Arbeiten Sie an Ihrer Motivation und suchen Sie nach Wegen, Ihre Absichten zu klären."
-    },
-    { 
-      name: "Ariel", 
-      image: "/images/engel_ariel.jpg", 
-      meaning: "Bevorzugt unser Hellsehen.",
-      meditation: "Wie kann ich meine Hellseherfähigkeiten verbessern?",
-      tips: "Arbeiten Sie daran, Ihre Hellseherfähigkeiten zu entwickeln und zu nutzen."
-    },
-    { 
-      name: "Asaliah", 
-      image: "/images/engel_asaliah.jpg", 
-      meaning: "Hilft Ihnen, die Wahrheit zu entdecken, die in den kleinen Dingen des Lebens verborgen ist.",
-      meditation: "Wie kann ich die Wahrheit in den kleinen Dingen des Lebens entdecken?",
-      tips: "Suchen Sie nach Wahrheit in den alltäglichen Details Ihres Lebens."
-    },
-    { 
-      name: "Mihael", 
-      image: "/images/engel_mihael.jpg", 
-      meaning: "Ist dafür verantwortlich, die Beziehungen in Einklang zu bringen.",
-      meditation: "Wie kann ich meine Beziehungen in Einklang bringen?",
-      tips: "Arbeiten Sie daran, Harmonie in Ihre Beziehungen zu bringen."
-    },
-    { 
-      name: "Vehuel", 
-      image: "/images/engel_vehuel.jpg", 
-      meaning: "Er ist der Führer aller, die spirituelle Erleuchtung erlangen wollen.",
-      meditation: "Wie kann ich spirituelle Erleuchtung erlangen?",
-      tips: "Suchen Sie nach Wegen, spirituelle Erleuchtung zu erlangen und anderen zu helfen, dasselbe zu tun."
-    },
-    { 
-      name: "Daniel", 
-      image: "/images/engel_daniel.jpg", 
-      meaning: "Ist derjenige, der uns hilft, unsere Kommunikationsfähigkeiten zu entwickeln.",
-      meditation: "Wie kann ich meine Kommunikationsfähigkeiten verbessern?",
-      tips: "Arbeiten Sie daran, klarer und effektiver zu kommunizieren."
-    },
-    { 
-      name: "Hahasiah", 
-      image: "/images/engel_hahasiah.jpg", 
-      meaning: "Heilt mit kosmischer Energie und hilft Ärzten und Krankenschwestern bei ihrer Arbeit.",
-      meditation: "Wie kann ich kosmische Energie für Heilung nutzen?",
-      tips: "Suchen Sie nach Wegen, kosmische Energie für Heilung in Ihrem Leben zu nutzen."
-    },
-    { 
-      name: "Imamiah", 
-      image: "/images/engel_imamiah.jpg", 
-      meaning: "Mit ihm können wir die meisten unserer Fehler heilen und reparieren.",
-      meditation: "Welche Fehler muss ich heilen und reparieren?",
-      tips: "Arbeiten Sie daran, Ihre Fehler zu korrigieren und daraus zu lernen."
-    },
-    { 
-      name: "Nanael", 
-      image: "/images/engel_nanael.jpg", 
-      meaning: "Ist der Engel der spirituellen Kommunikation in all ihren Formen.",
-      meditation: "Wie kann ich meine spirituelle Kommunikation verbessern?",
-      tips: "Arbeiten Sie daran, Ihre spirituelle Kommunikation zu entwickeln und zu verbessern."
-    },
-    { 
-      name: "Nithael", 
-      image: "/images/engel_nithael.jpg", 
-      meaning: "Steht für ewige Jugend. Dies liegt daran, dass es enorm mit der Verjüngung verbunden ist.",
-      meditation: "Wie kann ich ewige Jugend und Verjüngung in mein Leben bringen?",
-      tips: "Suchen Sie nach Wegen, sich zu verjüngen und Ihre Jugendlichkeit zu bewahren."
-    },
-    { 
-      name: "Mebahiah", 
-      image: "/images/engel_mebahiah.jpg", 
-      meaning: "Bringt Klarheit und Trost in Ihr Leben.",
-      meditation: "Wie kann ich Klarheit und Trost finden?",
-      tips: "Suchen Sie nach Wegen, Klarheit und Trost in Ihrem Leben zu finden."
-    },
-    { 
-      name: "Poyel", 
-      image: "/images/engel_poyel.jpg", 
-      meaning: "Ist der Engel des Glücks und der Unterstützung.",
-      meditation: "Wie kann ich Glück und Unterstützung in mein Leben bringen?",
-      tips: "Arbeiten Sie daran, Glück und Unterstützung in Ihr Leben zu integrieren."
-    }
-  ];
+  // Seraphim (Engel der Liebe)
+  {
+    name: "Vehuiah",
+    image: "/images/vehuiah.jpg",
+    meaning: "Vehuiah ist bekannt für die Verstärkung der Willenskraft und hilft, neue Projekte mit Energie zu starten.",
+    meditation: "In welchen Bereichen meines Lebens benötige ich mehr Willenskraft?",
+    tips: "Beginne den Tag mit einer klaren Intention und setze kleine, erreichbare Ziele."
+  },
+  {
+    name: "Jeliel",
+    image: "/images/jeliel.jpg",
+    meaning: "Jeliel fördert Harmonie und eheliche Liebe, unterstützt bei der Lösung von Konflikten.",
+    meditation: "Wo kann ich mehr Harmonie in meine Beziehungen bringen?",
+    tips: "Praktiziere aktives Zuhören und zeige Empathie in deinen Interaktionen."
+  },
+  {
+    name: "Sitael",
+    image: "/images/sitael.jpg",
+    meaning: "Sitael steht für göttliche Liebe und Vergebung und schützt vor Ungerechtigkeiten.",
+    meditation: "Wie kann ich Vergebung üben und empfangen?",
+    tips: "Schreibe ein Vergebungstagebuch und reflektiere täglich über deine Gefühle."
+  },
+  {
+    name: "Elemiah",
+    image: "/images/elemiah.jpg",
+    meaning: "Elemiah bringt Erfolg und Schutz, hilft bei der Überwindung von Schwierigkeiten.",
+    meditation: "Welche Schritte kann ich unternehmen, um meinen Erfolg zu sichern?",
+    tips: "Setze dir klare Ziele und bleibe fokussiert auf deinen Weg."
+  },
+  {
+    name: "Mahasiah",
+    image: "/images/mahasiah.jpg",
+    meaning: "Mahasiah fördert Harmonie und Heilung, unterstützt bei der Wiederherstellung inneren Friedens.",
+    meditation: "Wo benötige ich mehr Harmonie und Heilung in meinem Leben?",
+    tips: "Praktiziere tägliche Entspannungsübungen und pflege gesunde Beziehungen."
+  },
+  {
+    name: "Lelahel",
+    image: "/images/lelahel.jpg",
+    meaning: "Lelahel steht für Licht und Heilung, bringt Klarheit und neue Energie.",
+    meditation: "Wie kann ich Licht in mein Leben bringen?",
+    tips: "Verbringe Zeit in der Natur und achte auf dein inneres Gleichgewicht."
+  },
+  {
+    name: "Achaiah",
+    image: "/images/achaiah.jpg",
+    meaning: "Achaiah fördert Geduld und Offenbarung, hilft, tiefere Wahrheiten zu erkennen.",
+    meditation: "Wo kann ich mehr Geduld in meinem Leben entwickeln?",
+    tips: "Nimm dir Zeit für Meditation und Selbstreflexion."
+  },
+  {
+    name: "Cahetel",
+    image: "/images/cahetel.jpg",
+    meaning: "Cahetel bringt Segen und Ernte, fördert Fülle und Dankbarkeit.",
+    meditation: "Für welche Segnungen in meinem Leben bin ich dankbar?",
+    tips: "Führe ein Dankbarkeitstagebuch und erkenne die Fülle um dich herum."
+  },
+  // Cherubim (Engel der Weisheit)
+  {
+    name: "Haziel",
+    image: "/images/haziel.jpg",
+    meaning: "Haziel bringt göttliche Liebe und Vergebung, hilft beim Aufbau dauerhafter Freundschaften.",
+    meditation: "Wie kann ich meine Beziehungen durch göttliche Liebe stärken?",
+    tips: "Drücke regelmäßig Wertschätzung aus und sei bereit, Fehler zu vergeben."
+  },
+  {
+    name: "Aladiah",
+    image: "/images/aladiah.jpg",
+    meaning: "Aladiah bietet eine Chance auf Neuanfang und Heilung von Krankheiten.",
+    meditation: "In welchen Bereichen meines Lebens benötige ich Heilung?",
+    tips: "Nimm dir Zeit für Selbstpflege und suche bei Bedarf professionelle Hilfe."
+  },
+  {
+    name: "Lauviah",
+    image: "/images/lauviah.jpg",
+    meaning: "Lauviah steht für Sieg und Weisheit, hilft Träume zu verwirklichen und fördert ruhigen Schlaf.",
+    meditation: "Welche Siege strebe ich in meinem Leben an?",
+    tips: "Setze klare, messbare Ziele und visualisiere deinen Erfolg."
+  },
+  {
+    name: "Hahaiah",
+    image: "/images/hahaiah.jpg",
+    meaning: "Hahaiah bietet Schutz und Zuflucht, hilft bei der Überwindung von Schwierigkeiten.",
+    meditation: "Wie kann ich meine Schutzmechanismen stärken?",
+    tips: "Verbringe Zeit mit Selbstreflexion und stärke deine inneren Ressourcen."
+  },
+  {
+    name: "Yezalel",
+    image: "/images/yezalel.jpg",
+    meaning: "Yezalel steht für Treue und Freundschaft, hilft beim Aufbau stabiler Beziehungen.",
+    meditation: "Wie kann ich meine Treue und Loyalität stärken?",
+    tips: "Pflege und ehre deine Beziehungen durch aufrichtige Kommunikation."
+  },
+  {
+    name: "Mebahel",
+    image: "/images/mebahel.jpg",
+    meaning: "Mebahel fördert Gerechtigkeit und Wahrheit, hilft bei der Verteidigung der Schwachen.",
+    meditation: "Wo kann ich Gerechtigkeit in meinem Leben fördern?",
+    tips: "Engagiere dich für soziale Gerechtigkeit und setze dich für Fairness ein."
+  },
+  {
+    name: "Hariel",
+    image: "/images/hariel.jpg",
+    meaning: "Hariel steht für Reinigung und Moral, fördert die Klärung und Stärkung ethischer Prinzipien.",
+    meditation: "Wie kann ich meine ethischen Überzeugungen stärken?",
+    tips: "Verfolge regelmäßig Selbstreflexion und handle im Einklang mit deinen Werten."
+  },
+  {
+    name: "Hakamiah",
+    image: "/images/hakamiah.jpg",
+    meaning: "Hakamiah fördert Loyalität und Mut, hilft bei der Überwindung von Ängsten.",
+    meditation: "Wo brauche ich mehr Mut und Loyalität?",
+    tips: "Setze dir mutige Ziele und handle nach deinen Überzeugungen."
+  },
+  // Throne
+  {
+    name: "Lauviah",
+    image: "/images/lauviah.jpg",
+    meaning: "Lauviah steht für Sieg und Weisheit, hilft Träume zu verwirklichen und fördert ruhigen Schlaf.",
+    meditation: "Welche Siege strebe ich in meinem Leben an?",
+    tips: "Setze klare, messbare Ziele und visualisiere deinen Erfolg."
+  },
+  {
+    name: "Caliel",
+    image: "/images/caliel.jpg",
+    meaning: "Caliel steht für Wahrheit und Gerechtigkeit, hilft bei der Entscheidungsfindung.",
+    meditation: "Wie kann ich in meinen Entscheidungen gerechter sein?",
+    tips: "Bewerte Situationen objektiv und betrachte alle Seiten, bevor du handelst."
+  },
+  {
+    name: "Leuviah",
+    image: "/images/leuviah.jpg",
+    meaning: "Leuviah fördert Intelligenz und Erinnerung, hilft beim Lernen und bei Prüfungen.",
+    meditation: "Wie kann ich mein Gedächtnis und meine Lernfähigkeiten verbessern?",
+    tips: "Praktiziere Gedächtnistraining und organisiere Lernsessions."
+  },
+  {
+    name: "Pahaliah",
+    image: "/images/pahaliah.jpg",
+    meaning: "Pahaliah steht für Erlösung und Befreiung, unterstützt bei der Suche nach spiritueller Wahrheit.",
+    meditation: "Wie kann ich meine spirituellen Überzeugungen vertiefen?",
+    tips: "Engagiere dich in spirituellen Studien und Meditation."
+  },
+  {
+    name: "Nelkhael",
+    image: "/images/nelkhael.jpg",
+    meaning: "Nelkhael steht für Lernen und Wissen, fördert das Verständnis und die Anwendung von Wissen.",
+    meditation: "Wie kann ich mein Wissen vertiefen?",
+    tips: "Verfolge kontinuierliche Bildung und Suche nach neuen Erkenntnissen."
+  },
+  {
+    name: "Yeiayel",
+    image: "/images/yeiayel.jpg",
+    meaning: "Yeiayel bringt Ruhm und Erfolg, hilft bei der Erreichung von Anerkennung.",
+    meditation: "Welche Erfolge strebe ich an?",
+    tips: "Arbeite hart und bleibe beharrlich auf deinem Weg zum Erfolg."
+  },
+  {
+    name: "Melahel",
+    image: "/images/melahel.jpg",
+    meaning: "Melahel steht für Heilung und Schutz, hilft bei der Wiederherstellung von Gesundheit.",
+    meditation: "Wo benötige ich Heilung und Schutz in meinem Leben?",
+    tips: "Pflege deinen Körper und Geist durch gesunde Gewohnheiten."
+  },
+  {
+    name: "Haheuiah",
+    image: "/images/haheuiah.jpg",
+    meaning: "Haheuiah bietet Schutz und Zuflucht, hilft bei der Verteidigung der Schwachen.",
+    meditation: "Wie kann ich mich und andere besser schützen?",
+    tips: "Schaffe sichere Umgebungen und setze Grenzen, wo nötig."
+  },
+  // Herrschaften
+  {
+    name: "Nith-Haiah",
+    image: "/images/nith-haiah.jpg",
+    meaning: "Nith-Haiah bringt Weisheit und Magie, hilft bei der Entfaltung verborgener Fähigkeiten.",
+    meditation: "Welche verborgenen Fähigkeiten möchte ich entfalten?",
+    tips: "Verfolge spirituelle Studien und erforsche die Geheimnisse des Universums."
+  },
+  {
+    name: "Haaiah",
+    image: "/images/haaiah.jpg",
+    meaning: "Haaiah fördert Diplomatie und Politik, unterstützt bei der Lösung von Konflikten.",
+    meditation: "Wie kann ich diplomatischer in meinen Beziehungen sein?",
+    tips: "Übe dich in Geduld und Verständnis im Umgang mit anderen."
+  },
+  {
+    name: "Yerathel",
+    image: "/images/yerathel.jpg",
+    meaning: "Yerathel fördert die Verbreitung von Licht, hilft bei der Verbreitung positiver Energien.",
+    meditation: "Wie kann ich mehr Licht in die Welt bringen?",
+    tips: "Verbreite Freundlichkeit und positive Botschaften in deinem Umfeld."
+  },
+  {
+    name: "Seheiah",
+    image: "/images/seheiah.jpg",
+    meaning: "Seheiah steht für Gesundheit und Langlebigkeit, unterstützt bei der Erhaltung des Wohlbefindens.",
+    meditation: "Wie kann ich meine Gesundheit und Langlebigkeit fördern?",
+    tips: "Praktiziere gesunde Lebensgewohnheiten und reduziere Stress."
+  },
+  {
+    name: "Reiyel",
+    image: "/images/reiyel.jpg",
+    meaning: "Reiyel bringt Befreiung und Wahrheit, hilft bei der Überwindung von Schwierigkeiten.",
+    meditation: "Welche Wahrheiten muss ich in meinem Leben akzeptieren?",
+    tips: "Sei ehrlich zu dir selbst und strebe nach innerer Freiheit."
+  },
+  {
+    name: "Omael",
+    image: "/images/omael.jpg",
+    meaning: "Omael fördert Fruchtbarkeit und Mehrung, unterstützt bei Wachstum und Expansion.",
+    meditation: "Wo in meinem Leben benötige ich Wachstum und Fülle?",
+    tips: "Setze dir fruchtbare Ziele und arbeite auf deren Verwirklichung hin."
+  },
+  {
+    name: "Lecabel",
+    image: "/images/lecabel.jpg",
+    meaning: "Lecabel steht für Talent und Wissen, hilft bei der Entfaltung von Fähigkeiten.",
+    meditation: "Wie kann ich meine Talente weiterentwickeln?",
+    tips: "Fördere kontinuierliche Bildung und sei offen für neue Lernmöglichkeiten."
+  },
+  {
+    name: "Vasariah",
+    image: "/images/vasariah.jpg",
+    meaning: "Vasariah fördert Gerechtigkeit und Gnade, hilft bei der Lösung von Streitigkeiten.",
+    meditation: "Wie kann ich in meinem Leben mehr Gerechtigkeit und Gnade praktizieren?",
+    tips: "Sei gerecht in deinem Handeln und zeige Gnade, wo es nötig ist."
+  },
+  // Mächte
+  {
+    name: "Yehuiah",
+    image: "/images/yehuiah.jpg",
+    meaning: "Yehuiah unterstützt bei der Unterordnung und Gehorsam, hilft bei der Entlarvung von Betrug und Loyalitätskonflikten.",
+    meditation: "In welchen Bereichen meines Lebens muss ich mehr Disziplin zeigen?",
+    tips: "Entwickle tägliche Routinen und halte dich an klare ethische Standards."
+  },
+  {
+    name: "Lehahiah",
+    image: "/images/lehahiah.jpg",
+    meaning: "Lehahiah fördert Ruhe und Gehorsam, hilft bei der Bewältigung von Wut und Streit.",
+    meditation: "Wie kann ich in Konfliktsituationen ruhiger bleiben?",
+    tips: "Übe Achtsamkeitsmeditation und Konfliktlösungsstrategien."
+  },
+  {
+    name: "Chavakiah",
+    image: "/images/chavakiah.jpg",
+    meaning: "Chavakiah unterstützt bei Versöhnung und Frieden in familiären und freundschaftlichen Beziehungen.",
+    meditation: "Wo muss ich in meinem Leben Frieden schaffen?",
+    tips: "Fördere offene Kommunikation und Verständnis in Beziehungen."
+  },
+  {
+    name: "Menadel",
+    image: "/images/menadel.jpg",
+    meaning: "Menadel hilft bei der Arbeit und Beruf, unterstützt Arbeitsstabilität und Karrierewechsel.",
+    meditation: "Wie kann ich meine berufliche Situation verbessern?",
+    tips: "Erweitere deine Fähigkeiten durch Weiterbildung und Netzwerkbildung."
+  },
+  {
+    name: "Aniel",
+    image: "/images/aniel.jpg",
+    meaning: "Aniel stärkt Mut und Stärke, hilft bei der Überwindung von Herausforderungen und bei der Selbstentwicklung.",
+    meditation: "Welche Herausforderungen muss ich überwinden?",
+    tips: "Setze dir herausfordernde, aber erreichbare Ziele und arbeite mutig darauf hin."
+  },
+  {
+    name: "Haamiah",
+    image: "/images/haamiah.jpg",
+    meaning: "Haamiah regelt Wahrheit und Ritual, schützt bei der Durchführung religiöser Praktiken.",
+    meditation: "Wie kann ich meine spirituellen Praktiken vertiefen?",
+    tips: "Integriere regelmäßige rituelle Praktiken in deinen Alltag."
+  },
+  {
+    name: "Rehael",
+    image: "/images/rehael.jpg",
+    meaning: "Rehael fördert Heilung und Liebe, unterstützt bei der Genesung und bei familiären Beziehungen.",
+    meditation: "Wie kann ich Heilung in meine Beziehungen bringen?",
+    tips: "Fördere aktives Zuhören und empathisches Verhalten in deinem Umfeld."
+  },
+  {
+    name: "Ieiazel",
+    image: "/images/ieiazel.jpg",
+    meaning: "Ieiazel bringt Trost und Befreiung, hilft bei der Überwindung von Depressionen und Traurigkeit.",
+    meditation: "Wo benötige ich Trost und Erleichterung in meinem Leben?",
+    tips: "Suche Unterstützung bei Freunden oder Fachleuten und gönne dir Momente der Ruhe."
+  },
+  // Gewalten
+  {
+    name: "Hahahel",
+    image: "/images/hahahel.jpg",
+    meaning: "Hahahel steht für Mission und Spiritualität, hilft bei der Erfüllung von spirituellen Aufgaben.",
+    meditation: "Wie kann ich meine spirituelle Mission klarer erkennen?",
+    tips: "Widme dich regelmäßig spirituellen Praktiken und höre auf dein inneres Selbst."
+  },
+  {
+    name: "Mikael",
+    image: "/images/mikael.jpg",
+    meaning: "Mikael fördert Ordnung und Gerechtigkeit, unterstützt bei der Durchsetzung von Gesetzen.",
+    meditation: "Wie kann ich für mehr Ordnung und Gerechtigkeit sorgen?",
+    tips: "Handle nach deinen Prinzipien und fördere Fairness in deinem Umfeld."
+  },
+  {
+    name: "Veuliah",
+    image: "/images/veuliah.jpg",
+    meaning: "Veuliah bringt Wohlstand und Fülle, unterstützt bei finanziellen Angelegenheiten.",
+    meditation: "Wie kann ich finanziellen Wohlstand in mein Leben ziehen?",
+    tips: "Setze auf kluge Finanzplanung und sei offen für neue Einnahmequellen."
+  },
+  {
+    name: "Yelahiah",
+    image: "/images/yelahiah.jpg",
+    meaning: "Yelahiah steht für Mut und Kriegsführung, hilft bei der Überwindung von Konflikten.",
+    meditation: "Welche Konflikte muss ich in meinem Leben angehen?",
+    tips: "Sei mutig und trete für deine Überzeugungen ein, auch in schwierigen Zeiten."
+  },
+  {
+    name: "Sealiah",
+    image: "/images/sealiah.jpg",
+    meaning: "Sealiah fördert Motivation und Willenskraft, unterstützt bei der Verwirklichung von Zielen.",
+    meditation: "Wo benötige ich mehr Motivation und Willenskraft?",
+    tips: "Setze dir klare Ziele und arbeite kontinuierlich darauf hin."
+  },
+  {
+    name: "Ariel",
+    image: "/images/ariel.jpg",
+    meaning: "Ariel steht für Offenbarung und Wahrnehmung, hilft bei der Erleuchtung und Erkenntnis.",
+    meditation: "Welche Wahrheiten muss ich in meinem Leben erkennen?",
+    tips: "Verbringe Zeit in Stille und Reflexion, um Klarheit zu finden."
+  },
+  {
+    name: "Asaliah",
+    image: "/images/asaliah.jpg",
+    meaning: "Asaliah fördert Kontemplation und Meditation, unterstützt bei der spirituellen Entwicklung.",
+    meditation: "Wie kann ich meine spirituelle Praxis vertiefen?",
+    tips: "Finde tägliche Momente der Stille und des Gebets."
+  },
+  {
+    name: "Mihael",
+    image: "/images/mihael.jpg",
+    meaning: "Mihael fördert Fruchtbarkeit und Harmonie, unterstützt bei der Schaffung einer friedvollen Umgebung.",
+    meditation: "Wo benötige ich mehr Harmonie in meinem Leben?",
+    tips: "Schaffe ein harmonisches Umfeld durch achtsame Handlungen und Worte."
+  },
+  // Fürstentümer
+  {
+    name: "Vehuel",
+    image: "/images/vehuel.jpg",
+    meaning: "Vehuel fördert Erhabenheit und Großmut, hilft bei der Erhebung des Geistes.",
+    meditation: "Wie kann ich meinen Geist erheben und veredeln?",
+    tips: "Verfolge edle Ziele und handle aus einer Haltung der Großzügigkeit."
+  },
+  {
+    name: "Daniel",
+    image: "/images/daniel.jpg",
+    meaning: "Daniel fördert Beredsamkeit und Kommunikation, hilft bei der Klarheit und Überzeugungskraft.",
+    meditation: "Wie kann ich meine Kommunikationsfähigkeiten verbessern?",
+    tips: "Übe aktives Zuhören und klare Ausdrucksweise in deinen Gesprächen."
+  },
+  {
+    name: "Hahasiah",
+    image: "/images/hahasiah.jpg",
+    meaning: "Hahasiah fördert Medizin und Heilung, hilft bei der Wiederherstellung von Gesundheit.",
+    meditation: "Wo benötige ich mehr Heilung in meinem Leben?",
+    tips: "Pflege gesunde Gewohnheiten und suche bei Bedarf medizinischen Rat."
+  },
+  {
+    name: "Imamiah",
+    image: "/images/imamiah.jpg",
+    meaning: "Imamiah hilft bei der Überwindung von Hindernissen und Schwierigkeiten.",
+    meditation: "Welche Hindernisse muss ich in meinem Leben überwinden?",
+    tips: "Sei beharrlich und glaube an deine Fähigkeit, Schwierigkeiten zu überwinden."
+  },
+  {
+    name: "Nanael",
+    image: "/images/nanael.jpg",
+    meaning: "Nanael fördert Spiritualität und Weisheit, hilft bei der Suche nach göttlicher Erkenntnis.",
+    meditation: "Wie kann ich meine spirituelle Weisheit vertiefen?",
+    tips: "Engagiere dich in spirituellen Studien und kontemplativer Praxis."
+  },
+  {
+    name: "Nithael",
+    image: "/images/nithael.jpg",
+    meaning: "Nithael fördert Schönheit und Ewigkeit, unterstützt bei der Wahrnehmung von zeitlosen Werten.",
+    meditation: "Wo kann ich zeitlose Schönheit in meinem Leben finden?",
+    tips: "Pflege die Schönheit in deinem Leben durch Kunst und Natur."
+  },
+  {
+    name: "Mebahiah",
+    image: "/images/mebahiah.jpg",
+    meaning: "Mebahiah fördert Intelligenz und Moral, hilft bei der Entwicklung ethischer Urteile.",
+    meditation: "Wie kann ich meine moralische Integrität stärken?",
+    tips: "Verfolge stets das Gute und handle nach ethischen Prinzipien."
+  },
+  {
+    name: "Poyel",
+    image: "/images/poyel.jpg",
+    meaning: "Poyel fördert Glück und Unterstützung, hilft bei der Erreichung von Zielen durch göttliche Hilfe.",
+    meditation: "Wie kann ich göttliche Hilfe in mein Leben ziehen?",
+    tips: "Vertraue auf die Unterstützung des Universums und strebe nach Glück."
+  },
+  // Erzengel
+  {
+    name: "Nemamiah",
+    image: "/images/nemamiah.jpg",
+    meaning: "Nemamiah fördert Unterscheidungskraft, hilft bei der Trennung von Wahrheit und Falschheit.",
+    meditation: "Wo muss ich Klarheit in meinem Leben finden?",
+    tips: "Übe Unterscheidungsvermögen und prüfe alle Informationen gründlich."
+  },
+  {
+    name: "Yeialel",
+    image: "/images/yeialel.jpg",
+    meaning: "Yeialel fördert innere Stärke, hilft bei der Überwindung von Schwächen.",
+    meditation: "Wie kann ich meine innere Stärke stärken?",
+    tips: "Verbringe Zeit mit Selbstreflexion und stärke dein inneres Selbst."
+  },
+  {
+    name: "Harahel",
+    image: "/images/harahel.jpg",
+    meaning: "Harahel bringt Wohlstand und Erfolg, hilft bei der Verwirklichung finanzieller Ziele.",
+    meditation: "Wie kann ich meinen Wohlstand und Erfolg fördern?",
+    tips: "Verfolge eine kluge Finanzstrategie und arbeite hart für deine Ziele."
+  },
+  {
+    name: "Mitzrael",
+    image: "/images/mitzrael.jpg",
+    meaning: "Mitzrael fördert Regeneration und Wiederaufbau, hilft bei der Heilung emotionaler Wunden.",
+    meditation: "Wie kann ich emotionale Wunden heilen?",
+    tips: "Nimm dir Zeit für Selbstpflege und suche Unterstützung bei Freunden und Fachleuten."
+  },
+  {
+    name: "Umabel",
+    image: "/images/umabel.jpg",
+    meaning: "Umabel fördert Freundschaft und Zuneigung, hilft bei der Schaffung von engen Bindungen.",
+    meditation: "Wie kann ich tiefere Freundschaften entwickeln?",
+    tips: "Pflege deine Freundschaften durch aufrichtige und liebevolle Kommunikation."
+  },
+  {
+    name: "Iahijel",
+    image: "/images/iahijel.jpg",
+    meaning: "Iahijel fördert wahres Wissen, hilft bei der Suche nach tieferem Verständnis.",
+    meditation: "Welche Wahrheiten möchte ich in meinem Leben erkennen?",
+    tips: "Verbringe Zeit mit Studien und meditativer Praxis, um tiefere Erkenntnisse zu gewinnen."
+  },
+  {
+    name: "Anauel",
+    image: "/images/anauel.jpg",
+    meaning: "Anauel fördert Einheit und Kommunikation, hilft bei der Schaffung von Harmonie.",
+    meditation: "Wie kann ich mehr Einheit in meinen Beziehungen fördern?",
+    tips: "Pflege offene Kommunikation und fördere Zusammenarbeit in deinem Umfeld."
+  },
+  {
+    name: "Mehiel",
+    image: "/images/mehiel.jpg",
+    meaning: "Mehiel fördert Inspiration und Schutz, hilft bei der Schaffung kreativer Werke.",
+    meditation: "Wie kann ich meine kreative Inspiration verstärken?",
+    tips: "Lass dich von der Natur und den Künsten inspirieren und schaffe mit Leidenschaft."
+  },
+  // Engel (Schutzengel, Herzensengel)
+  {
+    name: "Damabiah",
+    image: "/images/damabiah.jpg",
+    meaning: "Damabiah ist eine Quelle der Weisheit, hilft bei der Suche nach tieferem Verständnis.",
+    meditation: "Wie kann ich Weisheit in mein Leben integrieren?",
+    tips: "Pflege das Lernen und die Selbstreflexion als tägliche Praxis."
+  },
+  {
+    name: "Manakel",
+    image: "/images/manakel.jpg",
+    meaning: "Manakel fördert die Erkenntnis von Gut und Böse, hilft bei der Unterscheidung moralischer Fragen.",
+    meditation: "Wie kann ich moralische Entscheidungen klarer treffen?",
+    tips: "Verfolge eine ethische Lebensweise und achte auf die Konsequenzen deiner Entscheidungen."
+  },
+  {
+    name: "Ayael",
+    image: "/images/ayael.jpg",
+    meaning: "Ayael fördert Verwandlung und Veränderung, hilft bei der Erneuerung des Selbst.",
+    meditation: "Wo benötige ich in meinem Leben Veränderung?",
+    tips: "Sei offen für Veränderungen und nutze sie als Chance für persönliches Wachstum."
+  },
+  {
+    name: "Habuhiah",
+    image: "/images/habuhiah.jpg",
+    meaning: "Habuhiah fördert Heilung und Genesung, hilft bei der Wiederherstellung von Gesundheit.",
+    meditation: "Wie kann ich meine Gesundheit verbessern?",
+    tips: "Achte auf eine gesunde Lebensweise und suche bei Bedarf professionelle Hilfe."
+  },
+  {
+    name: "Rahael",
+    image: "/images/rahael.jpg",
+    meaning: "Rahael fördert Rückerstattung und Wiedergutmachung, hilft bei der Wiederherstellung von Gerechtigkeit.",
+    meditation: "Wo muss ich in meinem Leben Wiedergutmachung leisten?",
+    tips: "Achte auf Fairness und handle gerecht gegenüber anderen."
+  },
+  {
+    name: "Yabamiah",
+    image: "/images/yabamiah.jpg",
+    meaning: "Yabamiah fördert Alchemie und Transformation, hilft bei der Erneuerung und Verwandlung.",
+    meditation: "Welche Bereiche meines Lebens benötigen Transformation?",
+    tips: "Nutze jede Herausforderung als Gelegenheit zur persönlichen Weiterentwicklung."
+  },
+  {
+    name: "Haiaiel",
+    image: "/images/haiaiel.jpg",
+    meaning: "Haiaiel bietet Schutz und Zuflucht, hilft bei der Überwindung von Ängsten.",
+    meditation: "Wo brauche ich Schutz in meinem Leben?",
+    tips: "Schaffe sichere Räume für dich selbst und setze klare Grenzen."
+  },
+  {
+    name: "Mumiah",
+    image: "/images/mumiah.jpg",
+    meaning: "Mumiah fördert Erneuerung und Regeneration, hilft bei der Wiedergeburt und dem Neubeginn.",
+    meditation: "Wie kann ich in meinem Leben neu anfangen?",
+    tips: "Nutze das Ende eines Zyklus als Chance für einen frischen Start."
+  }
+];
 
 export default engelkarten;
