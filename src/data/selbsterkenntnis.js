@@ -66,10 +66,10 @@ const selbsterkenntnis = [
     {
         name: "10. Unendliche Fragen",
         image: "/images/unendliche_fragen.jpg",
-        meaning: "Umgang mit Misserfolgen.",
+        meaning: "Umgang mit Misserfolgen. Das Labyrinth symbolisiert den komplexen Weg des Lebens, der oft von Irrwegen und Sackgassen geprägt ist, die jedoch zur Selbstreflexion und zum Lernen einladen. Das Fragezeichen steht für Zweifel, Unsicherheiten und die ständige Suche nach Antworten und Lösungen. Puzzle-Stücke repräsentieren das schrittweise Lösen von Problemen und das Zusammensetzen von Erkenntnissen aus Erfahrungen. Der Phönix symbolisiert Wiedergeburt, Erneuerung und das Aufstehen nach einem Misserfolg, stärker als zuvor. Sturmwolken stehen für die Herausforderungen und Schwierigkeiten, die zu Rückschlägen führen können. Die Treppe repräsentiert den kontinuierlichen Aufstieg und die Bemühungen, sich trotz Rückschlägen weiterzuentwickeln. Bleistift und Radiergummi symbolisieren die Fähigkeit, Fehler zu korrigieren, neu zu beginnen und aus Misserfolgen zu lernen.",
         meditation: "Wie gehe ich mit Rückschlägen um? Was kann ich aus meinen Rückschlägen lernen?",
         tips: "Erstelle eine Liste von jüngsten Misserfolgen und analysiere, was du daraus lernen kannst.\nEntwickle einen Resilienzplan, der Schritte beinhaltet, wie du zukünftige Rückschläge bewältigen kannst.\nTeile deine Erfahrungen mit Rückschlägen und Erholung in einem Blog oder Workshop."
-    },
+    },    
     {
         name: "11. Sinn des Lebens",
         image: "/images/sinn_des_lebens.jpg",
@@ -80,10 +80,10 @@ const selbsterkenntnis = [
     {
         name: "12. Mathematische Harmonie",
         image: "/images/mathematische_harmonie.jpg",
-        meaning: "Zeitmanagement und Produktivität.",
+        meaning: "Zeitmanagement und Produktivität. Das Zahnrad symbolisiert Struktur, Präzision und das Ineinandergreifen von Aufgaben und Zeitblöcken, um ein harmonisches Ganzes zu schaffen. Die Uhr oder das Zifferblatt repräsentiert die Kontrolle über die Zeit und das effiziente Management derselben. Die Waage steht für Balance und Ausgeglichenheit, sowohl im täglichen Leben als auch in der Verteilung von Aufgaben und Zeit. Die Sanduhr veranschaulicht den Fluss der Zeit und die Notwendigkeit, sie sinnvoll zu nutzen. Organisierte Planer und Listen symbolisieren die Notwendigkeit, Aktivitäten zu planen und zu priorisieren, um produktiv zu sein.",
         meditation: "Wie kann ich meine Zeit besser managen? Welche Techniken helfen mir, meine Zeit effektiv zu nutzen?",
         tips: "Lerne und wende mindestens zwei neue Zeitmanagement-Techniken an.\nÜberprüfe und aktualisiere deine täglichen Routinen, um mehr Produktivität zu erzielen.\nFühre ein Zeitprotokoll für eine Woche, um Zeitverschwendung zu identifizieren und zu eliminieren."
-    },
+    },    
     {
         name: "13. Galaktische Rätsel",
         image: "/images/galaktische_rätsel.jpg",
@@ -201,10 +201,10 @@ const selbsterkenntnis = [
     {
         name: "29. Astrophysisches Geheimnis",
         image: "/images/astrophysisches_geheimnis.jpg",
-        meaning: "Meisterschaft und Selbstbeherrschung.",
+        meaning: "Meisterschaft und Selbstbeherrschung. Der Sternenhimmel symbolisiert das Unbekannte, das Universum und die Weite des menschlichen Potenzials. Das Teleskop steht für den Fokus auf das Wesentliche und die Suche nach tieferem Verständnis. Das Schachbrett repräsentiert Strategie, Planung und die Notwendigkeit, kluge und durchdachte Entscheidungen zu treffen. Der Kompass symbolisiert Orientierung, Zielstrebigkeit und die Fähigkeit, den richtigen Weg zu finden. Der Berggipfel steht für das Erreichen von Zielen, Meisterschaft und den Triumph über Herausforderungen. Der Spiegel reflektiert die Selbsterkenntnis und die Kontrolle über das eigene Selbst. Der Zen-Garten symbolisiert innere Ruhe, Disziplin und das Streben nach perfekter Harmonie in den eigenen Handlungen.",
         meditation: "Was bedeutet es für mich, Meister über mein eigenes Leben zu sein? Wie strebe ich nach Meisterschaft in meinen Handlungen und Entscheidungen?",
-        tips: "Setzen Sie sich ehrgeizige Ziele und arbeiten Sie entschlossen daran, diese zu erreichen. Bleiben Sie diszipliniert und fokussiert."
-    },
+        tips: "Setze dir ehrgeizige Ziele und arbeite entschlossen daran, diese zu erreichen. Bleibe diszipliniert und fokussiert."
+    },    
     {
         name: "30. Dimensionstor",
         image: "/images/dimensionstor.jpg",
