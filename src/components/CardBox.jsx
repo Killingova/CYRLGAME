@@ -12,6 +12,7 @@ import heilsteine from '../data/heilsteine';
 import nymphen from '../data/nymphen';
 import griechischeMythologie from '../data/griechischeMythologie';
 import lebensfreudekarten from '../data/lebensfreudekarten';
+import luciddaydreams from '../data/luciddaydreams';
 
 
 // Definiere alle Kartensets mit Namen und Kartenanzahl
@@ -33,7 +34,7 @@ const cardSets = [
 
   { name: "Lebensfreudekarten", cards: lebensfreudekarten },
   { name: "000Dankbarkeitsorakel", cards: new Array(55) },
-  { name: "000Prophezeiungskarten", cards: new Array(44) },
+  { name: "Lucid Daydreams", cards: luciddaydreams },
 
   { name: "Zwillingsflamme", cards: zwillingsflammen },
   
