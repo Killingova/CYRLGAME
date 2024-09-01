@@ -10,9 +10,13 @@ import runenkarten from '../data/runenkarten';
 import zwillingsflammen from '../data/zwillingsflammen';
 import heilsteine from '../data/heilsteine';
 import nymphen from '../data/nymphen';
-import griechischeMythologie from '../data/griechischeMythologie';
+import freimaurerei from '../data/freimaurerei';
 import lebensfreudekarten from '../data/lebensfreudekarten';
 import luciddaydreams from '../data/luciddaydreams';
+import plants from '../data/plants';
+import moonOracleCards from '../data/moonOracleCards';
+import timecards from '../data/timecards';
+
 
 
 // Definiere alle Kartensets mit Namen und Kartenanzahl
@@ -27,8 +31,8 @@ const cardSets = [
   { name: "Runen", cards:runenkarten},
   { name: "Steine", cards: heilsteine},
 
-  { name: "000Numerologiekarten", cards: new Array(44) },
-  { name: "000Pflanzen- oder Kräuterorakel", cards: new Array(44) },
+  { name: "Numerologiekarten", cards: timecards },
+  { name: "Kräuterorakel", cards: plants },
 
   { name: "Selbsterkenntnis", cards: selbsterkenntnis},
 
@@ -38,9 +42,9 @@ const cardSets = [
 
   { name: "Zwillingsflamme", cards: zwillingsflammen },
   
-  { name: "Mythologie", cards:griechischeMythologie },
+  { name: "Pfad der Erleuchtung", cards: freimaurerei},
   { name: "000Kalat-Karten", cards: new Array(52) },
-  { name: "000Moonology Oracle Cards", cards: new Array(44) },
+  { name: "MoonOracle Cards", cards: moonOracleCards },
   { name: "000Sacred Soulmates Orakeldeck", cards: new Array(53) },
 ];
 
