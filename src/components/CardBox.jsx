@@ -16,6 +16,8 @@ import luciddaydreams from '../data/luciddaydreams';
 import plants from '../data/plants';
 import moonOracleCards from '../data/moonOracleCards';
 import timecards from '../data/timecards';
+import storytime from '../data/storytime';
+
 
 
 
@@ -45,7 +47,7 @@ const cardSets = [
   { name: "Pfad der Erleuchtung", cards: freimaurerei},
   { name: "000Kalat-Karten", cards: new Array(52) },
   { name: "MoonOracle Cards", cards: moonOracleCards },
-  { name: "000Sacred Soulmates Orakeldeck", cards: new Array(53) },
+  { name: "Sacred Orakeldeck", cards: storytime },
 ];
 
 // Funktionale Komponente CardBox, die ein Callback-Event onCardSetSelect als Prop erhält

@@ -1,444 +1,381 @@
 const freimaurerei = [
-    // Scottish Rite (Schottischer Ritus)
     {
         name: "4. Grad – Geheimer Meister (Secret Master)",
-        image: "/images/geheimer_meister.jpg",
         meaning: "Steht für Treue, Pflichtbewusstsein und die Geheimhaltung von Wissen.",
-        meditation: "Wie wichtig sind Treue und Vertrauen in meinem Leben? Wie kann ich diese Werte in meinen Beziehungen stärken?",
-        tips: "Reflektiere über deine Verlässlichkeit und überlege, wie du das Vertrauen anderer aufrechterhalten oder stärken kannst."
+        meditation: "1. Antwort auf Alles - Reflexion über persönliche Werte und Prinzipien. Welche grundlegenden Werte und Prinzipien halte ich für am wichtigsten in meinem Leben? Wie haben diese Werte mein Verhalten und meine Entscheidungen beeinflusst?",
+        tips: "Freimaurer-Tipps: Reflektiere über deine Verlässlichkeit und überlege, wie du das Vertrauen anderer aufrechterhalten oder stärken kannst.\nSelbsterkenntnis-Tipps: Liste deine Kernwerte auf und finde Beispiele, wie du sie in der letzten Woche gelebt hast. Setze dir das Ziel, einen deiner Werte in einer schwierigen Situation bewusst anzuwenden. Diskutiere deine Werte mit einem Freund und frage nach dessen Werten und Erfahrungen."
     },
     {
         name: "5. Grad – Vollkommener Meister (Perfect Master)",
-        image: "/images/vollkommener_meister.jpg",
         meaning: "Symbolisiert die moralische Entwicklung und das Streben nach Vollkommenheit.",
-        meditation: "Was bedeutet Vollkommenheit für mich? In welchen Bereichen meines Lebens strebe ich nach Exzellenz?",
-        tips: "Setze dir realistische Ziele zur Selbstverbesserung und arbeite kontinuierlich daran, diese zu erreichen."
+        meditation: "6. Zahlengeheimnis - Persönliches Wachstum und Verbesserung. Welche Schritte unternehme ich, um kontinuierlich zu wachsen und mich zu verbessern? Welche Hindernisse habe ich auf diesem Weg überwunden?",
+        tips: "Freimaurer-Tipps: Setze dir realistische Ziele zur Selbstverbesserung und arbeite kontinuierlich daran, diese zu erreichen.\nSelbsterkenntnis-Tipps: Setze dir spezifische, messbare Ziele für dein persönliches Wachstum für das nächste Quartal. Erstelle ein Vision Board, das deine Ziele und Träume visualisiert. Halte regelmäßige Selbstbewertungen ab, um deine Fortschritte und Bereiche für Verbesserungen zu überprüfen."
     },
     {
         name: "6. Grad – Vorzüglicher Meister (Intimate Secretary)",
-        image: "/images/vorzueglicher_meister.jpg",
         meaning: "Betont die Bedeutung von Kommunikation und Vertraulichkeit.",
-        meditation: "Wie gut bin ich in der Kommunikation mit anderen? Wie bewahre ich Geheimnisse und vertrauliche Informationen?",
-        tips: "Praktiziere aktives Zuhören und sorge dafür, dass deine Kommunikation klar und respektvoll ist."
+        meditation: "3. Harshad-Zahl - Kontinuierliches Lernen und Wachstum. Welche neuen Fähigkeiten oder Kenntnisse habe ich in letzter Zeit erworben? Wie haben sie mich verändert und wie wende ich sie an?",
+        tips: "Freimaurer-Tipps: Praktiziere aktives Zuhören und sorge dafür, dass deine Kommunikation klar und respektvoll ist.\nSelbsterkenntnis-Tipps: Erstelle eine Liste neuer Fähigkeiten, die du erlernen möchtest, und plane erste Schritte zur Umsetzung. Reflektiere am Ende jeder Woche, was du Neues gelernt hast und wie es dir nützlich sein kann. Teile deine Lernerfahrungen in einem Blog oder auf Social Media, um andere zu inspirieren."
     },
     {
         name: "7. Grad – Vorbereitender Meister (Provost and Judge)",
-        image: "/images/vorbereitender_meister.jpg",
         meaning: "Steht für Gerechtigkeit und die Fähigkeit, fair zu urteilen.",
-        meditation: "Bin ich in der Lage, objektive und faire Urteile zu fällen? Wie beeinflussen meine Urteile andere?",
-        tips: "Arbeite daran, Vorurteile zu erkennen und zu vermeiden, um gerechte und ausgewogene Entscheidungen zu treffen."
+        meditation: "10. Unendliche Fragen - Umgang mit Misserfolgen. Das Labyrinth symbolisiert den komplexen Weg des Lebens, der oft von Irrwegen und Sackgassen geprägt ist, die jedoch zur Selbstreflexion und zum Lernen einladen.",
+        tips: "Freimaurer-Tipps: Arbeite daran, Vorurteile zu erkennen und zu vermeiden, um gerechte und ausgewogene Entscheidungen zu treffen.\nSelbsterkenntnis-Tipps: Erstelle eine Liste von jüngsten Misserfolgen und analysiere, was du daraus lernen kannst. Entwickle einen Resilienzplan, der Schritte beinhaltet, wie du zukünftige Rückschläge bewältigen kannst. Teile deine Erfahrungen mit Rückschlägen und Erholung in einem Blog oder Workshop."
     },
     {
         name: "8. Grad – Bauherr des Tempels (Intendant of the Building)",
-        image: "/images/bauherr_des_tempels.jpg",
         meaning: "Vertritt Weisheit und Verständnis in der Planung und dem Bau von Strukturen.",
-        meditation: "Wie plane ich meine Projekte und mein Leben? Habe ich eine klare Vision für die Zukunft?",
-        tips: "Erstelle detaillierte Pläne für deine Projekte und setze realistische Ziele, die du erreichen kannst."
+        meditation: "12. Mathematische Harmonie - Zeitmanagement und Produktivität. Wie kann ich meine Zeit besser managen? Welche Techniken helfen mir, meine Zeit effektiv zu nutzen?",
+        tips: "Freimaurer-Tipps: Erstelle detaillierte Pläne für deine Projekte und setze realistische Ziele, die du erreichen kannst.\nSelbsterkenntnis-Tipps: Lerne und wende mindestens zwei neue Zeitmanagement-Techniken an. Überprüfe und aktualisiere deine täglichen Routinen, um mehr Produktivität zu erzielen. Führe ein Zeitprotokoll für eine Woche, um Zeitverschwendung zu identifizieren und zu eliminieren."
     },
     {
         name: "9. Grad – Auserwählter der Neun (Elu of the Nine)",
-        image: "/images/auserwaehlter_der_neun.jpg",
         meaning: "Symbolisiert den Kampf gegen Ungerechtigkeit und Tyrannei.",
-        meditation: "Wie reagiere ich auf Ungerechtigkeit? Was kann ich tun, um für Gerechtigkeit einzutreten?",
-        tips: "Setze dich aktiv gegen Ungerechtigkeit ein und unterstütze diejenigen, die für Gerechtigkeit kämpfen."
+        meditation: "20. Paradoxe Wahrheit - Teamarbeit und Kooperation. Wie kann ich besser mit anderen zusammenarbeiten? Welche Stärken und Schwächen bringe ich in ein Team ein?",
+        tips: "Freimaurer-Tipps: Setze dich aktiv gegen Ungerechtigkeit ein und unterstütze diejenigen, die für Gerechtigkeit kämpfen.\nSelbsterkenntnis-Tipps: Arbeiten Sie eng mit anderen zusammen und nutzen Sie die Stärken jedes Einzelnen. Seien Sie offen für Feedback und Zusammenarbeit."
     },
     {
         name: "10. Grad – Auserwählter der Fünfzehn (Elu of the Fifteen)",
-        image: "/images/auserwaehlter_der_fuenfzehn.jpg",
         meaning: "Repräsentiert die Bestrafung von Verrätern und das Streben nach Gerechtigkeit.",
-        meditation: "Wie gehe ich mit Situationen von Verrat oder Vertrauensbruch um? Wie kann ich gerechte Lösungen finden?",
-        tips: "Bleibe gerecht und fair, auch wenn du betrogen wurdest, und suche nach Wegen, die Situation konstruktiv zu lösen."
+        meditation: "40. Kryptisches Rätsel - Problemlösung und Kreativität. Wie nutze ich kreatives Denken, um Probleme zu lösen? Welche kreativen Ansätze haben sich als besonders effektiv erwiesen?",
+        tips: "Freimaurer-Tipps: Bleibe gerecht und fair, auch wenn du betrogen wurdest, und suche nach Wegen, die Situation konstruktiv zu lösen.\nSelbsterkenntnis-Tipps: Fördern Sie Ihr kreatives Denken durch regelmäßige Übungen. Seien Sie offen für unkonventionelle Lösungen."
     },
     {
         name: "11. Grad – Auserwählter Oberer (Sublime Elu of the Twelve)",
-        image: "/images/auserwaehlter_oberer.jpg",
         meaning: "Steht für Weisheit und Urteilskraft als Führungsqualitäten.",
-        meditation: "Welche Rolle spielt Weisheit in meinen Entscheidungen? Wie entwickle ich mein Urteilsvermögen weiter?",
-        tips: "Lies Bücher oder suche nach Mentoren, die dir helfen können, deine Weisheit und dein Urteilsvermögen zu stärken."
+        meditation: "21. Mystische Formeln - Persönliche Entwicklung und Wachstum. Welche Schritte unternehme ich, um mich kontinuierlich weiterzuentwickeln? Welche Hindernisse habe ich auf diesem Weg überwunden?",
+        tips: "Freimaurer-Tipps: Lies Bücher oder suche nach Mentoren, die dir helfen können, deine Weisheit und dein Urteilsvermögen zu stärken.\nSelbsterkenntnis-Tipps: Setzen Sie sich regelmäßig neue Ziele für Ihr persönliches Wachstum. Reflektieren Sie über Ihre Fortschritte und lernen Sie aus Ihren Erfahrungen."
     },
     {
         name: "12. Grad – Großmeister Architekt (Master Architect)",
-        image: "/images/grossmeister_architekt.jpg",
         meaning: "Symbolisiert das Verständnis und die Weisheit in der Baukunst und Lebensplanung.",
-        meditation: "Wie plane ich meine langfristigen Ziele? Welche Hindernisse könnte ich überwinden müssen?",
-        tips: "Entwickle eine klare Vision für die Zukunft und arbeite systematisch daran, sie zu verwirklichen."
+        meditation: "22. Algorithmus der Weisheit - Strategien zur persönlichen Verbesserung. Welche Strategien nutze ich, um mich kontinuierlich zu verbessern? Welche Ergebnisse habe ich bisher erzielt?",
+        tips: "Freimaurer-Tipps: Entwickle eine klare Vision für die Zukunft und arbeite systematisch daran, sie zu verwirklichen.\nSelbsterkenntnis-Tipps: Überprüfen Sie regelmäßig Ihre Strategien und passen Sie sie bei Bedarf an. Bleiben Sie offen für neue Ansätze und Methoden."
     },
     {
         name: "13. Grad – Königlicher Bogen (Royal Arch of Solomon)",
-        image: "/images/koeniglicher_bogen.jpg",
         meaning: "Steht für die Entdeckung verborgener Wahrheiten und Weisheiten.",
-        meditation: "Welche Wahrheiten in meinem Leben habe ich vielleicht noch nicht erkannt? Wie kann ich diese entdecken?",
-        tips: "Sei offen für neue Erkenntnisse und suche aktiv nach tiefgründigem Wissen und Verständnis."
+        meditation: "4. Präkubische Magie - Umgang mit Veränderungen und Herausforderungen. Wie gehe ich mit neuen Herausforderungen um? Welche Strategien habe ich entwickelt, um mit Herausforderungen umzugehen?",
+        tips: "Freimaurer-Tipps: Sei offen für neue Erkenntnisse und suche aktiv nach tiefgründigem Wissen und Verständnis.\nSelbsterkenntnis-Tipps: Identifiziere eine aktuelle Herausforderung und entwickle einen Aktionsplan zu deren Bewältigung. Reflektiere täglich über deine Fortschritte und Anpassungen im Umgang mit dieser Herausforderung. Suche nach einem Mentor oder einer Supportgruppe, die dir helfen kann, Strategien zur Bewältigung von Herausforderungen zu entwickeln."
     },
     {
         name: "14. Grad – Groß-Electus, Vollkommener und Sublimer Freimaurer (Grand Elect, Perfect and Sublime Mason)",
-        image: "/images/gross_electus.jpg",
         meaning: "Symbolisiert die höchsten Ideale der Freimaurerei und das Streben nach spiritueller Vollkommenheit.",
-        meditation: "Was bedeutet spirituelle Vollkommenheit für mich? Wie kann ich mich spirituell weiterentwickeln?",
-        tips: "Setze dir spirituelle Ziele und widme regelmäßig Zeit der Meditation oder anderen spirituellen Praktiken."
+        meditation: "32. Kosmischer Tanz - Kontinuierliches Lernen und Wachstum. Welche neuen Bereiche oder Themen interessieren mich? Wie kann ich mein Wissen in diesen Bereichen erweitern?",
+        tips: "Freimaurer-Tipps: Setze dir spirituelle Ziele und widme regelmäßig Zeit der Meditation oder anderen spirituellen Praktiken.\nSelbsterkenntnis-Tipps: Setzen Sie sich kontinuierlich neue Lernziele. Bleiben Sie neugierig und offen für neue Erkenntnisse."
     },
     {
         name: "15. Grad – Ritter des Ostens oder Schwerts (Knight of the East or Sword)",
-        image: "/images/ritter_ost_schwert.jpg",
         meaning: "Steht für die Verteidigung des Glaubens und die Verpflichtung zu einer gerechten Sache.",
-        meditation: "Welche Überzeugungen sind mir wichtig, und wie verteidige ich sie?",
-        tips: "Arbeite daran, deinen Glauben und deine Überzeugungen in schwierigen Situationen zu bewahren."
+        meditation: "7. Douglas Adams' Erbe - Selbsterkenntnis und Wachstum. Welche neuen Erkenntnisse habe ich über mich selbst gewonnen? Wie haben diese Erkenntnisse mein Leben verändert?",
+        tips: "Freimaurer-Tipps: Arbeite daran, deinen Glauben und deine Überzeugungen in schwierigen Situationen zu bewahren.\nSelbsterkenntnis-Tipps: Schreibe eine Reflexion über eine kürzlich gewonnene Erkenntnis und wie du sie in deinem Leben umsetzt. Diskutiere diese Erkenntnisse mit einem Freund oder Mentor und erhalte Feedback. Integriere die gewonnenen Erkenntnisse in deine täglichen Routinen und beobachte die Veränderungen."
     },
     {
         name: "16. Grad – Prinz von Jerusalem (Prince of Jerusalem)",
-        image: "/images/prinz_von_jerusalem.jpg",
         meaning: "Symbolisiert Führung und Gerechtigkeit, insbesondere im Kontext religiöser Überzeugungen.",
-        meditation: "Wie kann ich in meinem Umfeld gerecht und führend sein?",
-        tips: "Führe mit Integrität und setze dich aktiv für Gerechtigkeit in deinem Umfeld ein."
+        meditation: "35. Parallelwelten - Spirituelle Entwicklung. Wie kann ich meine spirituelle Entwicklung fördern? Welche Praktiken unterstützen mein spirituelles Wachstum?",
+        tips: "Freimaurer-Tipps: Führe mit Integrität und setze dich aktiv für Gerechtigkeit in deinem Umfeld ein.\nSelbsterkenntnis-Tipps: Setzen Sie sich regelmäßig mit Ihrer Spiritualität auseinander. Nutzen Sie Meditation und andere spirituelle Praktiken, um Ihr Wachstum zu fördern."
     },
     {
         name: "17. Grad – Ritter des Ostes und Westens (Knight of the East and West)",
-        image: "/images/ritter_ost_west.jpg",
         meaning: "Vertritt den Ausgleich und die Verbindung zwischen verschiedenen Kulturen und Ideologien.",
-        meditation: "Wie kann ich kulturelle Unterschiede besser verstehen und respektieren?",
-        tips: "Suche nach Wegen, um Brücken zwischen verschiedenen Kulturen zu bauen und gegenseitiges Verständnis zu fördern."
+        meditation: "8. Kosmische Weisheit - Innere Werte und Selbstreflexion. Wie kann ich meine inneren Werte besser verstehen? Welche Werte sind mir am wichtigsten und warum?",
+        tips: "Freimaurer-Tipps: Suche nach Wegen, um Brücken zwischen verschiedenen Kulturen zu bauen und gegenseitiges Verständnis zu fördern.\nSelbsterkenntnis-Tipps: Führe eine Werteanalyse durch, um deine Top 5 Werte zu identifizieren und wie du sie leben kannst. Setze dir das Ziel, jeden Monat einen deiner Kernwerte durch eine spezifische Aktion zu stärken. Organisiere eine Diskussionsrunde mit Freunden über Werte und deren Einfluss auf Entscheidungen."
     },
     {
         name: "18. Grad – Ritter des Rosenkreuzes (Knight of the Rose Croix)",
-        image: "/images/ritter_rosenkreuz.jpg",
         meaning: "Symbolisiert spirituelles Streben und die Suche nach Wahrheit und Licht.",
-        meditation: "Wie suche ich nach Wahrheit in meinem Leben? Was bedeutet Licht für mich im spirituellen Sinne?",
-        tips: "Vertiefe dein Verständnis von Spiritualität und suche nach Wegen, um mehr Licht in dein Leben zu bringen."
+        meditation: "38. Weisheitsformel - Mentale Klarheit und Fokus. Wie kann ich meine mentale Klarheit und meinen Fokus verbessern? Welche Techniken helfen mir, konzentriert zu bleiben?",
+        tips: "Freimaurer-Tipps: Vertiefe dein Verständnis von Spiritualität und suche nach Wegen, um mehr Licht in dein Leben zu bringen.\nSelbsterkenntnis-Tipps: Nutzen Sie Techniken wie Meditation und Achtsamkeit, um Ihre mentale Klarheit und Ihren Fokus zu verbessern. Bleiben Sie diszipliniert und konzentriert."
     },
     {
         name: "19. Grad – Großpontifex (Grand Pontiff)",
-        image: "/images/grosspontifex.jpg",
         meaning: "Dieser Grad repräsentiert die Vermittlung und die Rolle als Brückenbauer zwischen verschiedenen Überzeugungen.",
-        meditation: "Wie kann ich als Vermittler in Konflikten dienen? Wie baue ich Brücken zwischen verschiedenen Gruppen?",
-        tips: "Lerne effektive Kommunikationstechniken, um als Vermittler in schwierigen Situationen zu agieren."
+        meditation: "39. Zahlenuniversum - Erkenntnis und Einsicht. Welche neuen Erkenntnisse habe ich über mich selbst gewonnen? Wie haben diese Erkenntnisse mein Leben verändert?",
+        tips: "Freimaurer-Tipps: Lerne effektive Kommunikationstechniken, um als Vermittler in schwierigen Situationen zu agieren.\nSelbsterkenntnis-Tipps: Reflektieren Sie regelmäßig über Ihre Erkenntnisse. Nutzen Sie diese Einsichten, um positive Veränderungen in Ihrem Leben vorzunehmen."
     },
     {
         name: "20. Grad – Meister ad vitam (Master ad Vitam)",
-        image: "/images/meister_ad_vitam.jpg",
         meaning: "Steht für lebenslange Verpflichtungen und das Streben nach dauerhaften Werten.",
-        meditation: "Welche Werte möchte ich mein Leben lang bewahren und pflegen?",
-        tips: "Erstelle eine Liste deiner Kernwerte und arbeite daran, diese kontinuierlich in deinem Leben zu integrieren."
+        meditation: "41. Entfesselte Erkenntnis - Innovatives Denken und Wachstum. Wie kann ich mein innovatives Denken fördern? Welche neuen Ideen und Ansätze interessieren mich?",
+        tips: "Freimaurer-Tipps: Erstelle eine Liste deiner Kernwerte und arbeite daran, diese kontinuierlich in deinem Leben zu integrieren.\nSelbsterkenntnis-Tipps: Seien Sie offen für neue Ideen und Ansätze. Fördern Sie Ihr innovatives Denken durch regelmäßiges Brainstorming und kreative Übungen."
     },
     {
         name: "21. Grad – Patriarch Noachite (Patriarch Noachite)",
-        image: "/images/patriarch_noachite.jpg",
         meaning: "Symbolisiert Weisheit und die Lehren des Alten Testaments, insbesondere die Geschichte von Noah.",
-        meditation: "Welche Lektionen aus alten Geschichten und Schriften kann ich in mein Leben integrieren?",
-        tips: "Lies alte Schriften oder philosophische Texte und versuche, deren Weisheit in deinen Alltag einzubringen."
+        meditation: "26. Sphären der Einsicht - Weisheit und Erfahrung. Welche Weisheit habe ich durch meine Erfahrungen gewonnen? Wie kann ich diese Weisheit in meinem Leben anwenden?",
+        tips: "Freimaurer-Tipps: Lies alte Schriften oder philosophische Texte und versuche, deren Weisheit in deinen Alltag einzubringen.\nSelbsterkenntnis-Tipps: Teilen Sie Ihre Weisheit mit anderen. Nutzen Sie Ihre Erfahrungen, um kluge Entscheidungen zu treffen."
     },
     {
         name: "22. Grad – Ritter der Königlichen Axt oder Prinz von Libanon (Knight of the Royal Axe or Prince of Libanus)",
-        image: "/images/ritter_koenigliche_axt.jpg",
         meaning: "Steht für den Wert harter Arbeit und die Ehrfurcht vor der Natur.",
-        meditation: "Wie schätze ich die Arbeit, die ich leiste? Welche Beziehung habe ich zur Natur?",
-        tips: "Sei dir der Anstrengung bewusst, die in deinen Erfolgen steckt, und pflege eine respektvolle Verbindung zur Natur."
+        meditation: "37. Galaktische Symphonie - Balance und Harmonie. Wie finde ich Balance und Harmonie in meinem Leben? Welche Praktiken helfen mir, inneren Frieden zu finden?",
+        tips: "Freimaurer-Tipps: Sei dir der Anstrengung bewusst, die in deinen Erfolgen steckt, und pflege eine respektvolle Verbindung zur Natur.\nSelbsterkenntnis-Tipps: Finden Sie Praktiken, die Ihnen helfen, Balance und Harmonie zu finden. Nutzen Sie Meditation, Yoga oder andere Methoden, um inneren Frieden zu erreichen."
     },
     {
         name: "23. Grad – Hauptkommandant des Tempels (Chief of the Tabernacle)",
-        image: "/images/hauptkommandant_tempel.jpg",
         meaning: "Repräsentiert spirituelle Führung und das Hüten heiliger Räume.",
-        meditation: "Wie kann ich mein Umfeld und meine Gemeinschaft spirituell führen?",
-        tips: "Engagiere dich in deiner Gemeinde oder einem spirituellen Umfeld und übernimm eine aktive Rolle."
+        meditation: "25. Verborgene Gesetze - Ethik und moralisches Verhalten. Welche ethischen Grundsätze leiten mein Verhalten? Wie setze ich diese in meinem täglichen Leben um?",
+        tips: "Freimaurer-Tipps: Engagiere dich in deiner Gemeinde oder einem spirituellen Umfeld und übernimm eine aktive Rolle.\nSelbsterkenntnis-Tipps: Reflektieren Sie regelmäßig über Ihre ethischen Grundsätze. Handeln Sie im Einklang mit Ihren Überzeugungen und Werten."
     },
     {
         name: "24. Grad – Prinz des Tabernakels (Prince of the Tabernacle)",
-        image: "/images/prinz_tabernakel.jpg",
         meaning: "Steht für Hingabe und die Verantwortung, heilige Traditionen zu bewahren.",
-        meditation: "Welche Traditionen und Überzeugungen halte ich für heilig, und wie bewahre ich sie?",
-        tips: "Setze dich dafür ein, bedeutungsvolle Traditionen in deiner Familie oder Gemeinschaft zu pflegen und weiterzugeben."
+        meditation: "34. Jenseits der Zahlen - Weisheit und Klarheit. Wie kann ich meine Weisheit und Klarheit weiterentwickeln? Welche neuen Erkenntnisse habe ich gewonnen?",
+        tips: "Freimaurer-Tipps: Setze dich dafür ein, bedeutungsvolle Traditionen in deiner Familie oder Gemeinschaft zu pflegen und weiterzugeben.\nSelbsterkenntnis-Tipps: Teilen Sie Ihre Weisheit mit anderen. Nutzen Sie Ihre Klarheit, um kluge Entscheidungen zu treffen."
     },
     {
         name: "25. Grad – Ritter der Ehernen Schlange (Knight of the Brazen Serpent)",
-        image: "/images/ritter_eherne_schlange.jpg",
         meaning: "Symbolisiert Heilung und die Rolle von Ritualen im spirituellen Leben.",
-        meditation: "Welche Rituale helfen mir, Heilung und Balance zu finden?",
-        tips: "Integriere heilende Rituale in dein tägliches Leben, sei es durch Meditation, Gebet oder andere spirituelle Praktiken."
+        meditation: "29. Astrophysisches Geheimnis - Meisterschaft und Selbstbeherrschung. Was bedeutet es für mich, Meister über mein eigenes Leben zu sein? Wie strebe ich nach Meisterschaft in meinen Handlungen und Entscheidungen?",
+        tips: "Freimaurer-Tipps: Integriere heilende Rituale in dein tägliches Leben, sei es durch Meditation, Gebet oder andere spirituelle Praktiken.\nSelbsterkenntnis-Tipps: Setze dir ehrgeizige Ziele und arbeite entschlossen daran, diese zu erreichen. Bleibe diszipliniert und fokussiert."
     },
     {
         name: "26. Grad – Prinz der Gnade (Prince of Mercy)",
-        image: "/images/prinz_gnade.jpg",
         meaning: "Dieser Grad steht für Barmherzigkeit und das Streben nach Mitgefühl im Umgang mit anderen.",
-        meditation: "Wie zeige ich Barmherzigkeit und Mitgefühl in meinem täglichen Leben?",
-        tips: "Finde Wege, um täglich Mitgefühl zu praktizieren, sei es durch kleine Gesten der Freundlichkeit oder durch größere Akte der Barmherzigkeit."
+        meditation: "5. Galaktische Reise - Demut und Selbstreflexion. In welchen Situationen habe ich Demut gezeigt oder hätte zeigen sollen? Was habe ich aus diesen Situationen gelernt?",
+        tips: "Freimaurer-Tipps: Finde Wege, um täglich Mitgefühl zu praktizieren, sei es durch kleine Gesten der Freundlichkeit oder durch größere Akte der Barmherzigkeit.\nSelbsterkenntnis-Tipps: Führe ein Demut-Tagebuch, in dem du Situationen notierst, in denen Demut eine Rolle spielte. Setze dir das Ziel, in Konfliktsituationen bewusst Demut zu zeigen. Reflektiere über die Auswirkungen von Demut in deinen zwischenmenschlichen Beziehungen."
     },
     {
         name: "27. Grad – Großkommandant des Tempels (Knight Commander of the Temple)",
-        image: "/images/grosskommandant_tempel.jpg",
         meaning: "Repräsentiert die Verteidigung des Glaubens und den Schutz heiliger Orte.",
-        meditation: "Wie verteidige ich meine Überzeugungen und die Werte, die mir heilig sind?",
-        tips: "Setze dich aktiv für den Schutz von Werten und Überzeugungen ein, die dir wichtig sind, und unterstütze andere in ihrer spirituellen Reise."
+        meditation: "30. Dimensionstor - Führung und Inspiration. Welche Qualitäten machen mich zu einem effektiven Führer? Wie kann ich diese Qualitäten weiterentwickeln?",
+        tips: "Freimaurer-Tipps: Setze dich aktiv für den Schutz von Werten und Überzeugungen ein, die dir wichtig sind, und unterstütze andere in ihrer spirituellen Reise.\nSelbsterkenntnis-Tipps: Übernehmen Sie Verantwortung und führen Sie mit Weisheit. Inspirieren Sie andere durch Ihr Beispiel und Ihre Handlungen."
     },
     {
         name: "28. Grad – Ritter des Sonnentempels (Knight of the Sun or Prince Adept)",
-        image: "/images/ritter_sonnentempel.jpg",
         meaning: "Symbolisiert Erleuchtung und das Streben nach Weisheit und Wahrheit.",
-        meditation: "Wie kann ich mehr Licht und Wissen in mein Leben bringen?",
-        tips: "Suche aktiv nach neuen Erkenntnissen und vertiefe dein Wissen in Bereichen, die dir spirituell wichtig sind."
+        meditation: "14. Quantenrealität - Kreativität und Innovation. Wie kann ich meine Kreativität fördern? Welche Aktivitäten inspirieren meine Kreativität?",
+        tips: "Freimaurer-Tipps: Suche aktiv nach neuen Erkenntnissen und vertiefe dein Wissen in Bereichen, die dir spirituell wichtig sind.\nSelbsterkenntnis-Tipps: Nimm regelmäßig an kreativen Workshops oder Kursen teil. Setze dir das Ziel, jeden Monat ein neues kreatives Projekt zu starten. Suche Inspiration durch Besuche in Museen, Galerien oder anderen kreativen Räumen."
     },
     {
         name: "29. Grad – Großschottischer Ritter des Heiligen Andreas (Grand Scottish Knight of St. Andrew)",
-        image: "/images/grossschottischer_ritter_st_andreas.jpg",
         meaning: "Steht für Tapferkeit und den Schutz der Schwachen.",
-        meditation: "Wie kann ich mutig sein und anderen in schwierigen Zeiten helfen?",
-        tips: "Zeige Mut in schwierigen Situationen und stehe für diejenigen ein, die Schutz und Unterstützung brauchen."
+        meditation: "15. Sternenwissen - Fortschritt und Entwicklung. Welche Fortschritte habe ich in meinen persönlichen oder beruflichen Fähigkeiten gemacht? Welche Erfolge und Herausforderungen habe ich dabei erlebt?",
+        tips: "Freimaurer-Tipps: Zeige Mut in schwierigen Situationen und stehe für diejenigen ein, die Schutz und Unterstützung brauchen.\nSelbsterkenntnis-Tipps: Dokumentieren Sie Ihre Fortschritte und feiern Sie Ihre Erfolge."
     },
     {
         name: "30. Grad – Ritter Kadosh (Knight Kadosh)",
-        image: "/images/ritter_kadosh.jpg",
         meaning: "Repräsentiert das Streben nach heiligen Zielen und die Verpflichtung zu hohen Idealen.",
-        meditation: "Welche heiligen Ziele verfolge ich in meinem Leben, und wie kann ich ihnen näherkommen?",
-        tips: "Arbeite kontinuierlich daran, deine höchsten Ideale zu erreichen, und lasse dich von ihnen in deinem täglichen Handeln leiten."
+        meditation: "18. Ewiges Mysterium - Mentorschaft und Weitergabe von Wissen. Wie kann ich als Mentor für andere fungieren und mein Wissen weitergeben? Welche Erfahrungen und Lektionen möchte ich teilen?",
+        tips: "Freimaurer-Tipps: Arbeite kontinuierlich daran, deine höchsten Ideale zu erreichen, und lasse dich von ihnen in deinem täglichen Handeln leiten.\nSelbsterkenntnis-Tipps: Seien Sie offen für die Rolle des Mentors. Teilen Sie Ihre Erfahrungen und unterstützen Sie andere in ihrem Wachstum."
     },
     {
         name: "31. Grad – Großinspektor Inquisitor (Grand Inspector Inquisitor Commander)",
-        image: "/images/grossinspektor_inquisitor.jpg",
         meaning: "Symbolisiert Gerechtigkeit und die Untersuchung der Wahrheit.",
-        meditation: "Wie strebe ich nach Wahrheit in meinem Leben, und wie kann ich gerecht sein?",
-        tips: "Setze dich für die Wahrheit ein, sei gerecht in deinen Urteilen und suche immer nach dem tieferen Verständnis von Situationen."
+        meditation: "31. Mathematische Poesie - Erbe und Einfluss. Welches Erbe möchte ich hinterlassen? Welchen Einfluss möchte ich auf die Gemeinschaft haben?",
+        tips: "Freimaurer-Tipps: Setze dich für die Wahrheit ein, sei gerecht in deinen Urteilen und suche immer nach dem tieferen Verständnis von Situationen.\nSelbsterkenntnis-Tipps: Arbeiten Sie daran, ein positives Erbe zu hinterlassen. Nutzen Sie Ihre Fähigkeiten und Ressourcen, um einen nachhaltigen Einfluss zu haben."
     },
     {
         name: "32. Grad – Souveräner Fürst des Königlichen Geheimnisses (Sublime Prince of the Royal Secret)",
-        image: "/images/souveraener_fuerst_koenigliches_geheimnis.jpg",
         meaning: "Steht für die höchste Erkenntnis und das Verständnis der tiefsten Geheimnisse des Lebens.",
-        meditation: "Welche tiefgründigen Geheimnisse oder Wahrheiten suche ich in meinem Leben zu verstehen?",
-        tips: "Widme dich dem lebenslangen Lernen und der Suche nach tieferem Wissen, um das Mysterium des Lebens besser zu verstehen."
+        meditation: "42. Ewige Antwort - Tiefe Reflexion und Selbstverwirklichung. Welche tiefen Reflexionen habe ich über mein Leben und meine Ziele angestellt? Wie kann ich diese Erkenntnisse nutzen, um meine Selbstverwirklichung zu fördern?",
+        tips: "Freimaurer-Tipps: Widme dich dem lebenslangen Lernen und der Suche nach tieferem Wissen, um das Mysterium des Lebens besser zu verstehen.\nSelbsterkenntnis-Tipps: Nehmen Sie sich regelmäßig Zeit für tiefe Reflexionen. Nutzen Sie diese Erkenntnisse, um Ihre Ziele klarer zu definieren und Ihre Selbstverwirklichung zu fördern."
     },
 
     // York Rite (York-Ritus)
     {
         name: "Mark Master",
-        image: "/images/mark_master.jpg",
         meaning: "Symbolisiert die Anerkennung von Arbeit und Leistung.",
-        meditation: "Wie erkenne ich meine eigenen Leistungen und die der anderen an?",
-        tips: "Lerne, deine Erfolge zu feiern und erkenne auch die Beiträge anderer Menschen an."
+        meditation: "16. Unbekannte Dimensionen - Anwendung von Wissen. Wie setze ich mein Wissen und meine Fähigkeiten ein, um anderen zu helfen und zur Gesellschaft beizutragen? Welche positiven Veränderungen habe ich dadurch bewirkt?",
+        tips: "Freimaurer-Tipps: Lerne, deine Erfolge zu feiern und erkenne auch die Beiträge anderer Menschen an.\nSelbsterkenntnis-Tipps: Nutzen Sie Ihr Wissen und Ihre Fähigkeiten, um einen positiven Beitrag zu leisten."
     },
     {
         name: "Past Master",
-        image: "/images/past_master.jpg",
         meaning: "Repräsentiert das Wissen und die Erfahrung früherer Meister.",
-        meditation: "Was kann ich aus den Erfahrungen der Vergangenheit lernen?",
-        tips: "Reflektiere über vergangene Erlebnisse und versuche, die darin enthaltenen Lektionen in deinem täglichen Leben anzuwenden."
+        meditation: "19. Zeitreise - Praktische Anwendung von Wissen. Wie setze ich mein Wissen und meine Fähigkeiten im Alltag ein? Welche positiven Veränderungen habe ich dadurch bewirkt?",
+        tips: "Freimaurer-Tipps: Reflektiere über vergangene Erlebnisse und versuche, die darin enthaltenen Lektionen in deinem täglichen Leben anzuwenden.\nSelbsterkenntnis-Tipps: Nutzen Sie Ihr Wissen und Ihre Fähigkeiten, um praktische Lösungen für alltägliche Probleme zu finden."
     },
     {
         name: "Most Excellent Master",
-        image: "/images/most_excellent_master.jpg",
         meaning: "Steht für Vollendung und Exzellenz in der Arbeit.",
-        meditation: "Wie strebe ich nach Exzellenz in meiner Arbeit? Was bedeutet es, meine Aufgaben zu perfektionieren?",
-        tips: "Setze dir hohe Standards und arbeite kontinuierlich daran, deine Fähigkeiten zu verbessern."
+        meditation: "17. Zahlenspiel - Selbstdisziplin und Fokus. Welche Rolle spielt Selbstdisziplin in meinem Leben? Wie kann ich meine Selbstdisziplin weiter stärken?",
+        tips: "Freimaurer-Tipps: Setze dir hohe Standards und arbeite kontinuierlich daran, deine Fähigkeiten zu verbessern.\nSelbsterkenntnis-Tipps: Entwickeln Sie Routinen, die Ihre Selbstdisziplin fördern. Setzen Sie sich klare Ziele und bleiben Sie fokussiert."
     },
     {
         name: "Royal Arch Mason",
-        image: "/images/royal_arch_mason.jpg",
         meaning: "Symbolisiert die Entdeckung verlorener Geheimnisse und tiefgründiger Weisheit.",
-        meditation: "Welche tiefgründigen Wahrheiten habe ich möglicherweise übersehen? Wie kann ich sie entdecken?",
-        tips: "Bleibe neugierig und offen für das Lernen, um verlorene Weisheiten wiederzuentdecken."
+        meditation: "24. Quantenberechnung - Kontinuierliche Lernbereitschaft. Welche neuen Bereiche oder Themen interessieren mich? Wie kann ich mein Wissen in diesen Bereichen erweitern?",
+        tips: "Freimaurer-Tipps: Bleibe neugierig und offen für das Lernen, um verlorene Weisheiten wiederzuentdecken.\nSelbsterkenntnis-Tipps: Setzen Sie sich Lernziele und verfolgen Sie sie kontinuierlich. Bleiben Sie neugierig und offen für neue Erkenntnisse."
     },
     {
         name: "Select Master",
-        image: "/images/select_master.jpg",
         meaning: "Steht für die Geheimhaltung und Auswahl in der freimaurerischen Arbeit.",
-        meditation: "Wie bewahre ich Geheimnisse? Welche Informationen teile ich mit anderen und warum?",
-        tips: "Achte darauf, wem du welche Informationen anvertraust, und respektiere die Geheimnisse anderer."
+        meditation: "33. Numerische Philosophie - Lebensziele und Visionen. Welche Lebensziele verfolge ich? Wie kann ich eine klare Vision für meine Zukunft entwickeln?",
+        tips: "Freimaurer-Tipps: Achte darauf, wem du welche Informationen anvertraust, und respektiere die Geheimnisse anderer.\nSelbsterkenntnis-Tipps: Reflektieren Sie regelmäßig über Ihre Lebensziele. Entwickeln Sie eine klare Vision und setzen Sie sich realistische Ziele."
     },
     {
         name: "Super Excellent Master",
-        image: "/images/super_excellent_master.jpg",
         meaning: "Steht für Loyalität und die Pflicht gegenüber der Freimaurerei.",
-        meditation: "Wie drücke ich meine Loyalität gegenüber meinen Überzeugungen und meiner Gemeinschaft aus?",
-        tips: "Sei dir deiner Verpflichtungen bewusst und halte deine Versprechen gegenüber dir selbst und anderen."
+        meditation: "28. Die große Gleichung - Mathematisches Denken und Analyse. Wie nutze ich mathematisches Denken, um komplexe Probleme zu analysieren und zu lösen? Welche analytischen Fähigkeiten habe ich entwickelt?",
+        tips: "Freimaurer-Tipps: Sei dir deiner Verpflichtungen bewusst und halte deine Versprechen gegenüber dir selbst und anderen.\nSelbsterkenntnis-Tipps: Üben Sie sich in analytischem Denken durch regelmäßige Herausforderungen. Nutzen Sie Ihre mathematischen Fähigkeiten, um strukturierte Lösungen zu finden."
     },
     {
         name: "Order of the Red Cross",
-        image: "/images/order_red_cross.jpg",
         meaning: "Repräsentiert die Tugenden des Glaubens und der Wahrheit.",
-        meditation: "Wie setze ich mich für die Wahrheit ein? Wie stärke ich meinen Glauben?",
-        tips: "Arbeite daran, immer ehrlich zu sein und stärke deinen Glauben durch regelmäßige Praxis."
+        meditation: "20. Paradoxe Wahrheit - Teamarbeit und Kooperation. Wie kann ich besser mit anderen zusammenarbeiten? Welche Stärken und Schwächen bringe ich in ein Team ein?",
+        tips: "Freimaurer-Tipps: Arbeite daran, immer ehrlich zu sein und stärke deinen Glauben durch regelmäßige Praxis.\nSelbsterkenntnis-Tipps: Arbeiten Sie eng mit anderen zusammen und nutzen Sie die Stärken jedes Einzelnen. Seien Sie offen für Feedback und Zusammenarbeit."
     },
     {
         name: "Order of Knights of Malta",
-        image: "/images/order_knights_malta.jpg",
         meaning: "Symbolisiert den christlichen Glauben und die Verteidigung der Christenheit.",
-        meditation: "Wie verteidige und fördere ich meine Glaubenswerte?",
-        tips: "Engagiere dich in gemeinnützigen Aktivitäten, die mit deinen Glaubensüberzeugungen im Einklang stehen."
+        meditation: "9. Die Antwort - Effektive Lernstrategien. Wie kann ich meine Lernstrategien verbessern? Welche Methoden haben sich als besonders effektiv erwiesen?",
+        tips: "Freimaurer-Tipps: Engagiere dich in gemeinnützigen Aktivitäten, die mit deinen Glaubensüberzeugungen im Einklang stehen.\nSelbsterkenntnis-Tipps: Teste eine neue Lernmethode jede Woche und dokumentiere die Ergebnisse. Teile deine Erfahrungen mit Lernstrategien in einer Studiengruppe oder einem Forum. Setze dir das Ziel, ein Buch über Lernmethoden zu lesen und mindestens eine der Techniken anzuwenden."
     },
     {
         name: "Order of the Knights Templar",
-        image: "/images/order_knights_templar.jpg",
         meaning: "Steht für den spirituellen Rittertum und den Schutz des Glaubens.",
-        meditation: "Wie kann ich meinen Glauben verteidigen und stärken?",
-        tips: "Suche nach Wegen, um deinen Glauben durch Handlungen und Taten im Alltag zu leben und zu schützen."
+        meditation: "4. Präkubische Magie - Umgang mit Veränderungen und Herausforderungen. Wie gehe ich mit neuen Herausforderungen um? Welche Strategien habe ich entwickelt, um mit Herausforderungen umzugehen?",
+        tips: "Freimaurer-Tipps: Suche nach Wegen, um deinen Glauben durch Handlungen und Taten im Alltag zu leben und zu schützen.\nSelbsterkenntnis-Tipps: Identifiziere eine aktuelle Herausforderung und entwickle einen Aktionsplan zu deren Bewältigung. Reflektiere täglich über deine Fortschritte und Anpassungen im Umgang mit dieser Herausforderung. Suche nach einem Mentor oder einer Supportgruppe, die dir helfen kann, Strategien zur Bewältigung von Herausforderungen zu entwickeln."
     },
 
     // Allied Organizations (Verbundene Organisationen)
     {
         name: "Shriners",
-        image: "/images/shriners.jpg",
         meaning: "Symbolisiert Philanthropie und Wohltätigkeit.",
-        meditation: "Wie kann ich meinen Beitrag zur Gesellschaft leisten?",
-        tips: "Engagiere dich in wohltätigen Aktivitäten und setze dich für andere ein."
+        meditation: "27. Unendliche Spirale - Kreatives Denken und Problemlösung. Wie nutze ich kreatives Denken, um Probleme zu lösen? Welche kreativen Ansätze haben sich als besonders effektiv erwiesen?",
+        tips: "Freimaurer-Tipps: Engagiere dich in wohltätigen Aktivitäten und setze dich für andere ein.\nSelbsterkenntnis-Tipps: Fördern Sie Ihr kreatives Denken durch regelmäßige Übungen. Seien Sie offen für unkonventionelle Lösungen."
     },
     {
         name: "Order of the Eastern Star",
-        image: "/images/eastern_star.jpg",
         meaning: "Fördert freimaurerische Werte in Familien.",
-        meditation: "Wie kann ich meine Familie in freimaurerische Werte einbeziehen?",
-        tips: "Teile deine Werte mit deiner Familie und fördere ethisches Verhalten."
+        meditation: "13. Galaktische Rätsel - Effektive Kommunikation. Wie kann ich meine Kommunikationsfähigkeiten verbessern? Welche Techniken kann ich anwenden, um klarer und effektiver zu kommunizieren?",
+        tips: "Freimaurer-Tipps: Teile deine Werte mit deiner Familie und fördere ethisches Verhalten.\nSelbsterkenntnis-Tipps: Nimm an einem Kommunikationstraining teil oder lies ein Buch über effektive Kommunikation. Praktiziere aktives Zuhören in allen Gesprächen für eine Woche. Erhalte Feedback zu deiner Kommunikationsweise von Freunden oder Kollegen."
     },
     {
         name: "Order of the Amaranth",
-        image: "/images/order_amaranth.jpg",
         meaning: "Vertritt die Ideale von Wahrheit, Treue und Liebe.",
-        meditation: "Wie lebe ich die Ideale von Wahrheit, Treue und Liebe in meinem Alltag?",
-        tips: "Reflektiere über diese Ideale und finde Wege, sie in deinem täglichen Leben umzusetzen."
+        meditation: "18. Ewiges Mysterium - Mentorschaft und Weitergabe von Wissen. Wie kann ich als Mentor für andere fungieren und mein Wissen weitergeben? Welche Erfahrungen und Lektionen möchte ich teilen?",
+        tips: "Freimaurer-Tipps: Reflektiere über diese Ideale und finde Wege, sie in deinem täglichen Leben umzusetzen.\nSelbsterkenntnis-Tipps: Seien Sie offen für die Rolle des Mentors. Teilen Sie Ihre Erfahrungen und unterstützen Sie andere in ihrem Wachstum."
     },
     {
         name: "Order of the White Shrine of Jerusalem",
-        image: "/images/white_shrine_of_jerusalem.jpg",
         meaning: "Steht für Dienst am Nächsten und die Förderung des Glaubens.",
-        meditation: "Wie kann ich anderen dienen und gleichzeitig meinen Glauben fördern?",
-        tips: "Engagiere dich in Gemeinschaftsdiensten und setze dich für die Stärkung deines Glaubens ein."
+        meditation: "20. Paradoxe Wahrheit - Teamarbeit und Kooperation. Wie kann ich besser mit anderen zusammenarbeiten? Welche Stärken und Schwächen bringe ich in ein Team ein?",
+        tips: "Freimaurer-Tipps: Engagiere dich in Gemeinschaftsdiensten und setze dich für die Stärkung deines Glaubens ein.\nSelbsterkenntnis-Tipps: Arbeiten Sie eng mit anderen zusammen und nutzen Sie die Stärken jedes Einzelnen. Seien Sie offen für Feedback und Zusammenarbeit."
     },
     {
         name: "Tall Cedars of Lebanon",
-        image: "/images/tall_cedars.jpg",
         meaning: "Symbolisiert Freundschaft, Fröhlichkeit und Hilfsbereitschaft.",
-        meditation: "Wie kann ich durch Freundschaft und Freude zu einer besseren Gemeinschaft beitragen?",
-        tips: "Pflege freundschaftliche Beziehungen und bringe Freude in dein Umfeld."
+        meditation: "12. Mathematische Harmonie - Zeitmanagement und Produktivität. Wie kann ich meine Zeit besser managen? Welche Techniken helfen mir, meine Zeit effektiv zu nutzen?",
+        tips: "Freimaurer-Tipps: Pflege freundschaftliche Beziehungen und bringe Freude in dein Umfeld.\nSelbsterkenntnis-Tipps: Lerne und wende mindestens zwei neue Zeitmanagement-Techniken an. Überprüfe und aktualisiere deine täglichen Routinen, um mehr Produktivität zu erzielen. Führe ein Zeitprotokoll für eine Woche, um Zeitverschwendung zu identifizieren und zu eliminieren."
     },
     {
         name: "Grotto",
-        image: "/images/grotto.jpg",
         meaning: "Vertritt die Ideale der Brüderlichkeit und des sozialen Engagements.",
-        meditation: "Wie fördere ich Brüderlichkeit und soziales Engagement in meinem Leben?",
-        tips: "Engagiere dich in sozialen Projekten und fördere den Zusammenhalt in deiner Gemeinschaft."
+        meditation: "14. Quantenrealität - Kreativität und Innovation. Wie kann ich meine Kreativität fördern? Welche Aktivitäten inspirieren meine Kreativität?",
+        tips: "Freimaurer-Tipps: Engagiere dich in sozialen Projekten und fördere den Zusammenhalt in deiner Gemeinschaft.\nSelbsterkenntnis-Tipps: Nimm regelmäßig an kreativen Workshops oder Kursen teil. Setze dir das Ziel, jeden Monat ein neues kreatives Projekt zu starten. Suche Inspiration durch Besuche in Museen, Galerien oder anderen kreativen Räumen."
     },
     {
         name: "Order of DeMolay",
-        image: "/images/order_demolay.jpg",
         meaning: "Steht für die Förderung junger Männer und die Vermittlung freimaurerischer Werte.",
-        meditation: "Wie kann ich jungen Menschen helfen, freimaurerische Werte zu verstehen und zu leben?",
-        tips: "Unterstütze Jugendorganisationen oder werde Mentor, um junge Menschen in ihrer Entwicklung zu fördern."
+        meditation: "17. Zahlenspiel - Selbstdisziplin und Fokus. Welche Rolle spielt Selbstdisziplin in meinem Leben? Wie kann ich meine Selbstdisziplin weiter stärken?",
+        tips: "Freimaurer-Tipps: Unterstütze Jugendorganisationen oder werde Mentor, um junge Menschen in ihrer Entwicklung zu fördern.\nSelbsterkenntnis-Tipps: Entwickeln Sie Routinen, die Ihre Selbstdisziplin fördern. Setzen Sie sich klare Ziele und bleiben Sie fokussiert."
     },
     {
         name: "Job's Daughters",
-        image: "/images/jobs_daughters.jpg",
         meaning: "Fördert die moralische und spirituelle Entwicklung junger Frauen.",
-        meditation: "Wie kann ich junge Frauen in ihrer moralischen und spirituellen Entwicklung unterstützen?",
-        tips: "Engagiere dich in Programmen, die Mädchen und junge Frauen in ihrer Entwicklung unterstützen."
+        meditation: "8. Kosmische Weisheit - Innere Werte und Selbstreflexion. Wie kann ich meine inneren Werte besser verstehen? Welche Werte sind mir am wichtigsten und warum?",
+        tips: "Freimaurer-Tipps: Engagiere dich in Programmen, die Mädchen und junge Frauen in ihrer Entwicklung unterstützen.\nSelbsterkenntnis-Tipps: Führe eine Werteanalyse durch, um deine Top 5 Werte zu identifizieren und wie du sie leben kannst. Setze dir das Ziel, jeden Monat einen deiner Kernwerte durch eine spezifische Aktion zu stärken. Organisiere eine Diskussionsrunde mit Freunden über Werte und deren Einfluss auf Entscheidungen."
     },
     {
         name: "International Order of the Rainbow for Girls",
-        image: "/images/rainbow_for_girls.jpg",
         meaning: "Steht für die Förderung von Werten wie Glaube, Hoffnung und Nächstenliebe bei jungen Frauen.",
-        meditation: "Wie kann ich diese Werte in meinem Leben fördern und jungen Frauen beibringen?",
-        tips: "Engagiere dich in Programmen, die auf die Förderung dieser Werte bei jungen Frauen abzielen."
+        meditation: "32. Kosmischer Tanz - Kontinuierliches Lernen und Wachstum. Welche neuen Bereiche oder Themen interessieren mich? Wie kann ich mein Wissen in diesen Bereichen erweitern?",
+        tips: "Freimaurer-Tipps: Engagiere dich in Programmen, die auf die Förderung dieser Werte bei jungen Frauen abzielen.\nSelbsterkenntnis-Tipps: Setzen Sie sich kontinuierlich neue Lernziele. Bleiben Sie neugierig und offen für neue Erkenntnisse."
     },
 
     // Symbole
     {
         name: "Winkelmaß und Zirkel (Square and Compasses)",
-        image: "/images/winkelmass_und_zirkel.jpg",
-        meaning: "Symbolisiert Moral und die Grenzen der Vernunft und des Selbstbeherrschung.",
-        meditation: "Wie halte ich mich an moralische Prinzipien in meinem Leben?",
-        tips: "Führe eine Reflexion über deine moralischen Werte und setze sie in deinem Alltag um."
+        meaning: "Symbolisiert Moral und die Grenzen der Vernunft und der Selbstbeherrschung.",
+        meditation: "12. Mathematische Harmonie - Zeitmanagement und Produktivität. Wie kann ich meine Zeit besser managen? Welche Techniken helfen mir, meine Zeit effektiv zu nutzen?",
+        tips: "Freimaurer-Tipps: Führe eine Reflexion über deine moralischen Werte und setze sie in deinem Alltag um.\nSelbsterkenntnis-Tipps: Lerne und wende mindestens zwei neue Zeitmanagement-Techniken an. Überprüfe und aktualisiere deine täglichen Routinen, um mehr Produktivität zu erzielen. Führe ein Zeitprotokoll für eine Woche, um Zeitverschwendung zu identifizieren und zu eliminieren."
     },
     {
         name: "Allsehendes Auge (Eye of Providence)",
-        image: "/images/allsehendes_auge.jpg",
         meaning: "Steht für die göttliche Überwachung und die Ethik in allen Handlungen.",
-        meditation: "Wie kann ich ethisch korrekt handeln, selbst wenn niemand zusieht?",
-        tips: "Verhalte dich stets so, dass du stolz darauf sein kannst, wenn alles, was du tust, öffentlich bekannt wird."
+        meditation: "8. Kosmische Weisheit - Innere Werte und Selbstreflexion. Wie kann ich meine inneren Werte besser verstehen? Welche Werte sind mir am wichtigsten und warum?",
+        tips: "Freimaurer-Tipps: Verhalte dich stets so, dass du stolz darauf sein kannst, wenn alles, was du tust, öffentlich bekannt wird.\nSelbsterkenntnis-Tipps: Führe eine Werteanalyse durch, um deine Top 5 Werte zu identifizieren und wie du sie leben kannst. Setze dir das Ziel, jeden Monat einen deiner Kernwerte durch eine spezifische Aktion zu stärken. Organisiere eine Diskussionsrunde mit Freunden über Werte und deren Einfluss auf Entscheidungen."
     },
     {
         name: "Schurz (Apron)",
-        image: "/images/schurz.jpg",
         meaning: "Symbolisiert Reinheit und die Arbeit im Dienste der Menschheit.",
-        meditation: "Wie kann ich durch meine Arbeit zur Verbesserung der Welt beitragen?",
-        tips: "Trage deinen Teil dazu bei, indem du in deiner Arbeit und deinem täglichen Leben auf Integrität achtest."
+        meditation: "19. Zeitreise - Praktische Anwendung von Wissen. Wie setze ich mein Wissen und meine Fähigkeiten im Alltag ein? Welche positiven Veränderungen habe ich dadurch bewirkt?",
+        tips: "Freimaurer-Tipps: Trage deinen Teil dazu bei, indem du in deiner Arbeit und deinem täglichen Leben auf Integrität achtest.\nSelbsterkenntnis-Tipps: Nutzen Sie Ihr Wissen und Ihre Fähigkeiten, um praktische Lösungen für alltägliche Probleme zu finden."
     },
     {
         name: "Schwert (Sword)",
-        image: "/images/schwert.jpg",
         meaning: "Steht für den Schutz der Wahrheit und die Verteidigung gegen Ungerechtigkeit.",
-        meditation: "Wie verteidige ich die Wahrheit in schwierigen Situationen?",
-        tips: "Sei mutig und verteidige deine Überzeugungen, selbst wenn es unangenehm oder schwierig ist."
+        meditation: "25. Verborgene Gesetze - Ethik und moralisches Verhalten. Welche ethischen Grundsätze leiten mein Verhalten? Wie setze ich diese in meinem täglichen Leben um?",
+        tips: "Freimaurer-Tipps: Sei mutig und verteidige deine Überzeugungen, selbst wenn es unangenehm oder schwierig ist.\nSelbsterkenntnis-Tipps: Reflektieren Sie regelmäßig über Ihre ethischen Grundsätze. Handeln Sie im Einklang mit Ihren Überzeugungen und Werten."
     },
     {
         name: "Flammendes Schwert (Flaming Sword)",
-        image: "/images/flammendes_schwert.jpg",
         meaning: "Repräsentiert die reinigende Kraft des Feuers und die Verteidigung der Tugenden.",
-        meditation: "Wie kann ich meine Tugenden bewahren und verteidigen?",
-        tips: "Achte darauf, deine moralischen Überzeugungen in jeder Situation zu verteidigen."
+        meditation: "14. Quantenrealität - Kreativität und Innovation. Wie kann ich meine Kreativität fördern? Welche Aktivitäten inspirieren meine Kreativität?",
+        tips: "Freimaurer-Tipps: Achte darauf, deine moralischen Überzeugungen in jeder Situation zu verteidigen.\nSelbsterkenntnis-Tipps: Nimm regelmäßig an kreativen Workshops oder Kursen teil. Setze dir das Ziel, jeden Monat ein neues kreatives Projekt zu starten. Suche Inspiration durch Besuche in Museen, Galerien oder anderen kreativen Räumen."
     },
     {
         name: "Pyramide (Pyramid)",
-        image: "/images/pyramide.jpg",
         meaning: "Symbolisiert Stabilität und die Verbindung zwischen dem Irdischen und dem Göttlichen.",
-        meditation: "Wie kann ich Stabilität in mein Leben bringen, während ich spirituell wachse?",
-        tips: "Arbeite daran, ein stabiles Fundament in deinem Leben zu schaffen, auf dem du spirituell wachsen kannst."
+        meditation: "32. Kosmischer Tanz - Kontinuierliches Lernen und Wachstum. Welche neuen Bereiche oder Themen interessieren mich? Wie kann ich mein Wissen in diesen Bereichen erweitern?",
+        tips: "Freimaurer-Tipps: Arbeite daran, ein stabiles Fundament in deinem Leben zu schaffen, auf dem du spirituell wachsen kannst.\nSelbsterkenntnis-Tipps: Setzen Sie sich kontinuierlich neue Lernziele. Bleiben Sie neugierig und offen für neue Erkenntnisse."
     },
     {
         name: "Pentagramm (Fünfzackiger Stern)",
-        image: "/images/pentagramm.jpg",
         meaning: "Repräsentiert das Gleichgewicht der Elemente und die Harmonie im Universum.",
-        meditation: "Wie kann ich Balance und Harmonie in meinem Leben erreichen?",
-        tips: "Praktiziere Achtsamkeit und suche nach Wegen, um ein ausgewogenes Leben zu führen."
+        meditation: "37. Galaktische Symphonie - Balance und Harmonie. Wie finde ich Balance und Harmonie in meinem Leben? Welche Praktiken helfen mir, inneren Frieden zu finden?",
+        tips: "Freimaurer-Tipps: Praktiziere Achtsamkeit und suche nach Wegen, um ein ausgewogenes Leben zu führen.\nSelbsterkenntnis-Tipps: Finden Sie Praktiken, die Ihnen helfen, Balance und Harmonie zu finden. Nutzen Sie Meditation, Yoga oder andere Methoden, um inneren Frieden zu erreichen."
     },
     {
         name: "Royal Arch (Königlicher Bogen)",
-        image: "/images/royal_arch.jpg",
         meaning: "Symbolisiert die Vollendung des Freimaurergebäudes und das Finden von verlorenem Wissen.",
-        meditation: "Welche verborgenen Wahrheiten suche ich in meinem Leben?",
-        tips: "Bleibe neugierig und offen für das Lernen, um tiefere Erkenntnisse zu gewinnen."
+        meditation: "42. Ewige Antwort - Tiefe Reflexion und Selbstverwirklichung. Welche tiefen Reflexionen habe ich über mein Leben und meine Ziele angestellt? Wie kann ich diese Erkenntnisse nutzen, um meine Selbstverwirklichung zu fördern?",
+        tips: "Freimaurer-Tipps: Bleibe neugierig und offen für das Lernen, um tiefere Erkenntnisse zu gewinnen.\nSelbsterkenntnis-Tipps: Nehmen Sie sich regelmäßig Zeit für tiefe Reflexionen. Nutzen Sie diese Erkenntnisse, um Ihre Ziele klarer zu definieren und Ihre Selbstverwirklichung zu fördern."
     },
     {
         name: "Templerkreuz (Cross of the Knights Templar)",
-        image: "/images/templerkreuz.jpg",
         meaning: "Repräsentiert den christlichen Glauben und die Verbindung zur Tradition der Tempelritter.",
-        meditation: "Wie kann ich meinen Glauben in meinem täglichen Leben zum Ausdruck bringen?",
-        tips: "Lebe deinen Glauben durch Handlungen und setze dich aktiv für deine Überzeugungen ein."
+        meditation: "31. Mathematische Poesie - Erbe und Einfluss. Welches Erbe möchte ich hinterlassen? Welchen Einfluss möchte ich auf die Gemeinschaft haben?",
+        tips: "Freimaurer-Tipps: Lebe deinen Glauben durch Handlungen und setze dich aktiv für deine Überzeugungen ein.\nSelbsterkenntnis-Tipps: Arbeiten Sie daran, ein positives Erbe zu hinterlassen. Nutzen Sie Ihre Fähigkeiten und Ressourcen, um einen nachhaltigen Einfluss zu haben."
     },
     {
         name: "Dreieck und Allsehendes Auge (Triangle and All-Seeing Eye)",
-        image: "/images/dreieck_allsehendes_auge.jpg",
         meaning: "Repräsentiert die Dreieinigkeit und die göttliche Überwachung.",
-        meditation: "Wie fühle ich mich von einer höheren Macht geführt und beobachtet?",
-        tips: "Verhalte dich so, als würdest du ständig von einer höheren Macht beobachtet, und richte dein Leben danach aus."
+        meditation: "22. Algorithmus der Weisheit - Strategien zur persönlichen Verbesserung. Welche Strategien nutze ich, um mich kontinuierlich zu verbessern? Welche Ergebnisse habe ich bisher erzielt?",
+        tips: "Freimaurer-Tipps: Verhalte dich so, als würdest du ständig von einer höheren Macht beobachtet, und richte dein Leben danach aus.\nSelbsterkenntnis-Tipps: Überprüfen Sie regelmäßig Ihre Strategien und passen Sie sie bei Bedarf an. Bleiben Sie offen für neue Ansätze und Methoden."
     },
     {
         name: "Arche (Ark)",
-        image: "/images/arche.jpg",
         meaning: "Symbolisiert Rettung und den Schutz wertvoller Dinge.",
-        meditation: "Was sind die wertvollsten Aspekte meines Lebens, die ich schützen möchte?",
-        tips: "Bewahre und schütze die Dinge, die dir am wichtigsten sind, sei es deine Beziehungen, deine Werte oder dein Wissen."
+        meditation: "8. Kosmische Weisheit - Innere Werte und Selbstreflexion. Wie kann ich meine inneren Werte besser verstehen? Welche Werte sind mir am wichtigsten und warum?",
+        tips: "Freimaurer-Tipps: Bewahre und schütze die Dinge, die dir am wichtigsten sind, sei es deine Beziehungen, deine Werte oder dein Wissen.\nSelbsterkenntnis-Tipps: Führe eine Werteanalyse durch, um deine Top 5 Werte zu identifizieren und wie du sie leben kannst. Setze dir das Ziel, jeden Monat einen deiner Kernwerte durch eine spezifische Aktion zu stärken. Organisiere eine Diskussionsrunde mit Freunden über Werte und deren Einfluss auf Entscheidungen."
     },
     {
         name: "Schleier der Isis (Veil of Isis)",
-        image: "/images/schleier_der_isis.jpg",
         meaning: "Repräsentiert das Geheimnisvolle und das Verborgene Wissen.",
-        meditation: "Welche Mysterien des Lebens habe ich noch nicht verstanden?",
-        tips: "Sei offen für das Unbekannte und suche aktiv nach tieferem Verständnis und Wissen."
+        meditation: "34. Jenseits der Zahlen - Weisheit und Klarheit. Wie kann ich meine Weisheit und Klarheit weiterentwickeln? Welche neuen Erkenntnisse habe ich gewonnen?",
+        tips: "Freimaurer-Tipps: Sei offen für das Unbekannte und suche aktiv nach tieferem Verständnis und Wissen.\nSelbsterkenntnis-Tipps: Teilen Sie Ihre Weisheit mit anderen. Nutzen Sie Ihre Klarheit, um kluge Entscheidungen zu treffen."
     },
     {
         name: "Shriner-Sichel und Schwert (Shriner Scimitar and Crescent)",
-        image: "/images/shriner_sichel_schwert.jpg",
         meaning: "Steht für die orientalischen Wurzeln und die Philanthropie der Shriners.",
-        meditation: "Wie kann ich durch Philanthropie einen positiven Einfluss haben?",
-        tips: "Engagiere dich in wohltätigen Aktivitäten und setze deine Ressourcen für das Wohl anderer ein."
+        meditation: "14. Quantenrealität - Kreativität und Innovation. Wie kann ich meine Kreativität fördern? Welche Aktivitäten inspirieren meine Kreativität?",
+        tips: "Freimaurer-Tipps: Engagiere dich in wohltätigen Aktivitäten und setze deine Ressourcen für das Wohl anderer ein.\nSelbsterkenntnis-Tipps: Nimm regelmäßig an kreativen Workshops oder Kursen teil. Setze dir das Ziel, jeden Monat ein neues kreatives Projekt zu starten. Suche Inspiration durch Besuche in Museen, Galerien oder anderen kreativen Räumen."
     },
     {
         name: "Stern von DeMolay (DeMolay Star)",
-        image: "/images/stern_von_demolay.jpg",
         meaning: "Symbolisiert die fünf Tugenden: Reinheit, Freundschaft, Loyalität, Mut und Höflichkeit.",
-        meditation: "Wie lebe ich diese Tugenden in meinem täglichen Leben?",
-        tips: "Fokussiere dich auf eine Tugend pro Woche und finde Wege, sie bewusst in deinem Alltag zu integrieren."
+        meditation: "18. Ewiges Mysterium - Mentorschaft und Weitergabe von Wissen. Wie kann ich als Mentor für andere fungieren und mein Wissen weitergeben? Welche Erfahrungen und Lektionen möchte ich teilen?",
+        tips: "Freimaurer-Tipps: Fokussiere dich auf eine Tugend pro Woche und finde Wege, sie bewusst in deinem Alltag zu integrieren.\nSelbsterkenntnis-Tipps: Seien Sie offen für die Rolle des Mentors. Teilen Sie Ihre Erfahrungen und unterstützen Sie andere in ihrem Wachstum."
     },
     {
         name: "Tempel (Temple)",
-        image: "/images/tempel.jpg",
         meaning: "Repräsentiert das spirituelle Zuhause und die Verbindung zu den biblischen Wurzeln der Freimaurerei.",
-        meditation: "Wie kann ich mein spirituelles Zuhause pflegen und stärken?",
-        tips: "Schaffe einen physischen oder metaphorischen Ort der Ruhe und des Gebets, an dem du dich spirituell aufladen kannst."
+        meditation: "36. Zahlenorakel - Selbstverwirklichung und Erfolg. Wie definiere ich Erfolg für mich selbst? Welche Schritte unternehme ich, um meine Ziele zu erreichen?",
+        tips: "Freimaurer-Tipps: Schaffe einen physischen oder metaphorischen Ort der Ruhe und des Gebets, an dem du dich spirituell aufladen kannst.\nSelbsterkenntnis-Tipps: Setzen Sie sich klare Ziele und arbeiten Sie entschlossen daran, diese zu erreichen. Feiern Sie Ihre Erfolge und lernen Sie aus Ihren Misserfolgen."
     }
 ];
 

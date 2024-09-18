@@ -1,157 +1,157 @@
 const tarotkarten = [
   { 
-    name: "Der Narr (The Fool)", 
-    image: "/images/the_fool.jpg",
-    meaning: "Der Narr steht für Neuanfang, Abenteuer und Unschuld. Er ermutigt dazu, Risiken einzugehen und dem Ruf des Herzens zu folgen.", 
-    meditation: "Was möchte ich in meinem Leben neu beginnen?", 
-    tips: "Seien Sie offen für neue Erfahrungen und haben Sie keine Angst, Fehler zu machen."
+    "name": "Der Narr (0)", 
+    "image": "/images/the_fool.jpg", 
+    "meaning": "Neuanfang, Unschuld, Naivität. Der Narr steht am Anfang einer Reise und verkörpert Unbekümmertheit und Vertrauen ins Leben.", 
+    "meditation": "Was möchte ich in meinem Leben neu beginnen?", 
+    "tips": "Seien Sie offen für neue Erfahrungen und haben Sie keine Angst, Fehler zu machen." 
   },
   { 
-    name: "Der Magier (The Magician)", 
-    image: "/images/the_magician.jpg",
-    meaning: "Der Magier symbolisiert Willenskraft, Manifestation und die Macht des Geistes. Er zeigt, dass alles möglich ist, wenn man seine Fähigkeiten einsetzt.", 
-    meditation: "Wie kann ich meine Fähigkeiten und Talente besser nutzen?", 
-    tips: "Fokussieren Sie sich auf Ihre Ziele und nutzen Sie Ihre Fähigkeiten, um sie zu erreichen."
+    "name": "Der Magier (I)", 
+    "image": "/images/the_magician.jpg", 
+    "meaning": "Selbstbewusstsein, Manifestation, Wille. Der Magier symbolisiert die Fähigkeit, Ziele durch Willenskraft und Konzentration zu erreichen.", 
+    "meditation": "Wie kann ich meine Fähigkeiten und Talente besser nutzen?", 
+    "tips": "Fokussieren Sie sich auf Ihre Ziele und nutzen Sie Ihre Fähigkeiten, um sie zu erreichen." 
   },
   { 
-    name: "Die Hohepriesterin (The High Priestess)", 
-    image: "/images/the_high_priestess.jpg",
-    meaning: "Die Hohepriesterin repräsentiert Intuition, Geheimnisse und das Unbewusste. Sie fordert auf, auf die innere Stimme zu hören.", 
-    meditation: "Welche Geheimnisse liegen in meinem Inneren verborgen?", 
-    tips: "Vertrauen Sie Ihrer Intuition und erkunden Sie Ihre inneren Tiefen."
+    "name": "Die Hohepriesterin (II)", 
+    "image": "/images/the_high_priestess.jpg", 
+    "meaning": "Intuition, Geheimnis, verborgenes Wissen. Sie steht für innere Weisheit und das Verständnis der unsichtbaren Welt.", 
+    "meditation": "Welche Geheimnisse liegen in meinem Inneren verborgen?", 
+    "tips": "Vertrauen Sie Ihrer Intuition und erkunden Sie Ihre inneren Tiefen." 
   },
   { 
-    name: "Die Herrscherin (The Empress)", 
-    image: "/images/the_empress.jpg",
-    meaning: "Die Herrscherin steht für Fruchtbarkeit, Kreativität und mütterliche Energie. Sie symbolisiert Wachstum und Wohlstand.", 
-    meditation: "Wie kann ich mehr Kreativität in mein Leben bringen?", 
-    tips: "Nehmen Sie sich Zeit für kreative Projekte und pflegen Sie Ihre Beziehungen."
+    "name": "Die Herrscherin (III)", 
+    "image": "/images/the_empress.jpg", 
+    "meaning": "Fruchtbarkeit, Fülle, Natur. Die Herrscherin ist das Symbol für Mutter Natur und schöpferische Kräfte.", 
+    "meditation": "Wie kann ich mehr Kreativität in mein Leben bringen?", 
+    "tips": "Nehmen Sie sich Zeit für kreative Projekte und pflegen Sie Ihre Beziehungen." 
   },
   { 
-    name: "Der Herrscher (The Emperor)", 
-    image: "/images/the_emperor.jpg",
-    meaning: "Der Herrscher symbolisiert Autorität, Struktur und Stabilität. Er fordert auf, Verantwortung zu übernehmen und Ordnung zu schaffen.", 
-    meditation: "Wo brauche ich mehr Struktur und Disziplin in meinem Leben?", 
-    tips: "Setzen Sie klare Ziele und arbeiten Sie diszipliniert daran, sie zu erreichen."
+    "name": "Der Herrscher (IV)", 
+    "image": "/images/the_emperor.jpg", 
+    "meaning": "Autorität, Struktur, Kontrolle. Der Herrscher verkörpert Macht, Ordnung und Verantwortung.", 
+    "meditation": "Wo brauche ich mehr Struktur und Disziplin in meinem Leben?", 
+    "tips": "Setzen Sie klare Ziele und arbeiten Sie diszipliniert daran, sie zu erreichen." 
   },
   { 
-    name: "Der Hierophant (The Hierophant)", 
-    image: "/images/the_hierophant.jpg",
-    meaning: "Der Hierophant steht für Tradition, Spiritualität und Weisheit. Er ermutigt dazu, nach Wissen und spirituellem Wachstum zu streben.", 
-    meditation: "Welche spirituellen Praktiken könnten mein Leben bereichern?", 
-    tips: "Suchen Sie nach Weisheit und lassen Sie sich von traditionellen Werten leiten."
+    "name": "Der Hierophant (V)", 
+    "image": "/images/the_hierophant.jpg", 
+    "meaning": "Tradition, spirituelle Führung, Lehren. Diese Karte steht für religiöse Autorität und den Zugang zu spirituellem Wissen durch konventionelle Mittel.", 
+    "meditation": "Welche spirituellen Praktiken könnten mein Leben bereichern?", 
+    "tips": "Suchen Sie nach Weisheit und lassen Sie sich von traditionellen Werten leiten." 
   },
   { 
-    name: "Die Liebenden (The Lovers)", 
-    image: "/images/the_lovers.jpg",
-    meaning: "Die Liebenden symbolisieren Liebe, Harmonie und Entscheidungen. Sie repräsentieren tiefe Verbindungen und Partnerschaften.", 
-    meditation: "Welche Entscheidungen muss ich in meinen Beziehungen treffen?", 
-    tips: "Pflegen Sie Ihre Beziehungen und treffen Sie Entscheidungen, die mit Ihrem Herzen im Einklang stehen."
+    "name": "Die Liebenden (VI)", 
+    "image": "/images/the_lovers.jpg", 
+    "meaning": "Liebe, Entscheidungen, Partnerschaften. Die Liebenden stehen für Beziehungen und die Harmonie zwischen Gegensätzen.", 
+    "meditation": "Welche Entscheidungen muss ich in meinen Beziehungen treffen?", 
+    "tips": "Pflegen Sie Ihre Beziehungen und treffen Sie Entscheidungen, die mit Ihrem Herzen im Einklang stehen." 
   },
   { 
-    name: "Der Wagen (The Chariot)", 
-    image: "/images/the_chariot.jpg",
-    meaning: "Der Wagen steht für Erfolg, Entschlossenheit und Kontrolle. Er zeigt, dass Fortschritt durch Willenskraft und Fokus erreicht wird.", 
-    meditation: "Wie kann ich meine Ziele schneller erreichen?", 
-    tips: "Bleiben Sie entschlossen und behalten Sie die Kontrolle über Ihre Richtung."
+    "name": "Der Wagen (VII)", 
+    "image": "/images/the_chariot.jpg", 
+    "meaning": "Willenskraft, Triumph, Kontrolle. Diese Karte symbolisiert den Sieg durch Entschlossenheit und den erfolgreichen Umgang mit Herausforderungen.", 
+    "meditation": "Wie kann ich meine Ziele schneller erreichen?", 
+    "tips": "Bleiben Sie entschlossen und behalten Sie die Kontrolle über Ihre Richtung." 
   },
   { 
-    name: "Die Kraft (Strength)", 
-    image: "/images/strength.jpg",
-    meaning: "Die Kraft symbolisiert innere Stärke, Mut und Mitgefühl. Sie zeigt, dass wahre Stärke aus dem Inneren kommt.", 
-    meditation: "Wie kann ich meine innere Stärke stärken?", 
-    tips: "Seien Sie mutig und mitfühlend gegenüber sich selbst und anderen."
+    "name": "Die Gerechtigkeit (VIII)", 
+    "image": "/images/justice.jpg", 
+    "meaning": "Fairness, Wahrheit, Ausgleich. Die Gerechtigkeit steht für die Balance von Ursache und Wirkung, sowie moralische Klarheit.", 
+    "meditation": "Wie kann ich mehr Gerechtigkeit in mein Leben bringen?", 
+    "tips": "Handeln Sie fair und suchen Sie nach der Wahrheit in allen Dingen." 
   },
   { 
-    name: "Der Eremit (The Hermit)", 
-    image: "/images/the_hermit.jpg",
-    meaning: "Der Eremit steht für Einsamkeit, Weisheit und innere Suche. Er fordert auf, sich zurückzuziehen und nach innerer Weisheit zu suchen.", 
-    meditation: "Was kann ich durch Selbstreflexion lernen?", 
-    tips: "Nehmen Sie sich Zeit für sich selbst und hören Sie auf Ihre innere Stimme."
+    "name": "Der Eremit (IX)", 
+    "image": "/images/the_hermit.jpg", 
+    "meaning": "Innenschau, Weisheit, Einsamkeit. Der Eremit symbolisiert die Suche nach Wahrheit und Erkenntnis durch innere Reflexion.", 
+    "meditation": "Was kann ich durch Selbstreflexion lernen?", 
+    "tips": "Nehmen Sie sich Zeit für sich selbst und hören Sie auf Ihre innere Stimme." 
   },
   { 
-    name: "Das Rad des Schicksals (Wheel of Fortune)", 
-    image: "/images/wheel_of_fortune.jpg",
-    meaning: "Das Rad des Schicksals symbolisiert Veränderung, Schicksal und Zyklen. Es zeigt, dass alles im Fluss ist und sich ständig verändert.", 
-    meditation: "Wie kann ich mich besser an Veränderungen anpassen?", 
-    tips: "Akzeptieren Sie Veränderungen und vertrauen Sie darauf, dass sie Teil eines größeren Plans sind."
+    "name": "Das Rad des Schicksals (X)", 
+    "image": "/images/wheel_of_fortune.jpg", 
+    "meaning": "Schicksal, Zyklen, Wandel. Das Rad des Schicksals erinnert daran, dass das Leben ständig im Fluss ist und Veränderungen unvermeidlich sind.", 
+    "meditation": "Wie kann ich mich besser an Veränderungen anpassen?", 
+    "tips": "Akzeptieren Sie Veränderungen und vertrauen Sie darauf, dass sie Teil eines größeren Plans sind." 
   },
   { 
-    name: "Die Gerechtigkeit (Justice)", 
-    image: "/images/justice.jpg",
-    meaning: "Die Gerechtigkeit steht für Fairness, Wahrheit und Karma. Sie fordert auf, ehrlich und gerecht zu handeln.", 
-    meditation: "Wie kann ich mehr Gerechtigkeit in mein Leben bringen?", 
-    tips: "Handeln Sie fair und suchen Sie nach der Wahrheit in allen Dingen."
+    "name": "Die Kraft (XI)", 
+    "image": "/images/strength.jpg", 
+    "meaning": "Innere Stärke, Mut, Mitgefühl. Diese Karte steht für die Fähigkeit, Herausforderungen mit innerer Gelassenheit und Geduld zu begegnen.", 
+    "meditation": "Wie kann ich meine innere Stärke stärken?", 
+    "tips": "Seien Sie mutig und mitfühlend gegenüber sich selbst und anderen." 
   },
   { 
-    name: "Der Gehängte (The Hanged Man)", 
-    image: "/images/the_hanged_man.jpg",
-    meaning: "Der Gehängte symbolisiert Opfer, Perspektivwechsel und Hingabe. Er zeigt, dass manchmal ein anderer Blickwinkel notwendig ist.", 
-    meditation: "Welche alten Muster muss ich loslassen?", 
-    tips: "Seien Sie bereit, Opfer zu bringen und Ihre Perspektive zu ändern."
+    "name": "Der Gehängte (XII)", 
+    "image": "/images/the_hanged_man.jpg", 
+    "meaning": "Opfer, Perspektivenwechsel, Loslassen. Der Gehängte symbolisiert die Notwendigkeit, eine Situation aus einem anderen Blickwinkel zu betrachten.", 
+    "meditation": "Welche alten Muster muss ich loslassen?", 
+    "tips": "Seien Sie bereit, Opfer zu bringen und Ihre Perspektive zu ändern." 
   },
   { 
-    name: "Der Tod (Death)", 
-    image: "/images/the_death.jpg",
-    meaning: "Der Tod steht für Transformation, Ende und Neuanfang. Er zeigt, dass das Alte gehen muss, um Platz für das Neue zu schaffen.", 
-    meditation: "Was muss in meinem Leben enden, um neu beginnen zu können?", 
-    tips: "Akzeptieren Sie Abschiede und begrüßen Sie neue Anfänge."
+    "name": "Der Tod (XIII)", 
+    "image": "/images/the_death.jpg", 
+    "meaning": "Transformation, Ende und Neubeginn. Diese Karte steht nicht für physischen Tod, sondern für den Übergang von einer Phase zur nächsten.", 
+    "meditation": "Was muss in meinem Leben enden, um neu beginnen zu können?", 
+    "tips": "Akzeptieren Sie Abschiede und begrüßen Sie neue Anfänge." 
   },
   { 
-    name: "Die Mäßigkeit (Temperance)", 
-    image: "/images/temperance.jpg",
-    meaning: "Die Mäßigkeit symbolisiert Ausgeglichenheit, Geduld und Harmonie. Sie zeigt, dass alles in Maßen und im Gleichgewicht sein sollte.", 
-    meditation: "Wie kann ich mehr Ausgeglichenheit in mein Leben bringen?", 
-    tips: "Üben Sie Geduld und suchen Sie nach Harmonie in Ihren Handlungen."
+    "name": "Die Mäßigkeit (XIV)", 
+    "image": "/images/temperance.jpg", 
+    "meaning": "Balance, Geduld, Harmonie. Mäßigkeit steht für das Gleichgewicht zwischen entgegengesetzten Kräften und die Kunst, alles in Maßen zu tun.", 
+    "meditation": "Wie kann ich mehr Ausgeglichenheit in mein Leben bringen?", 
+    "tips": "Üben Sie Geduld und suchen Sie nach Harmonie in Ihren Handlungen." 
   },
   { 
-    name: "Der Teufel (The Devil)", 
-    image: "/images/the_devil.jpg",
-    meaning: "Der Teufel steht für Versuchung, Materialismus und Bindungen. Er warnt vor übermäßigen Abhängigkeiten und Illusionen.", 
-    meditation: "Welche Bindungen halten mich zurück?", 
-    tips: "Erkennen Sie Ihre Abhängigkeiten und arbeiten Sie daran, sich davon zu befreien."
+    "name": "Der Teufel (XV)", 
+    "image": "/images/the_devil.jpg", 
+    "meaning": "Abhängigkeit, Versuchung, Selbsttäuschung. Der Teufel symbolisiert Bindungen an materielle oder ungesunde Gewohnheiten, die überwunden werden müssen.", 
+    "meditation": "Welche Bindungen halten mich zurück?", 
+    "tips": "Erkennen Sie Ihre Abhängigkeiten und arbeiten Sie daran, sich davon zu befreien." 
   },
   { 
-    name: "Der Turm (The Tower)", 
-    image: "/images/the_tower.jpg",
-    meaning: "Der Turm symbolisiert plötzliche Veränderungen, Umbrüche und Offenbarungen. Er zeigt, dass alte Strukturen zusammenbrechen müssen, um Platz für Neues zu schaffen.", 
-    meditation: "Welche Strukturen in meinem Leben müssen verändert werden?", 
-    tips: "Seien Sie bereit für Veränderungen und nehmen Sie sie als Chancen wahr."
+    "name": "Der Turm (XVI)", 
+    "image": "/images/the_tower.jpg", 
+    "meaning": "Zerstörung, plötzliche Veränderung, Erleuchtung. Der Turm repräsentiert radikale Veränderungen, die alte Strukturen zum Einsturz bringen.", 
+    "meditation": "Welche Strukturen in meinem Leben müssen verändert werden?", 
+    "tips": "Seien Sie bereit für Veränderungen und nehmen Sie sie als Chancen wahr." 
   },
   { 
-    name: "Der Stern (The Star)", 
-    image: "/images/the_star.jpg",
-    meaning: "Der Stern symbolisiert Hoffnung, Inspiration und geistige Klarheit. Er zeigt, dass nach einer schwierigen Zeit bessere Tage kommen.", 
-    meditation: "Was gibt mir Hoffnung und Inspiration?", 
-    tips: "Fokussieren Sie sich auf das Positive und bleiben Sie hoffnungsvoll."
+    "name": "Der Stern (XVII)", 
+    "image": "/images/the_star.jpg", 
+    "meaning": "Hoffnung, Inspiration, Erneuerung. Der Stern symbolisiert Heilung und das Vertrauen auf eine bessere Zukunft.", 
+    "meditation": "Was gibt mir Hoffnung und Inspiration?", 
+    "tips": "Fokussieren Sie sich auf das Positive und bleiben Sie hoffnungsvoll." 
   },
   { 
-    name: "Der Mond (The Moon)", 
-    image: "/images/the_moon.jpg",
-    meaning: "Der Mond steht für Illusionen, Ängste und das Unbewusste. Er fordert auf, die eigenen Ängste zu konfrontieren und sich den verborgenen Aspekten des Selbst zu stellen.", 
-    meditation: "Welche Ängste und Illusionen muss ich überwinden?", 
-    tips: "Konfrontieren Sie Ihre Ängste und arbeiten Sie daran, Klarheit zu gewinnen."
+    "name": "Der Mond (XVIII)", 
+    "image": "/images/the_moon.jpg", 
+    "meaning": "Illusion, Unbewusstes, Verwirrung. Der Mond steht für verborgene Ängste und die Unklarheit des Unterbewusstseins.", 
+    "meditation": "Welche Ängste und Illusionen muss ich überwinden?", 
+    "tips": "Konfrontieren Sie Ihre Ängste und arbeiten Sie daran, Klarheit zu gewinnen." 
   },
   { 
-    name: "Die Sonne (The Sun)", 
-    image: "/images/the_sun.jpg",
-    meaning: "Die Sonne symbolisiert Freude, Erfolg und Lebenskraft. Sie zeigt, dass nach dunklen Zeiten wieder Licht und positive Energie kommen.", 
-    meditation: "Was bringt mir Freude und Energie?", 
-    tips: "Genießen Sie die positiven Momente und strahlen Sie Ihre innere Freude aus."
+    "name": "Die Sonne (XIX)", 
+    "image": "/images/the_sun.jpg", 
+    "meaning": "Erfolg, Freude, Klarheit. Die Sonne symbolisiert Glück, Erfolg und Erleuchtung.", 
+    "meditation": "Was bringt mir Freude und Energie?", 
+    "tips": "Genießen Sie die positiven Momente und strahlen Sie Ihre innere Freude aus." 
   },
   { 
-    name: "Das Gericht (Judgement)", 
-    image: "/images/judgement.jpg",
-    meaning: "Das Gericht steht für Erneuerung, Erlösung und Reflexion. Es zeigt, dass es Zeit ist, alte Fehler zu vergeben und einen Neuanfang zu machen.", 
-    meditation: "Welche Aspekte meines Lebens benötigen Erlösung?", 
-    tips: "Reflektieren Sie über Ihre Vergangenheit und lassen Sie los, was Sie belastet."
+    "name": "Das Gericht (XX)", 
+    "image": "/images/judgement.jpg", 
+    "meaning": "Erlösung, Erneuerung, Abschluss. Diese Karte steht für das Erwachen zu neuen Erkenntnissen und die Befreiung von alten Lasten.", 
+    "meditation": "Welche Aspekte meines Lebens benötigen Erlösung?", 
+    "tips": "Reflektieren Sie über Ihre Vergangenheit und lassen Sie los, was Sie belastet." 
   },
   { 
-    name: "Die Welt (The World)", 
-    image: "/images/the_world.jpg",
-    meaning: "Die Welt symbolisiert Vollendung, Harmonie und Erfüllung. Sie zeigt, dass ein Zyklus zu Ende geht und ein neues Kapitel beginnt.", 
-    meditation: "Was habe ich erreicht und was möchte ich als Nächstes erreichen?", 
-    tips: "Feiern Sie Ihre Erfolge und bereiten Sie sich auf neue Abenteuer vor."
+    "name": "Die Welt (XXI)", 
+    "image": "/images/the_world.jpg", 
+    "meaning": "Vollendung, Ganzheit, Erfüllung. Die Welt symbolisiert den Abschluss einer Reise und das Erreichen eines höheren Bewusstseins.", 
+    "meditation": "Was habe ich erreicht und was möchte ich als Nächstes erreichen?", 
+    "tips": "Feiern Sie Ihre Erfolge und bereiten Sie sich auf neue Abenteuer vor." 
   },
   // Stäbe
   { 
