@@ -11,6 +11,8 @@ import PentagrammLegung from './legungen/PentagrammLegung.jsx';
 import PyramidenLegung from './legungen/PyramidenLegung.jsx';
 import GrosseTafel from './legungen/GrosseTafel.jsx';
 import HufeisenLegung from './legungen/HufeisenLegung.jsx';
+// Importiere die PythagoreanNumerology-Komponente
+import PythagoreanNumerology from './components/PythagoreanNumerology.jsx';
 
 // Definition eines Arrays von Legungen mit ihren Eigenschaften
 const legungen = [
@@ -86,6 +88,9 @@ function App() {
 
   return (
     <div className="container mx-auto p-4">
+      {/* Die PythagoreanNumerology-Komponente wird hier hinzugefügt */}
+      <PythagoreanNumerology />
+
       {selectedLegung ? (
         <>
           {/* Button, um zur Übersicht zurückzukehren */}
