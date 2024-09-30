@@ -69,6 +69,13 @@ const PythagoreanNumerology = () => {
     });
   };
 
+  // Handhabung des Zurücksetzens
+  const handleReset = () => {
+    setName("");
+    setBirthDate("");
+    setResults({});
+  };
+
   return (
     <div className="p-4 border rounded-md shadow-md bg-white max-w-md mx-auto">
       <h2 className="text-2xl font-bold mb-4">Pythagoreische Numerologie</h2>
@@ -94,8 +101,11 @@ const PythagoreanNumerology = () => {
           />
         </label>
       </div>
-      <button onClick={handleCalculate} className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700">
+      <button onClick={handleCalculate} className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 mr-2">
         Berechnen
+      </button>
+      <button onClick={handleReset} className="bg-gray-500 text-white py-2 px-4 rounded hover:bg-gray-700">
+        Zurücksetzen
       </button>
 
       {results.lifePath && (
