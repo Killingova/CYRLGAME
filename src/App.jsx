@@ -13,6 +13,7 @@ import GrosseTafel from './legungen/GrosseTafel.jsx';
 import HufeisenLegung from './legungen/HufeisenLegung.jsx';
 // Importiere die PythagoreanNumerology-Komponente
 import PythagoreanNumerology from './components/PythagoreanNumerology.jsx';
+import Header from './components/Header.jsx'
 
 // Definition eines Arrays von Legungen mit ihren Eigenschaften
 const legungen = [
@@ -88,6 +89,7 @@ function App() {
 
   return (
     <div className="container mx-auto p-4">
+      <Header/>
       {/* Die PythagoreanNumerology-Komponente wird hier hinzugefügt */}
       <PythagoreanNumerology />
 
