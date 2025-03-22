@@ -14,62 +14,63 @@ import HufeisenLegung from './legungen/HufeisenLegung.jsx';
 // Importiere die PythagoreanNumerology-Komponente
 import PythagoreanNumerology from './components/PythagoreanNumerology.jsx';
 import Header from './components/Header.jsx'
+import HeroBereich from './components/HeroBereich.jsx'
 
 // Definition eines Arrays von Legungen mit ihren Eigenschaften
 const legungen = [
   {
-    title: 'Keltisches Kreuz',
-    image: '/images/keltischeskreuz.jpg',
-    info: 'Eine umfassende Legung für tiefgehende Analysen.',
-    component: <KeltischesKreuz />
-  },
-  {
-    title: 'Lebensbaum-Legung',
-    image: '/images/lebensbaum.jpg',
-    info: 'Eine spirituelle Legung basierend auf dem Kabbalistischen Lebensbaum.',
-    component: <LebensbaumLegung />
-  },
-  {
-    title: 'Astrologische Legung',
-    image: '/images/astrologische.jpg',
-    info: 'Eine umfassende Analyse der verschiedenen Lebensbereiche basierend auf den zwölf astrologischen Häusern.',
-    component: <AstrologischeLegung />
-  },
-  {
-    title: 'Chakra-Legung',
-    image: '/images/chakralegung.jpg',
-    info: 'Diese Legung wird verwendet, um energetische Blockaden und Zustände der Chakren zu analysieren.',
+    title: "Welt des inneren Gleichgewichts", // Chakra
+    image: "/images/chakralegung.jpg",
+    info: "Reise durch die sieben Energiezentren deines Körpers und erkenne, wo Harmonie oder Blockaden verborgen liegen.",
     component: <ChakraLegung />
   },
   {
-    title: 'Beziehungs-Kompass',
-    image: '/images/kompass.jpg',
-    info: 'Diese Legung ist konzipiert, um Einblicke in die eigenen Gefühle, Bedürfnisse und die mögliche Zukunft einer Beziehung zu gewinnen.',
-    component: <BeziehungsKompass />
+    title: "Welt der Schicksalsfäden", // Keltisches Kreuz
+    image: "/images/keltischeskreuz.jpg",
+    info: "Tauche ein in eine alte, keltische Struktur, die dir Klarheit über Vergangenheit, Gegenwart und Zukunft schenkt.",
+    component: <KeltischesKreuz />
   },
   {
-    title: 'Pentagramm-Legung',
-    image: '/images/pentagramm.jpg',
-    info: 'Diese Legung nutzt das alte Symbol des Pentagramms und bietet eine spirituelle und umfassende Sichtweise auf eine Situation.',
-    component: <PentagrammLegung />
+    title: "Welt des kosmischen Gleichklangs", // Astrologische
+    image: "/images/astrologische.jpg",
+    info: "Erkunde deine zwölf Lebensbereiche und erkenne, welche Sterne dir gerade leuchten oder verborgen bleiben.",
+    component: <AstrologischeLegung />
   },
   {
-    title: 'Pyramiden-Legung',
-    image: '/images/pyramiden.jpg',
-    info: 'Diese Legung verwendet eine Pyramidenform, um die Grundlage, die aktuelle Situation und die zukünftigen Entwicklungen zu analysieren.',
+    title: "Welt der verborgenen Pfade", // Hufeisen
+    image: "/images/hufeisen.jpg",
+    info: "Ein Blick auf die Entwicklung eines Themas – von der Vergangenheit, über das Jetzt, bis hin zum Kommenden.",
+    component: <HufeisenLegung />
+  },
+  {
+    title: "Welt des magischen Ursprungs", // Pyramide
+    image: "/images/pyramiden.jpg",
+    info: "Analysiere ein Thema von Grund auf und erkenne den Weg zur spirituellen Spitze deiner Situation.",
     component: <PyramidenLegung />
   },
   {
-    title: '21-Karten-Legung (Große Tafel)',
-    image: '/images/21karten.jpg',
-    info: 'Diese Legung verwendet 21 Karten, um eine umfassende und detaillierte Analyse einer Situation zu bieten.',
-    component: <GrosseTafel />
+    title: "Welt der Herzensverbindungen", // Beziehungs-Kompass
+    image: "/images/kompass.jpg",
+    info: "Navigiere durch die emotionale Landschaft deiner Beziehungen – mit Blick auf Sehnsucht, Nähe und gemeinsame Wege.",
+    component: <BeziehungsKompass />
   },
   {
-    title: 'Sieben-Karten-Hufeisen-Legung',
-    image: '/images/hufeisen.jpg',
-    info: 'Diese Legung wird verwendet, um die Entwicklung eines Ereignisses oder einer Situation zu analysieren.',
-    component: <HufeisenLegung />
+    title: "Welt der Elementarenergie", // Pentagramm
+    image: "/images/pentagramm.jpg",
+    info: "Erkenne, wie die fünf Kräfte (Erde, Wasser, Feuer, Luft & Geist) in deiner aktuellen Lebenslage wirken.",
+    component: <PentagrammLegung />
+  },
+  {
+    title: "Welt des Seelenbaums", // Lebensbaum
+    image: "/images/lebensbaum.jpg",
+    info: "Eine tiefgehende spirituelle Reise entlang des kabbalistischen Lebensbaums – von Erkenntnis bis Transformation.",
+    component: <LebensbaumLegung />
+  },
+  {
+    title: "Welt der Weite Erkenntnis", // 21 Karten
+    image: "/images/21karten.jpg",
+    info: "Die große Tafel: Eine umfassende Sicht auf alle Aspekte deines Lebens – wie ein Blick von oben auf dein inneres Reich.",
+    component: <GrosseTafel />
   }
 ];
 
@@ -90,7 +91,7 @@ function App() {
   return (
     <div className="container mx-auto p-4">
       <Header/>
-      {/* Die PythagoreanNumerology-Komponente wird hier hinzugefügt */}
+      <HeroBereich />
       <PythagoreanNumerology />
 
       {selectedLegung ? (

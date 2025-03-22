@@ -5,7 +5,7 @@ const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-white shadow-md border-b-4 border-[#F2CA50]">
+    <header className="sticky top-0 z-50 bg-[#F2CA50] shadow-md border-b-4 border-[#F2921D]">
       <div className="container mx-auto flex items-center justify-between py-4 px-6">
         
         {/* Linkes Logo */}
@@ -21,7 +21,7 @@ const Header = () => {
         <div className="flex flex-col items-center justify-center flex-grow relative">
           <div className="flex items-center space-x-3">
             <h1 className="text-black text-4xl font-bold font-[Dancing Script]">
-              Kartenreise
+            Inneres Universum
             </h1>
 
             {/* Burger-Menü nur sichtbar auf kleinen Screens */}
@@ -39,7 +39,7 @@ const Header = () => {
               <a
                 key={index}
                 href={`#${text.toLowerCase()}`}
-                className="text-black font-medium hover:text-[#F2CA50] transition duration-300"
+                className="text-black font-medium hover:text-[#F2921D] transition duration-300"
               >
                 {text}
               </a>
@@ -59,12 +59,12 @@ const Header = () => {
 
       {/* Mobile Navigation */}
       {menuOpen && (
-        <div className="md:hidden bg-white shadow-lg border-t border-[#F2CA50] absolute top-full left-0 w-full flex flex-col items-center py-4 space-y-4">
+        <div className="md:hidden bg-white shadow-lg border-t border-[#F2921D] absolute top-full left-0 w-full flex flex-col items-center py-4 space-y-4">
           {["Start", "Über", "Kontakt"].map((text, index) => (
             <a
               key={index}
               href={`#${text.toLowerCase()}`}
-              className="text-black font-medium text-lg hover:text-[#F2CA50] transition duration-300"
+              className="text-black font-medium text-lg hover:text-[#F2921D] transition duration-300"
               onClick={() => setMenuOpen(false)}
             >
               {text}
