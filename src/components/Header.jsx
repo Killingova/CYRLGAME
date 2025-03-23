@@ -21,7 +21,7 @@ const Header = () => {
         <div className="flex flex-col items-center justify-center flex-grow relative">
           <div className="flex items-center space-x-3">
             <h1 className="text-black text-4xl font-bold font-[Dancing Script]">
-            Inneres Universum
+            Reise durch Paradoxe
             </h1>
 
             {/* Burger-Menü nur sichtbar auf kleinen Screens */}

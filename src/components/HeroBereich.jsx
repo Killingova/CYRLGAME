@@ -21,12 +21,12 @@ const HeroBereich = () => {
   }, []);
 
   return (
-    <section className="bg-[#1F4C73] border-b-4 border-[#F2921D] text-white py-16 px-6 text-center">
+    <section className="bg-[#1F4C73]  text-white py-16 px-6 text-center">
       <div className="flex flex-col md:flex-row md:items-center md:justify-center md:text-left space-y-6 md:space-y-0 md:space-x-8">
         <div className="w-40 h-40 rounded-full border-4 border-[#F2921D] overflow-hidden shadow-lg mx-auto md:mx-0">
           <img
             src="/kristin-avatar.jpg"
-            alt="Kristin Zhivkova"
+            alt="Issi la Crisis "
             className="object-cover w-full h-full"
           />
         </div>
@@ -37,7 +37,7 @@ const HeroBereich = () => {
           </h1>
 
           <p className="text-lg md:text-xl text-stone-950 max-w-xl">
-            Ich bin <span className="text-[#F2921D] font-semibold">Kristin Zhivkova</span> – begleite mich auf eine magische Reise voller Intuition, Inspiration & innerer Stärke. 🌙✨
+            Ich bin <span className="text-[#F2921D] font-semibold">Isis Filazma</span> – begleite mich auf eine magische Reise voller Intuition, Inspiration & innerer Stärke. 🌙✨
           </p>
         </div>
       </div>

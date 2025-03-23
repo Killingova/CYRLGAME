@@ -15,6 +15,7 @@ import HufeisenLegung from './legungen/HufeisenLegung.jsx';
 import PythagoreanNumerology from './components/PythagoreanNumerology.jsx';
 import Header from './components/Header.jsx'
 import HeroBereich from './components/HeroBereich.jsx'
+import Footer from './components/Footer.jsx';
 
 // Definition eines Arrays von Legungen mit ihren Eigenschaften
 const legungen = [
@@ -128,6 +129,7 @@ function App() {
       <button onClick={() => window.location.reload()} className="mt-4 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700">
         Neues Spiel starten
       </button>
+      <Footer/>
     </div>
   );
 }
