@@ -1,30 +1,37 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="de">
   <head>
-    <!-- Der <head>-Bereich enthält Metadaten und Verweise auf Ressourcen für das Dokument -->
-    
-    <!-- Der Zeichensatz wird auf UTF-8 gesetzt, was die meisten Schriftzeichen der Welt unterstützt -->
     <meta charset="UTF-8" />
-    
-    <!-- Favicon (kleines Symbol) für die Webseite, das in Browser-Tabs angezeigt wird -->
-    <link rel="icon" type="image/svg+xml" href="/logo.png" />
-    
-    <!-- Die viewport Meta-Tags steuern das Layout auf mobilen Geräten, um die Seite an die Bildschirmgröße anzupassen -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <!-- Der Titel der Webseite, der in der Browser-Registerkarte angezeigt wird -->
-    <title>Zhivkova</title>
+
+    <!-- SEO relevante Tags -->
+    <title>Positive Psychologie Spiel – Tarot-Karten zur Reflexion und Selbsterkenntnis</title>
+    <meta
+      name="description"
+      content="Erlebe spielerische Selbstreflexion mit Tarot-Legungen basierend auf der positiven Psychologie. Entdecke die Welten der inneren Klarheit, Erkenntnis und Harmonie."
+    />
+    <meta name="author" content="Kristin Zhivkova" />
+
+    <!-- Open Graph / Social-Media Optimierung -->
+    <meta property="og:title" content="Positive Psychologie Spiel – Tarot-Karten zur Reflexion" />
+    <meta property="og:description" content="Entdecke spielerisch dein inneres Potenzial mit Tarot-Karten und positiver Psychologie." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/images/og-image.jpg" />
+    <meta property="og:url" content="https://www.deine-domain.de/" />
+
+    <!-- Twitter Card Meta-Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Positive Psychologie Spiel – Tarot-Karten zur Reflexion" />
+    <meta name="twitter:description" content="Erfahre spielerische Selbstreflexion durch positive Tarot-Karten-Welten." />
+    <meta name="twitter:image" content="/images/twitter-image.jpg" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" />
+
+    <!-- Styles & Scripts werden automatisch von React/Vite eingefügt -->
   </head>
-  <body class="bg-stone-50">
-    <!-- Der <body>-Bereich enthält den sichtbaren Inhalt der Webseite -->
-
-    <!-- Ein leerer div mit der ID "modal-root", der für das Rendern von Modalen (Dialogfenster) durch React genutzt werden kann -->
-    <div id="modal-root"></div>
-
-    <!-- Ein leerer div mit der ID "root", der als Haupt-Einstiegspunkt für die React-Anwendung dient -->
+  <body>
     <div id="root"></div>
-
-    <!-- Einbindung eines JavaScript-Moduls, das die Hauptlogik der React-Anwendung enthält -->
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
