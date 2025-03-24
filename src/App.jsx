@@ -13,6 +13,10 @@ import GrosseTafel from './legungen/GrosseTafel.jsx';
 import HufeisenLegung from './legungen/HufeisenLegung.jsx';
 // Importiere die PythagoreanNumerology-Komponente
 import PythagoreanNumerology from './components/PythagoreanNumerology.jsx';
+import Rechner from './components/Rechner';
+
+
+
 import Header from './components/Header.jsx'
 import HeroBereich from './components/HeroBereich.jsx'
 import Footer from './components/Footer.jsx';
@@ -94,6 +98,7 @@ function App() {
       <Header/>
       <HeroBereich />
       <PythagoreanNumerology />
+      <Rechner/>
 
       {selectedLegung ? (
         <>
