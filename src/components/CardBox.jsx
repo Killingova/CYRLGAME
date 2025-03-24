@@ -1,4 +1,6 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+import PropTypes from 'prop-types';
 
 // Importiere deine Kartensets
 import tarotkarten from '../data/tarot';
@@ -18,58 +20,49 @@ import moonOracleCards from '../data/moonOracleCards';
 import timecards from '../data/timecards';
 import storytime from '../data/storytime';
 
-
-
-
-// Definiere alle Kartensets mit Namen und Kartenanzahl
+// Definiere alle Kartensets
 const cardSets = [
   { name: "Tarot", cards: tarotkarten },
   { name: "Lenormand", cards: lenormandkarten },
   { name: "Engeln", cards: engelkarten },
-  { name: "Tiere", cards: krafttierkarten},
-
+  { name: "Tiere", cards: krafttierkarten },
   { name: "Nymphen", cards: nymphen },
-
-  { name: "Runen", cards:runenkarten},
-  { name: "Steine", cards: heilsteine},
-
+  { name: "Runen", cards: runenkarten },
+  { name: "Steine", cards: heilsteine },
   { name: "Numerologiekarten", cards: timecards },
   { name: "Kräuterorakel", cards: plants },
-
-  { name: "Selbsterkenntnis", cards: selbsterkenntnis},
-
+  { name: "Selbsterkenntnis", cards: selbsterkenntnis },
   { name: "Lebensfreudekarten", cards: lebensfreudekarten },
   { name: "000Dankbarkeitsorakel", cards: new Array(55) },
   { name: "Lucid Daydreams", cards: luciddaydreams },
-
   { name: "Zwillingsflamme", cards: zwillingsflammen },
-  
-  { name: "Pfad der Erleuchtung", cards: freimaurerei},
+  { name: "Pfad der Erleuchtung", cards: freimaurerei },
   { name: "000Kalat-Karten", cards: new Array(52) },
   { name: "MoonOracle Cards", cards: moonOracleCards },
   { name: "Sacred Orakeldeck", cards: storytime },
 ];
 
-// Funktionale Komponente CardBox, die ein Callback-Event onCardSetSelect als Prop erhält
+// Hauptkomponente
 function CardBox({ onCardSetSelect }) {
   return (
-    // Container für die Kartensets, der in einem Grid-Layout angeordnet wird
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
-      {/* Map-Funktion, um jedes Kartenset als eigenes Div-Element zu rendern */}
-      {cardSets.map((set, index) => (
-        <div 
-          key={index} 
-          className="border rounded-lg p-4 shadow-lg cursor-pointer" 
-          onClick={() => onCardSetSelect(set.cards)} // Event-Handler für das Klicken auf ein Kartenset
+      {cardSets.map((set) => (
+        <motion.div
+          key={set.name}
+          whileHover={{ scale: 1.05 }}
+          className="border rounded-lg p-4 shadow-lg cursor-pointer bg-white"
+          onClick={() => onCardSetSelect(set.cards)}
         >
-          {/* Name des Kartensets */}
           <h2 className="text-2xl font-bold mt-4">{set.name}</h2>
-          {/* Anzahl der Karten im Set */}
-          <p className="mt-2">{`${set.cards.length} Karten`}</p>
-        </div>
+          <p className="mt-2 text-gray-500">{set.cards.length} Karten</p>
+        </motion.div>
       ))}
     </div>
   );
 }
+
+CardBox.propTypes = {
+  onCardSetSelect: PropTypes.func.isRequired,
+};
 
 export default CardBox;
