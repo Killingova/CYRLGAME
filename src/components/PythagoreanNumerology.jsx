@@ -8,10 +8,7 @@ const letterToNumberMap = {
 
 function reduceToSingleDigit(num) {
   while (num > 9 && ![11, 22, 33].includes(num)) {
-    num = num
-      .toString()
-      .split("")
-      .reduce((acc, d) => acc + parseInt(d, 10), 0);
+    num = num.toString().split("").reduce((acc, d) => acc + parseInt(d, 10), 0);
   }
   return num;
 }
@@ -22,10 +19,7 @@ function calculateLifePathNumber(date) {
 }
 
 function calculateDestinyNumber(name) {
-  const sum = name
-    .toUpperCase()
-    .split("")
-    .reduce((acc, l) => acc + (letterToNumberMap[l] || 0), 0);
+  const sum = name.toUpperCase().split("").reduce((acc, l) => acc + (letterToNumberMap[l] || 0), 0);
   return reduceToSingleDigit(sum);
 }
 
@@ -48,104 +42,65 @@ const ResultItem = ({ label, value }) => (
 );
 
 export default function PythagoreanNumerology() {
-  const [name, setName] = useState("");
+  const [vorname, setVorname] = useState("");
+  const [nachname, setNachname] = useState("");
   const [birthDate, setBirthDate] = useState("");
-  const [error, setError] = useState("");
 
-  // Memoisierte Berechnungen, sobald Name & Datum gefüllt sind
+  const vollerName = `${vorname} ${nachname}`.trim();
+
   const results = useMemo(() => {
-    if (!name.trim() || !birthDate) return null;
+    if (!vollerName || !birthDate) return null;
     return {
       lifePath: calculateLifePathNumber(birthDate),
-      destiny: calculateDestinyNumber(name),
-      soul: calculateSoulNumber(name),
-      personality: calculatePersonalityNumber(name),
+      destiny: calculateDestinyNumber(vollerName),
+      soul: calculateSoulNumber(vollerName),
+      personality: calculatePersonalityNumber(vollerName),
     };
-  }, [name, birthDate]);
-
-  const handleCalculate = () => {
-    if (!name.trim() || !birthDate) {
-      setError("Bitte Name und Geburtsdatum eingeben.");
-    } else {
-      setError("");
-    }
-  };
-
-  const handleReset = () => {
-    setName("");
-    setBirthDate("");
-    setError("");
-  };
+  }, [vollerName, birthDate]);
 
   return (
-    // Gesamte Sektion in #1F4C73 lass alles in der section als ein div sauber 
     <section className="w-full bg-[#1F4C73] py-12 px-4 text-[#F2CA50]">
-      <div className="max-w-5xl mx-auto">
-        {/* Titel */}
-        <h2 className="text-center text-2xl sm:text-3xl font-extrabold mb-6">
+      <div className="max-w-4xl mx-auto">
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-center mb-6">
           Pythagoreische Numerologie
         </h2>
 
-        {/* Weiße Box für das Formular  solll bg-[#1F4C73] */}
-        <div className="bg-[#1F4C73] text-stone-950 ">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-center md:space-x-4 mb-4">
-            {/* Name */}
-            <div className="flex-1 mb-4 md:mb-0">
-              <label htmlFor="name" className="block font-semibold mb-1">
-                Name:
-              </label>
+        <div className="bg-[#1F4C73] border border-[#F2CA50]/30 rounded-xl p-6 shadow text-stone-100">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+            <div>
+              <label className="block font-semibold mb-1">Vorname</label>
               <input
-                id="name"
                 type="text"
-                placeholder="Vollständiger Name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                className="w-full px-3 py-2 rounded bg-[#1F4C73] border border-stone-950 focus:outline-none focus:ring-2 focus:ring-[#F2CA50]"
+                value={vorname}
+                onChange={(e) => setVorname(e.target.value)}
+                placeholder="z. B. Alice"
+                className="w-full px-3 py-2 rounded bg-[#1F4C73] border border-stone-300 text-white focus:ring-2 focus:ring-[#F2CA50]"
               />
             </div>
-
-            {/* Geburtsdatum */}
-            <div className="flex-1 mb-4 md:mb-0">
-              <label htmlFor="birthDate" className="block font-semibold mb-1">
-                Geburtsdatum:
-              </label>
+            <div>
+              <label className="block font-semibold mb-1">Nachname</label>
               <input
-                id="birthDate"
+                type="text"
+                value={nachname}
+                onChange={(e) => setNachname(e.target.value)}
+                placeholder="z. B. Wunder"
+                className="w-full px-3 py-2 rounded bg-[#1F4C73] border border-stone-300 text-white focus:ring-2 focus:ring-[#F2CA50]"
+              />
+            </div>
+            <div>
+              <label className="block font-semibold mb-1">Geburtsdatum</label>
+              <input
                 type="date"
-                placeholder="TT.MM.JJJJ"
                 value={birthDate}
                 onChange={(e) => setBirthDate(e.target.value)}
-                className="w-full px-3 py-2 bg-[#1F4C73] rounded border border-r-stone-950 focus:outline-none focus:ring-2 focus:ring-[#F2CA50]"
+                className="w-full px-3 py-2 rounded bg-[#1F4C73] border border-stone-300 text-white focus:ring-2 focus:ring-[#F2CA50]"
               />
-            </div>
-
-            {/* Buttons */}
-            <div className="flex space-x-3">
-              <button
-                onClick={handleCalculate}
-                className=" hover:brightness-110 text-stone-200 font-semibold px-4 py-2 rounded"
-              >
-                Berechnen
-              </button>
-              <button
-                onClick={handleReset}
-                className="hover:brightness-110 text-stone-200 font-semibold px-4 py-2 rounded"
-              >
-                Zurücksetzen
-              </button>
             </div>
           </div>
 
-          {/* Fehlermeldung */}
-          {error && (
-            <div className="bg-red-50 border-l-4 border-red-500 text-red-700 px-4 py-2 mb-4 rounded">
-              {error}
-            </div>
-          )}
-
           {/* Ergebnisse */}
-          {results && !error && (
-            <div className="mt-4 bg-[#F2CA50] bg-opacity-20 p-4 rounded-md">
+          {results && (
+            <div className="mt-4 bg-[#F2CA50]/20 p-4 rounded-md">
               <h3 className="text-xl font-bold mb-2 text-[#1F4C73]">
                 Ergebnisse:
               </h3>

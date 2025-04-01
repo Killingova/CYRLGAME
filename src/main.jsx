@@ -9,6 +9,9 @@ import App from './App.jsx'
 
 // Import der globalen CSS-Datei für das Styling der Anwendung
 import './index.css'
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 
 // Erstellen eines Root-Elements im DOM, in das die React-Anwendung gerendert wird
 const rootElement = document.getElementById('root')
