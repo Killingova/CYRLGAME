@@ -1,7 +1,9 @@
 // src/components/LegungBox.jsx
 import React from 'react';
 
-function LegungBox({ title, image, info, onClick }) {
+function LegungBox({ legung, onClick }) {
+  const { title, image, info } = legung;
+
   return (
     <div
       className="
@@ -20,6 +22,7 @@ function LegungBox({ title, image, info, onClick }) {
       "
       onClick={onClick}
     >
+      {/* 5:7 Bild-Proportion per Tailwind Utility */}
       <div className="relative aspect-[5/7]">
         <img
           src={image}
@@ -32,9 +35,8 @@ function LegungBox({ title, image, info, onClick }) {
         <h2 className="text-xl font-bold text-[#1F4C73] mb-2 group-hover:underline transition">
           {title}
         </h2>
-        <p className="text-gray-700">
-          {info}
-        </p>
+        <p className="text-gray-700">{info}</p>
+
         <button
           className="
             mt-4
