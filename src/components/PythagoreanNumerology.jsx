@@ -101,7 +101,7 @@ export default function PythagoreanNumerology() {
           {/* Ergebnisse */}
           {results && (
             <div className="mt-4 bg-[#F2CA50]/20 p-4 rounded-md">
-              <h3 className="text-xl font-bold mb-2 text-[#1F4C73]">
+              <h3 className="text-xl font-bold mb-2 text-[#F2CA50]">
                 Ergebnisse:
               </h3>
               <ResultItem label="Lebenszahl" value={results.lifePath} />

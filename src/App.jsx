@@ -111,10 +111,10 @@ function App() {
           </section>
         ) : (
           <>
-            <h1 className="my-8 text-center text-5xl font-bold">
+            <h1 className="my-8 text-[#F2CA50] text-center text-5xl font-bold">
               Herzlich Willkommen ...
             </h1>
-            <h3 className="text-center text-3xl mb-4">
+            <h3 className="text-center text-stone-200 text-3xl mb-4">
               Bitte wähle eine Tafel
             </h3>
 
