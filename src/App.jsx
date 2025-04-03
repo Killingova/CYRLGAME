@@ -96,7 +96,7 @@ function App() {
       <HeroBereich />
 
       <main className="flex-grow bg-[#1F4C73]">
-        <PythagoreanNumerology />
+        
         <FiftyCards /> {/* Neue Welt: 50-Karten-Darstellung */}
 
         {selectedLegung ? (
@@ -133,7 +133,7 @@ function App() {
             Neues Spiel starten
           </button>
         </div>
-
+        <PythagoreanNumerology />
         <Rechner />
       </main>
 

@@ -1,33 +1,53 @@
-// src/components/newworld/FiftyCards.jsx
-
 import React from "react";
+import { motion } from "framer-motion";
 import TableGroup from "./TableGroup";
 import { groups, finalInfos } from "../../data/newworld/newworldData.js";
-// Beachte den relativen Pfad - 2x '..' weil wir in: src/components/NewWorld/ sind => zurück nach src, dann data/newworld
 
 function FiftyCards() {
   return (
-    <section className="p-6 bg-gray-50 text-gray-900">
-      <div className="max-w-5xl mx-auto">
+    <section className="py-12 px-4 bg-gradient-to-r from-[#F2921D] to-[#F2CA50] text-gray-900">
+      <div className="max-w-6xl mx-auto">
         {/* Hauptüberschrift */}
-        <h2 className="text-3xl font-bold mb-4">
-          🌐 50 Karten – Zahlenmuster & Symbolische Bedeutungen
-        </h2>
+        <motion.h2
+          className="text-4xl md:text-5xl font-bold mb-8 text-[#1F4C73] drop-shadow-md text-center"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          Weisheitslehre für unsere Zeit 
+        </motion.h2>
 
-        {/* Alle Gruppen (Tabellen) nacheinander */}
-        {groups.map((group, idx) => (
-          <TableGroup 
-            key={idx} 
-            title={group.title} 
-            rows={group.rows} 
-          />
-        ))}
+        {/* Tabellen-Gruppen */}
+        <div className="space-y-10">
+          {groups.map((group, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: idx * 0.15 }}
+            >
+              <TableGroup title={group.title} rows={group.rows} />
+            </motion.div>
+          ))}
+        </div>
 
         {/* Abschluss */}
-        <h2 className="text-3xl font-bold mt-8 mb-4">✨ Zahlenlogik der 50 Karten</h2>
-        <p className="mb-6 whitespace-pre-line">
+        <motion.h2
+          className="text-4xl md:text-5xl font-bold mt-12 mb-6 text-[#BF4A06] drop-shadow-sm text-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: groups.length * 0.15 + 0.2 }}
+        >
+          ✨ Zahlenlogik der 50 Karten
+        </motion.h2>
+        <motion.p
+          className="text-lg md:text-xl leading-relaxed whitespace-pre-line text-center max-w-4xl mx-auto"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: groups.length * 0.15 + 0.4 }}
+        >
           {finalInfos}
-        </p>
+        </motion.p>
       </div>
     </section>
   );
