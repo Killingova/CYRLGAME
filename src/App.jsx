@@ -1,13 +1,13 @@
 // src/App.jsx
+
 import React, { useState } from 'react';
 import Header from './components/Header';
 import HeroBereich from './components/HeroBereich';
 import Footer from './components/Footer';
-// Andere Komponenten
 import PythagoreanNumerology from './components/PythagoreanNumerology';
 import Rechner from './components/Rechner';
-// Unser neues Karussell
 import LegungCarousel from './components/LegungCarousel';
+import FiftyCards from './components/newworld/FiftyCards';
 
 // Die Legungen + Komponenten
 import KeltischesKreuz from './legungen/KeltischesKreuz';
@@ -80,7 +80,6 @@ const legungen = [
 
 
 function App() {
-  // State: ausgewählte Legung
   const [selectedLegung, setSelectedLegung] = useState(null);
 
   const handleLegungClick = (component) => {
@@ -97,7 +96,8 @@ function App() {
       <HeroBereich />
 
       <main className="flex-grow bg-[#1F4C73]">
-          <PythagoreanNumerology />
+        <PythagoreanNumerology />
+        <FiftyCards /> {/* Neue Welt: 50-Karten-Darstellung */}
 
         {selectedLegung ? (
           <section className="container mx-auto px-4">
@@ -120,7 +120,7 @@ function App() {
 
             <LegungCarousel 
               legungen={legungen} 
-              onLegungClick={handleLegungClick} 
+              onLegungClick={handleLegungClick}
             />
           </>
         )}
@@ -133,6 +133,7 @@ function App() {
             Neues Spiel starten
           </button>
         </div>
+
         <Rechner />
       </main>
 
