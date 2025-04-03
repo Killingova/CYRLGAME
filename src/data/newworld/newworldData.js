@@ -1,5 +1,6 @@
 // src/data/newworld/newworldData.js
 
+// Gruppen mit den Kartensets und deren Zeilen
 export const groups = [
     {
       title: "Vom Individuum zur globalen Elite – Gesellschaftliche Positionen im Wandel",
@@ -197,7 +198,7 @@ export const groups = [
       ]
     },
     {
-      title: " Innere Kräfte & moralische Orientierung – Tugenden einer neuen Welt",
+      title: "Innere Kräfte & moralische Orientierung – Tugenden einer neuen Welt",
       rows: [
         {
           nr: 31,
@@ -328,13 +329,59 @@ export const groups = [
     }
   ];
   
-  // Optionaler Abschlusstext / Fazit (falls du in FiftyCards.jsx etwas ausgeben willst)
+  // Ausführliche Artikel-Texte (Langversion)
+  export const cardArticles = {
+    1: {
+      title: "Der Flüchtling – Ein detaillierter Artikel",
+      content: `
+        <img 
+          src="/images/fluechtling.jpg" 
+          alt="Ein Mann auf der Flucht, mit geschlossenen Augen, Decke in den Händen und einer Gruppe im Hintergrund" 
+          class="mb-4"
+        />
+        <h2><strong>Karte 1: Der Flüchtling</strong></h2>
+        
+        <p><strong>Einleitung:</strong><br>
+        Der Flüchtling, die erste Karte im neuen Weisheitsset, steht symbolisch für Anfang, Neubeginn und Einheit...</p>
+        
+        <p><strong>Historische und Aktuelle Bedeutung:</strong><br>
+        Historisch betrachtet ist Flucht eine allgegenwärtige Konstante in der menschlichen Geschichte...</p>
+        
+        <p><strong>Symbolische Bedeutung:</strong><br>
+        Der Flüchtling verkörpert die existenzielle Erfahrung, etwas Geliebtes und Vertrautes aufgeben zu müssen...</p>
+        
+        <p>Numerologisch steht die Zahl Eins für Einheit, Neubeginn und ursprüngliche Kraft...</p>
+        
+        <p><strong>Psychologische Dimension:</strong><br>
+        Psychologisch betrachtet steht der Flüchtling für den Menschen, der bereit ist, alte Identitäten... </p>
+        
+        <p><strong>Spirituelle und philosophische Betrachtung:</strong><br>
+        Spirituell gesehen repräsentiert die Flucht einen inneren Prozess der Transformation...</p>
+        
+        <p><strong>Meditation zur Karte:</strong><br>
+        Setze dich an einen ruhigen Ort und atme tief ein und aus. Visualisiere vor deinem inneren Auge die Situation...</p>
+        
+        <p><strong>Praktische Tipps zur Anwendung der Kartenweisheit:</strong><br>
+        - Akzeptiere Veränderungen im Leben als natürliche Prozesse...<br>
+        - Finde Mut, Dinge hinter dir zu lassen...<br>
+        - Praktiziere Dankbarkeit...<br>
+        - Entwickle Empathie für Menschen...<br>
+        - Nutze deine persönlichen Herausforderungen...</p>
+        
+        <p><strong>Fazit:</strong><br>
+        Die erste Karte „Der Flüchtling“ erinnert uns an die universelle Erfahrung von Verlust, Neubeginn und der Suche nach Einheit...</p>
+      `
+    },
+    // Weitere Artikel für Karte Nr. 2, 3, ... können hier ergänzt werden.
+  };
+  
+  // Optionaler Abschlusstext / Fazit (falls du in FiftyCards.jsx etwas ausgeben möchtest)
   export const finalInfos = `
-  Dieses Zahlenmuster und die thematische Aufteilung spiegeln moderne Machtstrukturen,
-  technologische Entwicklungen und neue Tugenden wider. Jede Karte steht für eine Facette
-  der Welt, in der wir leben – oder die wir anstreben. Meisterzahlen (11, 22, 33, 44) 
-  erhalten besondere Bedeutung, ebenso Potenz- und Quadratzahlen (25, 36, 49). 
-  Hierdurch entsteht eine symbolische Tiefe, die zum Nachdenken über unsere 
-  zukünftige Gesellschaft einlädt.
+    Dieses Zahlenmuster und die thematische Aufteilung spiegeln moderne Machtstrukturen,
+    technologische Entwicklungen und neue Tugenden wider. Jede Karte steht für eine Facette
+    der Welt, in der wir leben – oder die wir anstreben. Meisterzahlen (11, 22, 33, 44) 
+    erhalten besondere Bedeutung, ebenso Potenz- und Quadratzahlen (25, 36, 49). 
+    Hierdurch entsteht eine symbolische Tiefe, die zum Nachdenken über unsere 
+    zukünftige Gesellschaft einlädt.
   `;
   
