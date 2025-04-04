@@ -3,32 +3,27 @@ name: Deploy Vite App to GitHub Pages
 on:
   push:
     branches:
-      - main  # ⇦ Jedes Mal wenn du auf "main" pushst, startet dieser Workflow
+      - main
 
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # Code aus deinem Repo holen
-      - name: Checkout Code
-        uses: actions/checkout@v3
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-      # Node.js Umgebung bereitstellen (Version 18)
-      - name: Setup Node.js
+      - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: 18
 
-      # Dependencies installieren
       - name: Install Dependencies
-        run: npm install
+        run: npm ci
 
-      # Projekt bauen (Vite → dist-Ordner erzeugen)
-      - name: Build
+      - name: Build Vite App
         run: npm run build
 
-      # Veröffentlichen auf GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
