@@ -21,62 +21,63 @@ import GrosseTafel from './legungen/GrosseTafel';
 import HufeisenLegung from './legungen/HufeisenLegung';
 
 // Definition eines Arrays von Legungen mit ihren Eigenschaften
-const legungen = [
+export const legungen = [
   {
     title: "Welt des inneren Gleichgewichts", // Chakra
-    image: "/images/chakralegung.jpg",
+    image: `${import.meta.env.BASE_URL}images/chakralegung.jpg`,
     info: "Reise durch die sieben Energiezentren deines Körpers und erkenne, wo Harmonie oder Blockaden verborgen liegen.",
     component: <ChakraLegung />
   },
   {
     title: "Welt der Schicksalsfäden", // Keltisches Kreuz
-    image: "/images/keltischeskreuz.jpg",
+    image: `${import.meta.env.BASE_URL}images/keltischeskreuz.jpg`,
     info: "Tauche ein in eine alte, keltische Struktur, die dir Klarheit über Vergangenheit, Gegenwart und Zukunft schenkt.",
     component: <KeltischesKreuz />
   },
   {
     title: "Welt des kosmischen Gleichklangs", // Astrologische
-    image: "/images/astrologische.jpg",
+    image: `${import.meta.env.BASE_URL}images/astrologische.jpg`,
     info: "Erkunde deine zwölf Lebensbereiche und erkenne, welche Sterne dir gerade leuchten oder verborgen bleiben.",
     component: <AstrologischeLegung />
   },
   {
     title: "Welt der verborgenen Pfade", // Hufeisen
-    image: "/images/hufeisen.jpg",
+    image: `${import.meta.env.BASE_URL}images/hufeisen.jpg`,
     info: "Ein Blick auf die Entwicklung eines Themas – von der Vergangenheit, über das Jetzt, bis hin zum Kommenden.",
     component: <HufeisenLegung />
   },
   {
     title: "Welt des magischen Ursprungs", // Pyramide
-    image: "/images/pyramiden.jpg",
+    image: `${import.meta.env.BASE_URL}images/pyramiden.jpg`,
     info: "Analysiere ein Thema von Grund auf und erkenne den Weg zur spirituellen Spitze deiner Situation.",
     component: <PyramidenLegung />
   },
   {
     title: "Welt der Herzensverbindungen", // Beziehungs-Kompass
-    image: "/images/kompass.jpg",
+    image: `${import.meta.env.BASE_URL}images/kompass.jpg`,
     info: "Navigiere durch die emotionale Landschaft deiner Beziehungen – mit Blick auf Sehnsucht, Nähe und gemeinsame Wege.",
     component: <BeziehungsKompass />
   },
   {
     title: "Welt der Elementarenergie", // Pentagramm
-    image: "/images/pentagramm.jpg",
+    image: `${import.meta.env.BASE_URL}images/pentagramm.jpg`,
     info: "Erkenne, wie die fünf Kräfte (Erde, Wasser, Feuer, Luft & Geist) in deiner aktuellen Lebenslage wirken.",
     component: <PentagrammLegung />
   },
   {
     title: "Welt des Seelenbaums", // Lebensbaum
-    image: "/images/lebensbaum.jpg",
+    image: `${import.meta.env.BASE_URL}images/lebensbaum.jpg`,
     info: "Eine tiefgehende spirituelle Reise entlang des kabbalistischen Lebensbaums – von Erkenntnis bis Transformation.",
     component: <LebensbaumLegung />
   },
   {
     title: "Welt der Weite Erkenntnis", // 21 Karten
-    image: "/images/21karten.jpg",
+    image: `${import.meta.env.BASE_URL}images/21karten.jpg`,
     info: "Die große Tafel: Eine umfassende Sicht auf alle Aspekte deines Lebens – wie ein Blick von oben auf dein inneres Reich.",
     component: <GrosseTafel />
   }
 ];
+
 
 
 function App() {

@@ -8,8 +8,8 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center">
           {/* Logo und Beschreibung */}
           <div className="mb-4 md:mb-0">
-            <h2 className="text-2xl font-bold">Isis Filazma</h2>
-            <p className="text-sm">Spielerische Reise durch Paradoxien, Mystik & positive Psychologie.</p>
+            <h2 className="text-2xl font-bold">Kristin Zhivkova</h2>
+            <p className="text-sm">Spielerische Reise durch Paradoxien, Mystik & Psychologie.</p>
           </div>
 
           {/* Links zu Social Media */}
