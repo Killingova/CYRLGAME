@@ -34,7 +34,7 @@ const Footer = () => {
         {/* Footer-Links */}
         <div className="flex flex-col md:flex-row justify-between items-center text-sm">
           <div className="mb-2 md:mb-0">
-            © {new Date().getFullYear()} Reise durch Paradoxe | Isis Filazma
+            © {new Date().getFullYear()} Reise durch Paradoxe | Kristin Zhivkova
           </div>
           <div className="flex space-x-4">
             <a href="/impressum" className="hover:text-gray-400">Impressum</a>
