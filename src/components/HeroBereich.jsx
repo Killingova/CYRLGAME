@@ -28,7 +28,7 @@ const HeroBereich = () => {
     {/* Avatar-Bereich */}
     <div className="w-40 h-40 rounded-full border-4 border-[#F2921D] overflow-hidden shadow-xl mx-auto md:mx-0">
       <img
-        src="/kristin-avatar.jpg"
+        src={`${import.meta.env.BASE_URL}kristin-avatar.jpg`}
         alt="Avatar"
         className="w-full h-full object-cover"
       />

@@ -9,7 +9,7 @@ const Header = () => {
       <div className="container mx-auto flex items-end justify-between h-20 px-6">
         {/* Linkes Logo */}
         <img
-          src="/LOGOREISE.png"
+          src={`${import.meta.env.BASE_URL}LOGOREISE.png`}
           alt="Logo links"
           className="h-16 w-auto object-bottom"
         />
@@ -31,7 +31,7 @@ const Header = () => {
 
         {/* Rechtes Logo */}
         <img
-          src="/LOGOREISE.png"
+          src={`${import.meta.env.BASE_URL}LOGOREISE.png`}
           alt="Logo rechts"
           className="h-16 w-auto object-bottom"
         />
