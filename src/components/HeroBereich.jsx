@@ -29,7 +29,7 @@ const HeroBereich = () => {
     <div className="w-40 h-40 rounded-full border-4 border-[#F2921D] overflow-hidden shadow-xl mx-auto md:mx-0">
       <img
         src="/kristin-avatar.jpg"
-        alt="Isis Filazma - Avatar"
+        alt="Avatar"
         className="w-full h-full object-cover"
       />
     </div>

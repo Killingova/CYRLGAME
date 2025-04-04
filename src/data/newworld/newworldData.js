@@ -7,13 +7,13 @@ export const groups = [
       rows: [
         {
           nr: 1,
-          karte: "Flüchtling",
+          karte: "Flüchtling/Bettler",
           zahlensymbolik:
             "Anfang, Neubeginn, Einheit – der Mensch auf der Flucht, der nach Heimat und Integration sucht."
         },
         {
           nr: 2,
-          karte: "Arbeiter (Gig-Economy)",
+          karte: "Arbeiter/",
           zahlensymbolik:
             "Dualität, Balance – Arbeit als Basis gesellschaftlicher Stabilität, aber auch Zwiespalt."
         },
@@ -383,5 +383,14 @@ export const groups = [
     erhalten besondere Bedeutung, ebenso Potenz- und Quadratzahlen (25, 36, 49). 
     Hierdurch entsteht eine symbolische Tiefe, die zum Nachdenken über unsere 
     zukünftige Gesellschaft einlädt.
+    Diese 50 Tore oder Stufen sind ein Symbol dafür, dass wir Menschen Schritt für Schritt dazulernen:
+
+Zuerst lernen wir einfache Dinge: Reden, Rechnen, unsere Familie kennen, unsere Umgebung …
+
+Dann lernen wir kompliziertere Sachen: Musik, Kunst, naturwissenschaftliche Fächer, wie die Welt aufgebaut ist …
+
+Wir entdecken, was gut und richtig ist, welche Werte und Tugenden uns wichtig sind.
+
+Am Ende fragen wir uns: „Woher kommt eigentlich alles?“, „Was ist der Sinn meines Lebens?“, „Gibt es etwas wie Gott oder das Göttliche?“
   `;
   
