@@ -1,68 +1,95 @@
 import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const navLinks = [
+    { name: "Start", path: "/" },
+    { name: "Über", path: "#über" },
+    { name: "Kontakt", path: "#kontakt" }
+  ];
+
   return (
-    <header className="sticky top-0 z-50 bg-[#F2CA50] shadow-md border-b-4 border-[#F2921D]">
-      <div className="container mx-auto flex items-end justify-between h-20 px-6">
+    <header className="sticky top-0 z-50 bg-gradient-to-b from-[#F2CA50] to-[#F2921D] shadow-lg border-b-2 border-[#d98300]">
+      <div className="max-w-7xl mx-auto flex items-center justify-between h-20 px-4 md:px-8">
         {/* Linkes Logo */}
         <img
           src={`${import.meta.env.BASE_URL}LOGOREISE.png`}
           alt="Logo links"
-          className="h-16 w-auto object-bottom"
+          className="h-12 w-auto"
         />
 
-        {/* Mittiger Block: Titel + Burger-Button */}
-        <div className="flex items-end space-x-4">
-          <h1 className="text-black text-4xl font-bold font-[Dancing Script] leading-none">
-            Reise durch Paradoxe
-          </h1>
-          <button
-            type="button"
-            className="text-black hover:text-[#F2921D] transition-colors duration-300 md:hidden"
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label={menuOpen ? "Menü schließen" : "Menü öffnen"}
-          >
-            {menuOpen ? <X size={32} /> : <Menu size={32} />}
-          </button>
-        </div>
+        {/* Titel */}
+        <h1 className="text-black text-3xl sm:text-4xl font-bold font-[Dancing Script] text-center drop-shadow-md">
+          Reise durch Paradoxe
+        </h1>
 
         {/* Rechtes Logo */}
         <img
           src={`${import.meta.env.BASE_URL}LOGOREISE.png`}
           alt="Logo rechts"
-          className="h-16 w-auto object-bottom"
+          className="h-12 w-auto"
         />
+
+        {/* Burger für mobile */}
+        <button
+          className="md:hidden ml-4 text-black hover:text-[#F2921D] transition"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Menü öffnen oder schließen"
+        >
+          {menuOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
       </div>
 
       {/* Navigation – Desktop */}
-      <nav className="hidden md:flex justify-center space-x-6 py-2">
-        {["Start", "Über", "Kontakt"].map((text, index) => (
-          <a
-            key={index}
-            href={`#${text.toLowerCase()}`}
-            className="text-black font-medium hover:text-[#F2921D] transition duration-300"
-          >
-            {text}
-          </a>
-        ))}
+      <nav className="hidden md:flex justify-center space-x-8 py-3 bg-[#F2CA50] border-t border-[#e3a220] shadow-inner">
+        {navLinks.map(({ name, path }) =>
+          path.startsWith("/") ? (
+            <Link
+              key={name}
+              to={path}
+              className="text-black font-semibold hover:text-[#fff] hover:bg-[#F2921D] px-3 py-1 rounded transition"
+            >
+              {name}
+            </Link>
+          ) : (
+            <a
+              key={name}
+              href={path}
+              className="text-black font-semibold hover:text-[#fff] hover:bg-[#F2921D] px-3 py-1 rounded transition"
+            >
+              {name}
+            </a>
+          )
+        )}
       </nav>
 
-      {/* Mobile Navigation */}
+      {/* Navigation – Mobile */}
       {menuOpen && (
-        <div className="md:hidden bg-white shadow-lg border-t border-[#F2921D] absolute top-[5rem] left-0 w-full flex flex-col items-center py-4 space-y-4">
-          {["Start", "Über", "Kontakt"].map((text, index) => (
-            <a
-              key={index}
-              href={`#${text.toLowerCase()}`}
-              className="text-black font-medium text-lg hover:text-[#F2921D] transition duration-300"
-              onClick={() => setMenuOpen(false)}
-            >
-              {text}
-            </a>
-          ))}
+        <div className="md:hidden bg-white border-t border-[#F2921D] px-6 py-4 space-y-3">
+          {navLinks.map(({ name, path }) =>
+            path.startsWith("/") ? (
+              <Link
+                key={name}
+                to={path}
+                onClick={() => setMenuOpen(false)}
+                className="block text-black text-lg font-medium hover:text-[#F2921D] transition"
+              >
+                {name}
+              </Link>
+            ) : (
+              <a
+                key={name}
+                href={path}
+                onClick={() => setMenuOpen(false)}
+                className="block text-black text-lg font-medium hover:text-[#F2921D] transition"
+              >
+                {name}
+              </a>
+            )
+          )}
         </div>
       )}
     </header>
