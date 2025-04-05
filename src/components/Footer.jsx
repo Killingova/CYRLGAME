@@ -1,46 +1,50 @@
 import React from 'react';
-import { FaInstagram, FaFacebook, FaPinterest, FaEnvelope } from 'react-icons/fa';
+import {
+  FaInstagram,
+  FaFacebook,
+  FaPinterest,
+  FaEnvelope
+} from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <footer className="bg-[#F2921D] text-stone-950 py-8">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          {/* Logo und Beschreibung */}
-          <div className="mb-4 md:mb-0">
-            <h2 className="text-2xl font-bold">Kristin Zhivkova</h2>
-            <p className="text-sm">Spielerische Reise durch Paradoxien, Mystik & Psychologie.</p>
-          </div>
-
-          {/* Links zu Social Media */}
-          <div className="flex space-x-4">
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-purple-400">
-              <FaInstagram size={24} />
-            </a>
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500">
-              <FaFacebook size={24} />
-            </a>
-            <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" className="hover:text-red-400">
-              <FaPinterest size={24} />
-            </a>
-            <a href="mailto:kontakt@isislacrisis.de" className="hover:text-green-400">
-              <FaEnvelope size={24} />
-            </a>
-          </div>
+    <footer className="bg-[#F2921D] text-stone-900 py-10 px-6">
+      <div className="max-w-6xl mx-auto flex flex-col gap-6 md:flex-row md:justify-between md:items-start">
+        
+        {/* Logo & Beschreibung */}
+        <div>
+          <h2 className="text-2xl font-extrabold tracking-tight">Kristin Zhivkova</h2>
+          <p className="text-sm max-w-sm mt-2">
+            Spielerische Reise durch Paradoxien, Mystik und Psychologie – erkunde innere Welten mit Karten, Symbolen und Zahlen.
+          </p>
         </div>
 
-        <hr className="my-4 border-gray-700" />
+        {/* Social Media Icons */}
+        <div className="flex items-center space-x-5">
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-[#8C1207] transition">
+            <FaInstagram size={24} />
+          </a>
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-[#1F4C73] transition">
+            <FaFacebook size={24} />
+          </a>
+          <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" aria-label="Pinterest" className="hover:text-[#BF4A06] transition">
+            <FaPinterest size={24} />
+          </a>
+        </div>
+      </div>
 
-        {/* Footer-Links */}
-        <div className="flex flex-col md:flex-row justify-between items-center text-sm">
-          <div className="mb-2 md:mb-0">
-            © {new Date().getFullYear()} Reise durch Paradoxe | Kristin Zhivkova
-          </div>
-          <div className="flex space-x-4">
-            <a href="/impressum" className="hover:text-gray-400">Impressum</a>
-            <a href="/datenschutz" className="hover:text-gray-400">Datenschutz</a>
-            <a href="/kontakt" className="hover:text-gray-400">Kontakt</a>
-          </div>
+      {/* Trennlinie */}
+      <hr className="my-6 border-[#F2CA50]" />
+
+      {/* Footer Links + Copyright */}
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center text-sm text-stone-800">
+        <p className="mb-2 md:mb-0">
+          © {new Date().getFullYear()} Reise durch Paradoxe | Kristin Zhivkova
+        </p>
+        <div className="flex space-x-4">
+          <a href="/impressum" className="hover:text-white transition">Impressum</a>
+          <a href="/datenschutz" className="hover:text-white transition">Datenschutz</a>
+          <a href="/kontakt" className="hover:text-white transition">Kontakt</a>
         </div>
       </div>
     </footer>
