@@ -1,4 +1,3 @@
-// src/components/LegungBox.jsx
 import React from 'react';
 
 function LegungBox({ legung, onClick }) {
@@ -22,7 +21,6 @@ function LegungBox({ legung, onClick }) {
       "
       onClick={onClick}
     >
-      {/* 5:7 Bild-Proportion per Tailwind Utility */}
       <div className="relative aspect-[5/7]">
         <img
           src={image}

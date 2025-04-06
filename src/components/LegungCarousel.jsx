@@ -1,30 +1,29 @@
-// src/components/LegungCarousel.jsx
 import React from 'react';
 import Slider from 'react-slick';
 import LegungBox from './LegungBox.jsx';
 
-// WICHTIG: "slick-carousel" CSS entweder hier oder global importieren:
+// CSS von "slick-carousel" muss global importiert werden:
 // import "slick-carousel/slick/slick.css";
 // import "slick-carousel/slick/slick-theme.css";
 
-const LegungCarousel = ({ legungen, onLegungClick }) => {
+const LegungCarousel = ({ legungen, onLegungClick = () => {} }) => {
   const settings = {
-    dots: true,         // Punkte zur Navigation
-    arrows: true,       // Pfeile (vor/zurück) für Desktop
-    infinite: true,     
+    dots: true,
+    arrows: true,
+    infinite: true,
     speed: 500,
-    slidesToShow: 3,    // 3 Legungen pro „Seite“ (auf großen Screens)
+    slidesToShow: 3,
     slidesToScroll: 1,
-    swipeToSlide: true, // Sorgt für flüssiges Scrollen per Touch/Swipe
+    swipeToSlide: true,
     responsive: [
       {
-        breakpoint: 1024, // unter 1024px → 2 Legungen pro Seite
+        breakpoint: 1024,
         settings: {
           slidesToShow: 2
         }
       },
       {
-        breakpoint: 768,  // unter 768px → 1 Legung pro Seite
+        breakpoint: 768,
         settings: {
           slidesToShow: 1
         }
@@ -38,9 +37,10 @@ const LegungCarousel = ({ legungen, onLegungClick }) => {
         <Slider {...settings}>
           {legungen.map((legung, idx) => (
             <div key={idx} className="px-2">
-              {/* Jede Legung als eigene LegungBox */}
               <LegungBox
                 legung={legung}
+                // Klick ruft die übergebene Funktion auf,
+                // übergibt die Komponente der Legung
                 onClick={() => onLegungClick(legung.component)}
               />
             </div>
