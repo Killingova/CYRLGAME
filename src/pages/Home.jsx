@@ -1,3 +1,4 @@
+// src/pages/Home.jsx
 import React, { useState } from 'react';
 import HeroBereich from '../components/HeroBereich';
 import PythagoreanNumerology from '../components/PythagoreanNumerology';
@@ -16,72 +17,81 @@ import PyramidenLegung from '../legungen/PyramidenLegung';
 import GrosseTafel from '../legungen/GrosseTafel';
 import HufeisenLegung from '../legungen/HufeisenLegung';
 
-// Direkt definierte Legungen ohne Auslagerung
-const legungen = [
+// Array mit Legungen (in "klassischer" Form)
+const legungenArray = [
   {
     title: "Welt des inneren Gleichgewichts",
     image: `${import.meta.env.BASE_URL}images/chakralegung.jpg`,
     info: "Reise durch die sieben Energiezentren deines Körpers und erkenne, wo Harmonie oder Blockaden verborgen liegen.",
-    component: ChakraLegung
+    Component: ChakraLegung
   },
   {
     title: "Welt der Schicksalsfäden",
     image: `${import.meta.env.BASE_URL}images/keltischeskreuz.jpg`,
-    info: "Tauche ein in eine alte, keltische Struktur, die dir Klarheit über Vergangenheit, Gegenwart und Zukunft schenkt.",
-    component: KeltischesKreuz
+    info: "Tauche ein in eine alte, keltische Struktur...",
+    Component: KeltischesKreuz
   },
   {
     title: "Welt des kosmischen Gleichklangs",
     image: `${import.meta.env.BASE_URL}images/astrologische.jpg`,
-    info: "Erkunde deine zwölf Lebensbereiche und erkenne, welche Sterne dir gerade leuchten oder verborgen bleiben.",
-    component: AstrologischeLegung
+    info: "Erkunde deine zwölf Lebensbereiche...",
+    Component: AstrologischeLegung
   },
   {
     title: "Welt der verborgenen Pfade",
     image: `${import.meta.env.BASE_URL}images/hufeisen.jpg`,
-    info: "Ein Blick auf die Entwicklung eines Themas – von der Vergangenheit, über das Jetzt, bis hin zum Kommenden.",
-    component: HufeisenLegung
+    info: "Ein Blick auf die Entwicklung eines Themas...",
+    Component: HufeisenLegung
   },
   {
     title: "Welt des magischen Ursprungs",
     image: `${import.meta.env.BASE_URL}images/pyramiden.jpg`,
-    info: "Analysiere ein Thema von Grund auf und erkenne den Weg zur spirituellen Spitze deiner Situation.",
-    component: PyramidenLegung
+    info: "Analysiere ein Thema von Grund auf...",
+    Component: PyramidenLegung
   },
   {
     title: "Welt der Herzensverbindungen",
     image: `${import.meta.env.BASE_URL}images/kompass.jpg`,
-    info: "Navigiere durch die emotionale Landschaft deiner Beziehungen – mit Blick auf Sehnsucht, Nähe und gemeinsame Wege.",
-    component: BeziehungsKompass
+    info: "Navigiere durch die emotionale Landschaft...",
+    Component: BeziehungsKompass
   },
   {
     title: "Welt der Elementarenergie",
     image: `${import.meta.env.BASE_URL}images/pentagramm.jpg`,
-    info: "Erkenne, wie die fünf Kräfte (Erde, Wasser, Feuer, Luft & Geist) in deiner aktuellen Lebenslage wirken.",
-    component: PentagrammLegung
+    info: "Erkenne, wie die fünf Kräfte...",
+    Component: PentagrammLegung
   },
   {
     title: "Welt des Seelenbaums",
     image: `${import.meta.env.BASE_URL}images/lebensbaum.jpg`,
-    info: "Eine tiefgehende spirituelle Reise entlang des kabbalistischen Lebensbaums – von Erkenntnis bis Transformation.",
-    component: LebensbaumLegung
+    info: "Eine tiefgehende spirituelle Reise...",
+    Component: LebensbaumLegung
   },
   {
     title: "Welt der Weite Erkenntnis",
     image: `${import.meta.env.BASE_URL}images/21karten.jpg`,
-    info: "Die große Tafel: Eine umfassende Sicht auf alle Aspekte deines Lebens – wie ein Blick von oben auf dein inneres Reich.",
-    component: GrosseTafel
+    info: "Die große Tafel: Eine umfassende Sicht...",
+    Component: GrosseTafel
   }
 ];
+
 
 function Home() {
   const [selectedLegung, setSelectedLegung] = useState(null);
 
-  const handleLegungClick = (component) => setSelectedLegung(component);
-  const handleBackClick = () => setSelectedLegung(null);
+  const handleLegungClick = (Comp) => {
+    // Hier kommt eine Funktions-Referenz rein
+    // Wir speichern dann die Komponente, die wir rendern wollen
+    console.log('Ausgewählte Legung:', Comp);
+    setSelectedLegung(() => Comp); // wir speichern die Referenz
+  };
+
+  const handleBackClick = () => {
+    setSelectedLegung(null);
+  };
 
   return (
-    <div className="bg-[#1F4C73]">
+    <div className="bg-[#1F4C73] min-h-screen">
       <HeroBereich />
       <FiftyCards />
 
@@ -93,7 +103,10 @@ function Home() {
           >
             Zurück zur Übersicht
           </button>
-          {React.createElement(selectedLegung)}
+          <div className="bg-white p-4">
+            {/* Falls du Props an die Komponente geben musst, geht das hier: */}
+            {React.createElement(selectedLegung)}
+          </div>
         </section>
       ) : (
         <>
@@ -104,7 +117,18 @@ function Home() {
             Bitte wähle eine Tafel
           </h3>
 
-          <LegungCarousel legungen={legungen} onLegungClick={handleLegungClick} />
+          <LegungCarousel
+            legungen={legungenArray.map((item) => {
+              // wandeln wir es um, damit LegungCarousel props erwartet
+              return {
+                title: item.title,
+                image: item.image,
+                info: item.info,
+                // Klick soll "item.Component" übergeben
+                onClick: () => handleLegungClick(item.Component)
+              };
+            })}
+          />
         </>
       )}
 

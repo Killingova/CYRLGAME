@@ -1,10 +1,6 @@
 import React from 'react';
-import {
-  FaInstagram,
-  FaFacebook,
-  FaPinterest,
-  FaEnvelope
-} from 'react-icons/fa';
+import { FaInstagram, FaFacebook, FaPinterest } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -30,6 +26,7 @@ const Footer = () => {
           <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" aria-label="Pinterest" className="hover:text-[#BF4A06] transition">
             <FaPinterest size={24} />
           </a>
+
         </div>
       </div>
 
@@ -42,7 +39,7 @@ const Footer = () => {
           © {new Date().getFullYear()} Reise durch Paradoxe | Kristin Zhivkova
         </p>
         <div className="flex space-x-4">
-          <a href="/impressum" className="hover:text-white transition">Impressum</a>
+        <Link to="/impressum" className="hover:text-white transition">Impressum</Link>
           <a href="/datenschutz" className="hover:text-white transition">Datenschutz</a>
           <a href="/kontakt" className="hover:text-white transition">Kontakt</a>
         </div>
