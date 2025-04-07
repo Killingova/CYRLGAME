@@ -17,10 +17,10 @@ const Impressum = () => {
           <strong>Kontakt:</strong><br />
           E-Mail:{" "}
           <a
-            href="mailto:ms.zhivkova@googlemail.com"
+            href="mailto:kontakt@pfad-des-paradoxons.de"
             className="text-[#BF4A06] underline"
           >
-            ms.zhivkova@googlemail.com
+            kontakt@pfad-des-paradoxons.de
           </a><br />
           Telefon: +49 151 19495232
         </p>

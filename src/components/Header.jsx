@@ -23,7 +23,7 @@ const Header = () => {
 
         {/* Titel */}
         <h1 className="text-black text-3xl sm:text-4xl font-bold font-[Dancing Script] text-center drop-shadow-md">
-          Reise durch Paradoxe
+          Pfad des Paradoxons
         </h1>
 
         {/* Rechtes Logo */}
