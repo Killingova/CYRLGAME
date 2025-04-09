@@ -26,7 +26,7 @@ const Header = () => {
               className="h-12 sm:h-14 w-auto drop-shadow-md"
             />
           </Link>
-          <h1 className="text-[#260101] text-2xl sm:text-3xl font-[Dancing Script] font-bold drop-shadow-sm">
+          <h1 className="text-[#260101] text-4xl sm:text-3xl font-[Dancing Script] font-bold drop-shadow-sm">
             Pfad des Paradoxons
           </h1>
         </div>

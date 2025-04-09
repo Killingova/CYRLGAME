@@ -1,5 +1,3 @@
-// src/components/newworld/FiftyCards.jsx
-
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { groups, finalInfos } from "../../data/newworld/newworldData.js";
@@ -7,8 +5,6 @@ import TableGroup from "./TableGroup";
 import CardDetail from "./CardDetail";
 
 function FiftyCards() {
-  // Wenn selectedNr = null, zeigen wir die Tabelle
-  // Wenn selectedNr != null, zeigen wir Detailansicht
   const [selectedNr, setSelectedNr] = useState(null);
 
   const handleSelectCard = (nr) => {
@@ -20,11 +16,11 @@ function FiftyCards() {
   };
 
   return (
-    <section className="py-12 px-4 bg-gradient-to-r from-[#F2921D] to-[#F2CA50] text-gray-900">
+    <section className="py-12 px-4 bg-gradient-to-r from-[#DCDEF2] to-[#D9A384] text-[#260101]">
       <div className="max-w-6xl mx-auto">
         {/* Hauptüberschrift */}
         <motion.h2
-          className="text-4xl md:text-5xl font-bold mb-8 text-[#1F4C73] drop-shadow-md text-center"
+          className="text-4xl md:text-5xl font-bold mb-8 text-[#8C5A67] drop-shadow-md text-center"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -34,7 +30,6 @@ function FiftyCards() {
 
         <AnimatePresence mode="wait">
           {selectedNr ? (
-            // Detailansicht einer Karte
             <motion.div
               key="detail"
               initial={{ opacity: 0, scale: 0.95 }}
@@ -45,7 +40,6 @@ function FiftyCards() {
               <CardDetail nr={selectedNr} onClose={handleCloseDetail} />
             </motion.div>
           ) : (
-            // Tabellenübersicht aller Gruppen/Karten
             <motion.div
               key="tables"
               initial={{ opacity: 0 }}
@@ -68,9 +62,9 @@ function FiftyCards() {
                 </motion.div>
               ))}
 
-              {/* Abschließende Infos zum Zahlenkonzept, wenn gewünscht */}
+              {/* Abschließende Infos zum Zahlenkonzept */}
               <motion.h2
-                className="text-3xl md:text-4xl font-bold mt-12 mb-6 text-[#BF4A06] drop-shadow-sm text-center"
+                className="text-3xl md:text-4xl font-bold mt-12 mb-6 text-[#8C5A67] drop-shadow-sm text-center"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
