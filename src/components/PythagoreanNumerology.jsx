@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from "react";
+import { X } from "lucide-react";
 
 const letterToNumberMap = {
   A: 1, B: 2, C: 3, D: 4, E: 5, F: 6, G: 7, H: 8, I: 9,
@@ -58,15 +59,30 @@ export default function PythagoreanNumerology() {
     };
   }, [vollerName, birthDate]);
 
+  const handleReset = () => {
+    setVorname("");
+    setNachname("");
+    setBirthDate("");
+  };
+
   return (
-    <section className="w-full bg-[#1F4C73] py-12 px-4 text-[#F2CA50]">
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-center mb-6">
+    <section className="bg-gradient-to-b from-[#DCDEF2] to-[#D9A384] text-[#260101] py-12 px-4">
+      <div className="max-w-3xl mx-auto space-y-6">
+        <h2 className="text-3xl sm:text-4xl font-bold text-center drop-shadow-md">
           Pythagoreische Numerologie
         </h2>
 
-        <div className="bg-[#1F4C73] border border-[#F2CA50]/30 rounded-xl p-6 shadow text-stone-100">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+        <div className="relative bg-white border border-[#8C5A67]/30 rounded-xl p-6 shadow-lg">
+          {/* Reset-X-Button oben rechts */}
+          <button
+            onClick={handleReset}
+            className="absolute top-2 right-2 text-[#8C5A67] hover:text-red-600 transition"
+            title="Zurücksetzen"
+          >
+            <X size={20} />
+          </button>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <label className="block font-semibold mb-1">Vorname</label>
               <input
@@ -74,7 +90,7 @@ export default function PythagoreanNumerology() {
                 value={vorname}
                 onChange={(e) => setVorname(e.target.value)}
                 placeholder="z. B. Alice"
-                className="w-full px-3 py-2 rounded bg-[#1F4C73] border border-stone-300 text-white focus:ring-2 focus:ring-[#F2CA50]"
+                className="w-full px-3 py-2 rounded bg-[#DCDEF2] border border-[#8C5A67] text-[#260101] focus:outline-none focus:ring-2 focus:ring-[#8C5A67]"
               />
             </div>
             <div>
@@ -84,30 +100,29 @@ export default function PythagoreanNumerology() {
                 value={nachname}
                 onChange={(e) => setNachname(e.target.value)}
                 placeholder="z. B. Wunder"
-                className="w-full px-3 py-2 rounded bg-[#1F4C73] border border-stone-300 text-white focus:ring-2 focus:ring-[#F2CA50]"
+                className="w-full px-3 py-2 rounded bg-[#DCDEF2] border border-[#8C5A67] text-[#260101] focus:outline-none focus:ring-2 focus:ring-[#8C5A67]"
               />
             </div>
-            <div>
+            <div className="md:col-span-2">
               <label className="block font-semibold mb-1">Geburtsdatum</label>
               <input
                 type="date"
                 value={birthDate}
                 onChange={(e) => setBirthDate(e.target.value)}
-                className="w-full px-3 py-2 rounded bg-[#1F4C73] border border-stone-300 text-white focus:ring-2 focus:ring-[#F2CA50]"
+                className="w-full px-3 py-2 rounded bg-[#DCDEF2] border border-[#8C5A67] text-[#260101] focus:outline-none focus:ring-2 focus:ring-[#8C5A67]"
               />
             </div>
           </div>
 
-          {/* Ergebnisse */}
           {results && (
-            <div className="mt-4 bg-[#F2CA50]/20 p-4 rounded-md">
-              <h3 className="text-xl font-bold mb-2 text-[#F2CA50]">
-                Ergebnisse:
-              </h3>
-              <ResultItem label="Lebenszahl" value={results.lifePath} />
-              <ResultItem label="Schicksalszahl" value={results.destiny} />
-              <ResultItem label="Seelenzahl" value={results.soul} />
-              <ResultItem label="Persönlichkeitszahl" value={results.personality} />
+            <div className="mt-6 bg-[#8C5A67]/10 p-4 rounded-lg">
+              <h3 className="text-xl font-bold mb-2 text-[#8C5A67]">Deine Zahlen:</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4">
+                <ResultItem label="Lebenszahl" value={results.lifePath} />
+                <ResultItem label="Schicksalszahl" value={results.destiny} />
+                <ResultItem label="Seelenzahl" value={results.soul} />
+                <ResultItem label="Persönlichkeitszahl" value={results.personality} />
+              </div>
             </div>
           )}
         </div>

@@ -8,34 +8,32 @@ const Header = () => {
   const navLinks = [
     { name: "Start", path: "/" },
     { name: "Über", path: "#über" },
-    { name: "Kontakt", path: "#kontakt" }
+    { name: "Kontakt", path: "#kontakt" },
+    { name: "Numerologie", path: "#Numerologie" },
+    { name: "Welten", path: "#welten" },
+    { name: "Karten", path: "#karten" }
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-gradient-to-b from-[#F2CA50] to-[#F2921D] shadow-lg border-b-2 border-[#d98300]">
-      <div className="max-w-7xl mx-auto flex items-center justify-between h-20 px-4 md:px-8">
-        {/* Linkes Logo */}
-        <img
-          src={`${import.meta.env.BASE_URL}LOGOREISE.png`}
-          alt="Logo links"
-          className="h-12 w-auto"
-        />
+    <header className="sticky top-0 z-50 bg-gradient-to-b from-[#DCDEF2] to-[#D9A384] shadow-lg border-b border-[#8C5A67]">
+      <div className="max-w-7xl mx-auto flex justify-center items-center h-20 px-4 md:px-8 relative">
+        {/* Logo + Titel nebeneinander, zentriert */}
+        <div className="flex items-center space-x-4">
+          <Link to="/" className="flex-shrink-0">
+            <img
+              src={`${import.meta.env.BASE_URL}Logo_World.png`}
+              alt="Pfad des Paradoxons"
+              className="h-12 sm:h-14 w-auto drop-shadow-md"
+            />
+          </Link>
+          <h1 className="text-[#260101] text-2xl sm:text-3xl font-[Dancing Script] font-bold drop-shadow-sm">
+            Pfad des Paradoxons
+          </h1>
+        </div>
 
-        {/* Titel */}
-        <h1 className="text-black text-3xl sm:text-4xl font-bold font-[Dancing Script] text-center drop-shadow-md">
-          Pfad des Paradoxons
-        </h1>
-
-        {/* Rechtes Logo */}
-        <img
-          src={`${import.meta.env.BASE_URL}LOGOREISE.png`}
-          alt="Logo rechts"
-          className="h-12 w-auto"
-        />
-
-        {/* Burger für mobile */}
+        {/* Burger-Menü Button rechts */}
         <button
-          className="md:hidden ml-4 text-black hover:text-[#F2921D] transition"
+          className="md:hidden absolute right-4 text-[#260101] hover:text-[#8C5A67] transition"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Menü öffnen oder schließen"
         >
@@ -44,13 +42,13 @@ const Header = () => {
       </div>
 
       {/* Navigation – Desktop */}
-      <nav className="hidden md:flex justify-center space-x-8 py-3 bg-[#F2CA50] border-t border-[#e3a220] shadow-inner">
+      <nav className="hidden md:flex justify-center space-x-6 py-2 bg-[#DCDEF2] border-t border-[#A67C7C] shadow-inner">
         {navLinks.map(({ name, path }) =>
           path.startsWith("/") ? (
             <Link
               key={name}
               to={path}
-              className="text-black font-semibold hover:text-[#fff] hover:bg-[#F2921D] px-3 py-1 rounded transition"
+              className="text-[#260101] font-semibold hover:bg-[#8C5A67] hover:text-white px-3 py-1 rounded transition"
             >
               {name}
             </Link>
@@ -58,7 +56,7 @@ const Header = () => {
             <a
               key={name}
               href={path}
-              className="text-black font-semibold hover:text-[#fff] hover:bg-[#F2921D] px-3 py-1 rounded transition"
+              className="text-[#260101] font-semibold hover:bg-[#8C5A67] hover:text-white px-3 py-1 rounded transition"
             >
               {name}
             </a>
@@ -68,14 +66,14 @@ const Header = () => {
 
       {/* Navigation – Mobile */}
       {menuOpen && (
-        <div className="md:hidden bg-white border-t border-[#F2921D] px-6 py-4 space-y-3">
+        <div className="md:hidden bg-[#DCDEF2] border-t border-[#A67C7C] px-6 py-4 space-y-2 shadow-inner">
           {navLinks.map(({ name, path }) =>
             path.startsWith("/") ? (
               <Link
                 key={name}
                 to={path}
                 onClick={() => setMenuOpen(false)}
-                className="block text-black text-lg font-medium hover:text-[#F2921D] transition"
+                className="block text-[#260101] text-lg font-medium hover:text-white hover:bg-[#8C5A67] px-3 py-2 rounded transition"
               >
                 {name}
               </Link>
@@ -84,7 +82,7 @@ const Header = () => {
                 key={name}
                 href={path}
                 onClick={() => setMenuOpen(false)}
-                className="block text-black text-lg font-medium hover:text-[#F2921D] transition"
+                className="block text-[#260101] text-lg font-medium hover:text-white hover:bg-[#8C5A67] px-3 py-2 rounded transition"
               >
                 {name}
               </a>
