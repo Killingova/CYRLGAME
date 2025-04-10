@@ -1,27 +1,25 @@
 import React, { useState, useCallback } from 'react';
 import CardBox from '../components/CardBox.jsx';
 import CardDisplay from '../components/CardDisplay.jsx';
-import Summary from '../components/Summary.jsx'; // Importiere die Summary-Komponente
+import Summary from '../components/Summary.jsx';
 
-// Hauptkomponente für die Chakra-Legung
 const ChakraLegung = () => {
   const [positions, setPositions] = useState(Array(7).fill({ card: null }));
   const [deck, setDeck] = useState([]);
   const [selectedCard, setSelectedCard] = useState(null);
 
   const positionsInfo = [
-    "Wurzelchakra (Muladhara): Diese Karte beleuchtet die Themen Sicherheit, Überleben und grundlegende Bedürfnisse.",
-    "Sakralchakra (Svadhisthana): Diese Karte befasst sich mit Kreativität, Sexualität und Emotionen.",
-    "Solarplexuschakra (Manipura): Diese Karte repräsentiert Macht, Selbstbewusstsein und persönliche Stärke.",
-    "Herzchakra (Anahata): Diese Karte zeigt Themen von Liebe, Mitgefühl und emotionaler Heilung.",
-    "Halschakra (Vishuddha): Diese Karte beleuchtet Kommunikation, Selbstausdruck und Wahrheit.",
-    "Stirnchakra (Ajna): Diese Karte befasst sich mit Intuition, Einsicht und Weisheit.",
-    "Kronenchakra (Sahasrara): Diese Karte repräsentiert Spiritualität, Verbindung zum Universum und höhere Bewusstseinsebenen."
+    "Wurzelchakra (Muladhara): Sicherheit & Überleben.",
+    "Sakralchakra (Svadhisthana): Kreativität & Emotionen.",
+    "Solarplexuschakra (Manipura): Selbstbewusstsein & Stärke.",
+    "Herzchakra (Anahata): Liebe & Mitgefühl.",
+    "Halschakra (Vishuddha): Kommunikation & Wahrheit.",
+    "Stirnchakra (Ajna): Intuition & Weisheit.",
+    "Kronenchakra (Sahasrara): Spiritualität & Verbindung."
   ];
 
   const onPositionClick = useCallback((index) => {
     if (deck.length === 0) return;
-
     const newPositions = [...positions];
     if (!newPositions[index].card) {
       newPositions[index] = { card: deck.pop() };
@@ -39,59 +37,36 @@ const ChakraLegung = () => {
   }, []);
 
   return (
-    <div>
+    <div className="bg-[#1F4C73] min-h-screen py-10 px-4">
       <CardBox onCardSetSelect={handleCardSetSelect} />
-      <h2 className="text-3xl font-bold mb-4">Chakra-Legung</h2>
-      <p className="mb-4">Eine detaillierte Legung zur Analyse der sieben Chakren und ihrer Themen.</p>
-      <div className="chakra-layout">
+
+      <div className="text-center mb-10">
+        <h2 className="text-4xl text-[#F2CA50] font-bold mb-2">Chakra-Legung</h2>
+        <p className="text-[#DCDEF2] max-w-xl mx-auto">
+          Ziehe Karten und entdecke Blockaden oder Stärken in deinen Energiezentren.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-4 justify-items-center">
         {positions.map((position, index) => (
           <div
             key={index}
-            className={`position position-${index + 1}`}
             onClick={() => onPositionClick(index)}
+            className="bg-[#D9A384]/20 border border-[#A67C7C] rounded-lg shadow-md w-[80px] sm:w-[100px] h-[140px] flex flex-col justify-center items-center text-center cursor-pointer hover:bg-[#8C5A67]/30 transition"
           >
             {position.card ? (
               <CardDisplay card={position.card} onClick={() => onCardClick(position.card)} />
             ) : (
-              <div>
-                <strong>Position {index + 1}:</strong>
-                <p>{positionsInfo[index]}</p>
-              </div>
+              <>
+                <span className="font-bold text-[#DCDEF2]">Position {index + 1}</span>
+                <p className="text-xs text-[#DCDEF2]">{positionsInfo[index]}</p>
+              </>
             )}
           </div>
         ))}
       </div>
 
-      <Summary positions={positions} positionsInfo={positionsInfo} /> {/* Füge die Summary-Komponente hinzu */}
-
-      <style jsx>{`
-        .chakra-layout {
-          display: grid;
-          grid-template-columns: repeat(7, 1fr);
-          gap: 4px;
-          justify-content: center;
-          align-items: center;
-        }
-
-        .position {
-          border: 1px solid black;
-          text-align: center;
-          cursor: pointer;
-          width: 63mm;
-          height: 88mm;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-
-        .position-1 { grid-column: 1; grid-row: 1; }
-        .position-2 { grid-column: 2; grid-row: 1; }
-        .position-3 { grid-column: 3; grid-row: 1; }
-        .position-4 { grid-column: 4; grid-row: 1; }
-        .position-5 { grid-column: 5; grid-row: 1; }
-        .position-6 { grid-column: 6; grid-row: 1; }
-        .position-7 { grid-column: 7; grid-row: 1; }
-      `}</style>
+      <Summary positions={positions} positionsInfo={positionsInfo} />
     </div>
   );
 };
