@@ -23,7 +23,7 @@ const Header = () => {
         <div className="flex items-center space-x-4">
           <Link to="/" className="flex-shrink-0">
             <img
-              src="/CYRLGAME/logo/LOGOBLACK.png"
+              src="/assets/logo/LOGOBLACK.png"
               alt="Pfad des Paradoxons"
               className="h-16 md:h-24 w-auto drop-shadow-md" // Höhe anpassen
             />

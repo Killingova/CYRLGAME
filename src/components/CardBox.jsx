@@ -19,6 +19,7 @@ import plants from '../data/plants';
 import moonOracleCards from '../data/moonOracleCards';
 import timecards from '../data/timecards';
 import storytime from '../data/storytime';
+import newworldCards from '../data/newworldCards';
 
 // Definiere alle Kartensets
 const cardSets = [
@@ -37,7 +38,7 @@ const cardSets = [
   { name: "Lucid Daydreams", cards: luciddaydreams },
   { name: "Zwillingsflamme", cards: zwillingsflammen },
   { name: "Pfad der Erleuchtung", cards: freimaurerei },
-  { name: "000Kalat-Karten", cards: new Array(52) },
+  { name: "Weisheitslehre", cards: newworldCards },
   { name: "MoonOracle Cards", cards: moonOracleCards },
   { name: "Sacred Orakeldeck", cards: storytime },
 ];
