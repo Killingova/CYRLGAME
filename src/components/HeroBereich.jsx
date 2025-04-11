@@ -1,6 +1,5 @@
-// src/components/HeroBereich.jsx
-
 import React, { useEffect, useState } from "react";
+import avatar from "../assets/logo/kristin-avatar.jpg"; // Direktimport des Bilds
 
 const welten = [
   " der Schicksalsfäden",
@@ -28,7 +27,7 @@ const HeroBereich = () => {
         {/* Avatar-Bereich */}
         <div className="w-40 h-40 rounded-full border-4 border-[#8C5A67] overflow-hidden shadow-xl mx-auto md:mx-0">
           <img
-            src={`${import.meta.env.BASE_URL}kristin-avatar.jpg`}
+            src={avatar}
             alt="Avatar"
             className="w-full h-full object-cover"
           />

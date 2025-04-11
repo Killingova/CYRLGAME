@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
+import logo from "../assets/logo/LOGOBLACK.png"; // Pfad zum Logo
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -8,22 +9,20 @@ const Header = () => {
   const navLinks = [
     { name: "Start", path: "/" },
     { name: "Über", path: "#über" },
-    { name: "Kontakt", path: "/kontakt" }, // Angepasster Pfad
+    { name: "Kontakt", path: "/kontakt" },
     { name: "Numerologie", path: "#Numerologie" },
     { name: "Welten", path: "#welten" },
     { name: "Karten", path: "#karten" }
   ];
-  
 
   return (
     <header className="sticky top-0 z-50 bg-gradient-to-b from-[#DCDEF2] to-[#D9A384] shadow-lg border-b border-[#8C5A67]">
       <div className="max-w-7xl mx-auto flex justify-center items-center h-24 md:h-28 px-4 md:px-8 relative">
-        
         {/* Logo + Titel nebeneinander */}
         <div className="flex items-center space-x-4">
           <Link to="/" className="flex-shrink-0">
             <img
-              src="/assets/logo/LOGOBLACK.png"
+              src={logo}
               alt="Pfad des Paradoxons"
               className="h-16 md:h-24 w-auto drop-shadow-md" // Höhe anpassen
             />
