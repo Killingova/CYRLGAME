@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 
-// Importiere deine Kartensets
+// Importiere deine Kartensets und gib eine Debug-Meldung aus
 import tarotkarten from '../data/tarot';
 import lenormandkarten from '../data/lenormand';
 import engelkarten from '../data/engelkarten';
@@ -21,7 +21,9 @@ import timecards from '../data/timecards';
 import storytime from '../data/storytime';
 import newworldCards from '../data/newworldCards';
 
-// Definiere alle Kartensets
+// Debug-Meldung beim Import
+console.debug("Daten-Dateien wurden erfolgreich importiert.");
+
 const cardSets = [
   { name: "Tarot", cards: tarotkarten },
   { name: "Lenormand", cards: lenormandkarten },
@@ -43,8 +45,13 @@ const cardSets = [
   { name: "Sacred Orakeldeck", cards: storytime },
 ];
 
-// Hauptkomponente
 function CardBox({ onCardSetSelect }) {
+  const handleCardSetClick = (set) => {
+    // Debug-Meldung beim Klick
+    console.debug("Ausgewähltes Kartenset:", set.name);
+    onCardSetSelect(set.cards);
+  };
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
       {cardSets.map((set) => (
@@ -52,7 +59,7 @@ function CardBox({ onCardSetSelect }) {
           key={set.name}
           whileHover={{ scale: 1.05 }}
           className="border rounded-lg p-4 shadow-lg cursor-pointer bg-white"
-          onClick={() => onCardSetSelect(set.cards)}
+          onClick={() => handleCardSetClick(set)}
         >
           <h2 className="text-2xl font-bold mt-4">{set.name}</h2>
           <p className="mt-2 text-gray-500">{set.cards.length} Karten</p>
