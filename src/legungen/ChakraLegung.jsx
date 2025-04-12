@@ -9,13 +9,13 @@ const ChakraLegung = () => {
   const [selectedCard, setSelectedCard] = useState(null);
 
   const positionsInfo = [
-    "Wurzelchakra (Muladhara): Sicherheit & Überleben.",
-    "Sakralchakra (Svadhisthana): Kreativität & Emotionen.",
-    "Solarplexuschakra (Manipura): Selbstbewusstsein & Stärke.",
-    "Herzchakra (Anahata): Liebe & Mitgefühl.",
-    "Halschakra (Vishuddha): Kommunikation & Wahrheit.",
-    "Stirnchakra (Ajna): Intuition & Weisheit.",
-    "Kronenchakra (Sahasrara): Spiritualität & Verbindung."
+    "Sicherheit & Überleben.",
+    "Kreativität & Emotionen.",
+    "Selbstbewusstsein & Stärke.",
+    "Liebe & Mitgefühl.",
+    "Kommunikation & Wahrheit.",
+    "Intuition & Weisheit.",
+    "Spiritualität & Verbindung."
   ];
 
   const onPositionClick = useCallback((index) => {
@@ -37,7 +37,7 @@ const ChakraLegung = () => {
   }, []);
 
   return (
-    <div className="bg-[#1F4C73] min-h-screen py-10 px-4">
+    <div className="bg-[#260101] min-h-screen py-10 px-4">
       <CardBox onCardSetSelect={handleCardSetSelect} />
 
       <div className="text-center mb-10">
@@ -52,13 +52,15 @@ const ChakraLegung = () => {
           <div
             key={index}
             onClick={() => onPositionClick(index)}
-            className="bg-[#D9A384]/20 border border-[#A67C7C] rounded-lg shadow-md w-[80px] sm:w-[100px] h-[140px] flex flex-col justify-center items-center text-center cursor-pointer hover:bg-[#8C5A67]/30 transition"
+            className="bg-[#D9A384]/20 border border-[#A67C7C] rounded-lg shadow-md w-[80px] sm:w-[100px] h-[140px] flex flex-col justify-center items-center text-center cursor-pointer hover:bg-[#8C5A67]/40 transition"
           >
             {position.card ? (
               <CardDisplay card={position.card} onClick={() => onCardClick(position.card)} />
             ) : (
               <>
-                <span className="font-bold text-[#DCDEF2]">Position {index + 1}</span>
+                <span className="font-bold text-[#DCDEF2] text-sm">
+                  {index + 1}
+                </span>
                 <p className="text-xs text-[#DCDEF2]">{positionsInfo[index]}</p>
               </>
             )}
