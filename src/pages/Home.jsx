@@ -1,3 +1,4 @@
+// src/pages/Home.jsx
 import React, { useState } from 'react';
 import HeroBereich from '../components/HeroBereich';
 import FiftyCards from '../components/newworld/FiftyCards';
@@ -16,7 +17,7 @@ import PyramidenLegung from '../legungen/PyramidenLegung';
 import GrosseTafel from '../legungen/GrosseTafel';
 import HufeisenLegung from '../legungen/HufeisenLegung';
 
-// Separater Import der Bilder
+// Import Bilder
 import chakralegung from '../assets/images/chakralegung.jpg';
 import keltischeskreuz from '../assets/images/keltischeskreuz.jpg';
 import astrologische from '../assets/images/astrologische.jpg';
@@ -27,11 +28,12 @@ import pentagramm from '../assets/images/pentagramm.jpg';
 import lebensbaum from '../assets/images/lebensbaum.jpg';
 import _21karten from '../assets/images/21karten.jpg';
 
+// Array für das Carousel
 const legungenArray = [
   {
     title: "Welt des inneren Gleichgewichts",
     image: chakralegung,
-    info: "Reise durch die sieben Energiezentren deines Körpers und erkenne, wo Harmonie oder Blockaden verborgen liegen.",
+    info: "Reise durch die sieben Energiezentren deines Körpers...",
     component: ChakraLegung
   },
   {
@@ -84,27 +86,29 @@ const legungenArray = [
   }
 ];
 
-function Home() {
+// Mapping: Name → Komponente (falls du es brauchst, aber wir haben ja direct reference)
+const Home = () => {
   const [selectedLegung, setSelectedLegung] = useState(null);
 
-  // Speichert die gewählte Legungskomponente im Zustand
+  // Aufruf aus HeroBereich oder LegungCarousel
   const handleLegungClick = (LegungComponent) => {
     console.log('Ausgewählte Legung:', LegungComponent);
     setSelectedLegung(() => LegungComponent);
   };
 
-  // Setzt den Zustand zurück, um wieder die Übersicht anzuzeigen
   const handleBackClick = () => {
     setSelectedLegung(null);
   };
 
   return (
     <div className="bg-[#260101] min-h-screen text-white">
-      <HeroBereich />
+      {/* Zeigt Zufallswelt im HeroBereich */}
+      <HeroBereich onLegungClick={handleLegungClick} />
 
       {selectedLegung ? (
+        // Wurde eine Legung ausgewählt
         <section className="container mx-auto px-4 py-8">
-          <button 
+          <button
             onClick={handleBackClick}
             className="mb-6 bg-[#8C5A67] text-white py-2 px-4 rounded hover:bg-[#A67C7C] transition"
           >
@@ -115,27 +119,24 @@ function Home() {
           </div>
         </section>
       ) : (
+        // Übersichts-Modus
         <>
           <section className="text-center py-12">
             <p className="text-[#DCDEF2] text-xl mb-6">
               Wähle deine Legung und entdecke neue Perspektiven
             </p>
           </section>
+
+          {/* Dein LegungCarousel bleibt erhalten */}
           <LegungCarousel
-            legungen={legungenArray.map((item) => ({
-              title: item.title,
-              image: item.image,
-              info: item.info,
-              // Übergabe der Funktion erfolgt in LegungCarousel; item.component wird als "component" übergeben.
-              component: item.component
-            }))}
-            onLegungClick={handleLegungClick}
+            legungen={legungenArray}
+            onLegungClick={(Comp) => handleLegungClick(Comp)}
           />
         </>
       )}
 
       <div className="text-center my-10">
-        <button 
+        <button
           onClick={() => window.location.reload()}
           className="bg-[#1A3A5D] text-white py-2 px-4 rounded hover:bg-[#163049] transition"
         >
@@ -143,11 +144,12 @@ function Home() {
         </button>
       </div>
 
+      {/* Deine restlichen Komponenten */}
       <PythagoreanNumerology />
       <FiftyCards />
       <Rechner />
     </div>
   );
-}
+};
 
 export default Home;
