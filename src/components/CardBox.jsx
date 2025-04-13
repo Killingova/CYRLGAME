@@ -114,7 +114,7 @@ function CardBox({ onCardSetSelect }) {
           - rounded-md, border und shadow-inner: Moderne, abgerundete Kanten mit Rahmen und innerer Schattierung */}
       <div
         className="
-          max-h-[540px]
+          max-h-[240px]
           overflow-y-auto
           p-4
           bg-gradient-to-b from-[#DCDEF2] to-[#D9A384]
