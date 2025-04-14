@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from "react";
+// src/components/HeroBereich.jsx
+import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { Parallax } from "react-parallax";
 
 // Assets
-import avatar from "../assets/logo/kristin-avatar.jpg";
-import wallpaperKorn from "../assets/logo/Wallpaper169B.png";   // Desktop-Hintergrund (16:9)
-import wallpaper57 from "../assets/logo/Wallpaper57.png";     // Mobile-Hintergrund (5:7)
+import videoBackground from "../assets/logo/GlowM.mp4";
+import wallpaperKorn from "../assets/logo/wallpaperR.png";
 
-// Legungs-Komponenten
+// Legungs-Komponenten (für zufällige Auswahl)
 import KeltischesKreuz from "../legungen/KeltischesKreuz";
 import LebensbaumLegung from "../legungen/LebensbaumLegung";
 import AstrologischeLegung from "../legungen/AstrologischeLegung";
@@ -18,218 +17,110 @@ import PyramidenLegung from "../legungen/PyramidenLegung";
 import GrosseTafel from "../legungen/GrosseTafel";
 import HufeisenLegung from "../legungen/HufeisenLegung";
 
-// Beispiel-Bilder (nicht zwingend genutzt für Hintergrund)
-import chakralegung from "../assets/images/chakralegung.jpg";
-import keltischeskreuz from "../assets/images/keltischeskreuz.jpg";
-import astrologische from "../assets/images/astrologische.jpg";
-import hufeisen from "../assets/images/hufeisen.jpg";
-import pyramiden from "../assets/images/pyramiden.jpg";
-import kompass from "../assets/images/kompass.jpg";
-import pentagramm from "../assets/images/pentagramm.jpg";
-import lebensbaum from "../assets/images/lebensbaum.jpg";
-import _21karten from "../assets/images/21karten.jpg";
-
-// Zufallswelten
+// Beispiel-Array für zufällige Welten
 const worldsForHero = [
-  {
-    name: "der Schicksalsfäden",
-    image: keltischeskreuz,
-    component: KeltischesKreuz,
-  },
-  {
-    name: "des Seelenbaums",
-    image: lebensbaum,
-    component: LebensbaumLegung,
-  },
-  {
-    name: "der Chakra-Energie",
-    image: chakralegung,
-    component: ChakraLegung,
-  },
-  {
-    name: "der kosmischen Weisheit",
-    image: astrologische,
-    component: AstrologischeLegung,
-  },
-  {
-    name: "der Herzensverbindungen",
-    image: kompass,
-    component: BeziehungsKompass,
-  },
-  {
-    name: "des magischen Ursprungs",
-    image: pyramiden,
-    component: PyramidenLegung,
-  },
-  {
-    name: "der Elementarenergie",
-    image: pentagramm,
-    component: PentagrammLegung,
-  },
-  {
-    name: "der verborgenen Pfade",
-    image: hufeisen,
-    component: HufeisenLegung,
-  },
-  {
-    name: "der Weite Erkenntnis",
-    image: _21karten,
-    component: GrosseTafel,
-  },
+  { name: "der Schicksalsfäden", component: KeltischesKreuz },
+  { name: "des Seelenbaums", component: LebensbaumLegung },
+  { name: "der Chakra-Energie", component: ChakraLegung },
+  { name: "der kosmischen Weisheit", component: AstrologischeLegung },
+  { name: "der Herzensverbindungen", component: BeziehungsKompass },
+  { name: "des magischen Ursprungs", component: PyramidenLegung },
+  { name: "der Elementarenergie", component: PentagrammLegung },
+  { name: "der verborgenen Pfade", component: HufeisenLegung },
+  { name: "der Weiten Erkenntnis", component: GrosseTafel },
 ];
 
-function HeroBereich({ onLegungClick }) {
-  // State: zufällige Welt
+const HeroBereich = ({ onLegungClick }) => {
   const [zufallsWelt, setZufallsWelt] = useState(null);
+  // State, ob das Video beendet ist (dann soll das Bild angezeigt werden)
+  const [videoFinished, setVideoFinished] = useState(false);
+  // Video-Referenz
+  const videoRef = useRef(null);
 
-  // State: Hintergrund-Bild & Style
-  const [bgImage, setBgImage] = useState(wallpaperKorn);
-  const [bgImageStyle, setBgImageStyle] = useState({});
-
-  // 1) Welt auswählen
+  // Zufällige Welt beim ersten Rendern auswählen
   useEffect(() => {
     const randomIndex = Math.floor(Math.random() * worldsForHero.length);
     setZufallsWelt(worldsForHero[randomIndex]);
   }, []);
 
-  // 2) Responsives Hintergrund
-  useEffect(() => {
-    function handleResize() {
-      if (window.innerWidth < 768) {
-        // Mobile
-        setBgImage(wallpaper57);
-        setBgImageStyle({
-          objectFit: "cover",
-          backgroundPosition: "center",
-          transition: "transform 0.5s",
-          transform: "scale(1.1)",
-        });
-      } else {
-        // Desktop
-        setBgImage(wallpaperKorn);
-        setBgImageStyle({
-          objectFit: "contain",
-          backgroundPosition: "center",
-        });
-      }
-    }
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  // Falls noch keine Welt gewählt -> null
+  // Falls noch keine Auswahl getroffen wurde, render nichts
   if (!zufallsWelt) return null;
 
-  // Button-Klick
-  const handleTaucheRein = () => {
-    if (onLegungClick) {
-      onLegungClick(zufallsWelt.component);
-    }
+  // Wenn das Video endet, setze den state, sodass das Bild als Background angezeigt wird
+  const handleVideoEnd = () => {
+    setVideoFinished(true);
   };
 
-  // Framer-Motion Variants
+  // Beim Klick auf den CTA-Button wird die zugehörige Legungskomponente an den Parent weitergereicht
+  const handleTaucheEin = () => {
+    if (onLegungClick) onLegungClick(zufallsWelt.component);
+  };
+
+  // Framer Motion Animationen
   const containerVariants = {
     hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.8 },
-    },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
   };
-  const imageVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: { opacity: 1, scale: 1, transition: { duration: 1 } },
-  };
+
   const buttonVariants = {
     hover: { scale: 1.05 },
     tap: { scale: 0.95 },
   };
 
-  // JSX
   return (
-    <Parallax bgImage={bgImage} bgImageStyle={bgImageStyle} strength={300}>
-      <div className="relative">
-        {/* Leicht dunkles Overlay */}
-        <div className="absolute inset-0 bg-black bg-opacity-60"></div>
-
-        <motion.section
-          className="relative text-[#260101] py-16 px-6 text-center"
-          initial="hidden"
-          animate="visible"
-          variants={containerVariants}
+    <div className="relative w-full h-screen overflow-hidden">
+      {/* Hintergrund: Video (ohne Loop) oder Bild (16:9, responsiv) */}
+      {!videoFinished ? (
+        <video
+          ref={videoRef}
+          autoPlay
+          muted
+          onEnded={handleVideoEnd}
+          className="absolute top-0 left-0 w-full h-full"
+          style={{ objectFit: "cover", objectPosition: "center" }}
         >
-          <div className="container mx-auto flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-10">
-            
-            {/* Avatar-Animation */}
-            <motion.div
-              className="w-40 h-40 rounded-full border-4 border-[#8C5A67] overflow-hidden shadow-xl mx-auto md:mx-0"
-              variants={imageVariants}
-            >
-              <img
-                src={avatar}
-                alt="Avatar"
-                className="w-full h-full object-cover"
-              />
-            </motion.div>
+          <source src={videoBackground} type="video/mp4" />
+          Dein Browser unterstützt kein HTML5-Video.
+        </video>
+      ) : (
+        <img
+          src={wallpaperKorn}
+          alt="Hintergrund"
+          className="absolute top-0 left-0 w-full h-full object-cover"
+          style={{ objectPosition: "center" }}
+        />
+      )}
 
-            {/* Text-Bereich */}
-            <motion.div
-              className="flex flex-col items-center space-y-4 max-w-2xl text-center"
-              variants={containerVariants}
-            >
-              {/* Gradient-Text */}
-              <h1
-                className="
-                  text-4xl md:text-5xl 
-                  font-extrabold 
-                  drop-shadow-lg 
-                  leading-tight
-                  bg-clip-text 
-                  text-transparent 
-                  bg-gradient-to-r
-                  from-[#DCDEF2] 
-                  to-[#D9A384]
-                "
-              >
-                Willkommen in der Welt
-                <br />
-                <span className="text-[#8C5A67]">{zufallsWelt.name}</span>
-              </h1>
+      {/* Dunkles Overlay für bessere Lesbarkeit */}
+      <div className="absolute inset-0 bg-black bg-opacity-60"></div>
 
-              <p className="text-lg text-white">
-                Erkunde die Tiefen moderner Erkenntnisse und lass dich inspirieren.
-              </p>
-
-              {/* Button mit Farbverlauf */}
-              <motion.button
-                onClick={handleTaucheRein}
-                className="
-                  bg-gradient-to-r
-                  from-[#8C5A67]
-                  to-[#A67C7C]
-                  text-white
-                  py-3
-                  px-6
-                  mt-4
-                  rounded-lg
-                  font-semibold
-                  transition
-                  duration-300
-                  hover:brightness-110
-                "
-                variants={buttonVariants}
-                whileHover="hover"
-                whileTap="tap"
-              >
-                Tauche ein!
-              </motion.button>
-            </motion.div>
-          </div>
-        </motion.section>
-      </div>
-    </Parallax>
+      {/* Inhalt: Überschrift, Beschreibung und CTA-Button (ohne Avatar) */}
+      <motion.section
+        className="relative z-10 flex flex-col items-center justify-center w-full h-full text-center px-6"
+        initial="hidden"
+        animate="visible"
+        variants={containerVariants}
+      >
+        <h1 className="text-4xl md:text-5xl font-extrabold drop-shadow-lg leading-tight bg-clip-text text-transparent bg-gradient-to-r from-[#DCDEF2] to-[#D9A384]">
+          Willkommen in der Welt
+          <br />
+          <span className="text-[#8C5A67]">{zufallsWelt.name}</span>
+        </h1>
+        <p className="text-lg text-white mt-4">
+          Erkunde die Tiefen moderner Erkenntnisse und lass dich inspirieren.
+        </p>
+        <motion.button
+          onClick={handleTaucheEin}
+          className="mt-8 bg-gradient-to-r from-[#8C5A67] to-[#A67C7C] text-white py-3 px-6 rounded-lg font-semibold transition duration-300 hover:brightness-110"
+          variants={buttonVariants}
+          whileHover="hover"
+          whileTap="tap"
+        >
+          Tauche ein!
+        </motion.button>
+      </motion.section>
+    </div>
   );
-}
+};
 
 export default HeroBereich;
