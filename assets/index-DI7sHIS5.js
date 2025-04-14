@@ -504,28 +504,35 @@ Selbsterkenntnis-Tipps: Setzen Sie sich klare Ziele und arbeiten Sie entschlosse
           justify-content: center;
           height: 100%;
         }
-      `})]})},uA=e=>{const n=[...e];for(let i=n.length-1;i>0;i--){const t=Math.floor(Math.random()*(i+1));[n[i],n[t]]=[n[t],n[i]]}return n},oA=e=>{const n=[...e];for(let i=n.length-1;i>0;i--){const t=Math.floor(Math.random()*(i+1));[n[i],n[t]]=[n[t],n[i]]}return n},Ib=()=>{const[e,n]=b.useState(Array(7).fill({card:null})),[i,t]=b.useState([]),[r,a]=b.useState(null),s=["Vergangenheit: Diese Karte zeigt die vergangenen Ereignisse und Einflüsse, die zur aktuellen Situation geführt haben.","Gegenwart: Diese Karte gibt Aufschluss über die gegenwärtige Situation und die aktuellen Einflüsse.","Zukunft: Diese Karte gibt Hinweise darauf, wie sich die Situation in naher Zukunft entwickeln wird.","Rat: Diese Karte bietet Ratschläge oder Handlungsanweisungen, die in der aktuellen Situation hilfreich sein könnten.","Einflüsse: Diese Karte zeigt die äußeren Einflüsse und Faktoren, die die Situation beeinflussen.","Hindernisse: Diese Karte offenbart die Herausforderungen und Hindernisse, die in der Situation bestehen.","Ergebnis: Diese Karte gibt einen Ausblick auf das mögliche Ergebnis oder die langfristige Entwicklung der Situation."],u=b.useCallback(g=>{i.length!==0&&t(p=>{if(p.length===0)return p;const z=p[p.length-1];return n(w=>{if(w[g].card)return w;const E=[...w];return E[g]={card:z},E}),p.slice(0,-1)})},[i]),o=b.useCallback(g=>{a(g)},[]),l=b.useCallback(g=>{t(oA(g))},[]),h=800,d=400,c=h/2,k=d+50,v=300,S=[-60,-40,-20,0,20,40,60],y=150,f=220;return m.jsxs("div",{children:[m.jsx(zn,{onCardSetSelect:l}),m.jsx("h2",{className:"text-3xl font-bold mb-4",children:"Hufeisen-Legung"}),m.jsx("p",{className:"mb-4",children:"Die Hufeisen-Legung bietet Einblicke in Vergangenheit, Gegenwart und Zukunft, sowie Ratschläge und Einflüsse, die die Situation beeinflussen."}),m.jsx("div",{className:"horseshoe-container",children:e.map((g,p)=>{const z=S[p],w=z*(Math.PI/180),E=c+v*Math.cos(w)-y/2,P=k+v*Math.sin(w)-f/2,j={position:"absolute",left:`${E}px`,top:`${P}px`,width:`${y}px`,height:`${f}px`,transform:`rotate(${-z}deg)`,cursor:"pointer",transition:"transform 0.3s"};return m.jsx("div",{className:`position position-${p+1}`,style:j,onClick:()=>u(p),children:g.card?m.jsx(Bn,{card:g.card,onClick:()=>o(g.card)}):m.jsxs("div",{className:"position-info",children:[m.jsxs("strong",{children:["Position ",p+1,":"]}),m.jsx("p",{children:s[p]})]})},p)})}),m.jsx(Gn,{positions:e,positionsInfo:s}),m.jsx("style",{jsx:!0,children:`
-        .horseshoe-container {
-          position: relative;
-          width: ${h}px;
-          height: ${d}px;
-          margin: 0 auto;
-          /* Optional: Rahmen zur besseren Visualisierung des Containers */
-          /* border: 1px dashed #ccc; */
+      `})]})},uA=e=>{const n=[...e];for(let i=n.length-1;i>0;i--){const t=Math.floor(Math.random()*(i+1));[n[i],n[t]]=[n[t],n[i]]}return n},oA=e=>{const n=[...e];for(let i=n.length-1;i>0;i--){const t=Math.floor(Math.random()*(i+1));[n[i],n[t]]=[n[t],n[i]]}return n},Ib=()=>{const[e,n]=b.useState(Array(7).fill({card:null})),[i,t]=b.useState([]),[r,a]=b.useState(null),s=["Vergangenheit: ...","Gegenwart: ...","Zukunft: ...","Rat: ...","Einflüsse: ...","Hindernisse: ...","Ergebnis: ..."],u=b.useCallback(h=>{t(oA(h))},[]),o=b.useCallback(h=>{i.length!==0&&t(d=>{if(d.length===0)return d;const c=d[d.length-1];return n(k=>{if(k[h].card)return k;const v=[...k];return v[h]={card:c},v}),d.slice(0,-1)})},[i]),l=b.useCallback(h=>{a(h)},[]);return m.jsxs("div",{children:[m.jsx(zn,{onCardSetSelect:u}),m.jsx("h2",{className:"text-3xl font-bold mb-4",children:"Hufeisen-Legung"}),m.jsx("p",{className:"mb-4",children:"Diese Version zeigt die Karten in einer einfachen Aufteilung, damit sie alle klar sichtbar sind."}),m.jsx("div",{className:"grid-positions",children:e.map((h,d)=>m.jsx("div",{className:"position",onClick:()=>o(d),children:h.card?m.jsx(Bn,{card:h.card,onClick:()=>l(h.card)}):m.jsxs("div",{className:"position-info",children:[m.jsxs("strong",{children:["Position ",d+1]}),m.jsx("p",{className:"mt-1 text-sm",children:s[d]})]})},d))}),m.jsx(Gn,{positions:e,positionsInfo:s}),m.jsx("style",{jsx:!0,children:`
+        /* Grid für 7 Positionen */
+        .grid-positions {
+          display: grid;
+          grid-template-columns: repeat(7, minmax(100px, 1fr));
+          gap: 1rem;
+          justify-items: center;
+          margin: 2rem auto;
+          max-width: 1200px; /* oder beliebig anpassen */
         }
-        .position-info {
+
+        .position {
+          width: 120px; /* Kartenbreite anpassen */
+          height: 180px; /* Kartenhöhe anpassen */
+          border: 1px dashed #bbb;
           display: flex;
-          flex-direction: column;
           align-items: center;
           justify-content: center;
-          background: rgba(255, 255, 255, 0.8);
-          width: 100%;
-          height: 100%;
-          padding: 4px;
-          box-sizing: border-box;
+          cursor: pointer;
+          transition: transform 0.3s;
         }
+
         .position:hover {
-          transform: scale(1.05) rotate(0deg);
+          transform: scale(1.05);
+        }
+
+        .position-info {
+          text-align: center;
+          padding: 4px;
         }
       `})]})},qm=[{name:"der Schicksalsfäden",component:jb},{name:"des Seelenbaums",component:Pb},{name:"der Chakra-Energie",component:Lb},{name:"der kosmischen Weisheit",component:Ab},{name:"der Herzensverbindungen",component:Mb},{name:"des magischen Ursprungs",component:Cb},{name:"der Elementarenergie",component:Tb},{name:"der verborgenen Pfade",component:Ib},{name:"der Weiten Erkenntnis",component:Db}],lA=({onLegungClick:e})=>{const[n,i]=b.useState(null),[t,r]=b.useState(!1),a=b.useRef(null);if(b.useEffect(()=>{const h=Math.floor(Math.random()*qm.length);i(qm[h])},[]),!n)return null;const s=()=>{r(!0)},u=()=>{e&&e(n.component)},o={hidden:{opacity:0,y:50},visible:{opacity:1,y:0,transition:{duration:.8}}},l={hover:{scale:1.05},tap:{scale:.95}};return m.jsxs("div",{className:"relative w-full h-screen overflow-hidden",children:[t?m.jsx("img",{src:Jx,alt:"Hintergrund",className:"absolute top-0 left-0 w-full h-full object-cover",style:{objectPosition:"center"}}):m.jsxs("video",{ref:a,autoPlay:!0,muted:!0,onEnded:s,className:"absolute top-0 left-0 w-full h-full",style:{objectFit:"cover",objectPosition:"center"},children:[m.jsx("source",{src:Xx,type:"video/mp4"}),"Dein Browser unterstützt kein HTML5-Video."]}),m.jsx("div",{className:"absolute inset-0 bg-black bg-opacity-60"}),m.jsxs(jn.section,{className:"relative z-10 flex flex-col items-center justify-center w-full h-full text-center px-6",initial:"hidden",animate:"visible",variants:o,children:[m.jsxs("h1",{className:"text-4xl md:text-5xl font-extrabold drop-shadow-lg leading-tight bg-clip-text text-transparent bg-gradient-to-r from-[#DCDEF2] to-[#D9A384]",children:["Willkommen in der Welt",m.jsx("br",{}),m.jsx("span",{className:"text-[#8C5A67]",children:n.name})]}),m.jsx("p",{className:"text-lg text-white mt-4",children:"Erkunde die Tiefen moderner Erkenntnisse und lass dich inspirieren."}),m.jsx(jn.button,{onClick:u,className:"mt-8 bg-gradient-to-r from-[#8C5A67] to-[#A67C7C] text-white py-3 px-6 rounded-lg font-semibold transition duration-300 hover:brightness-110",variants:l,whileHover:"hover",whileTap:"tap",children:"Tauche ein!"})]})]})};var Fb={},_b={},Xs={},Nb={};(function(e){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0;var n={animating:!1,autoplaying:null,currentDirection:0,currentLeft:null,currentSlide:0,direction:1,dragging:!1,edgeDragged:!1,initialized:!1,lazyLoadedList:[],listHeight:null,listWidth:null,scrolling:!1,slideCount:null,slideHeight:null,slideWidth:null,swipeLeft:null,swiped:!1,swiping:!1,touchObject:{startX:0,startY:0,curX:0,curY:0},trackStyle:{},trackWidth:0,targetSlide:0};e.default=n})(Nb);var dA="Expected a function",Xm=NaN,hA="[object Symbol]",cA=/^\s+|\s+$/g,mA=/^[-+]0x[0-9a-f]+$/i,gA=/^0b[01]+$/i,fA=/^0o[0-7]+$/i,pA=parseInt,kA=typeof Qr=="object"&&Qr&&Qr.Object===Object&&Qr,bA=typeof self=="object"&&self&&self.Object===Object&&self,vA=kA||bA||Function("return this")(),SA=Object.prototype,yA=SA.toString,zA=Math.max,wA=Math.min,Ou=function(){return vA.Date.now()};function EA(e,n,i){var t,r,a,s,u,o,l=0,h=!1,d=!1,c=!0;if(typeof e!="function")throw new TypeError(dA);n=Jm(n)||0,bl(i)&&(h=!!i.leading,d="maxWait"in i,a=d?zA(Jm(i.maxWait)||0,n):a,c="trailing"in i?!!i.trailing:c);function k(E){var P=t,j=r;return t=r=void 0,l=E,s=e.apply(j,P),s}function v(E){return l=E,u=setTimeout(f,n),h?k(E):s}function S(E){var P=E-o,j=E-l,x=n-P;return d?wA(x,a-j):x}function y(E){var P=E-o,j=E-l;return o===void 0||P>=n||P<0||d&&j>=a}function f(){var E=Ou();if(y(E))return g(E);u=setTimeout(f,S(E))}function g(E){return u=void 0,c&&t?k(E):(t=r=void 0,s)}function p(){u!==void 0&&clearTimeout(u),l=0,t=o=r=u=void 0}function z(){return u===void 0?s:g(Ou())}function w(){var E=Ou(),P=y(E);if(t=arguments,r=this,o=E,P){if(u===void 0)return v(o);if(d)return u=setTimeout(f,n),k(o)}return u===void 0&&(u=setTimeout(f,n)),s}return w.cancel=p,w.flush=z,w}function bl(e){var n=typeof e;return!!e&&(n=="object"||n=="function")}function WA(e){return!!e&&typeof e=="object"}function xA(e){return typeof e=="symbol"||WA(e)&&yA.call(e)==hA}function Jm(e){if(typeof e=="number")return e;if(xA(e))return Xm;if(bl(e)){var n=typeof e.valueOf=="function"?e.valueOf():e;e=bl(n)?n+"":n}if(typeof e!="string")return e===0?e:+e;e=e.replace(cA,"");var i=gA.test(e);return i||fA.test(e)?pA(e.slice(2),i?2:8):mA.test(e)?Xm:+e}var jA=EA,Rb={exports:{}};/*!
 	Copyright (c) 2018 Jed Watson.
