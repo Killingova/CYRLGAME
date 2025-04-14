@@ -1,12 +1,10 @@
-// src/components/HeroBereich.jsx
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 // Assets
-import videoBackground from "../assets/logo/GlowM.mp4";
 import wallpaperKorn from "../assets/logo/wallpaperR.png";
 
-// Legungs-Komponenten (für zufällige Auswahl)
+// Legungen (deine bleiben)
 import KeltischesKreuz from "../legungen/KeltischesKreuz";
 import LebensbaumLegung from "../legungen/LebensbaumLegung";
 import AstrologischeLegung from "../legungen/AstrologischeLegung";
@@ -17,7 +15,7 @@ import PyramidenLegung from "../legungen/PyramidenLegung";
 import GrosseTafel from "../legungen/GrosseTafel";
 import HufeisenLegung from "../legungen/HufeisenLegung";
 
-// Beispiel-Array für zufällige Welten
+// Zufallswelten
 const worldsForHero = [
   { name: "der Schicksalsfäden", component: KeltischesKreuz },
   { name: "des Seelenbaums", component: LebensbaumLegung },
@@ -32,74 +30,56 @@ const worldsForHero = [
 
 const HeroBereich = ({ onLegungClick }) => {
   const [zufallsWelt, setZufallsWelt] = useState(null);
-  // State, ob das Video beendet ist (dann soll das Bild angezeigt werden)
-  const [videoFinished, setVideoFinished] = useState(false);
-  // Video-Referenz
-  const videoRef = useRef(null);
+  const [showVideo, setShowVideo] = useState(true); // Start mit Video
 
-  // Zufällige Welt beim ersten Rendern auswählen
+  // Welt zufällig setzen
   useEffect(() => {
     const randomIndex = Math.floor(Math.random() * worldsForHero.length);
     setZufallsWelt(worldsForHero[randomIndex]);
   }, []);
 
-  // Falls noch keine Auswahl getroffen wurde, render nichts
+  // Nach 30 Sekunden auf Bild wechseln
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowVideo(false);
+    }, 5500); // 30 Sekunden
+    return () => clearTimeout(timer);
+  }, []);
+
   if (!zufallsWelt) return null;
-
-  // Wenn das Video endet, setze den state, sodass das Bild als Background angezeigt wird
-  const handleVideoEnd = () => {
-    setVideoFinished(true);
-  };
-
-  // Beim Klick auf den CTA-Button wird die zugehörige Legungskomponente an den Parent weitergereicht
-  const handleTaucheEin = () => {
-    if (onLegungClick) onLegungClick(zufallsWelt.component);
-  };
-
-  // Framer Motion Animationen
-  const containerVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-  };
-
-  const buttonVariants = {
-    hover: { scale: 1.05 },
-    tap: { scale: 0.95 },
-  };
 
   return (
     <div className="relative w-full h-screen overflow-hidden">
-      {/* Hintergrund: Video (ohne Loop) oder Bild (16:9, responsiv) */}
-      {!videoFinished ? (
-        <video
-          ref={videoRef}
-          autoPlay
-          muted
-          onEnded={handleVideoEnd}
-          className="absolute top-0 left-0 w-full h-full"
-          style={{ objectFit: "cover", objectPosition: "center" }}
-        >
-          <source src={videoBackground} type="video/mp4" />
-          Dein Browser unterstützt kein HTML5-Video.
-        </video>
+
+      {/* Video oder Wallpaper */}
+      {showVideo ? (
+        <iframe
+          className="absolute top-0 left-0 w-full h-full pointer-events-none"
+          src="https://www.youtube.com/embed/6w6aIJ22Kow?autoplay=1&mute=1&controls=0&modestbranding=1&showinfo=0"
+          title="Intro Video"
+          frameBorder="0"
+          allow="autoplay; fullscreen"
+        ></iframe>
       ) : (
         <img
           src={wallpaperKorn}
           alt="Hintergrund"
           className="absolute top-0 left-0 w-full h-full object-cover"
-          style={{ objectPosition: "center" }}
         />
       )}
 
-      {/* Dunkles Overlay für bessere Lesbarkeit */}
+      {/* Overlay */}
       <div className="absolute inset-0 bg-black bg-opacity-60"></div>
 
-      {/* Inhalt: Überschrift, Beschreibung und CTA-Button (ohne Avatar) */}
+      {/* Inhalt */}
       <motion.section
         className="relative z-10 flex flex-col items-center justify-center w-full h-full text-center px-6"
         initial="hidden"
         animate="visible"
-        variants={containerVariants}
+        variants={{
+          hidden: { opacity: 0, y: 50 },
+          visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+        }}
       >
         <h1 className="text-4xl md:text-5xl font-extrabold drop-shadow-lg leading-tight bg-clip-text text-transparent bg-gradient-to-r from-[#DCDEF2] to-[#D9A384]">
           Willkommen in der Welt
@@ -110,11 +90,10 @@ const HeroBereich = ({ onLegungClick }) => {
           Erkunde die Tiefen moderner Erkenntnisse und lass dich inspirieren.
         </p>
         <motion.button
-          onClick={handleTaucheEin}
+          onClick={() => onLegungClick(zufallsWelt.component)}
           className="mt-8 bg-gradient-to-r from-[#8C5A67] to-[#A67C7C] text-white py-3 px-6 rounded-lg font-semibold transition duration-300 hover:brightness-110"
-          variants={buttonVariants}
-          whileHover="hover"
-          whileTap="tap"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
         >
           Tauche ein!
         </motion.button>
