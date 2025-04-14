@@ -1,23 +1,13 @@
-// src/components/HeroBereich.jsx
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-// Import des Parallax-Containers von react-parallax
 import { Parallax } from "react-parallax";
 
 // Assets
 import avatar from "../assets/logo/kristin-avatar.jpg";
-// Bilder der verschiedenen Welten
-import chakralegung from "../assets/images/chakralegung.jpg";
-import keltischeskreuz from "../assets/images/keltischeskreuz.jpg";
-import astrologische from "../assets/images/astrologische.jpg";
-import hufeisen from "../assets/images/hufeisen.jpg";
-import pyramiden from "../assets/images/pyramiden.jpg";
-import kompass from "../assets/images/kompass.jpg";
-import pentagramm from "../assets/images/pentagramm.jpg";
-import lebensbaum from "../assets/images/lebensbaum.jpg";
-import _21karten from "../assets/images/21karten.jpg";
+import wallpaperKorn from "../assets/logo/Wallpaper169B.png";   // Desktop-Hintergrund (16:9)
+import wallpaper57 from "../assets/logo/Wallpaper57.png";     // Mobile-Hintergrund (5:7)
 
-// Direkt importierte Legungen (Komponenten)
+// Legungs-Komponenten
 import KeltischesKreuz from "../legungen/KeltischesKreuz";
 import LebensbaumLegung from "../legungen/LebensbaumLegung";
 import AstrologischeLegung from "../legungen/AstrologischeLegung";
@@ -28,7 +18,18 @@ import PyramidenLegung from "../legungen/PyramidenLegung";
 import GrosseTafel from "../legungen/GrosseTafel";
 import HufeisenLegung from "../legungen/HufeisenLegung";
 
-// Array mit den Welten-Objekten. Hier werden Name, Bild und die zugehörige Legungs-Komponente gespeichert.
+// Beispiel-Bilder (nicht zwingend genutzt für Hintergrund)
+import chakralegung from "../assets/images/chakralegung.jpg";
+import keltischeskreuz from "../assets/images/keltischeskreuz.jpg";
+import astrologische from "../assets/images/astrologische.jpg";
+import hufeisen from "../assets/images/hufeisen.jpg";
+import pyramiden from "../assets/images/pyramiden.jpg";
+import kompass from "../assets/images/kompass.jpg";
+import pentagramm from "../assets/images/pentagramm.jpg";
+import lebensbaum from "../assets/images/lebensbaum.jpg";
+import _21karten from "../assets/images/21karten.jpg";
+
+// Zufallswelten
 const worldsForHero = [
   {
     name: "der Schicksalsfäden",
@@ -78,60 +79,80 @@ const worldsForHero = [
 ];
 
 function HeroBereich({ onLegungClick }) {
-  // State für die zufällig ausgewählte Welt
+  // State: zufällige Welt
   const [zufallsWelt, setZufallsWelt] = useState(null);
 
-  // Beim ersten Rendern eine zufällige Welt auswählen
+  // State: Hintergrund-Bild & Style
+  const [bgImage, setBgImage] = useState(wallpaperKorn);
+  const [bgImageStyle, setBgImageStyle] = useState({});
+
+  // 1) Welt auswählen
   useEffect(() => {
     const randomIndex = Math.floor(Math.random() * worldsForHero.length);
-    console.debug("Zufällig ausgewählter Index:", randomIndex);
     setZufallsWelt(worldsForHero[randomIndex]);
   }, []);
 
-  // Debug-Ausgabe, um den aktuellen Zustand anzuzeigen
+  // 2) Responsives Hintergrund
   useEffect(() => {
-    if (zufallsWelt) {
-      console.debug("Zufallswelt gesetzt:", zufallsWelt);
+    function handleResize() {
+      if (window.innerWidth < 768) {
+        // Mobile
+        setBgImage(wallpaper57);
+        setBgImageStyle({
+          objectFit: "cover",
+          backgroundPosition: "center",
+          transition: "transform 0.5s",
+          transform: "scale(1.1)",
+        });
+      } else {
+        // Desktop
+        setBgImage(wallpaperKorn);
+        setBgImageStyle({
+          objectFit: "contain",
+          backgroundPosition: "center",
+        });
+      }
     }
-  }, [zufallsWelt]);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
-  // Callback für den Button "Tauche rein!"
+  // Falls noch keine Welt gewählt -> null
+  if (!zufallsWelt) return null;
+
+  // Button-Klick
   const handleTaucheRein = () => {
-    console.debug("Button 'Tauche rein!' geklickt");
-    if (zufallsWelt && onLegungClick) {
+    if (onLegungClick) {
       onLegungClick(zufallsWelt.component);
     }
   };
 
-  // Falls noch keine Welt ausgewählt wurde, nichts rendern
-  if (!zufallsWelt) return null;
-
-  // Definierte Animationen (Variants) für Framer Motion
+  // Framer-Motion Variants
   const containerVariants = {
     hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8 },
+    },
   };
-
   const imageVariants = {
     hidden: { opacity: 0, scale: 0.8 },
     visible: { opacity: 1, scale: 1, transition: { duration: 1 } },
   };
-
   const buttonVariants = {
     hover: { scale: 1.05 },
     tap: { scale: 0.95 },
   };
 
+  // JSX
   return (
-    // Verwendung des Parallax-Containers von react-parallax
-    // Die Prop `strength` definiert die Intensität des Parallax-Effekts.
-    <Parallax bgImage={zufallsWelt.image} strength={300}>
-      {/* 
-        Hier wird ein Overlay mit Transparenz eingefügt, um die Lesbarkeit
-        des Textes vor dem Hintergrundbild zu verbessern.
-      */}
+    <Parallax bgImage={bgImage} bgImageStyle={bgImageStyle} strength={300}>
       <div className="relative">
-        <div className="absolute inset-0 bg-black opacity-30"></div>
+        {/* Leicht dunkles Overlay */}
+        <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+
         <motion.section
           className="relative text-[#260101] py-16 px-6 text-center"
           initial="hidden"
@@ -139,7 +160,8 @@ function HeroBereich({ onLegungClick }) {
           variants={containerVariants}
         >
           <div className="container mx-auto flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-10">
-            {/* Avatar-Bild mit Animation */}
+            
+            {/* Avatar-Animation */}
             <motion.div
               className="w-40 h-40 rounded-full border-4 border-[#8C5A67] overflow-hidden shadow-xl mx-auto md:mx-0"
               variants={imageVariants}
@@ -151,27 +173,56 @@ function HeroBereich({ onLegungClick }) {
               />
             </motion.div>
 
-            {/* Text-Bereich, der den Namen der Welt, einen kurzen Text und einen Button enthält */}
+            {/* Text-Bereich */}
             <motion.div
               className="flex flex-col items-center space-y-4 max-w-2xl text-center"
               variants={containerVariants}
             >
-              <h1 className="text-4xl md:text-5xl font-extrabold drop-shadow-lg leading-tight">
+              {/* Gradient-Text */}
+              <h1
+                className="
+                  text-4xl md:text-5xl 
+                  font-extrabold 
+                  drop-shadow-lg 
+                  leading-tight
+                  bg-clip-text 
+                  text-transparent 
+                  bg-gradient-to-r
+                  from-[#DCDEF2] 
+                  to-[#D9A384]
+                "
+              >
                 Willkommen in der Welt
                 <br />
                 <span className="text-[#8C5A67]">{zufallsWelt.name}</span>
               </h1>
+
               <p className="text-lg text-white">
                 Erkunde die Tiefen moderner Erkenntnisse und lass dich inspirieren.
               </p>
+
+              {/* Button mit Farbverlauf */}
               <motion.button
                 onClick={handleTaucheRein}
-                className="bg-[#8C5A67] text-white py-3 px-6 mt-4 rounded-lg font-semibold transition hover:bg-[#A67C7C]"
+                className="
+                  bg-gradient-to-r
+                  from-[#8C5A67]
+                  to-[#A67C7C]
+                  text-white
+                  py-3
+                  px-6
+                  mt-4
+                  rounded-lg
+                  font-semibold
+                  transition
+                  duration-300
+                  hover:brightness-110
+                "
                 variants={buttonVariants}
                 whileHover="hover"
                 whileTap="tap"
               >
-                Tauche rein!
+                Tauche ein!
               </motion.button>
             </motion.div>
           </div>
