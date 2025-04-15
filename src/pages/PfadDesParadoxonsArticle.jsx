@@ -1,229 +1,220 @@
 // src/pages/PfadDesParadoxonsArticle.jsx
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import MotionText from "../components/MotionText"; // Pfad anpassen
 
-import React from "react";
-import { motion } from "framer-motion";
+// Definition aller Slides als Objekte
+const slides = [
+  {
+    title: "Pfad des Paradoxons",
+    content: (
+      <>
+        <p className="mb-4 leading-7 text-[#260101]">
+          Zwischen Licht und Schatten, Logik und Magie entsteht ein Raum der tiefen Erkenntnis.
+        </p>
+        <p className="mb-4 leading-7 text-[#260101]">
+          Der <strong>Pfad des Paradoxons</strong> ist eine geistige und zugleich lebensnahe Reise, bei der scheinbar widersprüchliche
+          Perspektiven, Konzepte und Gefühle aufeinandertreffen – und gerade dadurch neue Erkenntnisse
+          entstehen können.
+        </p>
+      </>
+    ),
+  },
+  {
+    title: "Faszination Natur und Sternzeichen",
+    content: (
+      <>
+        <p className="mb-4 leading-7 text-[#260101]">
+          Von klein auf übte die Natur eine besondere Anziehungskraft auf mich aus. Farben, Formen und Muster zogen mich in ihren Bann.
+          Später erweiterte sich dieses Staunen auf die Welt der Sternzeichen. Hier begegnen uns ausgeprägte
+          Verhaltensmuster, die oft im Einklang mit bestimmten Tierkreiszeichen stehen.
+        </p>
+        <p className="mb-4 leading-7 text-[#260101]">
+          Für mich hat der Geburtsmoment eine tiefere Bedeutung: Er wirkt wie ein Echo, in dem die Konstellation der Planeten
+          und Energien unsere individuellen Anlagen und Potenziale widerspiegelt.
+        </p>
+      </>
+    ),
+  },
+  {
+    title: "Soziales Umfeld und persönliche Anpassung",
+    content: (
+      <>
+        <p className="mb-4 leading-7 text-[#260101]">
+          Neben kosmischen Einflüssen spielt das soziale Umfeld eine entscheidende Rolle: Familie, Gesellschaft und Denkweisen prägen
+          uns – häufig, ohne dass wir es bewusst hinterfragen. Erst neue Perspektiven eröffnen einen tieferen Zugang zu uns selbst.
+        </p>
+      </>
+    ),
+  },
+  {
+    title: "Vielseitige Methoden: Numerologie, Human Design & mehr",
+    content: (
+      <>
+        <p className="mb-4 leading-7 text-[#260101]">
+          Diverse Deutungssysteme können kombiniert werden, um Erkenntnisse zu gewinnen – ohne in jedes einzelne Detail zu gehen.
+          Im Überblick:
+        </p>
+        <ul className="list-disc list-inside text-[#260101] mb-4 leading-7">
+          <li>
+            <strong>Tarot und Orakel</strong>: Symbolhafte Legungen, die intuitive Einsichten und Kreativität fördern.
+          </li>
+          <li>
+            <strong>Pythagorische Numerologie</strong>: Zahlen als Spiegel der Persönlichkeit, wobei jede Ziffer (1–9) eine eigene
+            energetische Qualität besitzt.
+          </li>
+        </ul>
+        <p className="text-[#260101] mb-4 leading-7">
+          Ergänzt wird dies durch Ansätze zu Schicksalsmodellen, Matrix-Theorien und astrologischen Horoskopen – ein integraler Ansatz,
+          der dazu beiträgt, Muster zu erkennen und neue Klarheit zu gewinnen.
+        </p>
+        <p className="text-[#260101] mb-4 leading-7">
+  <MotionText
+    text="
+      Auch spielerische Methoden wie kreatives Schreiben und Visualisierungen
+      unterstützen den Lernprozess, indem sie nicht nur den Verstand,
+      sondern auch die Vorstellungskraft einbeziehen.
+    "
+  />
+</p>
+      </>
+    ),
+  },
+  {
+    title: "Moderne Energiearbeit und innere Freiheit",
+    content: (
+      <>
+        <p className="text-[#260101] mb-4 leading-7">
+          Mithilfe von Konzepten wie dem „Body Code“ lassen sich energetische Blockaden erkennen und alte Glaubenssätze – Teil einer
+          „Matrix-Illusion“ – transformieren. So entstehen Freiräume für authentische Entfaltung.
+        </p>
+        <p className="text-[#260101] mb-4 leading-7">
+          Dieser Prozess ist sowohl für rationale Skeptiker als auch für Menschen mit stark kosmischem Bezug geeignet. Entscheidend ist
+          die Offenheit, sich selbst bewusster zu begegnen und individuelle Entwicklungsschritte zu gehen.
+        </p>
+      </>
+    ),
+  },
+  {
+    title: "Zweck des Projekts: Wissen teilen und Vielfalt leben",
+    content: (
+      <>
+        <p className="text-[#260101] mb-4 leading-7">
+          Der Pfad des Paradoxons bündelt all diese Gedanken in einem Projekt, das darauf abzielt, Wissen weiterzugeben
+          und für mehr Abwechslung im Leben zu sorgen. Durch den Austausch verschiedener Perspektiven entsteht ein intensiver
+          Wachstumsprozess, der Mut macht, sich neuen Themen zu stellen und das eigene Potenzial zu entfalten.
+        </p>
+        <p className="text-[#260101] mb-4 leading-7">
+          Auch Naturheilungen, tantrische Lehren, Chakrenarbeit sowie moderne Management- und IT-Konzepte finden hier ihren Platz,
+          denn spirituelle und weltliche Bereiche schließen sich keineswegs aus.
+        </p>
+      </>
+    ),
+  },
+  {
+    title: "Fazit: Entwicklung durch Integration",
+    content: (
+      <>
+        <p className="text-[#260101] mb-4 leading-7">
+          Der Gedanke des Pfads des Paradoxons ist, dass scheinbar widersprüchliche Konzepte sich nicht ausschließen.
+          Durch die Verbindung von Hermetik, Numerologie, Astrologie, Energiearbeit und modernen Methoden entsteht
+          eine tiefgehende Ganzheit.
+        </p>
+        <p className="text-[#260101] mb-4 leading-7">
+          Indem wir rationales Hinterfragen mit intuitivem Gespür vereinen, bietet sich Raum, Paradoxien als Bereicherung zu erleben und
+          unser Bewusstsein spielerisch zu erweitern – ein fortwährender Entwicklungsprozess.
+        </p>
+        <p className="text-[#260101] mb-4 leading-7">
+          Dieser Weg eröffnet neue Ideen, fördert innere Heilung und unterstützt die persönliche Entfaltung in einem dynamischen Miteinander.
+        </p>
+        <p className="text-[#260101] mb-4 leading-7">
+          <strong>Projekt:</strong> Pfad des Paradoxons – ein Raum zwischen Geist und Materie, in dem durch spielerisches Lernen und
+          bewusste Integration neuer Perspektiven die eigene Entwicklung vorangetrieben wird.
+        </p>
+      </>
+    ),
+  },
+];
 
-// Du könntest zusätzlich react-helmet o.ä. benutzen, um <title> und <meta> tags zu setzen
+// Varianten für Slide-Animationen
+const slideVariants = {
+  initial: { opacity: 0, x: 50 },
+  animate: { opacity: 1, x: 0 },
+  exit: { opacity: 0, x: -50 },
+};
 
-function PfadDesParadoxonsArticle() {
-  // Framer Motion Variants für Fade-In
-  const pageVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.7 },
-    },
-    exit: { opacity: 0, y: 10, transition: { duration: 0.5 } },
+export default function PfadDesParadoxonsArticle() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  // Funktionen für Navigation
+  const handleNext = () => {
+    if (currentSlide < slides.length - 1) {
+      setCurrentSlide(currentSlide + 1);
+    }
+  };
+
+  const handlePrev = () => {
+    if (currentSlide > 0) {
+      setCurrentSlide(currentSlide - 1);
+    }
+  };
+
+  // Swipe-Funktionalität mittels Framer Motion
+  const handleDragEnd = (event, info) => {
+    const swipe = info.offset.x;
+    // Schwellenwert von 50 Pixeln für den Swipe
+    if (swipe < -50 && currentSlide < slides.length - 1) {
+      handleNext();
+    } else if (swipe > 50 && currentSlide > 0) {
+      handlePrev();
+    }
   };
 
   return (
-    <motion.div
-      // Container-Hintergrund: dezenter Verlauf
-      className="
-        min-h-screen 
-        bg-gradient-to-r 
-        from-[#DCDEF2] 
-        to-[#D9A384]
-        px-4 
-        py-8 
-        md:px-8
-      "
-      variants={pageVariants}
-      initial="hidden"
-      animate="visible"
-      exit="exit"
-    >
-      <article
-        className="
-          max-w-3xl 
-          mx-auto 
-          bg-white 
-          rounded-lg 
-          shadow-lg 
-          p-6 
-          md:p-10
-        "
-      >
-        {/* Hauptüberschrift mit Gradient-Text */}
-        <header>
-          <h1
-            className="
-              text-3xl 
-              md:text-4xl 
-              font-bold 
-              mb-6 
-              leading-tight
-              bg-clip-text
-              text-transparent
-              bg-gradient-to-r
-              from-[#8C5A67]
-              to-[#A67C7C]
-            "
+    <div className="min-h-screen bg-gradient-to-r from-[#DCDEF2] to-[#D9A384] px-4 py-8 md:px-8">
+      <div className="max-w-3xl mx-auto bg-white rounded-lg shadow-lg p-6 md:p-10">
+        {/* Navigation-Buttons oben */}
+        <div className="flex justify-between items-center mb-4">
+          <button
+            onClick={handlePrev}
+            disabled={currentSlide === 0}
+            className="bg-[#8C5A67] text-white py-2 px-4 rounded font-semibold transition duration-300 hover:brightness-110 disabled:opacity-40 disabled:cursor-not-allowed"
           >
-            Pfad des Paradoxons
-          </h1>
-          <p className="text-[#260101] mb-4 leading-7">
-            Ein ganzheitlicher Blick auf kosmische Rhythmen, persönliche
-            Entwicklung und neue Perspektiven.
-          </p>
-        </header>
+            Zurück
+          </button>
+          <button
+            onClick={handleNext}
+            disabled={currentSlide === slides.length - 1}
+            className="bg-[#8C5A67] text-white py-2 px-4 rounded font-semibold transition duration-300 hover:brightness-110 disabled:opacity-40 disabled:cursor-not-allowed"
+          >
+            Weiter
+          </button>
+        </div>
 
-        {/* Abschnitt 1 */}
-        <section className="mt-8">
-          <h2 className="text-2xl font-semibold mb-4 text-[#260101]">
-            1. Faszination Natur und Sternzeichen
-          </h2>
-          <p className="text-[#260101] mb-4 leading-7">
-            Von klein auf übte die Natur eine besondere Anziehungskraft auf mich aus. 
-            Farben, Formen und Muster zogen mich in ihren Bann. Später erweiterte 
-            sich dieses Staunen auf die Welt der Sternzeichen. Hier begegnen uns 
-            ausgeprägte Verhaltensmuster, die oft im Einklang mit bestimmten 
-            Tierkreiszeichen stehen. Für mich hat der Geburtsmoment dabei eine 
-            tiefere Bedeutung: Er wirkt wie ein Echo, in dem die Konstellation 
-            der Planeten und Energien unsere individuellen Anlagen und Potenziale 
-            widerspiegelt.
-          </p>
-        </section>
-
-        {/* Abschnitt 2 */}
-        <section className="mt-8">
-          <h2 className="text-2xl font-semibold mb-4 text-[#260101]">
-            2. Soziales Umfeld und persönliche Anpassung
-          </h2>
-          <p className="text-[#260101] mb-4 leading-7">
-            Neben kosmischen Einflüssen spielt das soziale Umfeld eine entscheidende 
-            Rolle: Familie, Gesellschaft, Denkweisen – all das prägt uns. Oft passen 
-            wir uns an, was wir kennen, ohne es zu hinterfragen. Neue Perspektiven 
-            wirken dann wie ein Türöffner: Erst wenn wir uns bewusst verschiedenen 
-            Blickwinkeln öffnen, gelangen wir zu einem tieferen Verständnis unserer 
-            selbst und können wachsen.
-          </p>
-        </section>
-
-        {/* Abschnitt 3 */}
-        <section className="mt-8">
-          <h2 className="text-2xl font-semibold mb-4 text-[#260101]">
-            3. Vielseitige Methoden: Numerologie, Human Design & mehr
-          </h2>
-          <p className="text-[#260101] mb-4 leading-7">
-            Um diese Entwicklung anzuregen, können verschiedene Systeme ineinandergreifen:
-          </p>
-          <ul className="list-disc list-inside text-[#260101] mb-4 leading-7">
-            <li>
-              <strong>Pythagorische Numerologie</strong>: Zahlen als Spiegel unserer 
-              Persönlichkeit; jede Ziffer von 1 bis 9 besitzt eine eigene energetische Qualität.
-            </li>
-            <li>
-              <strong>Tibetische Numerologie</strong>: Verbindet Zahlenmystik mit östlicher 
-              Lehre und zeigt individuelle Energieflüsse auf.
-            </li>
-            <li>
-              <strong>Human Design</strong>: Kombiniert Astrologie, I-Ging, Kabbala und 
-              Chakrenlehre zu einer „inneren Landkarte“, die individuelle 
-              Entscheidungsprozesse und Potenziale beleuchtet.
-            </li>
-            <li>
-              <strong>Tarot und Orakel</strong>: Symbolhafte Legungen und Meditationen, 
-              die intuitive Einsichten ermöglichen und die Kreativität fördern.
-            </li>
-          </ul>
-          <p className="text-[#260101] mb-4 leading-7">
-            Diese Ansätze – gepaart mit dem Blick auf Schicksalsmodelle, Matrix-Theorien 
-            und astrologische Horoskope – ergeben einen integralen Ansatz. Er hilft, 
-            zentrale Muster zu erkennen, alte Prägungen aufzulösen und mit mehr Klarheit 
-            auf den eigenen Lebensweg zu schauen.
-          </p>
-          <p className="text-[#260101] mb-4 leading-7">
-            Darüber hinaus fördern Methoden wie kreatives Schreiben, geführte 
-            Visualisierungen oder das bewusste Gestalten einer Geschichte die 
-            spielerische Auseinandersetzung mit den eigenen Themen. Auf diese Weise 
-            wird Lernen leichter, da wir nicht nur mit dem Verstand, sondern auch mit 
-            unserer Vorstellungskraft arbeiten.
-          </p>
-        </section>
-
-        {/* Abschnitt 4 */}
-        <section className="mt-8">
-          <h2 className="text-2xl font-semibold mb-4 text-[#260101]">
-            4. Moderne Energiearbeit und innere Freiheit
-          </h2>
-          <p className="text-[#260101] mb-4 leading-7">
-            Auf körperlich-energetischer Ebene lassen sich mithilfe von Konzepten wie dem 
-            „Body Code“ (allgemein verstanden als ein System zur Auflösung energetischer 
-            Blockaden) tiefsitzende Muster aufspüren. Alte Glaubenssätze – manchmal auch 
-            als Teil einer „Matrix-Illusion“ bezeichnet – werden so erkennbar und können 
-            transformiert werden. Dadurch werden innere Freiräume geschaffen, die eine 
-            authentische Entfaltung erlauben.
-          </p>
-          <p className="text-[#260101] mb-4 leading-7">
-            Dieser Prozess ist gleichermaßen für rationale Skeptiker wie für Menschen mit 
-            starkem kosmischen Bezug geeignet. Entscheidend ist die Offenheit, sich selbst 
-            bewusster zu begegnen und individuelle Entwicklungsschritte einzuleiten.
-          </p>
-        </section>
-
-        {/* Abschnitt 5 */}
-        <section className="mt-8">
-          <h2 className="text-2xl font-semibold mb-4 text-[#260101]">
-            5. Zweck des Projekts: Wissen teilen und Vielfalt leben
-          </h2>
-          <p className="text-[#260101] mb-4 leading-7">
-            All diese Gedanken bündeln sich im Pfad des Paradoxons – einem Projekt, das zum 
-            Ziel hat, Wissen weiterzugeben und zugleich mehr Abwechslung und Freude im Leben 
-            zu eröffnen. Durch den Austausch verschiedener Blickwinkel und das gemeinsame 
-            Erforschen von Methoden entsteht ein wahrhaft intensiver Wachstumsprozess. Es 
-            geht darum, Mut zu fassen, sich neuen Themen zu stellen, innere Ängste zu 
-            überwinden und das eigene Potenzial zu entfalten.
-          </p>
-          <p className="text-[#260101] mb-4 leading-7">
-            Anknüpfend an Naturheilungen, Tantralehren, Chakrenarbeit oder auch moderne 
-            Management- und IT-Konzepte (z. B. Scrum) möchte dieses Projekt zeigen, dass 
-            sich spirituelle und weltliche Bereiche keineswegs ausschließen müssen. Gerade 
-            in ihrer Verbindung liegt oft eine unerwartete Kraft, die unsere Perspektiven 
-            erweitert und uns in eine bewusstere Lebensführung führt.
-          </p>
-        </section>
-
-        {/* Abschnitt 6 */}
-        <section className="mt-8">
-          <h2 className="text-2xl font-semibold mb-4 text-[#260101]">
-            6. Fazit: Entwicklung durch Integration
-          </h2>
-          <p className="text-[#260101] mb-4 leading-7">
-            Der Kerngedanke des Pfads des Paradoxons ist, dass gegensätzliche oder 
-            widersprüchlich scheinende Konzepte sich nicht gegenseitig ausschließen 
-            müssen. Im Gegenteil: Indem wir Hermetik, Numerologie, Astrologie, 
-            Energiearbeit und moderne Methoden vereinen, können wir eine tiefgreifende 
-            Ganzheit erfahren.
-          </p>
-          <p className="text-[#260101] mb-4 leading-7">
-            Die wahre Stärke liegt darin, sowohl das rationale Hinterfragen als auch das 
-            intuitive Gespür zuzulassen. Diese Verbindung gibt uns Raum, Paradoxien als 
-            Bereicherung zu betrachten und unser Bewusstsein auf spielerische Weise zu 
-            erweitern. So wird die eigene Entwicklung kein starrer Pfad, sondern ein 
-            lebendiger, fortwährender Prozess – immer im Fluss zwischen unterschiedlichen 
-            Polen.
-          </p>
-          <p className="text-[#260101] mb-4 leading-7">
-            Wer sich auf diesen Weg begibt, erfährt, dass das Paradoxe keinen Widerspruch 
-            darstellt, sondern eine Chance, tiefer zu blicken. Genau hier verbirgt sich 
-            das Potenzial für neue Ideen, innere Heilung und nachhaltige persönliche 
-            Entfaltung.
-          </p>
-        </section>
-
-        <footer className="mt-8 text-[#260101] leading-7">
-          <p>
-            <strong>Projekt:</strong> Pfad des Paradoxons – ein Raum zwischen 
-            Geist und Materie, in dem wir durch spielerisches Lernen und 
-            bewusste Integration neuer Perspektiven unsere eigene Entwicklung 
-            vorantreiben können.
-          </p>
-        </footer>
-      </article>
-    </motion.div>
+        {/* Slide-Inhalt mit Touch/Drag-Unterstützung */}
+        <div className="relative overflow-hidden">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentSlide}
+              variants={slideVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              transition={{ duration: 0.5 }}
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              onDragEnd={handleDragEnd}
+            >
+              {/* Slide-Header */}
+              <h2 className="text-2xl font-semibold mb-4 text-[#260101]">
+                {slides[currentSlide].title}
+              </h2>
+              {/* Slide-Inhalt */}
+              {slides[currentSlide].content}
+            </motion.div>
+          </AnimatePresence>
+        </div>
+      </div>
+    </div>
   );
 }
-
-export default PfadDesParadoxonsArticle;
