@@ -66,9 +66,10 @@ export default function PythagoreanNumerology() {
   };
 
   return (
-    <section className="bg-gradient-to-b from-[#DCDEF2] to-[#D9A384] text-[#260101] py-12 px-4">
+    <section className="bg-gradient-to-b from-[#DCDEF2] to-[#D9A384] text-[#260101] py-12 px-4 min-h-screen">
       <div className="max-w-3xl mx-auto space-y-6">
-        <h2 className="text-3xl sm:text-4xl font-bold text-center drop-shadow-md">
+        <h2 className="text-3xl sm:text-4xl font-bold text-center drop-shadow-md bg-clip-text text-transparent bg-gradient-to-r from-[#DCDEF2] to-[#8C5A67]"
+        style={{ WebkitTextStroke: "1px #260101" }}>
           Pythagoreische Numerologie
         </h2>
 

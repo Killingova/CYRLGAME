@@ -1,6 +1,6 @@
 // src/App.jsx
 
-import React, { useState } from "react";
+import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -9,8 +9,11 @@ import Impressum from "./pages/Impressum";
 import Kontakt from "./pages/Kontakt";
 import DatenSchutz from "./pages/DatenSchutz";
 
-// NEU: Import der "Über"-Seite (PfadDesParadoxonsArticle)
+// NEU: Import der "Über"-Seite
 import PfadDesParadoxonsArticle from "./pages/PfadDesParadoxonsArticle";
+
+// NEU: Import der Numerologie-Komponente
+import PythagoreanNumerology from "./components/PythagoreanNumerology";
 
 function App() {
   return (
@@ -22,13 +25,13 @@ function App() {
           <Route path="/impressum" element={<Impressum />} />
           <Route path="/kontakt" element={<Kontakt />} />
           <Route path="/datenschutz" element={<DatenSchutz />} />
-
-          {/* NEUE ROUTE FÜR ÜBER */}
-          <Route 
-            path="/ueber" 
-            element={<PfadDesParadoxonsArticle />} 
-          />
-
+          
+          {/* Route für die "Über"-Seite */}
+          <Route path="/ueber" element={<PfadDesParadoxonsArticle />} />
+          
+          {/* Route für Numerologie */}
+          <Route path="/numerologie" element={<PythagoreanNumerology />} />
+          
           {/* Weitere Routen können hier ergänzt werden */}
         </Routes>
       </main>

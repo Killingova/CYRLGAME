@@ -1,5 +1,3 @@
-// src/components/Header.jsx
-
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
@@ -8,15 +6,12 @@ import logo from "../assets/logo/LOGOBLACK.png"; // Pfad zum Logo
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // Navigation-Links
+  // Navigation-Links – numerologie-Link wurde angepasst
   const navLinks = [
     { name: "Start", path: "/" },
-    // NEU: Der Menüeintrag 'Über' führt zu '/ueber'
     { name: "Über", path: "/ueber" },
     { name: "Kontakt", path: "/kontakt" },
-    { name: "Numerologie", path: "#Numerologie" },
-    //{ name: "Welten", path: "#welten" },
-    //{ name: "Karten", path: "#karten" },
+    { name: "Numerologie", path: "/numerologie" },
   ];
 
   return (
@@ -33,9 +28,11 @@ const Header = () => {
             />
           </Link>
 
-          <h1 className="text-[#260101] text-2xl sm:text-3xl md:text-4xl leading-tight font-[Dancing Script] font-bold drop-shadow-sm">
-            Pfad des<br />Paradoxons
-          </h1>
+          <Link to="/" className="text-[#260101] hover:text-[#8C5A67] transition">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl leading-tight font-[Dancing Script] font-bold drop-shadow-sm">
+              Pfad des<br />Paradoxons
+            </h1>
+          </Link>
         </div>
 
         {/* Burger-Menü Button (mobil) */}
@@ -50,8 +47,7 @@ const Header = () => {
 
       {/* Desktop Navigation */}
       <nav className="hidden md:flex justify-center space-x-6 py-2 bg-[#DCDEF2] border-t border-[#A67C7C] shadow-inner">
-        {navLinks.map(({ name, path }) => (
-          // Check, ob der pfad mit "/" beginnt (Route) oder "#"
+        {navLinks.map(({ name, path }) =>
           path.startsWith("/") ? (
             <Link
               key={name}
@@ -69,7 +65,7 @@ const Header = () => {
               {name}
             </a>
           )
-        ))}
+        )}
       </nav>
 
       {/* Mobile Navigation */}
@@ -81,7 +77,7 @@ const Header = () => {
                 key={name}
                 to={path}
                 onClick={() => setMenuOpen(false)}
-                className="block text-[#260101] text-lg font-medium hover:text-white hover:bg-[#8C5A67] px-3 py-2 rounded transition"
+                className="block text-[#260101] text-lg font-medium hover:bg-[#8C5A67] hover:text-white px-3 py-2 rounded transition"
               >
                 {name}
               </Link>
@@ -90,7 +86,7 @@ const Header = () => {
                 key={name}
                 href={path}
                 onClick={() => setMenuOpen(false)}
-                className="block text-[#260101] text-lg font-medium hover:text-white hover:bg-[#8C5A67] px-3 py-2 rounded transition"
+                className="block text-[#260101] text-lg font-medium hover:bg-[#8C5A67] hover:text-white px-3 py-2 rounded transition"
               >
                 {name}
               </a>

@@ -4,9 +4,6 @@ import React, { useState } from 'react';
 // Komponenten und Module
 import HeroBereich from '../components/HeroBereich';
 import LegungCarousel from '../components/LegungCarousel';
-import PythagoreanNumerology from '../components/PythagoreanNumerology';
-import FiftyCards from '../components/newworld/FiftyCards';
-import Rechner from '../components/Rechner';
 
 // Legungs-Komponenten
 import KeltischesKreuz from '../legungen/KeltischesKreuz';
@@ -152,11 +149,6 @@ const Home = () => {
           Neues Spiel starten
         </button>
       </div>
-
-      {/* Weitere Module */}
-      <PythagoreanNumerology />
-      <FiftyCards />
-      <Rechner />
     </div>
   );
 };
