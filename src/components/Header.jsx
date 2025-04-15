@@ -1,30 +1,35 @@
+// src/components/Header.jsx
+
 import React, { useState } from "react";
-import { Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Menu, X } from "lucide-react";
 import logo from "../assets/logo/LOGOBLACK.png"; // Pfad zum Logo
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  // Navigation-Links
   const navLinks = [
     { name: "Start", path: "/" },
-    { name: "Über", path: "#über" },
+    // NEU: Der Menüeintrag 'Über' führt zu '/ueber'
+    { name: "Über", path: "/ueber" },
     { name: "Kontakt", path: "/kontakt" },
     { name: "Numerologie", path: "#Numerologie" },
-    { name: "Welten", path: "#welten" },
-    { name: "Karten", path: "#karten" }
+    //{ name: "Welten", path: "#welten" },
+    //{ name: "Karten", path: "#karten" },
   ];
 
   return (
     <header className="sticky top-0 z-50 bg-gradient-to-b from-[#DCDEF2] to-[#D9A384] shadow-lg border-b border-[#8C5A67]">
       <div className="max-w-7xl mx-auto flex justify-center items-center h-24 md:h-28 px-4 md:px-8 relative">
+        
         {/* Logo + Titel nebeneinander */}
         <div className="flex items-center space-x-4">
           <Link to="/" className="flex-shrink-0">
             <img
               src={logo}
               alt="Pfad des Paradoxons"
-              className="h-16 md:h-24 w-auto drop-shadow-md" // Höhe anpassen
+              className="h-16 md:h-24 w-auto drop-shadow-md"
             />
           </Link>
 
@@ -33,7 +38,7 @@ const Header = () => {
           </h1>
         </div>
 
-        {/* Burger-Menü Button rechts */}
+        {/* Burger-Menü Button (mobil) */}
         <button
           className="md:hidden absolute right-4 text-[#260101] hover:text-[#8C5A67] transition"
           onClick={() => setMenuOpen(!menuOpen)}
@@ -45,7 +50,8 @@ const Header = () => {
 
       {/* Desktop Navigation */}
       <nav className="hidden md:flex justify-center space-x-6 py-2 bg-[#DCDEF2] border-t border-[#A67C7C] shadow-inner">
-        {navLinks.map(({ name, path }) =>
+        {navLinks.map(({ name, path }) => (
+          // Check, ob der pfad mit "/" beginnt (Route) oder "#"
           path.startsWith("/") ? (
             <Link
               key={name}
@@ -63,7 +69,7 @@ const Header = () => {
               {name}
             </a>
           )
-        )}
+        ))}
       </nav>
 
       {/* Mobile Navigation */}
