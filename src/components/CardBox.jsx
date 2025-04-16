@@ -1,8 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import PropTypes from "prop-types";
-
-// Lucide Icons-Beispiele: Importieren verschiedener Icons, die später als visuelle Repräsentation für die einzelnen Kartensets verwendet werden.
 import {
   Sparkles,
   Briefcase,
@@ -23,7 +21,6 @@ import {
   Layers,
 } from "lucide-react";
 
-// Importieren der Kartendaten aus verschiedenen Dateien
 import tarotkarten from "../data/tarot";
 import lenormandkarten from "../data/lenormand";
 import engelkarten from "../data/engelkarten";
@@ -42,11 +39,6 @@ import timecards from "../data/timecards";
 import storytime from "../data/storytime";
 import newworldCards from "../data/newworldCards";
 
-// Debug-Ausgabe in der Konsole, um zu überprüfen, ob die Daten erfolgreich importiert wurden.
-console.debug("CardBox: Kartendaten importiert.");
-
-// Definieren des Kartensets als Array von Objekten. Jedes Objekt enthält den Namen des Kartensets und die zugehörigen Karten.
-// Somit können mehrere Kartensets dynamisch in der UI dargestellt werden.
 const cardSets = [
   { name: "Tarot", cards: tarotkarten },
   { name: "Lenormand", cards: lenormandkarten },
@@ -68,8 +60,6 @@ const cardSets = [
   { name: "Sacred Orakeldeck", cards: storytime },
 ];
 
-// Mapping von Kartenset-Namen zu entsprechenden Icons. Falls für einen Namen kein Icon definiert ist,
-// wird als Fallback das "Star"-Icon verwendet.
 const iconMap = {
   Tarot: Sparkles,
   Lenormand: Briefcase,
@@ -90,15 +80,7 @@ const iconMap = {
   "Sacred Orakeldeck": Layers,
 };
 
-/**
- * CardBox-Komponente
- * -------------------
- * Zeigt ein scrollbares Grid aller Kartensets an.
- * Beim Klick auf ein Kartenset wird die onCardSetSelect-Funktion aufgerufen und die entsprechenden Karten übergeben.
- */
 function CardBox({ onCardSetSelect }) {
-  // Event-Handler: Wird ausgeführt, wenn ein Kartenset angeklickt wird.
-  // Hier wird der Name des Sets geloggt und die onCardSetSelect-Funktion mit den Karten-Daten aufgerufen.
   const handleClick = (setObj) => {
     console.debug("Ausgewähltes Kartenset:", setObj.name);
     if (onCardSetSelect) onCardSetSelect(setObj.cards);
@@ -106,12 +88,6 @@ function CardBox({ onCardSetSelect }) {
 
   return (
     <div className="relative">
-      {/* Container für den scrollbaren Bereich:
-          - max-h-[540px]: Beschränkt die maximale Höhe auf ca. 3 Reihen (~180px pro Reihe)
-          - overflow-y-auto: Ermöglicht vertikales Scrollen, falls der Inhalt größer als die max-Höhe ist
-          - p-4: Innenabstand
-          - bg-gradient-to-b von einem hellen zu einem wärmeren Farbton
-          - rounded-md, border und shadow-inner: Moderne, abgerundete Kanten mit Rahmen und innerer Schattierung */}
       <div
         className="
           max-h-[240px]
@@ -121,22 +97,15 @@ function CardBox({ onCardSetSelect }) {
           rounded-md
           border border-[#A67C7C]
           shadow-inner
-          cardbox-scroll
+          scrollbar-thin-custom
         "
       >
-        {/* Grid: 
-            - Auf mobilen Geräten: 1 Spalte
-            - Auf kleinen Bildschirmen (sm): 2 Spalten
-            - Auf mittleren und größeren Bildschirmen (md+): 3 Spalten 
-            - gap-3: Abstand zwischen den einzelnen Karten */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
           {cardSets.map(({ name, cards }) => {
-            // Wähle das passende Icon aus dem Mapping oder verwende als Fallback das Star-Icon.
             const Icon = iconMap[name] || Star;
             return (
               <motion.div
                 key={name}
-                // Framer-Motion Animation: Vergrößert das Element leicht beim Hovern.
                 whileHover={{ scale: 1.04 }}
                 className="
                   flex items-center gap-2
@@ -151,12 +120,9 @@ function CardBox({ onCardSetSelect }) {
                 "
                 onClick={() => handleClick({ name, cards })}
               >
-                {/* Darstellung des Icons mit definierter Größe */}
                 <Icon size={24} />
                 <div>
-                  {/* Titel des Kartensets */}
                   <h2 className="font-semibold text-sm">{name}</h2>
-                  {/* Anzeige der Anzahl der Karten */}
                   <p className="text-xs">{cards.length} Karten</p>
                 </div>
               </motion.div>
@@ -164,35 +130,10 @@ function CardBox({ onCardSetSelect }) {
           })}
         </div>
       </div>
-
-      {/* Custom Scrollbar für den Karten-Container:
-          Mithilfe von Tailwind-Klassen und zusätzlichen CSS-Regeln wird ein moderner und schmaler Scrollbalken realisiert.
-          Hier wurde die Breite auf 4px reduziert, um den modernen Look zu unterstützen. */}
-      <style jsx>{`
-        /* Für WebKit-basierte Browser (Chrome, Safari) */
-        .cardbox-scroll::-webkit-scrollbar {
-          width: 4px;
-        }
-        .cardbox-scroll::-webkit-scrollbar-track {
-          background: #dcdef2;
-        }
-        .cardbox-scroll::-webkit-scrollbar-thumb {
-          background-color: #8c5a67;
-          border-radius: 4px;
-          border: 1px solid #a67c7c;
-        }
-        /* Für Firefox */
-        .cardbox-scroll {
-          scrollbar-width: thin;
-          scrollbar-color: #8c5a67 #dcdef2;
-        }
-      `}</style>
     </div>
   );
 }
 
-// PropTypes definieren die erwarteten Prop-Typen für diese Komponente.
-// Hier wird erwartet, dass onCardSetSelect eine Funktion ist, die als Pflichtangabe definiert ist.
 CardBox.propTypes = {
   onCardSetSelect: PropTypes.func.isRequired,
 };

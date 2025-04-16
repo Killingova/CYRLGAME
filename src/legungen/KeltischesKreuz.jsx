@@ -65,7 +65,7 @@ const KeltischesKreuz = () => {
 
       <Summary positions={positions} positionsInfo={positionsInfo} /> {/* Füge die Summary-Komponente hinzu */}
 
-      <style jsx>{`
+      <style>{`
         .celtic-cross-layout {
           display: grid;
           grid-template-columns: repeat(7, 1fr);

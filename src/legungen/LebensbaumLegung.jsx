@@ -69,7 +69,7 @@ const LebensbaumLegung = ({ onCardSetSelect }) => {
 
       <Summary positions={positions} positionsInfo={positionsInfo} /> {/* Füge die Summary-Komponente hinzu */}
 
-      <style jsx>{`
+      <style>{`
         .tree-of-life-layout {
           display: grid;
           grid-template-columns: repeat(3, 1fr);

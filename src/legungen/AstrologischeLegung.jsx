@@ -71,7 +71,7 @@ const AstrologischeLegung = () => {
 
       <Summary positions={positions} positionsInfo={positionsInfo} /> {/* Füge die Summary-Komponente hinzu */}
 
-      <style jsx>{`
+      <style>{`
         .astrological-layout {
           display: grid;
           grid-template-columns: repeat(4, 1fr);

@@ -105,7 +105,7 @@ const HufeisenLegung = () => {
       {/* Zusammenfassung */}
       <Summary positions={positions} positionsInfo={positionsInfo} />
 
-      <style jsx>{`
+      <style>{`
         /* Grid für 7 Positionen */
         .grid-positions {
           display: grid;

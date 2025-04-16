@@ -69,7 +69,7 @@ const PyramidenLegung = ({ onCardSetSelect }) => {
 
       <Summary positions={positions} positionsInfo={positionsInfo} /> {/* Füge die Summary-Komponente hinzu */}
 
-      <style jsx>{`
+      <style>{`
         .pyramid-layout {
           display: grid;
           grid-template-columns: repeat(4, 1fr); /* Layout mit 4 Spalten */

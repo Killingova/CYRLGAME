@@ -64,7 +64,7 @@ const PentagrammLegung = ({ onCardSetSelect }) => {
 
       <Summary positions={positions} positionsInfo={positionsInfo} /> {/* Füge die Summary-Komponente hinzu */}
 
-      <style jsx>{`
+      <style>{`
         .pentagram-layout {
           display: grid;
           grid-template-columns: repeat(5, 1fr); /* Layout mit 5 Spalten */

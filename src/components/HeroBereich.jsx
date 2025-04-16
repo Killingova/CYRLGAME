@@ -54,12 +54,13 @@ const HeroBereich = ({ onLegungClick }) => {
       {/* Video oder Wallpaper */}
       {showVideo ? (
         <iframe
-          className="absolute top-0 left-0 w-full h-full pointer-events-none"
-          src="https://www.youtube.com/embed/6w6aIJ22Kow?autoplay=1&mute=1&controls=0&modestbranding=1&showinfo=0"
-          title="Intro Video"
-          frameBorder="0"
-          allow="autoplay; fullscreen"
-        ></iframe>
+        className="absolute top-0 left-0 w-full h-full pointer-events-none"
+        src="https://www.youtube.com/embed/6w6aIJ22Kow?autoplay=1&mute=1&controls=0&modestbranding=1&showinfo=0&rel=0&playsinline=1"
+        title="Intro Video"
+        frameBorder="0"
+        allow="autoplay; fullscreen; encrypted-media"
+        allowFullScreen
+      ></iframe>
       ) : (
         <img
           src={wallpaperKorn}
