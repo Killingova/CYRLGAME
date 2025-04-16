@@ -32,17 +32,15 @@ const HeroBereich = ({ onLegungClick }) => {
   const [zufallsWelt, setZufallsWelt] = useState(null);
   const [showVideo, setShowVideo] = useState(true); // Start mit Video
 
-  // Welt zufällig setzen
   useEffect(() => {
     const randomIndex = Math.floor(Math.random() * worldsForHero.length);
     setZufallsWelt(worldsForHero[randomIndex]);
   }, []);
 
-  // Nach 30 Sekunden auf Bild wechseln
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowVideo(false);
-    }, 5500); // 30 Sekunden
+    }, 5500);
     return () => clearTimeout(timer);
   }, []);
 
@@ -50,17 +48,16 @@ const HeroBereich = ({ onLegungClick }) => {
 
   return (
     <div className="relative w-full h-screen overflow-hidden">
-
       {/* Video oder Wallpaper */}
       {showVideo ? (
         <iframe
-        className="absolute top-0 left-0 w-full h-full pointer-events-none"
-        src="https://www.youtube.com/embed/6w6aIJ22Kow?autoplay=1&mute=1&controls=0&modestbranding=1&showinfo=0&rel=0&playsinline=1"
-        title="Intro Video"
-        frameBorder="0"
-        allow="autoplay; fullscreen; encrypted-media"
-        allowFullScreen
-      ></iframe>
+          className="absolute top-0 left-0 w-full h-full pointer-events-none"
+          src="https://www.youtube.com/embed/6w6aIJ22Kow?autoplay=1&mute=1&controls=0&modestbranding=1&showinfo=0&rel=0&playsinline=1"
+          title="Intro Video"
+          frameBorder="0"
+          allow="autoplay; fullscreen; encrypted-media"
+          allowFullScreen
+        ></iframe>
       ) : (
         <img
           src={wallpaperKorn}
@@ -74,31 +71,45 @@ const HeroBereich = ({ onLegungClick }) => {
 
       {/* Inhalt */}
       <motion.section
-        className="relative z-10 flex flex-col items-center justify-center w-full h-full text-center px-6"
-        initial="hidden"
-        animate="visible"
-        variants={{
-          hidden: { opacity: 0, y: 50 },
-          visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-        }}
-      >
-        <h1 className="text-4xl md:text-5xl font-extrabold drop-shadow-lg leading-tight bg-clip-text text-transparent bg-gradient-to-r from-[#DCDEF2] to-[#D9A384]">
-          Willkommen in der Welt
-          <br />
-          <span className="text-[#8C5A67]">{zufallsWelt.name}</span>
-        </h1>
-        <p className="text-lg text-white mt-4">
-          Erkunde die Tiefen moderner Erkenntnisse und lass dich inspirieren.
-        </p>
-        <motion.button
-          onClick={() => onLegungClick(zufallsWelt.component)}
-          className="mt-8 bg-gradient-to-r from-[#8C5A67] to-[#A67C7C] text-white py-3 px-6 rounded-lg font-semibold transition duration-300 hover:brightness-110"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          Tauche ein!
-        </motion.button>
-      </motion.section>
+  className="relative z-10 flex flex-col justify-start md:justify-center items-center md:items-end w-full h-full px-6 text-center md:text-right md:pr-20"
+  initial="hidden"
+  animate="visible"
+  variants={{
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+  }}
+>
+  <div className="w-full md:w-auto md:max-w-lg mt-12 md:mt-0">
+    <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold drop-shadow-lg leading-tight bg-clip-text text-transparent bg-gradient-to-r from-[#DCDEF2] to-[#D9A384]">
+      Willkommen in der Welt
+      <br />
+      <span className="text-[#8C5A67]">{zufallsWelt.name}</span>
+    </h1>
+    <p className="text-lg text-white mt-4">
+      Erkunde die Tiefen moderner Erkenntnisse und lass dich inspirieren.
+    </p>
+
+    {/* Desktop-Button */}
+    <motion.button
+      onClick={() => onLegungClick(zufallsWelt.component)}
+      className="hidden md:inline-block mt-8 bg-gradient-to-r from-[#8C5A67] to-[#A67C7C] text-white py-3 px-6 rounded-lg font-semibold transition duration-300 hover:brightness-110"
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+    >
+      Tauche ein!
+    </motion.button>
+  </div>
+
+  {/* Mobiler Button fixiert unten rechts */}
+  <motion.button
+    onClick={() => onLegungClick(zufallsWelt.component)}
+    className="md:hidden fixed bottom-6 right-6 bg-gradient-to-r from-[#8C5A67] to-[#A67C7C] text-white py-3 px-6 rounded-full shadow-lg font-semibold transition duration-300 hover:brightness-110"
+    whileHover={{ scale: 1.05 }}
+    whileTap={{ scale: 0.95 }}
+  >
+    Tauche ein!
+  </motion.button>
+</motion.section>
     </div>
   );
 };
