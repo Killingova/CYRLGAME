@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
+import { supabase } from "../supabaseClient";
 
 const validateEmail = (email) =>
   /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -21,7 +22,7 @@ const RegisterFormular = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const { email, passwort, passwortWdh } = formData;
 
@@ -38,10 +39,21 @@ const RegisterFormular = () => {
       return;
     }
 
-    // TODO: Hier Registrierung per API/Supabase/etc.
-    // simuliert ein Token und ruft login() aus dem Context auf:
-    const fakeToken = "abc123";
-    login(email, fakeToken);
+    const { data, error } = await supabase.auth.signUp({
+      email,
+      password: passwort,
+    });
+
+    if (error) {
+      setFehler(error.message);
+      return;
+    }
+
+    // optional: direkt einloggen, wenn Session zurückgegeben wird
+    const token = data?.session?.access_token;
+    if (token) {
+      login(email, token);
+    }
 
     setFehler("");
     navigate("/");
