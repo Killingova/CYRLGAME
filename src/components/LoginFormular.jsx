@@ -1,13 +1,15 @@
-//src\components\LoginFormular.jsx
-import React, { useState } from "react";
+// src/components/LoginFormular.jsx
+import React, { useState, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import { supabase } from "../supabaseClient";
+import { AuthContext } from "../context/AuthContext";
 
-const validateEmail = (email) => {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-};
+const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
 const LoginFormular = () => {
   const navigate = useNavigate();
+  const { login } = useContext(AuthContext);
+
   const [formData, setFormData] = useState({
     email: "",
     passwort: "",
@@ -20,7 +22,7 @@ const LoginFormular = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const { email, passwort } = formData;
 
@@ -34,8 +36,21 @@ const LoginFormular = () => {
       return;
     }
 
-    // TODO: Login-Logik ersetzen (z. B. Supabase/Firebase)
-    alert("Erfolgreich eingeloggt!");
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email,
+      password: passwort,
+    });
+
+    if (error) {
+      setFehler(error.message);
+      return;
+    }
+
+    const token = data?.session?.access_token;
+    if (token) {
+      login(email, token); // speichert in Context + localStorage
+    }
+
     setFehler("");
     navigate("/");
   };
@@ -45,7 +60,9 @@ const LoginFormular = () => {
       <h2 className="text-2xl font-bold text-[#260101] mb-6 text-center">Login</h2>
       <form onSubmit={handleSubmit} className="space-y-5">
         <div>
-          <label className="block text-[#260101] font-medium">E-Mail <sup className="text-red-500">*</sup></label>
+          <label className="block text-[#260101] font-medium">
+            E-Mail <sup className="text-red-500">*</sup>
+          </label>
           <input
             type="email"
             name="email"
@@ -58,7 +75,9 @@ const LoginFormular = () => {
         </div>
 
         <div>
-          <label className="block text-[#260101] font-medium">Passwort <sup className="text-red-500">*</sup></label>
+          <label className="block text-[#260101] font-medium">
+            Passwort <sup className="text-red-500">*</sup>
+          </label>
           <input
             type="password"
             name="passwort"
@@ -81,8 +100,10 @@ const LoginFormular = () => {
       </form>
 
       <p className="text-center mt-4 text-[#260101]">
-        Noch kein Konto?{' '}
-        <Link to="/register" className="text-[#8C5A67] hover:underline">Jetzt registrieren</Link>
+        Noch kein Konto?{" "}
+        <Link to="/register" className="text-[#8C5A67] hover:underline">
+          Jetzt registrieren
+        </Link>
       </p>
     </section>
   );

@@ -16,6 +16,7 @@ const RegisterFormular = () => {
     passwortWdh: "",
   });
   const [fehler, setFehler] = useState("");
+  const [meldung, setMeldung] = useState("");
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -39,9 +40,14 @@ const RegisterFormular = () => {
       return;
     }
 
+    const redirectTo = window.location.origin;
+
     const { data, error } = await supabase.auth.signUp({
       email,
       password: passwort,
+      options: {
+        emailRedirectTo: redirectTo,
+      },
     });
 
     if (error) {
@@ -49,14 +55,9 @@ const RegisterFormular = () => {
       return;
     }
 
-    // optional: direkt einloggen, wenn Session zurückgegeben wird
-    const token = data?.session?.access_token;
-    if (token) {
-      login(email, token);
-    }
-
     setFehler("");
-    navigate("/");
+    setMeldung("Bestätigungs-E-Mail wurde versendet. Bitte prüfe dein Postfach.");
+    setFormData({ email: "", passwort: "", passwortWdh: "" });
   };
 
   return (
@@ -109,6 +110,7 @@ const RegisterFormular = () => {
         </div>
 
         {fehler && <p className="text-red-600 text-sm">{fehler}</p>}
+        {meldung && <p className="text-green-600 text-sm">{meldung}</p>}
 
         <button
           type="submit"
