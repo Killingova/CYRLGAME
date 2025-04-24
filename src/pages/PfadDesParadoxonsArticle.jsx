@@ -1,241 +1,183 @@
-// src/pages/PfadDesParadoxonsArticle.jsx
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import MotionText from "../components/MotionText"; // ggf. Pfad anpassen
+import { ArrowDown, ArrowUp } from "lucide-react";
 
-// Definition der Slides mit integriertem neuen Inhalt und weiterführendem altem Content
-const slides = [
+/**
+ * Über-Seite für "Pfad des Paradoxons"
+ * – stellt die neue Bewusstseinstheorie in klaren, interaktiven Abschnitten vor.
+ * UX-Ziele:
+ *   1. Schnelles Scannen durch Accordion-Struktur.
+ *   2. Tiefe, wenn Nutzer Details aufklappt.
+ *   3. Stimmungsvolles Farbschema gemäss Weltfeldern.
+ */
+
+const sections = [
   {
-    title: "Einführung: Der Pfad des Paradoxons",
-    content: (
+    id: "intro",
+    title: "Bewusstseinstheorie",
+    color: "from-[#DCDEF2] to-[#D9A384]",
+    body: (
       <>
-        <p className="mb-4 text-2xl font-bold text-[#4a4a4a]">
-          Der „Pfad des Paradoxons“ – Ein universeller Erfahrungsweg
-        </p>
         <p className="mb-4 text-lg text-[#260101]">
-          Dieser Weg zeigt, dass wahrer Fortschritt oft dadurch entsteht, dass wir Gegensätze und Widersprüche nicht als Hindernisse, sondern als Chancen zur Entwicklung sehen.
+          In einer Welt voller Gegensätze und Unsicherheiten suchen immer mehr Menschen nach Wegen, tiefere Harmonie und Klarheit zu finden. Der <b>„Pfad des Paradoxons“</b> bietet eine bahnbrechende Antwort: ein Modell, das moderne Physik, systemische Ansätze und spirituelles Denken vereint – und das Bewusstsein als <i>aktiven</i> Gestalter der Realität beschreibt.
         </p>
-        <p className="mb-4 text-base text-[#6d6d6d]">
-          Licht und Schatten, Materie und Geist, Wissen und Nichtwissen – all dies fließt in die tiefe Erkenntnis ein, die wir auf diesem Pfad gewinnen.
-        </p>
-      </>
-    ),
-  },
-  {
-    title: "Was bedeutet der Pfad des Paradoxons?",
-    content: (
-      <>
-        <h3 className="mb-4 text-xl font-semibold text-[#333333]">Bedeutung und Erkenntnis</h3>
-        <p className="mb-4 text-base text-[#260101]">
-          Der Pfad des Paradoxons lehrt uns, dass durch das Loslassen von Kontrolle und das Annehmen des Unbekannten echte innere Freiheit entsteht.
-        </p>
-        <p className="mb-4 text-base text-[#260101]">
-          Die Integration scheinbar widersprüchlicher Aspekte eröffnet uns einen Raum, in dem Wachstum und Ganzheit möglich werden.
+        <p className="text-base text-[#260101]">
+          Bewusstsein formt, lenkt und wandelt Energiefelder. Es beeinflusst persönliche Entwicklung <i>und</i> kollektives Erleben. Damit verbindet der Pfad individuelle Transformation und kosmische Kohärenz in einem Rahmen.
         </p>
       </>
     ),
   },
   {
-    title: "Astrologie: Polaritäten und Potenziale",
-    content: (
-      <>
-        <h3 className="mb-4 text-xl font-semibold text-[#333333]">Astrologische Systeme</h3>
-        <p className="mb-4 text-base text-[#260101]">
-          Viele astrologische Traditionen arbeiten mit Polaritäten wie Sonne/Mond oder männlich/weiblich. Diese Gegensätze entstehen in jedem Horoskop als Spannungsfelder und Entwicklungspotenziale.
-        </p>
-        <p className="mb-4 text-base text-[#260101]">
-          Durch die bewusste Integration dieser Polaritäten können wir zu einem ausgewogenen und ganzheitlichen Selbst finden.
-        </p>
-      </>
+    id: "felder",
+    title: "Die sieben Felder",
+    color: "from-[#F2E8DC] to-[#EED2CC]",
+    body: (
+      <div className="space-y-6">
+        {[
+          {
+            name: "Oben (Kosmos)",
+            desc:
+              "Archetypische Weisheit, höchste Schwingung. Inspiration & spirituelle Führung.",
+            qp: "Wellenfelder höherer Ordnung, Superpositionseffekte.",
+          },
+          {
+            name: "Unten (Erde)",
+            desc:
+              "Tiefe & Schatten, kollektives Unbewusstes. Fundament & Herkunft.",
+            qp: "Gravitation, Massebildung, kollektives Gedächtnis.",
+          },
+          {
+            name: "Links (Westen)",
+            desc:
+              "Emotion & Heilung vergangener Erfahrungen.",
+            qp: "Informationsflüsse, Interferenzmuster.",
+          },
+          {
+            name: "Rechts (Osten)",
+            desc: "Mut, Handlung, kreative Expansion.",
+            qp: "Energieimpuls, Kausalitätsvektoren.",
+          },
+          {
+            name: "Vorne (Mond||Nord)",
+            desc: "Intuition & Resonanz, jenseits des Verstands.",
+            qp: "Quantenverschränkung, Rezeptivität.",
+          },
+          {
+            name: "Hinten (Sonne||Süd)",
+            desc: "Ausdruck innerer Frequenz – Manifestation.",
+            qp: "Photonenfeld, Eigenfrequenz.",
+          },
+          {
+            name: "Zentrum (Herzraum)",
+            desc: "Bewusster Beobachter – Kollaps der Wellenfunktion.",
+            qp: "Entscheidung & Wahrnehmung als Schöpfungsakt.",
+          },
+        ].map((f) => (
+          <div key={f.name} className="rounded-xl bg-white/70 p-4 shadow-xs">
+            <h4 className="font-semibold text-[#260101]">{f.name}</h4>
+            <p className="text-sm mb-1 text-[#260101]">{f.desc}</p>
+            <p className="text-xs italic text-[#6d6d6d]">Quanten-Parallele: {f.qp}</p>
+          </div>
+        ))}
+      </div>
     ),
   },
   {
-    title: "Numerologie: Zahlen als Spiegel der Seele",
-    content: (
-      <>
-        <h3 className="mb-4 text-xl font-semibold text-[#333333]">Numerologische Erkenntnisse</h3>
-        <p className="mb-4 text-base text-[#260101]">
-          Jede Zahl besitzt eine eigene Essenz und oft auch ihr Gegenteil. Die 4 symbolisiert zum Beispiel Struktur und Sicherheit – aber auch die Notwendigkeit, diese Strukturen zu überwinden, um wahre Freiheit zu erlangen.
-        </p>
-        <p className="mb-4 text-base text-[#260101]">
-          So wird der spirituelle Weg als eine Reise durch verschiedene Zahlenqualitäten gesehen, in der jede Stufe neue Paradoxien und Lernaufgaben bereithält.
-        </p>
-      </>
+    id: "baustellen",
+    title: "Schlüssel zur Transformation",
+    color: "from-[#DDECE1] to-[#B3CBB9]",
+    body: (
+      <ul className="list-disc space-y-4 pl-5 text-[#260101]">
+        <li>
+          <b>Selbstbewusstsein</b>: Stabilität im Zentrum, Beobachten ohne Urteil.<br />
+          <span className="italic text-sm">Blockaden: Ich-Verlust, Ego-Fixierung.</span>
+        </li>
+        <li>
+          <b>Willensfreiheit</b>: Energie frei zwischen Feldern bewegen, Verantwortung übernehmen.<br />
+          <span className="italic text-sm">Blockaden: Schuldgefühle, Machtkämpfe.</span>
+        </li>
+        <li>
+          <b>Reflexion</b>: Erfahrung integrieren, Mitgefühl üben.<br />
+          <span className="italic text-sm">Blockaden: Mentale Starre, endlose Selbstkritik.</span>
+        </li>
+      </ul>
     ),
   },
   {
-    title: "Spiritualität weltweit: Tradition trifft Moderne",
-    content: (
-      <>
-        <h3 className="mb-4 text-xl font-semibold text-[#333333]">Östliche und westliche Perspektiven</h3>
-        <p className="mb-4 text-base text-[#260101]">
-          In vielen östlichen Traditionen, wie dem Zen-Buddhismus, helfen unlösbare Rätsel (Koans), den rationalen Verstand zu überwinden. Gleichzeitig betonen hermetische Lehren das Prinzip „wie oben, so unten“.
-        </p>
-        <p className="mb-4 text-base text-[#260101]">
-          Schamanische Wege lehren uns, dass Heilung und Wachstum oft durch das Akzeptieren von Gegensätzen erreicht werden.
-        </p>
-      </>
+    id: "materie",
+    title: "Dunkle Materie",
+    color: "from-[#EBDCF2] to-[#C9B4E3]",
+    body: (
+      <p className="text-[#260101]">
+        Verliert Bewusstsein seine Kohärenz, entstehen Blockaden: eine Art <i>schwarze energetische Materie</i>. Sie verzerrt die Realität – ist jedoch zugleich gespeicherte Kraft. Durch bewusste Arbeit wird dieses Potenzial reaktiviert: Die Energie fließt, neue Realität entsteht.
+      </p>
     ),
   },
   {
-    title: "Symbolik, Ziel und Lebensweisheit",
-    content: (
-      <>
-        <h3 className="mb-4 text-xl font-semibold text-[#333333]">Die Quintessenz</h3>
-        <p className="mb-4 text-base text-[#260101]">
-          Der Pfad fordert uns auf, die Komfortzone zu verlassen und alte Denkmuster zu hinterfragen. Er steht für Transformation, zyklische Prozesse und die Akzeptanz eines mehrdeutigen Lebens.
-        </p>
-        <p className="mb-4 text-base text-[#260101]">
-          Durch das Erleben und Integrieren von Paradoxien gelangt man zu innerer Freiheit, Weisheit und Ganzheit.
-        </p>
-        <p className="mb-4 text-base italic text-[#8C5A67]">
-          „Das Geheimnis liegt nicht darin, die Zahlen zu kennen, denn sie selbst sind das Geheimnis…“
-        </p>
-      </>
-    ),
-  },
-  // Hier wird der alte Content weitergeführt:
-  {
-    title: "Faszination Natur und Sternzeichen",
-    content: (
-      <>
-        <h3 className="mb-4 text-xl font-semibold text-[#333333]">Natur & Kosmos</h3>
-        <p className="mb-4 text-base text-[#260101]">
-          Von klein auf übte die Natur eine besondere Anziehungskraft aus. Farben, Formen und Muster fesselten mich und öffneten den Blick in die Welt der Sternzeichen.
-        </p>
-        <p className="mb-4 text-base text-[#260101]">
-          Der Geburtsmoment spiegelt durch die Konstellation der Planeten individuelle Potenziale und Anlagen wider.
-        </p>
-      </>
+    id: "kohärenz",
+    title: "Transformation durch Kohärenz",
+    color: "from-[#FDF6E3] to-[#F0E1B8]",
+    body: (
+      <p className="text-[#260101]">
+        Wenn die inneren Baustellen mit den sieben Feldern harmonieren, entfaltet sich Selbst- <i>und</i> Kollektiv-Wachstum fast mühelos. Der Mensch wird Feldwandler: Er erkennt Blockaden, balanciert Präsenz und gestaltet Wirklichkeit bewusst.
+      </p>
     ),
   },
   {
-    title: "Soziales Umfeld und persönliche Anpassung",
-    content: (
-      <>
-        <h3 className="mb-4 text-xl font-semibold text-[#333333]">Gesellschaft und Selbstfindung</h3>
-        <p className="mb-4 text-base text-[#260101]">
-          Auch das soziale Umfeld – Familie, Gesellschaft und etablierte Denkweisen – prägt unser tägliches Leben. Doch neue Perspektiven können helfen, sich selbst bewusster zu begegnen.
-        </p>
-      </>
-    ),
-  },
-  {
-    title: "Vielseitige Methoden & moderne Energiearbeit",
-    content: (
-      <>
-        <h3 className="mb-4 text-xl font-semibold text-[#333333]">Kreative Ansätze und moderne Techniken</h3>
-        <p className="mb-4 text-base text-[#260101]">
-          Verschiedene Systeme wie Tarot, Orakel und pythagoräische Numerologie werden hier mit modernen Ansätzen wie Human Design und dem „Body Code“ kombiniert.
-        </p>
-        <ul className="list-disc pl-5 mb-4 text-base text-[#260101]">
-          <li>Tarot und Orakel: Fördern intuitive Einsichten und Kreativität.</li>
-          <li>Human Design & Body Code: Erkennen und transformieren energetische Blockaden.</li>
-        </ul>
-        <p className="mb-4 text-base text-[#260101]">
-          Zusätzlich unterstützen kreative Methoden wie Schreiben und Visualisierungen den Lernprozess.
-        </p>
-      </>
-    ),
-  },
-  {
-    title: "Zweck des Projekts & abschließendes Fazit",
-    content: (
-      <>
-        <h3 className="mb-4 text-xl font-semibold text-[#333333]">Wissen teilen und Vielfalt leben</h3>
-        <p className="mb-4 text-base text-[#260101]">
-          Das Projekt „Pfad des Paradoxons“ vereint all diese Ansätze, um Wissen zu teilen und einen intensiven Wachstumsprozess zu ermöglichen.
-        </p>
-        <p className="mb-4 text-base text-[#260101]">
-          Durch den Austausch verschiedenster Perspektiven können neue Ideen entstehen und das persönliche Potenzial weiter entfaltet werden.
-        </p>
-        <p className="mb-4 text-base text-[#260101]">
-          Dieser Weg fördert nicht nur die innere Heilung, sondern unterstützt auch die persönliche und gesellschaftliche Entwicklung.
-        </p>
-        <p className="mb-4 text-base text-[#260101]">
-          Lass uns gemeinsam diesen faszinierenden Pfad gehen und die Schönheit der Vielfalt erleben.
-        </p>
-      </>
+    id: "schluss",
+    title: "Eine neue Sicht auf das Leben",
+    color: "from-[#D9A384] to-[#DCDEF2]",
+    body: (
+      <p className="text-[#260101]">
+        Der Pfad des Paradoxons liefert keine einfachen Antworten, sondern lädt ein, das Leben als <b>kreativen, dynamischen Prozess</b> zu begreifen. Jede Entscheidung beeinflusst das kollektive Bewusstseinsfeld. Herausforderungen werden zu Chancen, Paradoxien zu Portalen – für individuelle Freiheit und kosmische Verbundenheit.
+      </p>
     ),
   },
 ];
 
-// Varianten für die Slide-Animationen
-const slideVariants = {
-  initial: { opacity: 0, x: 50 },
-  animate: { opacity: 1, x: 0 },
-  exit: { opacity: 0, x: -50 },
-};
+const Section = ({ open, toggle, title, body, color }) => (
+  <motion.section
+    initial={false}
+    animate={{ height: open ? "auto" : 64 }}
+    className={`rounded-2xl bg-gradient-to-r ${color} overflow-hidden shadow-lg`}
+  >
+    <button
+      onClick={toggle}
+      className="flex w-full items-center justify-between p-4 md:p-6 backdrop-blur-sm"
+    >
+      <h2 className="text-xl font-bold text-[#260101] md:text-2xl">{title}</h2>
+      {open ? <ArrowUp size={20} /> : <ArrowDown size={20} />}
+    </button>
+    <AnimatePresence initial={false}>{open && (
+      <motion.div
+        key="content"
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -10 }}
+        transition={{ duration: 0.3 }}
+        className="px-4 pb-6 md:px-6 md:pb-8"
+      >
+        {body}
+      </motion.div>
+    )}</AnimatePresence>
+  </motion.section>
+);
 
-export default function PfadDesParadoxonsArticle() {
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  // Navigation: Nächste/Letzte Folie
-  const handleNext = () => {
-    if (currentSlide < slides.length - 1) {
-      setCurrentSlide(currentSlide + 1);
-    }
-  };
-
-  const handlePrev = () => {
-    if (currentSlide > 0) {
-      setCurrentSlide(currentSlide - 1);
-    }
-  };
-
-  // Swipe-Funktionalität mittels Framer Motion
-  const handleDragEnd = (event, info) => {
-    const swipe = info.offset.x;
-    if (swipe < -50 && currentSlide < slides.length - 1) {
-      handleNext();
-    } else if (swipe > 50 && currentSlide > 0) {
-      handlePrev();
-    }
-  };
+export default function UeberBewusstseinstheorie() {
+  const [openId, setOpenId] = useState("intro");
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-[#DCDEF2] to-[#D9A384] px-4 py-8 md:px-8">
-      <div className="max-w-3xl mx-auto bg-white rounded-lg shadow-lg p-6 md:p-10">
-        {/* Navigation-Buttons */}
-        <div className="flex justify-between items-center mb-4">
-          <button
-            onClick={handlePrev}
-            disabled={currentSlide === 0}
-            className="bg-[#8C5A67] text-white py-2 px-4 rounded font-semibold transition duration-300 hover:brightness-110 disabled:opacity-40 disabled:cursor-not-allowed"
-          >
-            Zurück
-          </button>
-          <button
-            onClick={handleNext}
-            disabled={currentSlide === slides.length - 1}
-            className="bg-[#8C5A67] text-white py-2 px-4 rounded font-semibold transition duration-300 hover:brightness-110 disabled:opacity-40 disabled:cursor-not-allowed"
-          >
-            Weiter
-          </button>
-        </div>
-
-        {/* Slide-Inhalt mit Drag-Unterstützung */}
-        <div className="relative overflow-hidden">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentSlide}
-              variants={slideVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              transition={{ duration: 0.5 }}
-              drag="x"
-              dragConstraints={{ left: 0, right: 0 }}
-              onDragEnd={handleDragEnd}
-            >
-              <h2 className="text-3xl font-bold mb-6 text-[#260101]">
-                {slides[currentSlide].title}
-              </h2>
-              {slides[currentSlide].content}
-            </motion.div>
-          </AnimatePresence>
-        </div>
-      </div>
-    </div>
+    <main className="min-h-screen bg-[#f7f4ef] px-4 py-8 md:px-12 md:py-16 space-y-6">
+      {sections.map(({ id, title, body, color }) => (
+        <Section
+          key={id}
+          title={title}
+          body={body}
+          color={color}
+          open={openId === id}
+          toggle={() => setOpenId(openId === id ? null : id)}
+        />
+      ))}
+    </main>
   );
 }
