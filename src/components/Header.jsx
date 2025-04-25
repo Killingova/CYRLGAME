@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X, LogIn, LogOut } from "lucide-react";
+import { Menu, X, LogIn, LogOut, Home, Info, Mail, Hash } from "lucide-react";
 import logo from "../assets/logo/LOGOBLACK.png";
 import { AuthContext } from "../context/AuthContext";
 
@@ -9,11 +9,13 @@ const Header = () => {
   const { user, logout } = useContext(AuthContext);
 
   const navLinks = [
-    { name: "Start", path: "/" },
-    { name: "Über", path: "/ueber" },
-    { name: "Kontakt", path: "/kontakt" },
-    { name: "Numerologie", path: "/numerologie" },
+    { name: "Start", path: "/", icon: <Home size={18} /> },
+    { name: "Über", path: "/ueber", icon: <Info size={18} /> },
+    { name: "Kontakt", path: "/kontakt", icon: <Mail size={18} /> },
+    { name: "Numerologie", path: "/numerologie", icon: <Hash size={18} /> },
   ];
+
+  const linkClasses = "flex items-center space-x-1 text-[#260101] hover:bg-[#8C5A67] hover:text-white px-3 py-2 rounded transition";
 
   return (
     <header className="sticky top-0 z-50 bg-gradient-to-b from-[#DCDEF2] to-[#D9A384] shadow-lg border-b border-[#8C5A67]">
@@ -32,29 +34,22 @@ const Header = () => {
 
         {/* Desktop-Navigation */}
         <nav className="hidden md:flex items-center space-x-4">
-          {navLinks.map(({ name, path }) => (
-            <Link
-              key={name}
-              to={path}
-              className="text-[#260101] font-semibold hover:bg-[#8C5A67] hover:text-white px-3 py-1 rounded transition"
-            >
-              {name}
+          {navLinks.map(({ name, path, icon }) => (
+            <Link key={name} to={path} className={linkClasses}>
+              {icon}
+              <span>{name}</span>
             </Link>
           ))}
 
           {user ? (
-            <button
-              onClick={logout}
-              className="flex items-center text-[#260101] hover:text-[#8C5A67] px-2 py-1 transition"
-            >
-              <LogOut className="mr-2" /> Logout
+            <button onClick={logout} className={linkClasses}>
+              <LogOut size={18} />
+              <span>Logout</span>
             </button>
           ) : (
-            <Link
-              to="/login"
-              className="flex items-center text-[#260101] hover:text-[#8C5A67] px-2 py-1 transition"
-            >
-              <LogIn className="mr-2" /> Login
+            <Link to="/login" className={linkClasses}>
+              <LogIn size={18} />
+              <span>Login</span>
             </Link>
           )}
         </nav>
@@ -71,15 +66,16 @@ const Header = () => {
 
       {/* Mobile-Navigation */}
       {menuOpen && (
-        <div className="md:hidden bg-[#DCDEF2] px-6 py-4 shadow-inner">
-          {navLinks.map(({ name, path }) => (
+        <div className="md:hidden bg-[#DCDEF2] px-6 py-4 shadow-inner space-y-2">
+          {navLinks.map(({ name, path, icon }) => (
             <Link
               key={name}
               to={path}
               onClick={() => setMenuOpen(false)}
-              className="block text-[#260101] hover:bg-[#8C5A67] hover:text-white px-3 py-2 rounded transition"
+              className={linkClasses}
             >
-              {name}
+              {icon}
+              <span>{name}</span>
             </Link>
           ))}
 
@@ -89,17 +85,19 @@ const Header = () => {
                 logout();
                 setMenuOpen(false);
               }}
-              className="flex items-center text-[#260101] hover:text-[#8C5A67] px-3 py-2 transition"
+              className={linkClasses}
             >
-              <LogOut className="mr-2 inline" /> Logout
+              <LogOut size={18} />
+              <span>Logout</span>
             </button>
           ) : (
             <Link
               to="/login"
               onClick={() => setMenuOpen(false)}
-              className="flex items-center text-[#260101] hover:text-[#8C5A67] px-3 py-2 transition"
+              className={linkClasses}
             >
-              <LogIn className="mr-2 inline" /> Login
+              <LogIn size={18} />
+              <span>Login</span>
             </Link>
           )}
         </div>
