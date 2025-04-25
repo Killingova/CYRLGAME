@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X, LogIn, LogOut, Home, Info, Mail, Hash } from "lucide-react";
+import { Menu, X, LogIn, LogOut, Home, Info, Mail, Hash, User } from "lucide-react";
 import logo from "../assets/logo/LOGOBLACK.png";
 import { AuthContext } from "../context/AuthContext";
 
@@ -15,15 +15,20 @@ const Header = () => {
     { name: "Numerologie", path: "/numerologie", icon: <Hash size={18} /> },
   ];
 
-  const linkClasses = "flex items-center space-x-1 text-[#260101] hover:bg-[#8C5A67] hover:text-white px-3 py-2 rounded transition";
+  const linkClasses =
+    "flex items-center space-x-1 text-[#260101] hover:bg-[#8C5A67] hover:text-white px-3 py-2 rounded transition";
 
   return (
     <header className="sticky top-0 z-50 bg-gradient-to-b from-[#DCDEF2] to-[#D9A384] shadow-lg border-b border-[#8C5A67]">
-      <div className="max-w-7xl mx-auto flex justify-between items-center h-24 md:h-28 px-4 md:px-8">
+      <div className="max-w-7xl mx-auto flex justify-between items-end h-28 px-4 md:px-8">
         {/* Logo & Titel */}
         <div className="flex items-center space-x-4">
           <Link to="/">
-            <img src={logo} alt="Pfad des Paradoxons" className="h-16 md:h-24 w-auto drop-shadow-md" />
+            <img
+              src={logo}
+              alt="Pfad des Paradoxons"
+              className="h-16 md:h-24 w-auto drop-shadow-md"
+            />
           </Link>
           <Link to="/">
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-[Dancing Script] font-bold text-[#260101]">
@@ -33,23 +38,30 @@ const Header = () => {
         </div>
 
         {/* Desktop-Navigation */}
-        <nav className="hidden md:flex items-center space-x-4">
+        <nav className="hidden md:flex items-end space-x-4">
           {navLinks.map(({ name, path, icon }) => (
             <Link key={name} to={path} className={linkClasses}>
               {icon}
-              <span>{name}</span>
+              <span className="font-paradox">{name}</span>
             </Link>
           ))}
+
+          {user && (
+            <Link to="/profil" className={linkClasses}>
+              <User size={18} />
+              <span className="font-paradox">Profil</span>
+            </Link>
+          )}
 
           {user ? (
             <button onClick={logout} className={linkClasses}>
               <LogOut size={18} />
-              <span>Logout</span>
+              <span className="font-paradox">Logout</span>
             </button>
           ) : (
             <Link to="/login" className={linkClasses}>
               <LogIn size={18} />
-              <span>Login</span>
+              <span className="font-paradox">Login</span>
             </Link>
           )}
         </nav>
@@ -75,9 +87,20 @@ const Header = () => {
               className={linkClasses}
             >
               {icon}
-              <span>{name}</span>
+              <span className="font-paradox">{name}</span>
             </Link>
           ))}
+
+          {user && (
+            <Link
+              to="/profil"
+              onClick={() => setMenuOpen(false)}
+              className={linkClasses}
+            >
+              <User size={18} />
+              <span className="font-paradox">Profil</span>
+            </Link>
+          )}
 
           {user ? (
             <button
@@ -88,7 +111,7 @@ const Header = () => {
               className={linkClasses}
             >
               <LogOut size={18} />
-              <span>Logout</span>
+              <span className="font-paradox">Logout</span>
             </button>
           ) : (
             <Link
@@ -97,7 +120,7 @@ const Header = () => {
               className={linkClasses}
             >
               <LogIn size={18} />
-              <span>Login</span>
+              <span className="font-paradox">Login</span>
             </Link>
           )}
         </div>

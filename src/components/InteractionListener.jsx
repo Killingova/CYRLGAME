@@ -1,22 +1,26 @@
+// 📂 src/components/InteractionListener.jsx
 import { useEffect, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 
 const InteractionListener = () => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
+  const { pathname } = useLocation();
 
   useEffect(() => {
-    // Wenn schon eingeloggt, nichts tun
-    if (user) return;
+    // Wenn User eingeloggt ist oder wir uns auf Login/Register befinden → nichts tun
+    if (user || pathname === "/login" || pathname === "/register") {
+      return;
+    }
 
-    // Nach 30 Sekunden zum Login schicken
+    // Andernfalls nach 30s zur Login-Seite weiterleiten
     const timer = setTimeout(() => {
       navigate("/login");
-    }, 30000);
+    }, 30_000);
 
     return () => clearTimeout(timer);
-  }, [user, navigate]);
+  }, [user, pathname, navigate]);
 
   return null;
 };

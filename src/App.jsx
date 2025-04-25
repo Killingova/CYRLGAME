@@ -1,3 +1,4 @@
+// 📂 src/App.jsx
 import React, { useEffect, useContext } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 
@@ -13,6 +14,9 @@ import Impressum from "./pages/Impressum";
 import Kontakt from "./pages/Kontakt";
 import DatenSchutz from "./pages/DatenSchutz";
 import PfadDesParadoxonsArticle from "./pages/PfadDesParadoxonsArticle";
+import ProfilePage from "./pages/ProfilePage";
+
+// Numerologie (geschützt)
 import PythagoreanNumerology from "./components/PythagoreanNumerology";
 
 // Auth-Formulare
@@ -21,13 +25,12 @@ import RegisterFormular from "./components/RegisterFormular";
 
 const AppRoutes = () => {
   const location = useLocation();
-  const { user, isLoading: authLoading } = useContext(AuthContext);
+  const { user, isAuthLoading } = useContext(AuthContext);
 
   useEffect(() => {
     console.debug("[AppRoutes] current location:", location.pathname);
-  }, [location]);
-
-  console.debug("[AppRoutes] authLoading:", authLoading, "user:", user);
+    console.debug("[AppRoutes] isAuthLoading:", isAuthLoading, "user:", user);
+  }, [location, isAuthLoading, user]);
 
   return (
     <Routes>
@@ -40,38 +43,29 @@ const AppRoutes = () => {
       <Route path="/login" element={<LoginFormular />} />
       <Route path="/register" element={<RegisterFormular />} />
 
-      {/* Geschützte Seite */}
-      <Route
-        path="/numerologie"
-        element={
-          <ProtectedRoute>
-            <PythagoreanNumerology />
-          </ProtectedRoute>
-        }
-      />
+      {/* Geschützte Seiten über einen gemeinsamen Wrapper */}
+      <Route element={<ProtectedRoute />}>
+        <Route path="/profil" element={<ProfilePage />} />
+        <Route path="/numerologie" element={<PythagoreanNumerology />} />
+      </Route>
 
-      {/* Fallback: Unbekannte Route */}
+      {/* Fallback: alle unbekannten Pfade */}
       <Route path="*" element={<Home />} />
     </Routes>
   );
 };
 
-const App = () => {
-  return (
-    <AuthProvider>
-      <InteractionListener />
-
-      <div className="min-h-screen flex flex-col">
-        <Header />
-
-        <main className="flex-grow">
-          <AppRoutes />
-        </main>
-
-        <Footer />
-      </div>
-    </AuthProvider>
-  );
-};
+const App = () => (
+  <AuthProvider>
+    <InteractionListener />
+    <div className="min-h-screen flex flex-col">
+      <Header />
+      <main className="flex-grow">
+        <AppRoutes />
+      </main>
+      <Footer />
+    </div>
+  </AuthProvider>
+);
 
 export default App;
