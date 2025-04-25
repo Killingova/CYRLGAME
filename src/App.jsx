@@ -1,11 +1,3 @@
-// 📂 src/App.jsx
-// SPA-Shell ohne BrowserRouter (steht in main.jsx).
-// Enthält:
-// • AuthProvider → Supabase-Session + User-Context
-// • InteractionListener → merkt erste User-Interaktion
-// • Header / Footer → Layout-Chrome
-// • Geschützte & öffentliche Routen via React-Router v6
-
 import React, { useEffect, useContext } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 
@@ -39,24 +31,27 @@ const AppRoutes = () => {
 
   return (
     <Routes>
-      {/* Public */}
+      {/* Öffentliche Seiten */}
+      <Route path="/" element={<Home />} />
+      <Route path="/ueber" element={<PfadDesParadoxonsArticle />} />
+      <Route path="/kontakt" element={<Kontakt />} />
+      <Route path="/impressum" element={<Impressum />} />
+      <Route path="/datenschutz" element={<DatenSchutz />} />
       <Route path="/login" element={<LoginFormular />} />
       <Route path="/register" element={<RegisterFormular />} />
 
-      {/* Pflichtseiten */}
-      <Route path="/impressum" element={<Impressum />} />
-      <Route path="/datenschutz" element={<DatenSchutz />} />
+      {/* Geschützte Seite */}
+      <Route
+        path="/numerologie"
+        element={
+          <ProtectedRoute>
+            <PythagoreanNumerology />
+          </ProtectedRoute>
+        }
+      />
 
-      {/* Protected */}
-      <Route path="/" element={<ProtectedRoute />}>
-        <Route index element={<Home />} />
-        <Route path="ueber" element={<PfadDesParadoxonsArticle />} />
-        <Route path="kontakt" element={<Kontakt />} />
-        <Route path="numerologie" element={<PythagoreanNumerology />} />
-      </Route>
-
-      {/* Fallback */}
-      <Route path="*" element={<LoginFormular />} />
+      {/* Fallback: Unbekannte Route */}
+      <Route path="*" element={<Home />} />
     </Routes>
   );
 };
@@ -64,7 +59,6 @@ const AppRoutes = () => {
 const App = () => {
   return (
     <AuthProvider>
-      {/* Globaler UX-Listener */}
       <InteractionListener />
 
       <div className="min-h-screen flex flex-col">

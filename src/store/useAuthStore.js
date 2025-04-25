@@ -2,19 +2,26 @@ import { create } from "zustand";
 
 /**
  * Mini-Store für UI-Status, getrennt von Supabase-User-Objekt.
- * - isLoggedIn: bool     (abgeleitet von AuthContext)
- * - hasInteracted: bool  (erste echte User-Interaktion)
+ * - hasInteracted: bool     (erste echte User-Interaktion erkannt)
+ * - showLoginPrompt: bool   (sanfte Anzeige Login-Aufforderung nach Timer)
  */
 const useAuthStore = create((set) => ({
-  isLoggedIn: false,
   hasInteracted: false,
-  setLoggedIn: (state) => {
-    console.debug("🔑 setLoggedIn ->", state);
-    set({ isLoggedIn: state });
-  },
-  setInteracted: () => {
-    console.debug("👀 erste Interaktion entdeckt – hasInteracted = true");
+  showLoginPrompt: false,
+
+  markInteracted: () => {
+    console.debug("👀 Erste Interaktion erkannt – hasInteracted = true");
     set({ hasInteracted: true });
+  },
+
+  enableLoginPrompt: () => {
+    console.debug("⏰ Login-Prompt freigeschaltet");
+    set({ showLoginPrompt: true });
+  },
+
+  resetLoginPrompt: () => {
+    console.debug("🔄 Login-Prompt zurückgesetzt");
+    set({ showLoginPrompt: false });
   },
 }));
 
