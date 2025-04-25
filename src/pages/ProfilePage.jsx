@@ -1,5 +1,5 @@
 // 📂 src/pages/ProfilePage.jsx
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useReducer } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { supabase } from "../supabaseClient";
 import AvatarUploader from "../components/profile/AvatarUploader";
@@ -7,14 +7,29 @@ import LoadingSpinner from "../components/profile/LoadingSpinner";
 import MessageAlert from "../components/profile/MessageAlert";
 import SaveButton from "../components/profile/SaveButton";
 
+// Reducer & initial state for form + change-tracking
+const initialState = { display_name: "", birthdate: "", avatar_image_url: "", hasChanged: false };
+function profileReducer(state, action) {
+  switch (action.type) {
+    case 'SET_PROFILE':
+      return { ...state, ...action.payload };
+    case 'UPDATE_FIELD':
+      return { ...state, [action.field]: action.value, hasChanged: true };
+    case 'RESET_CHANGED':
+      return { ...state, hasChanged: false };
+    default:
+      return state;
+  }
+}
+
 export default function ProfilePage() {
   const { user } = useContext(AuthContext);
-  const [profile, setProfile] = useState({ display_name: "", birthdate: "", avatar_image_url: "" });
+  const [state, dispatch] = useReducer(profileReducer, initialState);
   const [avatarFile, setAvatarFile] = useState(null);
   const [loading, setLoading] = useState(true);
   const [message, setMessage] = useState("");
 
-  // Load profile
+  // Load profile on mount
   useEffect(() => {
     if (!user) return;
     (async () => {
@@ -24,19 +39,23 @@ export default function ProfilePage() {
         .select("display_name, birthdate, avatar_image_url")
         .eq("user_id", user.id)
         .single();
+      if (error) {
+        console.error("Profile load failed:", error);
+      } else {
+        dispatch({ type: 'SET_PROFILE', payload: {
+          display_name: data.display_name || "",
+          birthdate: data.birthdate || "",
+          avatar_image_url: data.avatar_image_url || ""
+        }});
+        dispatch({ type: 'RESET_CHANGED' });
+      }
       setLoading(false);
-      if (error) return console.error("Error loading profile:", error);
-      setProfile({
-        display_name: data.display_name || "",
-        birthdate: data.birthdate || "",
-        avatar_image_url: data.avatar_image_url || ""
-      });
     })();
   }, [user]);
 
   const handleSave = async () => {
     setLoading(true);
-    let avatar_url = profile.avatar_image_url;
+    let avatar_url = state.avatar_image_url;
 
     if (avatarFile) {
       const ext = avatarFile.name.split('.').pop();
@@ -55,8 +74,8 @@ export default function ProfilePage() {
 
     const updates = {
       user_id: user.id,
-      display_name: profile.display_name,
-      birthdate: profile.birthdate,
+      display_name: state.display_name,
+      birthdate: state.birthdate,
       avatar_image_url: avatar_url,
       updated_at: new Date()
     };
@@ -68,53 +87,80 @@ export default function ProfilePage() {
       setMessage("Profile save failed.");
     } else {
       setMessage("Profile updated successfully!");
-      setProfile(prev => ({ ...prev, avatar_image_url: avatar_url }));
+      dispatch({ type: 'SET_PROFILE', payload: { avatar_image_url: avatar_url } });
+      dispatch({ type: 'RESET_CHANGED' });
     }
     setLoading(false);
   };
 
   return (
-    <section className="flex justify-center my-12 px-4">
-      <div className="w-full max-w-lg bg-white rounded-2xl shadow-lg p-8">
-        <h2 className="text-2xl font-bold mb-6 text-center">Dein Profil</h2>
+    <main id="profile" className="flex justify-center my-12 px-4">
+      <div className="w-full max-w-lg md:max-w-2xl bg-white rounded-2xl shadow-lg p-8 dark:bg-[#260101] dark:text-[#DCDEF2]">
+        <h1 className="text-2xl font-bold mb-4 text-center">Dein Profil</h1>
+        <hr className="my-6 border-t border-dashed border-[#A67C7C]/30" />
+
         {loading ? (
           <div className="flex justify-center py-10">
             <LoadingSpinner />
           </div>
         ) : (
-          <div className="space-y-6">
-            <AvatarUploader url={profile.avatar_image_url} onFileSelect={setAvatarFile} />
+          <form className="space-y-6">
+            <AvatarUploader
+              url={state.avatar_image_url}
+              onFileSelect={file => { setAvatarFile(file); dispatch({ type: 'UPDATE_FIELD', field: 'avatar_image_url', value: state.avatar_image_url }); }}
+            />
 
-            <div className="grid grid-cols-1 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-1">Anzeigename</label>
+                <label htmlFor="displayName" className="block text-sm font-semibold mb-1">Anzeigename</label>
                 <input
+                  id="displayName"
                   type="text"
-                  value={profile.display_name}
-                  onChange={e => setProfile(prev => ({ ...prev, display_name: e.target.value }))}
+                  value={state.display_name}
+                  onChange={e => dispatch({ type: 'UPDATE_FIELD', field: 'display_name', value: e.target.value })}
                   className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#8C5A67]"
+                  minLength={3}
+                  required
                 />
+                <p className="text-xs text-gray-500 mt-1">Dieser Name erscheint in deinen Nummerologie.</p>
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-1">Geburtstag</label>
+                <label htmlFor="birthday" className="block text-sm font-semibold mb-1">Geburtstag</label>
                 <input
+                  id="birthday"
                   type="date"
-                  value={profile.birthdate}
-                  onChange={e => setProfile(prev => ({ ...prev, birthdate: e.target.value }))}
+                  value={state.birthdate}
+                  onChange={e => dispatch({ type: 'UPDATE_FIELD', field: 'birthdate', value: e.target.value })}
                   className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#8C5A67]"
+                  max={new Date().toISOString().split('T')[0]}
+                  required
                 />
+                <p className="text-xs text-gray-500 mt-1">Dein Geburtsdatum hilft bei Personalisierten Berechnungen.</p>
               </div>
             </div>
 
-            {message && <MessageAlert message={message} />}
+            {message && (
+              <div role="alert" aria-live="assertive">
+                <MessageAlert message={message} />
+              </div>
+            )}
 
-            <div className="flex justify-end">
-              <SaveButton loading={loading} onClick={handleSave} />
+            <div className="flex justify-end space-x-3">
+              <button
+                type="reset"
+                onClick={() => window.location.reload()}
+                className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition"
+              >Abbrechen</button>
+              <SaveButton
+                loading={loading}
+                onClick={handleSave}
+                disabled={!state.hasChanged}
+              />
             </div>
-          </div>
+          </form>
         )}
       </div>
-    </section>
+    </main>
   );
 }
