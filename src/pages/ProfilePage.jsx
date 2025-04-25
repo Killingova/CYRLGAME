@@ -1,22 +1,39 @@
 // 📂 src/pages/ProfilePage.jsx
-import React, { useState, useEffect, useContext, useReducer } from "react";
+import React, { useReducer, useEffect, useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { supabase } from "../supabaseClient";
-import AvatarUploader from "../components/profile/AvatarUploader";
-import LoadingSpinner from "../components/profile/LoadingSpinner";
-import MessageAlert from "../components/profile/MessageAlert";
-import SaveButton from "../components/profile/SaveButton";
+import { useNavigate } from "react-router-dom";
+import { X } from "lucide-react";
 
-// Reducer & initial state for form + change-tracking
-const initialState = { display_name: "", birthdate: "", avatar_image_url: "", hasChanged: false };
-function profileReducer(state, action) {
+// Initial State & Reducer für Formular-State
+const initialState = {
+  display_name: "",
+  birthdate: "",
+  avatar_url: "",
+  avatarFile: null,
+  loading: true,
+  message: "",
+  changed: false,
+};
+
+function reducer(state, action) {
   switch (action.type) {
-    case 'SET_PROFILE':
-      return { ...state, ...action.payload };
-    case 'UPDATE_FIELD':
-      return { ...state, [action.field]: action.value, hasChanged: true };
-    case 'RESET_CHANGED':
-      return { ...state, hasChanged: false };
+    case "LOAD_START":
+      return { ...state, loading: true };
+    case "LOAD_SUCCESS":
+      return { ...state, ...action.payload, loading: false };
+    case "FIELD_CHANGE":
+      return { ...state, [action.field]: action.value, changed: true };
+    case "AVATAR_SELECT":
+      return { ...state, avatarFile: action.file, changed: true };
+    case "SAVE_START":
+      return { ...state, loading: true };
+    case "SAVE_SUCCESS":
+      return { ...state, ...action.payload, loading: false, message: action.message, changed: false };
+    case "SAVE_ERROR":
+      return { ...state, loading: false, message: action.message };
+    case "RESET":
+      return { ...state, changed: false, message: "" };
     default:
       return state;
   }
@@ -24,50 +41,47 @@ function profileReducer(state, action) {
 
 export default function ProfilePage() {
   const { user } = useContext(AuthContext);
-  const [state, dispatch] = useReducer(profileReducer, initialState);
-  const [avatarFile, setAvatarFile] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [message, setMessage] = useState("");
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const navigate = useNavigate();
 
-  // Load profile on mount
+  // Laden
   useEffect(() => {
     if (!user) return;
-    (async () => {
-      setLoading(true);
-      const { data, error } = await supabase
-        .from("user_profiles")
-        .select("display_name, birthdate, avatar_image_url")
-        .eq("user_id", user.id)
-        .single();
-      if (error) {
-        console.error("Profile load failed:", error);
-      } else {
-        dispatch({ type: 'SET_PROFILE', payload: {
-          display_name: data.display_name || "",
-          birthdate: data.birthdate || "",
-          avatar_image_url: data.avatar_image_url || ""
-        }});
-        dispatch({ type: 'RESET_CHANGED' });
-      }
-      setLoading(false);
-    })();
+    dispatch({ type: "LOAD_START" });
+    supabase
+      .from("user_profiles")
+      .select("display_name, birthdate, avatar_image_url")
+      .eq("user_id", user.id)
+      .single()
+      .then(({ data, error }) => {
+        if (error) {
+          dispatch({ type: "SAVE_ERROR", message: "Profil konnte nicht geladen werden." });
+        } else {
+          dispatch({
+            type: "LOAD_SUCCESS",
+            payload: {
+              display_name: data.display_name || "",
+              birthdate: data.birthdate || "",
+              avatar_url: data.avatar_image_url || "",
+            },
+          });
+        }
+      });
   }, [user]);
 
+  // Speichern
   const handleSave = async () => {
-    setLoading(true);
-    let avatar_url = state.avatar_image_url;
+    dispatch({ type: "SAVE_START" });
 
-    if (avatarFile) {
-      const ext = avatarFile.name.split('.').pop();
+    let avatar_url = state.avatar_url;
+    if (state.avatarFile) {
+      const ext = state.avatarFile.name.split(".").pop();
       const fileName = `${user.id}.${ext}`;
-      const { error: uploadError } = await supabase
-        .storage
-        .from('avatars')
-        .upload(fileName, avatarFile, { upsert: true });
-      if (uploadError) {
-        setMessage("Avatar upload failed.");
-        setLoading(false);
-        return;
+      const { error: upErr } = await supabase
+        .storage.from("avatars")
+        .upload(fileName, state.avatarFile, { upsert: true });
+      if (upErr) {
+        return dispatch({ type: "SAVE_ERROR", message: "Avatar-Upload fehlgeschlagen." });
       }
       avatar_url = `${process.env.REACT_APP_SUPABASE_URL}/storage/v1/object/public/avatars/${fileName}`;
     }
@@ -77,89 +91,129 @@ export default function ProfilePage() {
       display_name: state.display_name,
       birthdate: state.birthdate,
       avatar_image_url: avatar_url,
-      updated_at: new Date()
+      updated_at: new Date(),
     };
-    const { error } = await supabase
-      .from("user_profiles")
-      .upsert(updates, { returning: 'minimal' });
 
+    const { error } = await supabase.from("user_profiles").upsert(updates, { returning: "minimal" });
     if (error) {
-      setMessage("Profile save failed.");
+      dispatch({ type: "SAVE_ERROR", message: "Profil konnte nicht gespeichert werden." });
     } else {
-      setMessage("Profile updated successfully!");
-      dispatch({ type: 'SET_PROFILE', payload: { avatar_image_url: avatar_url } });
-      dispatch({ type: 'RESET_CHANGED' });
+      dispatch({ type: "SAVE_SUCCESS", payload: { avatar_url }, message: "Profil gespeichert!" });
     }
-    setLoading(false);
   };
 
+  // Abbrechen = zurück zur Home
+  const handleCancel = () => navigate("/");
+
   return (
-    <main id="profile" className="flex justify-center my-12 px-4">
-      <div className="w-full max-w-lg md:max-w-2xl bg-white rounded-2xl shadow-lg p-8 dark:bg-[#260101] dark:text-[#DCDEF2]">
-        <h1 className="text-2xl font-bold mb-4 text-center">Dein Profil</h1>
-        <hr className="my-6 border-t border-dashed border-[#A67C7C]/30" />
+    <main id="profile" className="bg-gradient-to-b from-[#DCDEF2] to-[#D9A384] min-h-screen py-12 px-4">
+      <div className="max-w-lg md:max-w-2xl mx-auto bg-white dark:bg-[#260101] rounded-2xl shadow-xl p-8 grid gap-6">
+        <h1 className="text-3xl font-bold text-center text-[#260101] dark:text-[#DCDEF2]">Dein Profil</h1>
+        <hr className="border-t border-[#8C5A67]/30" />
 
-        {loading ? (
-          <div className="flex justify-center py-10">
-            <LoadingSpinner />
-          </div>
-        ) : (
-          <form className="space-y-6">
-            <AvatarUploader
-              url={state.avatar_image_url}
-              onFileSelect={file => { setAvatarFile(file); dispatch({ type: 'UPDATE_FIELD', field: 'avatar_image_url', value: state.avatar_image_url }); }}
-            />
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label htmlFor="displayName" className="block text-sm font-semibold mb-1">Anzeigename</label>
-                <input
-                  id="displayName"
-                  type="text"
-                  value={state.display_name}
-                  onChange={e => dispatch({ type: 'UPDATE_FIELD', field: 'display_name', value: e.target.value })}
-                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#8C5A67]"
-                  minLength={3}
-                  required
-                />
-                <p className="text-xs text-gray-500 mt-1">Dieser Name erscheint in deinen Nummerologie.</p>
-              </div>
-
-              <div>
-                <label htmlFor="birthday" className="block text-sm font-semibold mb-1">Geburtstag</label>
-                <input
-                  id="birthday"
-                  type="date"
-                  value={state.birthdate}
-                  onChange={e => dispatch({ type: 'UPDATE_FIELD', field: 'birthdate', value: e.target.value })}
-                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#8C5A67]"
-                  max={new Date().toISOString().split('T')[0]}
-                  required
-                />
-                <p className="text-xs text-gray-500 mt-1">Dein Geburtsdatum hilft bei Personalisierten Berechnungen.</p>
-              </div>
-            </div>
-
-            {message && (
-              <div role="alert" aria-live="assertive">
-                <MessageAlert message={message} />
-              </div>
-            )}
-
-            <div className="flex justify-end space-x-3">
-              <button
-                type="reset"
-                onClick={() => window.location.reload()}
-                className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition"
-              >Abbrechen</button>
-              <SaveButton
-                loading={loading}
-                onClick={handleSave}
-                disabled={!state.hasChanged}
+        {/* Avatar Uploader */}
+        <div className="flex flex-col items-center">
+          <label htmlFor="avatar" className="font-medium mb-2 text-[#260101] dark:text-[#DCDEF2]">
+            Profilbild
+          </label>
+          <div className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-[#A67C7C]/40 hover:border-[#8C5A67] transition-colors">
+            {state.avatar_url && !state.avatarFile ? (
+              <img
+                src={state.avatar_url}
+                alt="Avatar"
+                className="object-cover w-full h-full"
               />
-            </div>
-          </form>
+            ) : state.avatarFile ? (
+              <img
+                src={URL.createObjectURL(state.avatarFile)}
+                alt="Avatar Vorschau"
+                className="object-cover w-full h-full"
+              />
+            ) : (
+              <span className="flex items-center justify-center w-full h-full text-gray-400">
+                Bild hochladen
+              </span>
+            )}
+            <input
+              id="avatar"
+              type="file"
+              accept="image/*"
+              className="absolute inset-0 opacity-0 cursor-pointer"
+              onChange={(e) => dispatch({ type: "AVATAR_SELECT", file: e.target.files[0] })}
+            />
+          </div>
+        </div>
+
+        {/* Formular */}
+        <form className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="col-span-1 md:col-span-2">
+            <label htmlFor="displayName" className="block font-medium text-[#260101] dark:text-[#DCDEF2]">
+              Anzeigename
+            </label>
+            <input
+              id="displayName"
+              type="text"
+              value={state.display_name}
+              onChange={(e) =>
+                dispatch({ type: "FIELD_CHANGE", field: "display_name", value: e.target.value })
+              }
+              placeholder="z. B. Kristin Zhivkova"
+              className="w-full px-4 py-2 mt-1 border border-[#A67C7C] rounded-lg bg-[#FCFCFC] focus:outline-none focus:ring-2 focus:ring-[#8C5A67]"
+              required
+              minLength={3}
+            />
+            <p className="text-xs text-gray-500 mt-1">Dieser Name erscheint in deinen Numerologie-Ergebnissen.</p>
+          </div>
+
+          <div className="col-span-1 md:col-span-2">
+            <label htmlFor="birthdate" className="block font-medium text-[#260101] dark:text-[#DCDEF2]">
+              Geburtstag
+            </label>
+            <input
+              id="birthdate"
+              type="date"
+              value={state.birthdate}
+              onChange={(e) =>
+                dispatch({ type: "FIELD_CHANGE", field: "birthdate", value: e.target.value })
+              }
+              className="w-full px-4 py-2 mt-1 border border-[#A67C7C] rounded-lg bg-[#FCFCFC] focus:outline-none focus:ring-2 focus:ring-[#8C5A67]"
+              required
+              max={new Date().toISOString().split("T")[0]}
+            />
+            <p className="text-xs text-gray-500 mt-1">
+              Dein Geburtsdatum hilft bei personalisierten Berechnungen.
+            </p>
+          </div>
+        </form>
+
+        {/* Inline-Alert */}
+        {state.message && (
+          <div
+            role="alert"
+            aria-live="assertive"
+            className="text-green-600 font-medium text-center"
+          >
+            {state.message}
+          </div>
         )}
+
+        {/* Buttons */}
+        <div className="flex justify-end space-x-4 mt-4">
+          <button
+            onClick={handleCancel}
+            className="px-4 py-2 bg-gray-300 hover:bg-gray-400 text-[#260101] rounded-lg transition"
+          >
+            Abbrechen
+          </button>
+          <button
+            onClick={handleSave}
+            disabled={state.loading || !state.changed}
+            className={`px-6 py-2 rounded-lg text-white transition
+              ${state.changed ? "bg-[#8C5A67] hover:bg-[#A67C7C]" : "bg-[#8C5A67]/50 cursor-not-allowed"}`}
+          >
+            {state.loading ? "Speichern…" : "Save Profile"}
+          </button>
+        </div>
       </div>
     </main>
   );
