@@ -1,3 +1,4 @@
+// 📂 src/components/RegisterFormular.jsx
 import React, { useState, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
@@ -27,6 +28,7 @@ const RegisterFormular = () => {
     e.preventDefault();
     const { email, passwort, passwortWdh } = formData;
 
+    // Validierung
     if (!validateEmail(email)) {
       setFehler("Bitte gib eine gültige E-Mail-Adresse ein.");
       return;
@@ -40,7 +42,8 @@ const RegisterFormular = () => {
       return;
     }
 
-    const redirectTo = window.location.origin;
+    // Korrekte Redirect-URL für GitHub Pages + HashRouter
+    const redirectTo = `${import.meta.env.VITE_APP_URL}/#/auth/callback`;
 
     const { data, error } = await supabase.auth.signUp({
       email,
@@ -55,18 +58,23 @@ const RegisterFormular = () => {
       return;
     }
 
+    // Rücksetzen und Feedback
     setFehler("");
-    setMeldung("Bestätigungs-E-Mail wurde versendet. Bitte prüfe dein Postfach.");
+    setMeldung(
+      "Bestätigungs-E-Mail wurde versendet. Bitte prüfe dein Postfach und klicke auf den Link."
+    );
     setFormData({ email: "", passwort: "", passwortWdh: "" });
   };
 
   return (
     <section className="max-w-xl mx-auto mt-12 bg-[#DCDEF2] p-6 rounded-xl shadow-lg border border-[#A67C7C]">
-      <h2 className="text-2xl font-bold text-[#260101] mb-6 text-center">Registrieren</h2>
+      <h2 className="text-2xl font-bold text-[#260101] mb-6 text-center">
+        Registrieren
+      </h2>
       <form onSubmit={handleSubmit} className="space-y-5">
         <div>
           <label className="block text-[#260101] font-medium">
-            E‑Mail <sup className="text-red-500">*</sup>
+            E-Mail <sup className="text-red-500">*</sup>
           </label>
           <input
             type="email"
@@ -119,6 +127,7 @@ const RegisterFormular = () => {
           Registrieren
         </button>
       </form>
+
       <p className="text-center mt-4 text-[#260101]">
         Schon ein Konto?{" "}
         <Link to="/login" className="text-[#8C5A67] hover:underline">
