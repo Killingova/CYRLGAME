@@ -2,7 +2,7 @@
 import React, { useEffect, useContext } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 
-import Header from "./components/Header";
+import Header from "./components/Header/Header";
 import Footer from "./components/Footer";
 import InteractionListener from "./components/InteractionListener";
 import ProtectedRoute from "./components/ProtectedRoute";
