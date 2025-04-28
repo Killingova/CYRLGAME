@@ -8,14 +8,23 @@ const linkClasses =
 const NavLinks = ({ user, logout, onLinkClick = () => {} }) => (
   <>
     {navLinks.map(({ name, path, icon: Icon }) => (
-      <Link key={name} to={path} className={linkClasses} onClick={onLinkClick}>
+      <Link
+        key={name}
+        to={path}
+        className={linkClasses}
+        onClick={onLinkClick}
+      >
         <Icon size={18} />
         <span className="font-paradox">{name}</span>
       </Link>
     ))}
 
     {user && (
-      <Link to="/profil" className={linkClasses} onClick={onLinkClick}>
+      <Link
+        to="/profil"
+        className={linkClasses}
+        onClick={onLinkClick}
+      >
         <User size={18} />
         <span className="font-paradox">Profil</span>
       </Link>
@@ -33,7 +42,11 @@ const NavLinks = ({ user, logout, onLinkClick = () => {} }) => (
         <span className="font-paradox">Logout</span>
       </button>
     ) : (
-      <Link to="/login" className={linkClasses} onClick={onLinkClick}>
+      <Link
+        to="/login"
+        className={linkClasses}
+        onClick={onLinkClick}
+      >
         <LogIn size={18} />
         <span className="font-paradox">Login</span>
       </Link>

@@ -34,7 +34,7 @@ export const AuthProvider = ({ children }) => {
     // 2️⃣ Live-Listener
     const { data: listener } = supabase.auth.onAuthStateChange(
       (event, session) => {
-        console.debug("🛰  onAuthStateChange ->", event);
+        console.debug("🛰  onAuthStateChange →", event);
         setUser(session?.user ?? null);
       }
     );

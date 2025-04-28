@@ -1,4 +1,3 @@
-// 📂 src/App.jsx
 import React, { useEffect, useContext } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 
@@ -7,6 +6,7 @@ import Footer from "./components/Footer";
 import InteractionListener from "./components/InteractionListener";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { AuthProvider, AuthContext } from "./context/AuthContext";
+import AuthCallback from "./pages/AuthCallback";
 
 // Seiten / Views
 import Home from "./pages/Home";
@@ -34,6 +34,9 @@ const AppRoutes = () => {
 
   return (
     <Routes>
+      {/* Auth Callback-Route für Supabase */}
+      <Route path="/auth/callback" element={<AuthCallback />} />
+
       {/* Öffentliche Seiten */}
       <Route path="/" element={<Home />} />
       <Route path="/ueber" element={<PfadDesParadoxonsArticle />} />
@@ -43,13 +46,13 @@ const AppRoutes = () => {
       <Route path="/login" element={<LoginFormular />} />
       <Route path="/register" element={<RegisterFormular />} />
 
-      {/* Geschützte Seiten über einen gemeinsamen Wrapper */}
+      {/* Geschützte Seiten */}
       <Route element={<ProtectedRoute />}>
         <Route path="/profil" element={<ProfilePage />} />
         <Route path="/numerologie" element={<PythagoreanNumerology />} />
       </Route>
 
-      {/* Fallback: alle unbekannten Pfade */}
+      {/* Fallback */}
       <Route path="*" element={<Home />} />
     </Routes>
   );
