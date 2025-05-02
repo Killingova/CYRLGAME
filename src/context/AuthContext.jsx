@@ -1,12 +1,13 @@
-import React, { createContext, useEffect, useState } from "react";
-import { supabase } from "../supabaseClient";
+// 📁 src/context/AuthContext.jsx
+import React, { createContext, useEffect, useState } from 'react';
+import { supabase } from '../supabaseClient';
 
 /**
- * Enthält:
- *  - user         → aktueller User (oder null)
- *  - isAuthLoading→ true, solange Supabase-Session initial abgefragt wird
- *  - login        → manuelles Setzen (z. B. nach Magic-Link)
- *  - logout       → Abmelden + Aufräumen
+ * AuthContext stellt bereit:
+ *  - user           → aktuelles Supabase-User-Objekt oder null
+ *  - isAuthLoading  → true, solange wir die Session initial laden
+ *  - login(session) → Helper, um nach Magic-Link o.Ä. die Session zu setzen
+ *  - logout()       → Supabase-Abmeldung + Aufräumen (LocalStorage etc.)
  */
 export const AuthContext = createContext({
   user: null,
@@ -15,50 +16,67 @@ export const AuthContext = createContext({
   logout: () => {},
 });
 
-export const AuthProvider = ({ children }) => {
+export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [isAuthLoading, setAuthLoading] = useState(true);
 
-  // 1️⃣ Beim App-Start nach bestehender Session fragen
   useEffect(() => {
-    const initSession = async () => {
-      console.debug("🔄 Checking existing Supabase session …");
+    // 1️⃣ Initiale Session abfragen
+    async function initSession() {
+      console.debug('🔄 Supabase: Prüfe vorhandene Session …');
       const { data, error } = await supabase.auth.getSession();
-      if (error) console.error("getSession-Fehler:", error);
-
+      if (error) console.error('❌ Supabase.getSession-Fehler:', error);
       setUser(data?.session?.user ?? null);
       setAuthLoading(false);
-    };
+    }
     initSession();
 
-    // 2️⃣ Live-Listener
-    const { data: listener } = supabase.auth.onAuthStateChange(
-      (event, session) => {
-        console.debug("🛰  onAuthStateChange →", event);
-        setUser(session?.user ?? null);
-      }
-    );
+    // 2️⃣ Live-Listener für Auth-Status-Änderungen
+    const { data: listener } = supabase.auth.onAuthStateChange((event, session) => {
+      console.debug('🛰 Supabase onAuthStateChange:', event, session);
+      setUser(session?.user ?? null);
+    });
 
-    return () => listener?.subscription.unsubscribe();
+    return () => {
+      console.debug('🧹 Supabase: Entferne Auth-Listener');
+      listener.subscription.unsubscribe();
+    };
   }, []);
 
-  // Helfer
-  const login = (email, token) => {
-    localStorage.setItem("authToken", token);
-    localStorage.setItem("userEmail", email);
-    setUser({ email });
+  /**
+   * login: setzt den vollen Supabase-User aus einer Session
+   * @param {{session: {user: object, access_token: string}}} session
+   */
+  const login = (session) => {
+    console.debug('🔑 login(session)');
+    try {
+      if (session) {
+        localStorage.setItem('authToken', session.access_token);
+        setUser(session.user);
+      }
+    } catch (err) {
+      console.error('❌ login Error:', err);
+    }
   };
 
+  /**
+   * logout: Supabase signOut + Aufräumen des Context-State
+   */
   const logout = async () => {
-    await supabase.auth.signOut();
-    localStorage.removeItem("authToken");
-    localStorage.removeItem("userEmail");
-    setUser(null);
+    console.debug('🚪 logout');
+    try {
+      await supabase.auth.signOut();
+    } catch (err) {
+      console.error('❌ signOut-Fehler:', err);
+    } finally {
+      localStorage.removeItem('authToken');
+      setUser(null);
+    }
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, isAuthLoading }}>
+    <AuthContext.Provider value={{ user, isAuthLoading, login, logout }}>
       {children}
     </AuthContext.Provider>
   );
-};
+}

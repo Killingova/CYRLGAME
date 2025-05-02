@@ -1,14 +1,34 @@
-// --- src/components/LoadingSpinner.jsx ---
-import React from 'react';
+// 📁 src/components/profile/LoadingSpinner.jsx
+import React, { useEffect } from 'react';
 
+/**
+ * LoadingSpinner: Präsentiert einen animierten SVG-Spinner für Ladezustände.
+ * 
+ * Accessibility:
+ * - role="status" und aria-label für Screenreader
+ * - deaktivierter Focus via tabindex="-1"
+ */
 export default function LoadingSpinner() {
+  // Debug-Log beim Rendern
+  useEffect(() => {
+    console.debug('[LoadingSpinner] Component gerendert');
+  }, []);
+
   return (
-    <div className="flex justify-center py-12">
+    <div
+      className="flex justify-center py-12"
+      role="presentation"
+      aria-live="polite"
+      aria-busy="true"
+    >
       <svg
         className="animate-spin h-8 w-8 text-[#8C5A67]"
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
+        role="status"
+        aria-label="Lädt…"
         viewBox="0 0 24 24"
+        tabIndex="-1"
       >
         <circle
           className="opacity-25"
